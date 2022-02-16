@@ -1,0 +1,3484 @@
+<!doctype html>
+<html lang="en-US" prefix="og: https://ogp.me/ns#" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="57x57" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/manifest.json">
+<link rel="mask-icon" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/safari-pinned-tab.svg" color="#63b175">
+<link rel="shortcut icon" href="https://www.baeldung.com/wp-content/themes/baeldung/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="https://www.baeldung.com/wp-content/themes/baeldung/favicon/mstile-144x144.png">
+<meta name="msapplication-config" content="https://www.baeldung.com/wp-content/themes/baeldung/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<link media="all" href="https://www.baeldung.com/wp-content/cache/autoptimize/1/css/autoptimize_9cd46b218a8ebda6e46f42d25b556949.css" rel="stylesheet" /><title>Baeldung</title>
+
+<meta name="description" content="In-depth, to-the-point tutorials on Java, Spring, Spring Boot, Security, and REST." />
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="keywords" content="no-optins" />
+<link rel="canonical" href="https://www.baeldung.com/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="Baeldung" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Java, Spring and Web Development tutorials" />
+<meta property="og:description" content="Java, Spring and Web Development tutorials" />
+<meta property="og:url" content="https://www.baeldung.com/" />
+<meta property="og:image" content="https://www.baeldung.com/wp-content/uploads/2021/08/Baeldung-Featured-Image.png" />
+<meta property="og:image:secure_url" content="https://www.baeldung.com/wp-content/uploads/2021/08/Baeldung-Featured-Image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="628" />
+<meta property="article:published_time" content="2020-10-30T13:34:47+00:00" />
+<meta property="article:modified_time" content="2022-02-05T17:18:08+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@baeldung" />
+<meta name="twitter:title" content="Java, Spring and Web Development tutorials" />
+<meta name="twitter:description" content="Java, Spring and Web Development tutorials" />
+<meta name="twitter:creator" content="@baeldung" />
+<meta name="twitter:image" content="https://www.baeldung.com/wp-content/uploads/2021/08/Baeldung-Featured-Image.png" />
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<style id='wpbs-style-inline-css' type='text/css'>
+#wrap a  { color: #267438; }
+ #wrap a:link, #wrap a:visited   { color: #267438; }
+ body.home #wrap a:link,body.home #wrap a:visited   { color: #63b175; }
+ #wrap a.nav--menu_item_anchor  { color: white; }
+ #wrap a.dropdown--item_anchor:hover .dropdown--item_text, #wrap  a.dropdown--item_anchor:focus .dropdown--item_text, #wrap  a.dropdown--item_anchor:active .dropdown--item_text  { color: #63b175; }
+ .single #wrap .categories a,
+				.single #wrap .post-tags a,
+				.archive #wrap .related-tags a,
+				.archive #wrap .related-categories a,
+				.archive #wrap a.archive-parent-cat  { background-color: #63b175; color:white }
+ .single #wrap .post-tags a, .archive #wrap .related-tags a  { background-color: #333; border-bottom: 4px solid #63b175 } 
+  .archive #wrap .related-tags .highlight  { background-color: #4e9359 !important; }
+ .single #wrap .categories a:hover,
+				.single #wrap .categories a:focus,
+				.single #wrap .post-tags a:hover,
+				.single #wrap .post-tags a:focus,
+				.archive #wrap .related-tags a:hover,
+				.archive #wrap .related-tags a:focus,
+				.archive #wrap .related-categories a:hover,
+				.archive #wrap .related-categories a:focus,
+				.archive #wrap a.archive-parent-cat:hover,
+				.archive #wrap a.archive-parent-cat:focus  { background-color: #4e9359; }
+ #wrap section.further-reading-posts .fr-item .ex, #wrap  section.further-reading-posts .fr-item a  { color: #7386a6; }
+ #wrap .btn-default:hover, #wrap  .btn-default:focus  { background-color: #63b175; border-color: #63b175; }
+ #wrap .btn-default:focus, #wrap  .btn-default:focus:active  { background-color: #4e9359; border-color: #4e9359 }
+ #wrap .author  { border-left: 1px solid #63b175; }
+ #wrap .big-nav-top-bar  { background: #63b175; }
+ #wrap .menu-mobile  { background: #63b175; }
+ #wrap .header--menu  { background-color: #63b175; }
+ #wrap .nav--menu_item_highlighted  { background: #63b175 } 
+ #wrap .nav--menu_item_darkened  { background: #4e9359 } 
+ #wrap li.big-nav-icon  { background-color: #4e9359; }
+ #wrap .big-nav-content hr  { color: #4e9359; border-color: #4e9359; }
+ #wrap #big-nav a.highlight b  { color: #63b175 !important }
+ #wrap #big-nav a.highlight::before  { color: #63b175 !important }
+ #wrap .big-nav-content > .row > .col-md-6 ul li a  { color: white; }
+ #wrap .big-nav-content > .row > .col-md-6 a  { color: white; }
+ #wrap .big-nav-content > .row > .col-md-6 ul li a:hover  { color: #A4B4D3; }
+ #wrap .nav--dropdown  { background: #535353; }
+ #wrap .nav--dropdown_content  { background: #535353; } 
+ #wrap .nav--dropdown_content:before, #wrap  .nav--dropdown_content:after  { background-color: #535353; }
+ #wrap a.nav--menu_item_anchor_active, #wrap  a.nav--menu_item_anchor:active  { background-color: #535353; }
+ #wrap nav.header--menu li.inner-dropdown a.nav--dropdown_active, #wrap  .nav--dropdown_item:hover  { background-color: #454545; }
+ #wrap nav.header--menu .nav--dropdown li.inner-dropdown .nav--dropdown, #wrap  
+														nav.header--menu .nav--dropdown li.inner-dropdown .nav--dropdown ul  { background-color: #454545; } 
+ #wrap #big-nav  { background-color: #525E74; } 
+ #wrap .big-nav-content  { background-color: #546076; }
+ #wrap .big-nav-top-bar a.close-big-nav  { background-color: #546076; } 
+ #wrap li.big-nav-icon:hover  { background-color: #546076; }
+ #wrap li.big-nav-icon a.nav--menu_item_anchor:active  { background-color: #546076; }
+ #wrap #menu-search.active .btn-search  { background-color: #4e9359; } 
+ #wrap #menu-search.active .btn-search:hover  { background-color: #63b175; } 
+ #wrap .pagination > li > a, #wrap  .pagination > li > span  { color: #63b175; }
+ #wrap .pagination > .active > a, #wrap 
+				.pagination > .active > span, #wrap 
+				.pagination > .active > a:hover, #wrap 
+				.pagination > .active > span:hover, #wrap 
+				.pagination > .active > a:focus, #wrap 
+				.pagination > .active > span:focus  { color: white; background-color: #63b175; border-color: #63b175; }
+ #wrap .archive-columns .post-title  { color: #4e9359; }
+ body.author.archive #wrap .author-fullname  { color: #4e9359 } 
+ #wrap .hljs-keyword, #wrap  .hljs-attribute, #wrap  .hljs-selector-tag, #wrap  .hljs-meta-keyword, #wrap  .hljs-doctag, #wrap  .hljs-name  {  color: #63b175; }
+ #wrap .hljs-type, #wrap  .hljs-string, #wrap  .hljs-number, #wrap  .hljs-selector-id, #wrap  .hljs-selector-class, #wrap  .hljs-quote, #wrap  .hljs-template-tag, #wrap  .hljs-deletion  {  color: #4E9359;}
+ #wrap .hljs-title, #wrap  .hljs-section  { color: #267438; font-weight: bold; }
+ #wrap .hljs, #wrap  .hljs-subst  { color: #000000; }
+ #wrap .hljs  { background-color: #fafafa; }
+ body #wrap .hljs  { border-left: 3px solid #267438 } 
+ #wrap  .short_end  { border: 4px solid #63b175 !important; }
+ #wrap #wpcomm .wc-load-more-submit:hover, #wrap  #wpcomm .wc-load-more-submit:focus  { background-color: #63b175; } 
+ #wrap .wpcf7 .wpcf7-submit  { background-color: #63b175; }
+ #wrap .thrv-button a.tcb-button-link, #wrap  .thrv-button-group-item a.tcb-button-link  { color: #fff; }
+ body.home #wrap .thrv-button a.tcb-button-link, body.home #wrap .thrv-button-group-item a.tcb-button-link  { color: #fff; }
+ #wrap .archive-columns.click-whole .post-title .hover-wrapper:before  { background-color: #63b175; }
+ #wrap .sublogo-container  { background-color: #63b175; } 
+ #wrap .content-info a  { color: rgba(255, 255, 255, 0.5);	}
+ #wrap .content-info a:hover  { color: rgba(255, 255, 255, 1);	}
+</style>
+<style id="source-code-pro-css" media="all">/* cyrillic-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMOvWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlOevWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMevWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPuvWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMuvWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlM-vWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPevWnsUnxg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMOvWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlOevWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMevWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPuvWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMuvWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlM-vWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts.gstatic.com/s/sourcecodepro/v20/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPevWnsUnxg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<link rel='stylesheet' id='elementor-post-82519-css' href='https://www.baeldung.com/wp-content/cache/autoptimize/1/css/autoptimize_single_915e948b0e965fc880312d2c9bc01ea6.css?ver=1643317171' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-88879-css' href='https://www.baeldung.com/wp-content/cache/autoptimize/1/css/autoptimize_single_c8a23992c1d6b65c0b5cfda9d50cd6db.css?ver=1644081497' type='text/css' media='all' />
+<style id="google-fonts-1-css" media="all">/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QIFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4SYFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QoFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4Q4FqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4TYFqL_KWxQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QIFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4SYFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QoFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4Q4FqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4TYFqL_KWxQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QIFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4SYFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QoFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4Q4FqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4TYFqL_KWxQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QIFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4SYFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QoFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4Q4FqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4TYFqL_KWxQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QIFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4SYFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QoFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4Q4FqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4TYFqL_KWxQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QIFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4SYFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QoFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4Q4FqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4TYFqL_KWxQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QIFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4SYFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QoFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4Q4FqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4TYFqL_KWxQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QIFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4SYFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QoFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4Q4FqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4TYFqL_KWxQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QIFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4SYFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4QoFqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4Q4FqL_KWxWMT.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptsg8zYS_SKggPNyCg4TYFqL_KWxQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<script type='text/javascript' id='getTemplateUrlScript-js-extra'>
+/* <![CDATA[ */
+var getTemplateUrl = {"templateUrl":"https:\/\/www.baeldung.com\/wp-content\/themes\/baeldung"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.baeldung.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://www.baeldung.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script type='text/javascript' id='ba_big_menu_scripts-js-extra'>
+/* <![CDATA[ */
+var ajax_object = {"ajax_url":"https:\/\/www.baeldung.com\/wp-admin\/admin-ajax.php"};
+var bigmenu_settings = {"loading_delay":"4000","subsite_slug":"baeldung","referral_id":"88879","version":"1.9.3"};
+/* ]]> */
+</script>
+<script type='text/javascript' id='qc-choice-js-extra'>
+/* <![CDATA[ */
+var choice_cmp_config = {"utid":"8de23B0-UzMb6","enabled":"all","ccpa":"","datalayer":""};
+/* ]]> */
+</script>
+<link rel="https://api.w.org/" href="https://www.baeldung.com/wp-json/" /><link rel="alternate" type="application/json" href="https://www.baeldung.com/wp-json/wp/v2/pages/88879" /><link rel='shortlink' href='https://www.baeldung.com/' />
+
+<style id="" media="all">/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-26064837-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  setTimeout("gtag('event', 'more than 2.5 minutes', {'event_category': 'Time on page','non_interaction': true});", 150000);
+  
+  gtag('config', 'UA-26064837-1');
+</script>
+
+
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '512471148948613');
+fbq('track', "PageView");</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=512471148948613&ev=PageView&noscript=1"
+/></noscript>
+
+
+<style>
+.html-banner {
+    width: 300px;     border: none;    background-color: rgb(222, 222, 222);    border-radius: 8px;    color: white; padding-bottom:15px;
+}
+
+.html-banner .top-image {
+    border-radius: 5px;  overflow: hidden;
+}
+
+.html-banner .banner-text {
+    text-align: center;    font-size: 18px;padding: 20px;  background-color: rgb(82, 94, 116);  margin-bottom:15px;
+}
+
+.html-banner a.optin {
+   display: block;     padding: 6px;    width: 260px;    margin: 0px auto;    text-align: center;    border-radius: 2px;border-bottom: 6px solid rgb(48 158 64);    background-color: rgb(99, 177, 117);
+color: white !important;
+}
+
+.html-banner a.optin:hover {
+    text-decoration: none;    background-color:   rgb(65, 147, 84);    border-bottom: 6px solid  #267438;
+}
+
+.html-banner a.optin .optin-button {
+    font-size: 18px;    color: white;    font-family: 'Raleway';    font-weight: bold;
+}
+
+/*Junit*/
+.junit-banner div.top-image {
+padding: 20px 50px 20px 30px;
+}
+/* Java Weekly*/
+div.jw-banner {
+    width: 300px;     border: none;  background-color: #63b175;  border-radius: 8px;    color: white;  border-bottom: 15px solid #515151; text-align: center; padding-bottom: 0px;
+}
+
+.jw-banner .jw-image {
+    padding: 20px;
+}
+
+.jw-banner .jw-text {
+    font-size: 24px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.jw-banner .jw-text-small {
+   font-size: 1em;padding: 10px;
+}
+
+.jw-banner .bottom-part {
+       background-color: #515151;
+    padding: 20px 10px 10px 10px;
+}
+/* Persistence*/
+.pers-banner .top-image {
+    border-radius: 5px;     overflow: hidden;
+    padding: 10px 50px 0px 40px;
+}
+/*Http*/
+.http-banner div.top-image {
+    border-radius: 5px;     overflow: hidden;
+    padding: 10px 30px 0px 30px;
+}
+/*REST*/
+.rest-banner div.banner-text {
+ padding: 20px 40px;
+}
+
+</style>
+
+
+<style>
+.footer-html-banner {
+    margin: 0 auto;
+    max-width: 800px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #dedede;
+}
+
+.footer-html-banner .header-row {
+    background-color: rgb(82, 94, 116);
+    padding: 25px 30px;
+    display: flex;
+text-align: left;
+}
+
+.footer-html-banner img {
+    width: 100%;
+   margin: 0;
+}
+.single .post-content .footer-html-banner img {   margin: 0;   }
+
+.footer-html-banner .image-col {
+    max-width: 24%;
+    margin: 0px 28px;
+    padding-left: 15px;
+}
+
+.footer-html-banner .text-col {
+    max-width: 76%;
+    font-size: 1.6em;
+    line-height: 1.4em;
+    padding-left: 15px;
+}
+
+.footer-html-banner .text-col div {
+color: rgb(251, 240, 240);
+}
+
+@media (max-width: 768px) {
+   .footer-html-banner .image-col {
+       display:none;
+   }
+   .footer-html-banner .text-col {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 0px;
+   }
+}
+
+.footer-html-banner a.optin {
+   display: block;        margin-top: 10px;   text-align: center;    border-radius: 2px;border-bottom: 6px solid rgb(48 158 64);    background-color: rgb(99, 177, 117);
+color: white !important;
+}
+
+.footer-html-banner a.optin:hover {
+    text-decoration: none;    background-color:   rgb(65, 147, 84);    border-bottom: 6px solid  #267438;
+}
+
+.footer-html-banner a.optin .optin-button {
+    font-size: 18px;    color: white;    font-family: 'Raleway';    font-weight: bold;
+}
+
+.footer-security-banner .text-col div, .footer-http-banner .text-col div {
+    padding-bottom: 15px;
+}
+
+
+.footer-rest-banner {
+    background-color: rgb(233, 233, 233);
+   margin: 0 auto;
+    max-width: 800px;
+}
+
+.footer-rest-banner .image-col {
+    max-width: 311px;
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.footer-rest-banner .text-col {
+    display: inline-block;
+    max-width: 59%;
+   padding: 50px 30px 0px 30px;
+    text-align: center;
+}
+
+.footer-rest-banner .text-col div {
+    font-size: 34px;
+    line-height: 46px;
+    font-weight: bold;
+    color: rgb(21, 21, 21);
+    text-align: left;
+}
+
+.footer-rest-banner .text-col div  strong {
+    color: rgb(91, 158, 105) !important;
+    font-size: 30px !important;
+}
+
+
+.footer-rest-banner .text-col img {
+    width: 115px;
+}
+
+.footer-rest-banner div.button-row {
+    padding: 25px;
+    background-color: rgb(83, 83, 83);
+}
+
+.footer-rest-banner a.optin {
+   display: block;
+   text-align: center;
+   border-radius: 2px;
+   border-bottom: 6px solid rgb(48 158 64);
+   background-color: rgb(99, 177, 117);
+   color: white !important;
+   padding: 13px 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer-rest-banner a.optin:hover {
+    text-decoration: none;
+    background-color: rgb(48, 158, 64);
+    border-bottom: 6px solid #267438;
+}
+
+@media (max-width: 600px) {
+
+.footer-rest-banner .image-col {
+	display:block;
+       margin: 0 auto;
+      width: 100%;
+}
+.footer-rest-banner .text-col {
+	max-width: 100%;
+}
+
+}
+
+
+.footer-persistence-banner .text-col div.smaller, .footer-cloud-banner .text-col div.smaller {
+  font-size: 19px;
+  font-weight: bold;
+    line-height: 25px;
+    padding-bottom: 10px;
+}
+
+.footer-persistence-banner .text-col div.bigger, .footer-cloud-banner .text-col div.bigger {
+ font-size: 30px;
+font-weight: normal;
+}
+
+.footer-jackson-banner .text-col div.bigger {
+    font-size: 36px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+
+</style>
+
+
+<style>
+.price-banner {
+    width: 250px;     border: none;     background-color: #485368;    border-radius: 10px;    color: white;    padding-bottom: 20px;
+}
+
+.price-banner .top-image {
+    border-radius: 10px 10px 0px 0px;
+    overflow: hidden;
+    display: flex;
+    padding: 0px;
+}
+
+.price-banner .top-image img {
+    width: 250px;
+    margin: 0 auto;
+}
+.price-banner .course-icon img {
+   width: 70px;
+	 margin:20px 0px 0px 15px;
+   float:left;
+}
+.price-banner .banner-text {
+	  text-align: left;
+    font-size: 17px;
+    padding: 0px;
+	  float:right;
+	  margin:20px 20px 0 0; 
+	  line-height: 25px;
+	  
+}
+
+.price-banner .banner-text .course-name {
+		font-size: 1.1em;
+    color: #63b175;
+    font-weight: bold;
+    text-transform: uppercase;
+	  text-align: left;
+}
+	
+.price-banner .banner-text .price-note {
+    font-size: 1.3em;
+    font-weight: 600;
+	  text-align: left;
+}
+	
+.price-banner .price-numbers {
+    display: flex;
+		justify-content: center;
+    padding: 10px 40px 0px 40px;
+    font-weight: 600;
+    font-size: 1.5em;
+    font-family: sans-serif;
+  	margin-top:10px;
+}
+
+.price-banner .price-numbers img {
+    position: relative;
+    top: -5px;
+		padding: 12px;
+		width:100px; 
+}
+	
+.price-banner a.optin {
+   display: block;
+   padding: 6px;
+   width: 220px;
+   margin: 0px auto;
+   text-align: center;
+   border-radius: 5px;
+   border-bottom: 6px solid rgb(217 159 54);
+   background-color: rgb(231 180 37);
+	 text-transform: uppercase;
+   color: white !important;
+}
+
+.price-banner a.optin:hover {
+    text-decoration: none;
+    background-color: rgb(215 168 35);
+    border-bottom: 6px solid rgb(195 143 50);
+}
+
+.price-banner a.optin .optin-button {
+    font-size: 18px;    color: white;    font-family: 'Raleway';    font-weight: bold;
+}
+</style>
+
+</head>
+<body class="home page-template page-template-elementor_header_footer page page-id-88879 site-baeldung elementor-default elementor-template-full-width elementor-kit-82519 elementor-page elementor-page-88879">
+<div id="wrap">
+<nav class="header--menu">
+<div class="container">
+<div class="container-inner">
+<a class="nav--logo_mobile" href="/" title="Baeldung">
+<img alt="The Baeldung logo" style="width:180px;height:40px" src="https://www.baeldung.com/wp-content/themes/baeldung/icon/logo.svg">
+</a>
+<a href="#" class="menu-mobile" title="Navigation" onclick="veggieBurger.reset().play();">
+<svg version="1.1" id="veggieBurger" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+<line style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:10;" x1="2.5" y1="17.5" x2="32.5" y2="17.5" />
+<line style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:10;" x1="2.5" y1="6.5" x2="32.5" y2="6.5" />
+<line style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:10;" x1="2.5" y1="28.5" x2="32.5" y2="28.5" />
+</svg>
+</a>
+</div>
+</div>
+<div class="container menu-container">
+<div class="container-inner">
+<ul id="menu-main-menu" class="nav--menu"><li class="big-nav-icon nav--menu_item">
+<a class="nav--menu_item_anchor menu-not-loaded" href="#" onclick="javascript:ga('send', 'event', 'menu', 'click', 'new_menu_open');">
+<svg id="BigNavIcon" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#menu-icon"></svg>
+</a><li class="nav--logo"><a href="/" title="Baeldung"><img src="https://www.baeldung.com/wp-content/themes/baeldung/icon/logo.svg" style="width:180px;height:40px" alt="The Baeldung Logo"></a><li class="nav--menu_item  menu-start-here"><a class="nav--menu_item_anchor" href="/start-here">Start Here</a><li class="nav--menu_item nav--menu_item_darkened nav--menu_has_6_children menu-courses"><a id="menu-item-17021" class="nav--menu_item_anchor nav--menu_item_withDropdown" href="javascript:void(0)">Courses&nbsp;<span class="menu--item_normal">▼</span><span class="menu--item_active">▲</span></a>
+<div class="nav--dropdown">
+<ul class="nav--dropdown_content">
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/rest-with-spring-course" title="The &#8220;REST With Spring&#8221; Course">
+<div class="dropdown--item_icon">
+<svg id="RwsCourseAnimated" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#rws-course-animated"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+REST with Spring
+</h3>
+<p class="dropdown--item_excerpt">
+The canonical reference for building a production grade API with Spring.
+</p>
+</div>
+</a>
+</li>
+<li class="nav--dropdown_item inner-dropdown">
+<a id="menu-item-67162" class="dropdown--item_anchor transition--background nav--menu_item_withDropdown" href="/learn-spring-security-course" title="">
+<div class="dropdown--item_icon">
+<svg id="LssCourseAnimated" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#lss-course-animated"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+Learn Spring Security&nbsp;<span class="dropdown--item_normal">▼</span><span class="dropdown--item_active">▲</span>
+</h3>
+<p class="dropdown--item_excerpt">
+THE unique Spring Security education if you’re working with Java today.
+</p>
+</div>
+</a>
+<div class="nav--dropdown">
+<ul class="nav--dropdown_content">
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/learn-spring-security-core-course" title="">
+<div class="dropdown--item_icon">
+<svg id="LsscNewIcon" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#lssc-new-icon"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+Learn Spring Security Core
+</h3>
+<p class="dropdown--item_excerpt">
+Focus on the Core of Spring Security 5
+</p>
+</div>
+</a>
+</li>
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/learn-spring-security-oauth-course" title="">
+<div class="dropdown--item_icon">
+<svg id="LssoNewIcon" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#lsso-new-icon"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+Learn Spring Security OAuth
+</h3>
+<p class="dropdown--item_excerpt">
+Focus on the new OAuth2 stack in Spring Security 5
+</p>
+</div>
+</a>
+</li>
+</ul></div></li>
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/learn-spring-course" title="">
+<div class="dropdown--item_icon">
+<svg id="LsAnimated" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#ls-animated"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+Learn Spring
+</h3>
+<p class="dropdown--item_excerpt">
+From no experience to actually building stuff​.
+</p>
+</div>
+</a>
+</li>
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/learn-spring-data-jpa-course" title="">
+<div class="dropdown--item_icon">
+<svg id="LsdCourse" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#lsd-course"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+Learn Spring Data JPA
+</h3>
+<p class="dropdown--item_excerpt">
+The full guide to persistence with Spring Data JPA.
+</p>
+</div>
+</a>
+</li>
+</div><li class="nav--menu_item  nav--menu_has_3_children menu-guides"><a id="menu-item-39050" class="nav--menu_item_anchor nav--menu_item_withDropdown" href="javascript:void(0)">Guides&nbsp;<span class="menu--item_normal">▼</span><span class="menu--item_active">▲</span></a>
+<div class="nav--dropdown">
+<ul class="nav--dropdown_content">
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/persistence-with-spring-series" title="">
+<div class="dropdown--item_icon">
+<svg id="PersistenceGuideSvg" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#persistence-guide-svg"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+Persistence
+</h3>
+<p class="dropdown--item_excerpt">
+The Persistence with Spring guides
+</p>
+</div>
+</a>
+</li>
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/rest-with-spring-series" title="">
+<div class="dropdown--item_icon">
+<svg id="RestGuideSvg" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#rest-guide-svg"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+REST
+</h3>
+<p class="dropdown--item_excerpt">
+The guides on building REST APIs with Spring
+</p>
+</div>
+</a>
+</li>
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/security-spring" title="">
+<div class="dropdown--item_icon">
+<svg id="SecurityGuideSvg" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#security-guide-svg"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+Security
+</h3>
+<p class="dropdown--item_excerpt">
+The Spring Security guides
+</p>
+</div>
+</a>
+</li>
+</div><li class="nav--menu_item  nav--menu_has_4_children menu-about"><a id="menu-item-6138" class="nav--menu_item_anchor nav--menu_item_withDropdown" href="javascript:void(0)">About&nbsp;<span class="menu--item_normal">▼</span><span class="menu--item_active">▲</span></a>
+<div class="nav--dropdown">
+<ul class="nav--dropdown_content">
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/full_archive" title="">
+<div class="dropdown--item_icon">
+<svg id="FullArchiveSvg" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#full-archive-svg"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+Full Archive
+</h3>
+<p class="dropdown--item_excerpt">
+The high level overview of all the articles on the site.
+</p>
+</div>
+</a>
+</li>
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/baeldung-ebooks" title="">
+<div class="dropdown--item_icon">
+<svg id="BaeldungEbooks" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#baeldung-ebooks"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+Baeldung Ebooks
+</h3>
+<p class="dropdown--item_excerpt">
+Discover all of our eBooks
+</p>
+</div>
+</a>
+</li>
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/contribution-guidelines" title="">
+<div class="dropdown--item_icon">
+<svg id="ContributeToBaeldungSvgNew" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#contribute-to-baeldung-svg-new"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+Write for Baeldung
+</h3>
+<p class="dropdown--item_excerpt">
+Become a writer on the site.
+</p>
+</div>
+</a>
+</li>
+<li class="nav--dropdown_item">
+<a class="dropdown--item_anchor transition--background" href="/about" title="">
+<div class="dropdown--item_icon">
+<svg id="AboutBaeldungSvg" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#about-baeldung-svg"></svg>
+</div>
+<div class="dropdown--item_text">
+<h3 class="dropdown--item_title">
+About Baeldung
+</h3>
+<p class="dropdown--item_excerpt">
+About Baeldung.
+</p>
+</div>
+</a>
+</li>
+</div><li class="nav--menu_item  menu-rss"><a id="menu-item-18864" class="nav--menu_item_anchor" href="/feed"><svg id="RssSvg" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#rss-svg"></svg></a><li class="nav--menu_item  menu-search"><a id="menu-item-40489" class="nav--menu_item_anchor" href="#search"><svg id="Search" data-src="/wp-content/uploads/aqua-svg-sprite/aqua-svg-general-sprite.svg#search"></svg></a></ul>
+</div>
+</div>
+</nav>
+<div id="big-nav" class="inactive menu-not-loaded"></div>
+<div id="content" class="container">
+<div class="container-inner">
+<div class="flex-wrap">
+<div id="main" class="flex-col clearfix" role="main">
+<div data-elementor-type="wp-page" data-elementor-id="88879" class="elementor elementor-88879" data-elementor-settings="[]">
+<div class="elementor-inner">
+<div class="elementor-section-wrap">
+<section class="elementor-section elementor-top-section elementor-element elementor-element-0d0e724 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="0d0e724" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5903a8b" data-id="5903a8b" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-dc08891 elementor-widget elementor-widget-spacer" data-id="dc08891" data-element_type="widget" data-widget_type="spacer.default">
+<div class="elementor-widget-container">
+<div class="elementor-spacer">
+<div class="elementor-spacer-inner"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-top-section elementor-element elementor-element-6aa80c5 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6aa80c5" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-80d7276" data-id="80d7276" data-element_type="column" id="courses-box-intro-1">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-e68884f elementor-section-height-min-height elementor-section-boxed elementor-section-height-default" data-id="e68884f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5daac93" data-id="5daac93" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-30059c1 elementor-widget elementor-widget-image" data-id="30059c1" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<img width="220" height="220" src="https://www.baeldung.com/wp-content/uploads/2021/03/lsd-master-icon-homepage.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://www.baeldung.com/wp-content/uploads/2021/03/lsd-master-icon-homepage.png 220w, https://www.baeldung.com/wp-content/uploads/2021/03/lsd-master-icon-homepage-150x150.png 150w, https://www.baeldung.com/wp-content/uploads/2021/03/lsd-master-icon-homepage-100x100.png 100w, https://www.baeldung.com/wp-content/uploads/2021/03/lsd-master-icon-homepage-125x125.png 125w" sizes="(max-width: 220px) 100vw, 220px" /> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8b7d2c6" data-id="8b7d2c6" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-3a8f150 elementor-widget elementor-widget-text-editor" data-id="3a8f150" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<a style="background-color: #f5c248" href="/learn-spring-data-jpa-course">Learn Spring Data</a> (new!) </div>
+</div>
+</div>
+<div class="elementor-element elementor-element-f242b30 elementor-widget elementor-widget-text-editor" data-id="f242b30" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/learn-spring-data-jpa-course">The full guide to persistence with Spring Data JPA.</a></p> </div>
+</div>
+</div>
+<div class="elementor-element elementor-element-b7d3058 elementor-widget elementor-widget-image" data-id="b7d3058" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<a href="/learn-spring-data-jpa-course">
+<img width="1" height="1" src="https://www.baeldung.com/wp-content/uploads/2020/10/arrow-custom.svg" class="attachment-large size-large" alt="" loading="lazy" /> </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-3a598cb" data-id="3a598cb" data-element_type="column" id="courses-box-intro-2">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-9a515be elementor-section-height-min-height elementor-section-boxed elementor-section-height-default" data-id="9a515be" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-ce7baad" data-id="ce7baad" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-1631388 elementor-widget elementor-widget-image" data-id="1631388" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<img width="220" height="220" src="https://www.baeldung.com/wp-content/uploads/2021/03/ls-master-icon-homepage.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://www.baeldung.com/wp-content/uploads/2021/03/ls-master-icon-homepage.png 220w, https://www.baeldung.com/wp-content/uploads/2021/03/ls-master-icon-homepage-150x150.png 150w, https://www.baeldung.com/wp-content/uploads/2021/03/ls-master-icon-homepage-100x100.png 100w, https://www.baeldung.com/wp-content/uploads/2021/03/ls-master-icon-homepage-125x125.png 125w" sizes="(max-width: 220px) 100vw, 220px" /> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-776c495" data-id="776c495" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-3cb306b elementor-widget elementor-widget-text-editor" data-id="3cb306b" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<a href="/learn-spring-course">Learn Spring</a> </div>
+</div>
+</div>
+<div class="elementor-element elementor-element-f9bbfb6 elementor-widget elementor-widget-text-editor" data-id="f9bbfb6" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/learn-spring-course">From no experience to actually building stuff.</a></p><p> </p> </div>
+</div>
+</div>
+<div class="elementor-element elementor-element-571ff8f elementor-widget elementor-widget-image" data-id="571ff8f" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<a href="/learn-spring-course">
+<img width="1" height="1" src="https://www.baeldung.com/wp-content/uploads/2020/10/arrow-custom.svg" class="attachment-large size-large" alt="" loading="lazy" /> </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-top-section elementor-element elementor-element-a7520db elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a7520db" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-a8dacd9" data-id="a8dacd9" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-f1250dd elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f1250dd" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-47eba80" data-id="47eba80" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-05e81cd elementor-widget elementor-widget-heading" data-id="05e81cd" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default"><div data-css="tve-u-1624958faad"><p>Java Weekly ﻿Reviews</p></div></h2> </div>
+</div>
+<div class="elementor-element elementor-element-c2c60d2 elementor-widget elementor-widget-image" data-id="c2c60d2" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<img width="438" height="258" src="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-weekly_reviews.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-weekly_reviews.jpg 438w, https://www.baeldung.com/wp-content/uploads/2017/06/homepage-weekly_reviews-300x177.jpg 300w" sizes="(max-width: 438px) 100vw, 438px" /> </div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-b3b5410 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b3b5410" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-92118df" data-id="92118df" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-b44f7f5 elementor-widget elementor-widget-text-editor" data-id="b44f7f5" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/java-web-weekly"><b>The Java Weekly</b></a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8b19195" data-id="8b19195" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-6e13034 elementor-align-justify elementor-widget elementor-widget-global elementor-global-89828 elementor-widget-button" data-id="6e13034" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/java-web-weekly/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">NEWSLETTER</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-3c43d52 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="3c43d52" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-fc7bd69 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="fc7bd69" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-aeae9c1" data-id="aeae9c1" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-1c5c7a9 elementor-widget elementor-widget-text-editor" data-id="1c5c7a9" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/java-weekly-423">Java Weekly, Issue 423</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-b2d88e0" data-id="b2d88e0" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-294cf7b elementor-align-justify elementor-widget elementor-widget-button" data-id="294cf7b" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/java-weekly-423" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">LATEST</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-9287adc elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="9287adc" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-b485adc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b485adc" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-534a4ba" data-id="534a4ba" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-71aaa92 elementor-widget elementor-widget-text-editor" data-id="71aaa92" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/java-weekly-422">Java Weekly, Issue 422</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-d24bfe3 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="d24bfe3" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-e6e2645 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e6e2645" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-19b2ce6" data-id="19b2ce6" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-a9d26ea elementor-widget elementor-widget-text-editor" data-id="a9d26ea" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/java-weekly-421">Java Weekly, Issue 421</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-869eaf4 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="869eaf4" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-6969848" data-id="6969848" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-eab438b elementor-widget elementor-widget-heading" data-id="eab438b" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default"><div data-css="tve-u-1624958faad"><p>Other Spring Series</p></div></h2> </div>
+</div>
+<div class="elementor-element elementor-element-337dd76 elementor-widget elementor-widget-image" data-id="337dd76" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<img width="438" height="258" src="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-other_spring.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-other_spring.jpg 438w, https://www.baeldung.com/wp-content/uploads/2017/06/homepage-other_spring-300x177.jpg 300w" sizes="(max-width: 438px) 100vw, 438px" /> </div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-42fcb33 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="42fcb33" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-a00d31a" data-id="a00d31a" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-3dac39b elementor-widget elementor-widget-text-editor" data-id="3dac39b" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><b><a href="/persistence-with-spring-series/">All Spring Persistence Guides</a></b></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8593563" data-id="8593563" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-8422a58 elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="8422a58" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/persistence-with-spring-series/" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">FULL GUIDE</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-d571402 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="d571402" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-1fc1e11 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1fc1e11" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-33d13df" data-id="33d13df" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-0cbd284 elementor-widget elementor-widget-text-editor" data-id="0cbd284" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/spring-exceptions">Spring Exceptions Series</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-f040359" data-id="f040359" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-a9cd30f elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="a9cd30f" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/spring-exceptions" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">SERIES</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-32e890e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="32e890e" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-296e643" data-id="296e643" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-91b5732 elementor-widget elementor-widget-heading" data-id="91b5732" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default"><div data-css="tve-u-1624958faad"><p>The HttpClient Series</p></div></h2> </div>
+</div>
+<div class="elementor-element elementor-element-0109797 elementor-widget elementor-widget-image" data-id="0109797" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<img width="438" height="258" src="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-http_client.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-http_client.jpg 438w, https://www.baeldung.com/wp-content/uploads/2017/06/homepage-http_client-300x177.jpg 300w" sizes="(max-width: 438px) 100vw, 438px" /> </div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-d4f4448 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d4f4448" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-467d672" data-id="467d672" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-85d28e2 elementor-widget elementor-widget-text-editor" data-id="85d28e2" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><b><a href="/httpclient-guide">All HttpClient Guides</a></b></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-dffe723" data-id="dffe723" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-1bd48c8 elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="1bd48c8" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/httpclient-guide" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">FULL GUIDE</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-e3e41dd" data-id="e3e41dd" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-3ecfe5f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3ecfe5f" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-27e3dba" data-id="27e3dba" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-5cf6ba8 elementor-widget elementor-widget-heading" data-id="5cf6ba8" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default"><div data-css="tve-u-1624958faad"><p>Latest Articles on CS</p></div></h2> </div>
+</div>
+<div class="elementor-element elementor-element-083f54e elementor-widget elementor-widget-image" data-id="083f54e" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<img width="438" height="258" src="https://www.baeldung.com/wp-content/uploads/2020/07/latest_articles_cs.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://www.baeldung.com/wp-content/uploads/2020/07/latest_articles_cs.jpg 438w, https://www.baeldung.com/wp-content/uploads/2020/07/latest_articles_cs-300x177.jpg 300w, https://www.baeldung.com/wp-content/uploads/2020/07/latest_articles_cs-100x59.jpg 100w" sizes="(max-width: 438px) 100vw, 438px" /> </div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-2f5154f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2f5154f" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5d840af" data-id="5d840af" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-53fe704 blue-text elementor-widget elementor-widget-text-editor" data-id="53fe704" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/cs/tail-vs-non-tail-recursion">Tail vs. Non-Tail Recursion</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-3f91da6" data-id="3f91da6" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-9a437f9 elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="9a437f9" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/cs/tail-vs-non-tail-recursion" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">READ MORE</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-8e36024 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="8e36024" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-1f15dc0 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1f15dc0" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8320c62" data-id="8320c62" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-4d2d1ba blue-text elementor-widget elementor-widget-text-editor" data-id="4d2d1ba" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/cs/layered-architecture">Layered Architecture</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-ecefa24" data-id="ecefa24" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-b44b0da elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="b44b0da" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/cs/layered-architecture" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">READ MORE</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-72afe30 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="72afe30" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-f39c8ab elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f39c8ab" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-74286ce" data-id="74286ce" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-2d10b55 blue-text elementor-widget elementor-widget-text-editor" data-id="2d10b55" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/cs/framework-vs-library">The Difference Between a Framework and a Library</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-78b0044" data-id="78b0044" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-2cb20cf elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="2cb20cf" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/cs/framework-vs-library" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">READ MORE</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-4a63912 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4a63912" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-63cb4cb" data-id="63cb4cb" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-a162649 elementor-widget elementor-widget-heading" data-id="a162649" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default"><div data-css="tve-u-1624958faad"><p>Latest Articles</p></div></h2> </div>
+</div>
+<div class="elementor-element elementor-element-0f562f9 elementor-widget elementor-widget-image" data-id="0f562f9" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<img width="438" height="258" src="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-latest_articles.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-latest_articles.jpg 438w, https://www.baeldung.com/wp-content/uploads/2017/06/homepage-latest_articles-300x177.jpg 300w" sizes="(max-width: 438px) 100vw, 438px" /> </div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-973fda7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="973fda7" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-89831c2" data-id="89831c2" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-2e27026 elementor-widget elementor-widget-text-editor" data-id="2e27026" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<a href="/java-17-new-features">New Features in Java 17</a> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-10c6375 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="10c6375" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-f4fa95a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f4fa95a" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-164175e" data-id="164175e" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-84adc6c elementor-widget elementor-widget-text-editor" data-id="84adc6c" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/java-unit-testing-best-practices">Best Practices For Unit Testing In Java</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-79e8781 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="79e8781" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-a0b771d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a0b771d" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-f284585" data-id="f284585" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-68e5547 elementor-widget elementor-widget-text-editor" data-id="68e5547" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/spring-boot-kafka-streams">Kafka Streams With Spring Boot</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-aa3753f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="aa3753f" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-c63ce4b" data-id="c63ce4b" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-42a8f4c elementor-widget elementor-widget-heading" data-id="42a8f4c" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default"><div data-css="tve-u-1624958faad"><p>On Spring Security<br></p></div></h2> </div>
+</div>
+<div class="elementor-element elementor-element-e8b704d elementor-widget elementor-widget-image" data-id="e8b704d" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<img width="438" height="258" src="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-spring_security.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-spring_security.jpg 438w, https://www.baeldung.com/wp-content/uploads/2017/06/homepage-spring_security-300x177.jpg 300w" sizes="(max-width: 438px) 100vw, 438px" /> </div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-51a1f3f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="51a1f3f" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-493379e" data-id="493379e" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-64793ef elementor-widget elementor-widget-text-editor" data-id="64793ef" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><b><a class="tve-froala" href="/security-spring">All Spring Security Guides</a></b></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-d79af5f" data-id="d79af5f" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-f15b228 elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="f15b228" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/security-spring" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">FULL GUIDE</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-06bb902 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="06bb902" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-aa5a5dc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="aa5a5dc" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-c6b482d" data-id="c6b482d" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-905751f elementor-widget elementor-widget-text-editor" data-id="905751f" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/spring-security-registration">The Spring Security Registration Series</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-967d6d8" data-id="967d6d8" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-c93ead9 elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="c93ead9" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/spring-security-registration" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">SERIES</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-428e1e3 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="428e1e3" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-431a8d9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="431a8d9" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-4d24949" data-id="4d24949" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-c145f19 elementor-widget elementor-widget-text-editor" data-id="c145f19" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/spring-security-authentication-and-registration">The Spring Security Authentication Series</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-c512b49" data-id="c512b49" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-1f62ac3 elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="1f62ac3" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/spring-security-authentication-and-registration" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">GUIDE</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-19bdeaa" data-id="19bdeaa" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-8dcc590 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8dcc590" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-1d26cda" data-id="1d26cda" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-58d3e09 elementor-widget elementor-widget-heading" data-id="58d3e09" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default"><div data-css="tve-u-1624958faad"><p>Java Series</p></div></h2> </div>
+</div>
+<div class="elementor-element elementor-element-4d68d81 elementor-widget elementor-widget-image" data-id="4d68d81" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<img width="438" height="258" src="https://www.baeldung.com/wp-content/uploads/2017/10/icon-javaseries-home.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://www.baeldung.com/wp-content/uploads/2017/10/icon-javaseries-home.png 438w, https://www.baeldung.com/wp-content/uploads/2017/10/icon-javaseries-home-300x177.png 300w" sizes="(max-width: 438px) 100vw, 438px" /> </div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-4480dca elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4480dca" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-b58d377" data-id="b58d377" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-ff21b01 elementor-widget elementor-widget-text-editor" data-id="ff21b01" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/java-tutorial"><b>Java “Back to Basics” Tutorial</b></a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-cd70430" data-id="cd70430" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-2b203fc elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="2b203fc" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/java-tutorial" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">FULL GUIDE</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-001b49e elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="001b49e" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-27c7f43 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="27c7f43" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-e1d18d8" data-id="e1d18d8" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-7ca7eb7 elementor-widget elementor-widget-text-editor" data-id="7ca7eb7" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/java-collections">Java Collection Tutorials</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-b3af0fc elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="b3af0fc" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-aa242b8 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="aa242b8" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-aa57616" data-id="aa57616" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+ <div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-8a90c91 elementor-widget elementor-widget-text-editor" data-id="8a90c91" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/java-streams">Java Streams Tutorials</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-5386b78 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5386b78" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-0bd0cbb" data-id="0bd0cbb" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-5238fa4 elementor-widget elementor-widget-heading" data-id="5238fa4" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default"><div data-css="tve-u-1624958faad"><p>On REST with Spring<br></p></div></h2> </div>
+</div>
+<div class="elementor-element elementor-element-06a12cb elementor-widget elementor-widget-image" data-id="06a12cb" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<img width="438" height="258" src="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-rest_with_spring.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-rest_with_spring.jpg 438w, https://www.baeldung.com/wp-content/uploads/2017/06/homepage-rest_with_spring-300x177.jpg 300w" sizes="(max-width: 438px) 100vw, 438px" /> </div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-a40a9de elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a40a9de" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-7dc3abb" data-id="7dc3abb" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-d5fb2c1 elementor-widget elementor-widget-text-editor" data-id="d5fb2c1" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><b><a href="/rest-with-spring-series">All REST With Spring Guides</a></b></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-caed28c" data-id="caed28c" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-546bfa9 elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="546bfa9" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/rest-with-spring-series" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">FULL GUIDE</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-49a769a elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="49a769a" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-240d8f9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="240d8f9" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-6e3d6f1" data-id="6e3d6f1" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-6398ba5 elementor-widget elementor-widget-text-editor" data-id="6398ba5" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/spring-rest-api-query-search-language-tutorial">Build a Query Language for a REST API Series</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-4b6f088" data-id="4b6f088" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-0d11968 elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="0d11968" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/spring-rest-api-query-search-language-tutorial" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">SERIES</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="elementor-element elementor-element-447ef65 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="447ef65" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-widget-container">
+<div class="elementor-divider">
+<span class="elementor-divider-separator">
+</span>
+</div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-955813d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="955813d" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-2ce17a1" data-id="2ce17a1" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-8267f67 elementor-widget elementor-widget-text-editor" data-id="8267f67" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><a href="/spring-microservices-guide">Guide to Microservices with Spring Boot and Spring Cloud</a></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-d5994cf" data-id="d5994cf" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-f440c8d elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="f440c8d" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/spring-microservices-guide" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">GUIDE</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-7022923 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7022923" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-27776f9" data-id="27776f9" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-18fdf47 elementor-widget elementor-widget-heading" data-id="18fdf47" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default"><div data-css="tve-u-1624958faad"><p>About Jackson and JSON<br></p></div></h2> </div>
+</div>
+<div class="elementor-element elementor-element-a1a6cd3 elementor-widget elementor-widget-image" data-id="a1a6cd3" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<div class="elementor-image">
+<img width="438" height="258" src="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-jackson_series.jpg" class="attachment-large size-large" alt="" loading="lazy" srcset="https://www.baeldung.com/wp-content/uploads/2017/06/homepage-jackson_series.jpg 438w, https://www.baeldung.com/wp-content/uploads/2017/06/homepage-jackson_series-300x177.jpg 300w" sizes="(max-width: 438px) 100vw, 438px" /> </div>
+</div>
+</div>
+<section class="elementor-section elementor-inner-section elementor-element elementor-element-9ff5664 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9ff5664" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-c8ca8de" data-id="c8ca8de" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-372aa8c elementor-widget elementor-widget-text-editor" data-id="372aa8c" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<div class="elementor-text-editor elementor-clearfix">
+<p><b><a href="/jackson">All Jackson Guides</a></b></p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-abb2aaa" data-id="abb2aaa" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-a365027 elementor-align-justify elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="a365027" data-element_type="widget" data-widget_type="button.default">
+<div class="elementor-widget-container">
+<div class="elementor-button-wrapper">
+<a href="/jackson" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+<span class="elementor-button-content-wrapper">
+<span class="elementor-button-text">FULL GUIDE</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-section elementor-top-section elementor-element elementor-element-a74eafb elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a74eafb" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a57f2f4" data-id="a57f2f4" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-80990f0 elementor-widget elementor-widget-spacer" data-id="80990f0" data-element_type="widget" data-widget_type="spacer.default">
+<div class="elementor-widget-container">
+<div class="elementor-spacer">
+<div class="elementor-spacer-inner"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>  </div> 
+</div> 
+</div> 
+<footer id="footer" class="content-info" role="contentinfo">
+<div class="container">
+<div>
+<div class="column-wrapper row">
+<div class="logo-desktop">
+<img src="https://www.baeldung.com/wp-content/themes/baeldung/icon/logo.svg" style="width:180px;height:40px" alt="The Baeldung logo">
+</div>
+<div class="widgets">
+<div id="nav_menu-5" data-sticky-weight="1" data-height-limit="0" data-stickyness="sticky" data-geoloc-targets="" class="widget widget_nav_menu"><h4 class="widgettitle">Courses</h4><ul id="menu-courses" class="menu"><li class="menu-all-courses"><a href="/all-courses">All Courses</a></li>
+<li class="menu-all-bulk-courses"><a href="/all-bulk-courses">All Bulk Courses</a></li>
+<li class="menu-the-courses-platform"><a href="https://courses.baeldung.com">The Courses Platform</a></li>
+</ul></div><div id="nav_menu-6" data-sticky-weight="1" data-height-limit="0" data-stickyness="sticky" class="widget widget_nav_menu"><h4 class="widgettitle">Series</h4><ul id="menu-series" class="menu"><li class="menu-java-back-to-basics-tutorial"><a href="/java-tutorial">Java &#8220;Back to Basics&#8221; Tutorial</a></li>
+<li class="menu-jackson-json-tutorial"><a href="/jackson">Jackson JSON Tutorial</a></li>
+<li class="menu-httpclient-4-tutorial"><a href="/httpclient-guide">HttpClient 4 Tutorial</a></li>
+<li class="menu-rest-with-spring-tutorial"><a href="/rest-with-spring-series">REST with Spring Tutorial</a></li>
+<li class="menu-spring-persistence-tutorial"><a href="/persistence-with-spring-series">Spring Persistence Tutorial</a></li>
+<li class="menu-security-with-spring"><a href="/security-spring">Security with Spring</a></li>
+<li class="menu-spring-reactive-tutorials"><a href="/spring-reactive-guide">Spring Reactive Tutorials</a></li>
+</ul></div><div id="nav_menu-7" data-sticky-weight="1" data-height-limit="0" data-stickyness="sticky" class="widget widget_nav_menu"><h4 class="widgettitle">About</h4><ul id="menu-about" class="menu"><li class="menu-about-baeldung"><a href="/about">About Baeldung</a></li>
+<li class="menu-the-full-archive"><a href="/full_archive">The Full Archive</a></li>
+<li class="menu-write-for-baeldung"><a href="/contribution-guidelines">Write for Baeldung</a></li>
+<li class="menu-editors"><a href="/editors">Editors</a></li>
+<li class="menu-jobs"><a href="/tag/active-job/">Jobs</a></li>
+<li class="menu-our-partners"><a href="/partners">Our Partners</a></li>
+<li class="menu-advertise-on-baeldung"><a href="/advertise">Advertise on Baeldung</a></li>
+</ul></div> </div>
+<div class="stacked-rows">
+<div id="nav_menu-8" data-sticky-weight="1" data-height-limit="0" data-stickyness="sticky" class="widget widget_nav_menu"><ul id="menu-terms" class="menu"><li class="menu-terms-of-service"><a rel="nofollow" href="/terms-of-service">Terms of Service</a></li>
+<li class="menu-privacy-policy"><a rel="nofollow" href="/privacy-policy">Privacy Policy</a></li>
+<li class="menu-company-info"><a rel="nofollow" href="/baeldung-company-info">Company Info</a></li>
+<li class="menu-contact"><a rel="nofollow" href="/contact">Contact</a></li>
+</ul></div> </div>
+<div class="logo-mobile">
+<img src="https://www.baeldung.com/wp-content/themes/baeldung/icon/whiteleaf.svg" style="width:50px;height:50px" alt="The Baeldung Logo">
+</div>
+</div> 
+</div> 
+</div> 
+</footer> 
+</div> 
+<script>
+/* <![CDATA[ */
+var series_data=[];
+/* ]]> */
+</script>
+
+
+<script type="text/javascript">
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '9539554';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/9539554.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+
+
+<script> 
+/* <![CDATA[ */
+var ba_cats=[];
+var ba_tags=[];
+/* ]]> */
+</script>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg>
+<script type='text/javascript' src='https://www.baeldung.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9' id='regenerator-runtime-js'></script>
+<script type='text/javascript' src='https://www.baeldung.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/www.baeldung.com\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.baeldung.com/wp-content/cache/autoptimize/1/js/autoptimize_single_037206892375bff9c66ef71119e76392.js?ver=3.0' id='prismatic-highlight-js'></script>
+<script type='text/javascript' id='prismatic-highlight-js-after'>
+hljs.initHighlightingOnLoad();	
+
+
+</script>
+<script type='text/javascript' id='wpbs-js-js-extra'>
+/* <![CDATA[ */
+var geolocTargetingData = {"simulate":"","apiUrl":"https:\/\/www.baeldung.com\/api\/country-code\/","countryCode":"AF"};
+var ajaxUrl = "https:\/\/www.baeldung.com\/wp-admin\/admin-ajax.php";
+/* ]]> */
+</script>
+<script type='text/javascript' id='vivus-js-after'>
+      function svginit_veggieBurger() {
+        var svgTarget = document.getElementById('veggieBurger');
+        if (svgTarget) {
+          veggieBurger  = new Vivus('veggieBurger', {type: 'delayed', duration: 30,  start: 'autostart'});
+        }
+      }
+      document.addEventListener("DOMContentLoaded", svginit_veggieBurger);
+    
+
+
+          function svginit_17021() {
+						jQuery("#RwsCourseAnimated path, #RwsCourseAnimated g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+jQuery("#LssCourseAnimated path, #LssCourseAnimated g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+jQuery("#LsscNewIcon path, #LsscNewIcon g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+jQuery("#LssoNewIcon path, #LssoNewIcon g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+jQuery("#LsAnimated path, #LsAnimated g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+jQuery("#LsdCourse path, #LsdCourse g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+            RwsCourseAnimated = new Vivus('RwsCourseAnimated', {type: 'delayed', duration: 60,  start: 'manual'});
+LssCourseAnimated = new Vivus('LssCourseAnimated', {type: 'delayed', duration: 60,  start: 'manual'});
+LsscNewIcon = new Vivus('LsscNewIcon', {type: 'delayed', duration: 60,  start: 'manual'});
+LssoNewIcon = new Vivus('LssoNewIcon', {type: 'delayed', duration: 60,  start: 'manual'});
+LsAnimated = new Vivus('LsAnimated', {type: 'delayed', duration: 60,  start: 'manual'});
+LsdCourse = new Vivus('LsdCourse', {type: 'delayed', duration: 60,  start: 'manual'});
+            
+          document.getElementById('menu-item-17021').onmouseenter = function(){
+            RwsCourseAnimated.reset().play();
+LssCourseAnimated.reset().play();
+LsscNewIcon.reset().play();
+LssoNewIcon.reset().play();
+LsAnimated.reset().play();
+LsdCourse.reset().play();
+          };
+        
+					
+          }
+					
+				
+          document.addEventListener("ready-to-animate-svg", svginit_17021);
+        
+
+
+          function svginit_67162() {
+						jQuery("#LsscNewIcon path, #LsscNewIcon g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+jQuery("#LssoNewIcon path, #LssoNewIcon g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+            LsscNewIcon = new Vivus('LsscNewIcon', {type: 'delayed', duration: 60,  start: 'manual'});
+LssoNewIcon = new Vivus('LssoNewIcon', {type: 'delayed', duration: 60,  start: 'manual'});
+            
+          document.getElementById('menu-item-67162').onmouseenter = function(){
+            LsscNewIcon.reset().play();
+LssoNewIcon.reset().play();
+          };
+        
+					
+          }
+					
+				
+          document.addEventListener("ready-to-animate-svg", svginit_67162);
+        
+
+
+          function svginit_39050() {
+						jQuery("#PersistenceGuideSvg path, #PersistenceGuideSvg g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+jQuery("#RestGuideSvg path, #RestGuideSvg g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+jQuery("#SecurityGuideSvg path, #SecurityGuideSvg g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+            PersistenceGuideSvg = new Vivus('PersistenceGuideSvg', {type: 'delayed', duration: 60,  start: 'manual'});
+RestGuideSvg = new Vivus('RestGuideSvg', {type: 'delayed', duration: 60,  start: 'manual'});
+SecurityGuideSvg = new Vivus('SecurityGuideSvg', {type: 'delayed', duration: 60,  start: 'manual'});
+            
+          document.getElementById('menu-item-39050').onmouseenter = function(){
+            PersistenceGuideSvg.reset().play();
+RestGuideSvg.reset().play();
+SecurityGuideSvg.reset().play();
+          };
+        
+					
+          }
+					
+				
+          document.addEventListener("ready-to-animate-svg", svginit_39050);
+        
+
+
+          function svginit_6138() {
+						jQuery("#FullArchiveSvg path, #FullArchiveSvg g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+jQuery("#BaeldungEbooks path, #BaeldungEbooks g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+jQuery("#ContributeToBaeldungSvgNew path, #ContributeToBaeldungSvgNew g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+jQuery("#AboutBaeldungSvg path, #AboutBaeldungSvg g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+            FullArchiveSvg = new Vivus('FullArchiveSvg', {type: 'delayed', duration: 60,  start: 'manual'});
+BaeldungEbooks = new Vivus('BaeldungEbooks', {type: 'delayed', duration: 60,  start: 'manual'});
+ContributeToBaeldungSvgNew = new Vivus('ContributeToBaeldungSvgNew', {type: 'delayed', duration: 60,  start: 'manual'});
+AboutBaeldungSvg = new Vivus('AboutBaeldungSvg', {type: 'delayed', duration: 60,  start: 'manual'});
+            
+          document.getElementById('menu-item-6138').onmouseenter = function(){
+            FullArchiveSvg.reset().play();
+BaeldungEbooks.reset().play();
+ContributeToBaeldungSvgNew.reset().play();
+AboutBaeldungSvg.reset().play();
+          };
+        
+					
+          }
+					
+				
+          document.addEventListener("ready-to-animate-svg", svginit_6138);
+        
+
+          function svginit_RssSvg() {
+            RssSvg = new Vivus('RssSvg', {type: 'delayed', duration: 60,  start: 'autostart'});
+            
+          document.getElementById('menu-item-18864').onmouseenter = function(){
+            RssSvg.reset().play();
+							jQuery("#RssSvg path, #RssSvg g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+          };
+        
+          }
+					
+					
+          document.addEventListener("ready-to-animate-svg", svginit_RssSvg);
+        
+
+          function svginit_Search() {
+            Search = new Vivus('Search', {type: 'delayed', duration: 60,  start: 'autostart'});
+            
+          document.getElementById('menu-item-40489').onmouseenter = function(){
+            Search.reset().play();
+							jQuery("#Search path, #Search g ").each(function( index ) {  
+			var color = jQuery( this ).attr("stroke"); 
+			var fill = jQuery( this ).attr("fill"); 
+
+			var colors_to_replace =  ["#63B175","#67B277","rgb(101, 175, 119)","rgb(99, 177, 117)"];
+			var replacement_color = "#63b175";
+
+			if ( color || fill ) {
+				if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).attr("stroke", replacement_color); }
+				if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).attr("fill", replacement_color); }
+			}
+			else {
+				var color = jQuery( this ).css("stroke");
+				var fill = jQuery( this ).css("fill");
+
+				if ( color || fill ) {
+					if ( jQuery.inArray( color, colors_to_replace ) !== -1 ) { jQuery( this ).css("stroke", replacement_color); }
+					if ( jQuery.inArray( fill, colors_to_replace ) !== -1 ) { jQuery( this ).css("fill", replacement_color); }
+				}
+			} })
+          };
+        
+          }
+					
+					
+          document.addEventListener("ready-to-animate-svg", svginit_Search);
+        
+</script>
+<script type='text/javascript' id='elementor-pro-frontend-js-before'>
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.baeldung.com\/wp-admin\/admin-ajax.php","nonce":"43859a1217","urls":{"assets":"https:\/\/www.baeldung.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.baeldung.com\/wp-json\/"},"i18n":{"toc_no_headings_found":"No headings were found on this page."},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.baeldung.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type='text/javascript' id='elementor-frontend-js-before'>
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Extra","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Extra","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.5.4","is_static":false,"experimentalFeatures":{"e_import_export":true,"e_hidden_wordpress_widgets":true,"theme_builder_v2":true,"landing-pages":true,"elements-color-picker":true,"favorite-widgets":true,"admin-top-bar":true,"form-submissions":true},"urls":{"assets":"https:\/\/www.baeldung.com\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"classic","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":88879,"title":"Baeldung","excerpt":"","featuredImage":"https:\/\/www.baeldung.com\/wp-content\/uploads\/2021\/08\/Baeldung-Featured-Image-1024x536.png"}};
+</script>
+<script defer src="https://www.baeldung.com/wp-content/cache/autoptimize/1/js/autoptimize_970166bc65286a1db4cce6fdb43e12c2.js"></script></body>
+</html>

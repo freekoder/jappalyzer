@@ -1,0 +1,26 @@
+plugins {
+    id 'application'
+    id 'java-library'
+}
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'com.vampbear.jappalyzer.Jappalyzer'
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation 'org.json:json:20211205'
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    implementation 'org.jsoup:jsoup:1.14.3'
+    // https://mvnrepository.com/artifact/junit/junit
+    testImplementation 'junit:junit:4.13.2'
+
+
+}

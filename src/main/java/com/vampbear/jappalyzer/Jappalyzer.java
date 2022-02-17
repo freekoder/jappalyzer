@@ -4,11 +4,7 @@ package com.vampbear.jappalyzer;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,11 +14,47 @@ import java.util.stream.Stream;
 
 public class Jappalyzer {
 
+    private List<Technology> technologies = new LinkedList<>();
+
     public static void main(String[] args) {
         List<Technology> technologies = loadTechnologies();
         System.out.println("Count: " + technologies.size());
-        List<Technology> foundTechs = Jappalyzer.fromUrl("https://mkyong.com/java8/java-8-stream-read-a-file-line-by-line/");
-        foundTechs.forEach(System.out::println);
+        try {
+            Jappalyzer jappalyzer = Jappalyzer.latest();
+            List<Technology> instanceTechnologies = jappalyzer.getTechnologies();
+            System.out.println("Instance techs: " + instanceTechnologies.size());
+            List<Technology> foundTechs = jappalyzer.fromUrl("https://mkyong.com/java8/java-8-stream-read-a-file-line-by-line/");
+            foundTechs.forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private List<Technology> getTechnologies() {
+        return this.technologies;
+    }
+
+    private static Jappalyzer latest() {
+        Jappalyzer jappalyzer = new Jappalyzer();
+        jappalyzer.updateTechnologies();
+        return jappalyzer;
+    }
+
+    private void updateTechnologies() {
+        HttpClient httpClient = new HttpClient();
+        String[] keys = new String[]{
+                "a", "b", "c", "d", "e", "f", "g", "h", "i",
+                "j", "k", "l", "m", "n", "o", "p", "q", "r",
+                "s", "t", "u", "v", "w", "x", "y", "z", "_"};
+        try {
+            for (String key : keys) {
+                String techGithubUrl = String.format("https://raw.githubusercontent.com/AliasIO/wappalyzer/master/src/technologies/%s.json", key);
+                String techContent = httpClient.getUrlContent(techGithubUrl);
+                this.technologies.addAll(readTechnologiesFromString(techContent));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static List<Technology> fromFile(String path) {
@@ -41,10 +73,10 @@ public class Jappalyzer {
         return foundTechs;
     }
 
-    public static List<Technology> fromUrl(String url) {
+    public List<Technology> fromUrl(String url) throws IOException {
         List<Technology> foundTechs = new ArrayList<>();
-        List<Technology> technologies = loadTechnologies();
-        String content = readWebContent(url);
+        HttpClient httpClient = new HttpClient();
+        String content = httpClient.getUrlContent(url);
         PageResponse pageResponse = new PageResponse(content);
         System.out.println("Content size: " + content.length());
         for (Technology technology : technologies) {
@@ -63,28 +95,6 @@ public class Jappalyzer {
             e.printStackTrace();
         }
         return content;
-    }
-
-    private static String readWebContent(String address) {
-        try {
-            URL url = new URL(address);
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-            con.setRequestMethod("GET");
-            con.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36 OPR/38.0.2220.41");
-            con.setInstanceFollowRedirects(true);
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuilder content = new StringBuilder();
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine);
-            }
-            in.close();
-            con.disconnect();
-            return content.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "";
     }
 
     private static List<Technology> loadTechnologies() {
@@ -110,6 +120,16 @@ public class Jappalyzer {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        return technologies;
+    }
+
+    private static List<Technology> readTechnologiesFromString(String technologiesString) {
+        List<Technology> technologies = new LinkedList<>();
+        JSONObject fileJSON = new JSONObject(technologiesString);
+        for (String key : fileJSON.keySet()) {
+            JSONObject object = (JSONObject) fileJSON.get(key);
+            technologies.add(convertToTechnology(key, object));
         }
         return technologies;
     }

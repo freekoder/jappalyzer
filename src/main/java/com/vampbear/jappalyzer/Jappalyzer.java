@@ -4,17 +4,17 @@ package com.vampbear.jappalyzer;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class Jappalyzer {
 
-    private List<Technology> technologies = new LinkedList<>();
+    private final List<Technology> technologies = new LinkedList<>();
 
     public static void main(String[] args) {
         List<Technology> technologies = loadTechnologies();
@@ -23,7 +23,7 @@ public class Jappalyzer {
             Jappalyzer jappalyzer = Jappalyzer.latest();
             List<Technology> instanceTechnologies = jappalyzer.getTechnologies();
             System.out.println("Instance techs: " + instanceTechnologies.size());
-            List<Technology> foundTechs = jappalyzer.fromUrl("https://mkyong.com/java8/java-8-stream-read-a-file-line-by-line/");
+            List<Technology> foundTechs = jappalyzer.fromUrl("https://vampbear.com/");
             foundTechs.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,8 +49,8 @@ public class Jappalyzer {
         try {
             for (String key : keys) {
                 String techGithubUrl = String.format("https://raw.githubusercontent.com/AliasIO/wappalyzer/master/src/technologies/%s.json", key);
-                String techContent = httpClient.getUrlContent(techGithubUrl);
-                this.technologies.addAll(readTechnologiesFromString(techContent));
+                PageResponse pageResponse = httpClient.getPageByUrl(techGithubUrl);
+                this.technologies.addAll(readTechnologiesFromString(pageResponse.getOrigContent()));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -76,9 +76,8 @@ public class Jappalyzer {
     public List<Technology> fromUrl(String url) throws IOException {
         List<Technology> foundTechs = new ArrayList<>();
         HttpClient httpClient = new HttpClient();
-        String content = httpClient.getUrlContent(url);
-        PageResponse pageResponse = new PageResponse(content);
-        System.out.println("Content size: " + content.length());
+        PageResponse pageResponse = httpClient.getPageByUrl(url);
+        System.out.println("Content size: " + pageResponse.getOrigContent().length());
         for (Technology technology : technologies) {
             if (technology.appliebleTo(pageResponse)) {
                 foundTechs.add(technology);
@@ -151,6 +150,13 @@ public class Jappalyzer {
         List<String> scriptSrcTemplates = readValuesByKey(object, "scriptSrc");
         for (String template : scriptSrcTemplates) {
             technology.addScriptSrc(template);
+        }
+        if (object.has("headers")) {
+            JSONObject headersObject = object.getJSONObject("headers");
+            for (String header : headersObject.keySet()) {
+                String headerPattern = headersObject.getString(header);
+                technology.addHeaderTemplate(header, headerPattern);
+            }
         }
         return technology;
     }

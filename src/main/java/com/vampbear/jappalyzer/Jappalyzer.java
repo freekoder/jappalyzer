@@ -101,20 +101,17 @@ public class Jappalyzer {
         }
     }
 
-    public List<Technology> fromFile(String path) {
-        List<Technology> foundTechs = new ArrayList<>();
-        List<Technology> technologies = loadTechnologies();
-
+    public List<TechnologyMatch> fromFile(String path) {
         String fileContent = readFileContent(path);
         PageResponse pageResponse = new PageResponse(fileContent);
 
+        List<TechnologyMatch> matches = new LinkedList<>();
         for (Technology technology : technologies) {
             if (technology.appliebleTo(pageResponse)) {
-                foundTechs.add(technology);
+                matches.add(new TechnologyMatch(technology));
             }
         }
-
-        return foundTechs;
+        return matches;
     }
 
     public List<Technology> fromUrl(String url) throws IOException {

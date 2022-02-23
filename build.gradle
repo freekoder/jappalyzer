@@ -21,6 +21,8 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.14.3'
     // https://mvnrepository.com/artifact/junit/junit
     testImplementation 'junit:junit:4.13.2'
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-collections4
+    testImplementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
 
 
 }

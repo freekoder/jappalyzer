@@ -3,6 +3,7 @@ package com.vampbear.jappalyzer;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.jsoup.select.Selector;
 
 import java.io.BufferedReader;
 import java.io.StringReader;
@@ -81,7 +82,8 @@ public class Technology {
                 '}';
     }
 
-    public boolean appliebleTo(PageResponse page) {
+    // TODO: change String to full Check class
+    public String appliebleTo(PageResponse page) {
         Document document = page.getDocument();
         String content = page.getOrigContent();
 
@@ -91,15 +93,15 @@ public class Technology {
                 for (String value : headerValues) {
                     Matcher matcher = headerTemplates.get(header).matcher(value);
                     if (matcher.find()) {
-                        return true;
+                        return "header";
                     }
                 }
             }
         }
 
         for (String domTemplate : this.domTemplates) {
-            if (containsDomTemplate(document, domTemplate)) {
-                return true;
+            if (containsDomTemplate(document, prepareRegexp(domTemplate), getName())) {
+                return "dom";
             }
         }
 
@@ -109,7 +111,7 @@ public class Technology {
             if (!scriptSrc.equals("")) {
                 for (String scriptSrcTemplate : this.scriptSrc) {
                     if (containsHtmlTemplate(scriptSrc, scriptSrcTemplate)) {
-                        return true;
+                        return "script";
                     }
                 }
             }
@@ -119,20 +121,26 @@ public class Technology {
             BufferedReader bf = new BufferedReader(new StringReader(content));
             boolean match = bf.lines().anyMatch(line -> htmlTemplate.matcher(line).find());
             if (match) {
-                return true;
+                return "html";
             }
         }
 
-        return false;
+        return "";
     }
 
-    public boolean appliebleTo(String content) {
+    public String appliebleTo(String content) {
         return appliebleTo(new PageResponse(content));
     }
 
-    private boolean containsDomTemplate(Document document, String template) {
-        Elements elements = document.select(template);
-        return elements.size() > 0;
+    private boolean containsDomTemplate(Document document, String template, String name) {
+        try {
+            Elements elements = document.select(template);
+            return elements.size() > 0;
+        } catch (Selector.SelectorParseException e) {
+            System.out.println("Technology name " + name);
+            e.printStackTrace();
+        }
+        return false;
     }
 
     private boolean containsHtmlTemplate(String content, String htmlTemplate) {

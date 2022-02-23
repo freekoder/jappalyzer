@@ -2,12 +2,12 @@ package com.vampbear.jappalyzer;
 
 import org.junit.Test;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Collections;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class TechnologyTests {
 
@@ -22,7 +22,7 @@ public class TechnologyTests {
         Technology technology = new Technology("Font Awesome", "");
         technology.addHtmlTemplate("<link[^>]* href=[^>]+(?:([\\d.]+)/)?(?:css/)?font-awesome(?:\\.min)?\\.css\\;version:\\1");
         technology.addHtmlTemplate("<link[^>]* href=[^>]*kit\\-pro\\.fontawesome\\.com/releases/v([0-9.]+)/\\;version:\\1");
-        assertTrue(technology.appliebleTo(fontAwesomeContent));
+        assertEquals("html", technology.appliebleTo(fontAwesomeContent));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class TechnologyTests {
         PageResponse pageResponse = new PageResponse(200, headers, "");
         Technology technology = new Technology("Nginx", "");
         technology.addHeaderTemplate("Server", "nginx(?:/([\\d.]+))?\\;version:\\1");
-        assertTrue(technology.appliebleTo(pageResponse));
+        assertEquals("header", technology.appliebleTo(pageResponse));
     }
 
 }

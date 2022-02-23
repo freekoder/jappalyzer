@@ -22,7 +22,7 @@ public class Jappalyzer {
         List<Technology> technologies = loadTechnologies();
         System.out.println("Count: " + technologies.size());
         try {
-            Jappalyzer jappalyzer = Jappalyzer.create();
+            Jappalyzer jappalyzer = Jappalyzer.latest();
             List<Technology> instanceTechnologies = jappalyzer.getTechnologies();
             System.out.println("Instance techs: " + instanceTechnologies.size());
             List<TechnologyMatch> foundTechs = jappalyzer.fromUrl("https://yandex.ru/");
@@ -111,9 +111,10 @@ public class Jappalyzer {
         List<TechnologyMatch> matches = new ArrayList<>();
         for (Technology technology : technologies) {
             long startTimestamp = System.currentTimeMillis();
-            if (technology.appliebleTo(pageResponse)) {
+            String reason = technology.appliebleTo(pageResponse);
+            if (!reason.isEmpty()) {
                 long endTimestamp = System.currentTimeMillis();
-                matches.add(new TechnologyMatch(technology, endTimestamp - startTimestamp));
+                matches.add(new TechnologyMatch(technology, reason, endTimestamp - startTimestamp));
             }
         }
         return matches;
@@ -122,6 +123,8 @@ public class Jappalyzer {
     public List<TechnologyMatch> fromUrl(String url) throws IOException {
         HttpClient httpClient = new HttpClient();
         PageResponse pageResponse = httpClient.getPageByUrl(url);
+        System.out.println("Page loaded");
+        System.out.println("Page size " + pageResponse.getOrigContent().length());
         return getTechnologyMatches(pageResponse);
     }
 

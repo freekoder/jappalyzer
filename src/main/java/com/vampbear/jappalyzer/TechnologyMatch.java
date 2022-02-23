@@ -6,8 +6,9 @@ public class TechnologyMatch {
     private long duration;
     private String reason;
 
-    public TechnologyMatch(Technology technology, long duration) {
+    public TechnologyMatch(Technology technology, String reason, long duration) {
         this.technology = technology;
+        this.reason = reason;
         this.duration = duration;
     }
 
@@ -19,10 +20,15 @@ public class TechnologyMatch {
         return duration;
     }
 
+    public String getReason() {
+        return reason;
+    }
+
     @Override
     public String toString() {
         return "TechnologyMatch{" +
                 "technology=" + technology.getName() +
+                ", reason=" + reason +
                 ", duration=" + duration + "ms" +
                 '}';
     }

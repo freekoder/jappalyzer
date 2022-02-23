@@ -6,7 +6,6 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -80,6 +79,7 @@ public class Jappalyzer {
 
     private static Jappalyzer latest() {
         Jappalyzer jappalyzer = new Jappalyzer();
+        // TODO: move technlogies loading from web to separate function
         jappalyzer.updateTechnologies();
         return jappalyzer;
     }
@@ -201,6 +201,14 @@ public class Jappalyzer {
                 String headerPattern = headersObject.getString(header);
                 technology.addHeaderTemplate(header, headerPattern);
             }
+        }
+        if (object.has("website")) {
+            String website = object.getString("website");
+            technology.setWebsite(website);
+        }
+        if (object.has("icon")) {
+            String icon = object.getString("icon");
+            technology.setIconName(icon);
         }
         return technology;
     }

@@ -22,6 +22,9 @@ public class Technology {
     private final List<String> scriptSrc;
     private final Map<String, Pattern> headerTemplates;
 
+    private String iconName = "";
+    private String website = "";
+
     public Technology(String name, String description) {
         this.name = name;
         this.description = description;
@@ -37,6 +40,22 @@ public class Technology {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getIconName() {
+        return iconName;
+    }
+
+    public void setIconName(String iconName) {
+        this.iconName = iconName;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public void addHtmlTemplate(String template) {
@@ -57,7 +76,8 @@ public class Technology {
         return "Technology{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", htmlTemplates=" + htmlTemplates +
+                ", iconName='" + iconName + '\'' +
+                ", website='" + website + '\'' +
                 '}';
     }
 

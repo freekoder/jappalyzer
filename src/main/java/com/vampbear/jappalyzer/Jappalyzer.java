@@ -25,7 +25,7 @@ public class Jappalyzer {
             Jappalyzer jappalyzer = Jappalyzer.create();
             List<Technology> instanceTechnologies = jappalyzer.getTechnologies();
             System.out.println("Instance techs: " + instanceTechnologies.size());
-            List<Technology> foundTechs = jappalyzer.fromUrl("https://medium.com/");
+            List<TechnologyMatch> foundTechs = jappalyzer.fromUrl("https://yandex.ru/");
             foundTechs.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
@@ -104,27 +104,25 @@ public class Jappalyzer {
     public List<TechnologyMatch> fromFile(String path) {
         String fileContent = readFileContent(path);
         PageResponse pageResponse = new PageResponse(fileContent);
+        return getTechnologyMatches(pageResponse);
+    }
 
-        List<TechnologyMatch> matches = new LinkedList<>();
+    private List<TechnologyMatch> getTechnologyMatches(PageResponse pageResponse) {
+        List<TechnologyMatch> matches = new ArrayList<>();
         for (Technology technology : technologies) {
+            long startTimestamp = System.currentTimeMillis();
             if (technology.appliebleTo(pageResponse)) {
-                matches.add(new TechnologyMatch(technology));
+                long endTimestamp = System.currentTimeMillis();
+                matches.add(new TechnologyMatch(technology, endTimestamp - startTimestamp));
             }
         }
         return matches;
     }
 
-    public List<Technology> fromUrl(String url) throws IOException {
-        List<Technology> foundTechs = new ArrayList<>();
+    public List<TechnologyMatch> fromUrl(String url) throws IOException {
         HttpClient httpClient = new HttpClient();
         PageResponse pageResponse = httpClient.getPageByUrl(url);
-        System.out.println("Content size: " + pageResponse.getOrigContent().length());
-        for (Technology technology : technologies) {
-            if (technology.appliebleTo(pageResponse)) {
-                foundTechs.add(technology);
-            }
-        }
-        return foundTechs;
+        return getTechnologyMatches(pageResponse);
     }
 
     private static String readFileContent(String path) {

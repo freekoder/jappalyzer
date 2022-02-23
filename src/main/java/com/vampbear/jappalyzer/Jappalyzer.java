@@ -1,9 +1,12 @@
 package com.vampbear.jappalyzer;
 
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,16 +17,16 @@ import java.util.stream.Collectors;
 
 public class Jappalyzer {
 
-    private final List<Technology> technologies = new LinkedList<>();
+    private List<Technology> technologies = new LinkedList<>();
 
     public static void main(String[] args) {
         List<Technology> technologies = loadTechnologies();
         System.out.println("Count: " + technologies.size());
         try {
-            Jappalyzer jappalyzer = Jappalyzer.latest();
+            Jappalyzer jappalyzer = Jappalyzer.create();
             List<Technology> instanceTechnologies = jappalyzer.getTechnologies();
             System.out.println("Instance techs: " + instanceTechnologies.size());
-            List<Technology> foundTechs = jappalyzer.fromUrl("https://vampbear.com/");
+            List<Technology> foundTechs = jappalyzer.fromUrl("https://medium.com/");
             foundTechs.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
@@ -32,6 +35,47 @@ public class Jappalyzer {
 
     private List<Technology> getTechnologies() {
         return this.technologies;
+    }
+
+    public static Jappalyzer create() {
+        Jappalyzer jappalyzer = new Jappalyzer();
+        List<Technology> technologies = loadTechnologiesFromInternalResources();
+        jappalyzer.setTechnologies(technologies);
+        return jappalyzer;
+    }
+
+    private void setTechnologies(List<Technology> technologies) {
+        this.technologies = new ArrayList<>(technologies);
+    }
+
+    private static List<Technology> loadTechnologiesFromInternalResources() {
+        List<Technology> technologies = new LinkedList<>();
+        String[] keys = new String[]{
+                "a", "b", "c", "d", "e", "f", "g", "h", "i",
+                "j", "k", "l", "m", "n", "o", "p", "q", "r",
+                "s", "t", "u", "v", "w", "x", "y", "z", "_"};
+        for (String key : keys) {
+            String techFilename = String.format("technologies/%s.json", key);
+            try {
+                String fileContent = readFileContentFromResource(techFilename);
+                technologies.addAll(readTechnologiesFromString(fileContent));
+            } catch (IOException ignore) {}
+        }
+        return technologies;
+    }
+
+    private static String readFileContentFromResource(String techFilename) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        try (InputStream is = Jappalyzer.class.getClassLoader().getResourceAsStream(techFilename)) {
+            if (is != null) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(is));
+                String str;
+                while ((str = br.readLine()) != null) {
+                    sb.append(str);
+                }
+            }
+        }
+        return sb.toString();
     }
 
     private static Jappalyzer latest() {
@@ -57,7 +101,7 @@ public class Jappalyzer {
         }
     }
 
-    public static List<Technology> fromFile(String path) {
+    public List<Technology> fromFile(String path) {
         List<Technology> foundTechs = new ArrayList<>();
         List<Technology> technologies = loadTechnologies();
 

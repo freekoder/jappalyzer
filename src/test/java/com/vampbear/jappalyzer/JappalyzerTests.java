@@ -3,6 +3,7 @@ package com.vampbear.jappalyzer;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,29 +13,33 @@ public class JappalyzerTests {
 
     @Test
     public void wordpressComTest() {
-        List<Technology> technologies = Jappalyzer.fromFile("src/test/resources/files/wp.com.html");
+        Jappalyzer jappalyzer = Jappalyzer.create();
+        List<Technology> technologies = jappalyzer.fromFile("src/test/resources/files/wp.com.html");
         List<String> techNames = technologies.stream().map(Technology::getName).collect(Collectors.toList());
-        assertEquals(Arrays.asList("WordPress", "test2"), techNames);
+        assertEquals(Arrays.asList("Google Font API", "WordPress"), techNames);
     }
 
     @Test
     public void baeldungTest() {
-        List<Technology> technologies = Jappalyzer.fromFile("src/test/resources/files/Baeldung.html");
+        Jappalyzer jappalyzer = Jappalyzer.create();
+        List<Technology> technologies = jappalyzer.fromFile("src/test/resources/files/Baeldung.html");
         List<String> techNames = technologies.stream().map(Technology::getName).collect(Collectors.toList());
-        assertEquals(Arrays.asList("WordPress", "test2"), techNames);
+        assertEquals(Arrays.asList("Google Analytics", "Google Font API", "jQuery Migrate", "jQuery", "Elementor", "WordPress"), techNames);
     }
 
     @Test
     public void yandexTest() {
-        List<Technology> technologies = Jappalyzer.fromFile("src/test/resources/files/yandex.html");
+        Jappalyzer jappalyzer = Jappalyzer.create();
+        List<Technology> technologies = jappalyzer.fromFile("src/test/resources/files/yandex.html");
         List<String> techNames = technologies.stream().map(Technology::getName).collect(Collectors.toList());
-        assertEquals(Arrays.asList("WordPress", "test2"), techNames);
+        assertEquals(Arrays.asList("React", "jQuery", "Cart Functionality", "BEM"), techNames);
     }
 
     @Test
     public void twitterTest() {
-        List<Technology> technologies = Jappalyzer.fromFile("src/test/resources/files/twitter.html");
+        Jappalyzer jappalyzer = Jappalyzer.create();
+        List<Technology> technologies = jappalyzer.fromFile("src/test/resources/files/twitter.html");
         List<String> techNames = technologies.stream().map(Technology::getName).collect(Collectors.toList());
-        assertEquals(Arrays.asList("WordPress", "test2"), techNames);
+        assertEquals(Collections.emptyList(), techNames);
     }
 }

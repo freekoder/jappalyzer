@@ -25,7 +25,7 @@ public class Jappalyzer {
             Jappalyzer jappalyzer = Jappalyzer.create();
             List<Technology> instanceTechnologies = jappalyzer.getTechnologies();
             System.out.println("Instance techs: " + instanceTechnologies.size());
-            List<TechnologyMatch> foundTechs = jappalyzer.fromUrl("https://www.arlt.com/");
+            List<TechnologyMatch> foundTechs = jappalyzer.fromUrl("https://answer-id.com/ru");
             foundTechs.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();

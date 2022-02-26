@@ -40,6 +40,12 @@ public class TechnologyTests {
             "          See All 7,864 Icons\n" +
             "        </a></div></div></article></div></section>";
 
+    private static final String PAGE_WITH_SCRIPT = "<html>" +
+            "<head>" +
+            "<script src=\"/vendor/livewire/livewire.js?id=83b555bb3e243bc25f35\"></script>" +
+            "</head>" +
+            "</html>";
+
     @Test
     public void fontAwesomeTest() {
         Technology technology = new Technology("Font Awesome");
@@ -65,6 +71,14 @@ public class TechnologyTests {
         PageResponse pageResponse = new PageResponse(200, null, "");
         pageResponse.addCookie("trbo_session", "12312312");
         assertEquals("cookie", technology.appliebleTo(pageResponse));
+    }
+
+    @Test
+    public void scriptTest() {
+        Technology technology = new Technology("test");
+        technology.addScriptSrc("livewire(?:\\.min)?\\.js");
+        PageResponse pageResponse = new PageResponse(200, null, PAGE_WITH_SCRIPT);
+        assertEquals("script", technology.appliebleTo(pageResponse));
     }
 
     @Test

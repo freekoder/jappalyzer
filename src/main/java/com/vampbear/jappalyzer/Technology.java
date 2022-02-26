@@ -23,7 +23,7 @@ public class Technology {
     private String description;
     private final List<Pattern> htmlTemplates = new ArrayList<>();
     private final List<String> domTemplates = new ArrayList<>();
-    private final List<String> scriptSrc = new ArrayList<>();
+    private final List<Pattern> scriptSrc = new ArrayList<>();
     private final Map<String, Pattern> headerTemplates = new HashMap<>();
     private final Map<String, Pattern> cookieTemplates = new HashMap<>();
     private String iconName = "";
@@ -48,14 +48,17 @@ public class Technology {
         for (String template : htmlTemplates) {
             this.addHtmlTemplate(template);
         }
+
         List<String> domTemplates = readValuesByKey(object, "dom");
         for (String template : domTemplates) {
             this.addDomTemplate(template);
         }
+
         List<String> scriptSrcTemplates = readValuesByKey(object, "scriptSrc");
         for (String template : scriptSrcTemplates) {
             this.addScriptSrc(template);
         }
+
         if (object.has("headers")) {
             JSONObject headersObject = object.getJSONObject("headers");
             for (String header : headersObject.keySet()) {
@@ -120,7 +123,7 @@ public class Technology {
     }
 
     public void addScriptSrc(String scriptSrc) {
-        this.scriptSrc.add(scriptSrc);
+        this.scriptSrc.add(Pattern.compile(scriptSrc));
     }
 
     public List<Pattern> getHtmlTemplates() {
@@ -131,7 +134,7 @@ public class Technology {
         return domTemplates;
     }
 
-    public List<String> getScriptSrc() {
+    public List<Pattern> getScriptSrc() {
         return scriptSrc;
     }
 
@@ -201,14 +204,11 @@ public class Technology {
             }
         }
 
-        Elements scripts = document.select("script");
-        for (Element script : scripts) {
-            String scriptSrc = script.attr("src");
-            if (!scriptSrc.equals("")) {
-                for (String scriptSrcTemplate : this.scriptSrc) {
-                    if (containsHtmlTemplate(scriptSrc, scriptSrcTemplate)) {
-                        return "script";
-                    }
+        for (Pattern scriptSrcPattern : this.scriptSrc) {
+            for (String script : page.getScriptSources()) {
+                Matcher matcher = scriptSrcPattern.matcher(script);
+                if (matcher.find()) {
+                    return "script";
                 }
             }
         }

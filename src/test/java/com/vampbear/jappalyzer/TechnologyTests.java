@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.regex.Pattern;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TechnologyTests {
 
@@ -19,9 +20,9 @@ public class TechnologyTests {
             "    ],\n" +
             "    \"description\": \"DPD is an international parcel delivery service for sorter compatible parcels.\", " +
             "    \"cookies\": {\n" +
-            "      \"__derak_auth\": \"\",\n" +
-            "      \"__derak_user\": \"\"\n" +
-            "    },\n" +
+            "      \"trbo_session\": \"^(?:[\\\\d]+)$\",\n" +
+            "      \"django_language\": \"\"" +
+            "    }," +
             "    \"headers\": {\n" +
             "      \"Derak-Umbrage\": \"\",\n" +
             "      \"Server\": \"^DERAK\\\\.CLOUD$\"\n" +
@@ -58,14 +59,27 @@ public class TechnologyTests {
     }
 
     @Test
+    public void cookieHeaderTest() {
+        Technology technology = new Technology("Trbo");
+        technology.addCookieTemplate("trbo_session", "^(?:[\\d]+)$");
+        PageResponse pageResponse = new PageResponse(200, null, "");
+        pageResponse.addCookie("trbo_session", "12312312");
+        assertEquals("cookie", technology.appliebleTo(pageResponse));
+    }
+
+    @Test
     public void stringConstructorTest() {
         Technology technology = new Technology("DERAK.CLOUD", TECHNOLOGY_STRING);
         assertEquals("DERAK.CLOUD", technology.getName());
         assertEquals("DPD is an international parcel delivery service for sorter compatible parcels.", technology.getDescription());
         assertEquals("https://derak.cloud", technology.getWebsite());
         assertEquals("DerakCloud.png", technology.getIconName());
+
         assertEquals("", technology.getHeaderTemplates().get("Derak-Umbrage").toString());
         assertEquals("^DERAK\\.CLOUD$", technology.getHeaderTemplates().get("Server").toString());
+
+        assertEquals("^(?:[\\d]+)$", technology.getCookieTemplates().get("trbo_session").toString());
+        assertEquals("", technology.getCookieTemplates().get("django_language").toString());
     }
 
 }

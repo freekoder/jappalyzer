@@ -8,6 +8,7 @@ public class PageResponse {
 
     private final int statusCode;
     private final Map<String, List<String>> headers;
+    private final Map<String, List<String>> cookies = new HashMap<>();
     private final Document document;
     private final String origContent;
 
@@ -36,5 +37,14 @@ public class PageResponse {
 
     public Document getDocument() {
         return document;
+    }
+
+    public void addCookie(String name, String value) {
+        this.cookies.computeIfAbsent(name, k -> new ArrayList<>());
+        this.cookies.get(name).add(value);
+    }
+
+    public Map<String, List<String>> getCookies() {
+        return this.cookies;
     }
 }

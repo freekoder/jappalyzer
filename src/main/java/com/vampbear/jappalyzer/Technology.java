@@ -25,6 +25,7 @@ public class Technology {
     private final List<String> domTemplates = new ArrayList<>();
     private final List<String> scriptSrc = new ArrayList<>();
     private final Map<String, Pattern> headerTemplates = new HashMap<>();
+    private final Map<String, Pattern> cookieTemplates = new HashMap<>();
     private String iconName = "";
     private String website = "";
 
@@ -62,6 +63,14 @@ public class Technology {
                 this.addHeaderTemplate(header, headerPattern);
             }
         }
+        if (object.has("cookies")) {
+            JSONObject cookiesObject = object.getJSONObject("cookies");
+            for (String cookie : cookiesObject.keySet()) {
+                String cookiePattern = cookiesObject.getString(cookie);
+                this.addCookieTemplate(cookie, cookiePattern);
+            }
+
+        }
         if (object.has("website")) {
             String website = object.getString("website");
             this.setWebsite(website);
@@ -70,6 +79,11 @@ public class Technology {
             String icon = object.getString("icon");
             this.setIconName(icon);
         }
+    }
+
+    public void addCookieTemplate(String cookie, String cookiePattern) {
+        Pattern pattern = Pattern.compile(prepareRegexp(cookiePattern));
+        this.cookieTemplates.put(cookie, pattern);
     }
 
     public String getName() {
@@ -169,6 +183,18 @@ public class Technology {
             }
         }
 
+        for (String cookie : this.cookieTemplates.keySet()) {
+            List<String> values = page.getCookies().get(cookie);
+            if (values != null && !values.isEmpty()) {
+                for (String value : values) {
+                    Matcher matcher = cookieTemplates.get(cookie).matcher(value);
+                    if (matcher.find()) {
+                        return "cookie";
+                    }
+                }
+            }
+        }
+
         for (String domTemplate : this.domTemplates) {
             if (containsDomTemplate(document, prepareRegexp(domTemplate), getName())) {
                 return "dom";
@@ -228,5 +254,9 @@ public class Technology {
     public void addHeaderTemplate(String headerName, String template) {
         Pattern pattern = Pattern.compile(prepareRegexp(template));
         this.headerTemplates.put(headerName, pattern);
+    }
+
+    public Map<String, Pattern> getCookieTemplates() {
+        return this.cookieTemplates;
     }
 }

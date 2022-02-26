@@ -1,8 +1,11 @@
 package com.vampbear.jappalyzer;
 
+import org.json.Cookie;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpCookie;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
@@ -23,8 +26,28 @@ public class HttpClient {
             int status = conn.getResponseCode();
             Map<String, List<String>> headers = conn.getHeaderFields();
             String content = readInputStream(conn);
+            PageResponse pageResponse = new PageResponse(status, headers, content);
+            List<String> setCookiesHeaders = headers.get("Set-Cookie");
+            if (setCookiesHeaders != null) {
+                for (String cookieValue : setCookiesHeaders) {
+                    List<HttpCookie> cookies = HttpCookie.parse(cookieValue);
+                    for (HttpCookie cookie : cookies) {
+                        pageResponse.addCookie(cookie.getName(), cookie.getValue());
+                    }
+                }
+            }
 
-            return new PageResponse(status, headers, content);
+            List<String> cookiesHeaders = headers.get("Cookie");
+            if (cookiesHeaders != null) {
+                for (String cookieValue : cookiesHeaders) {
+                    List<HttpCookie> cookies = HttpCookie.parse(cookieValue);
+                    for (HttpCookie cookie : cookies) {
+                        pageResponse.addCookie(cookie.getName(), cookie.getValue());
+                    }
+                }
+            }
+
+            return pageResponse;
         } finally {
             if (conn != null) conn.disconnect();
         }

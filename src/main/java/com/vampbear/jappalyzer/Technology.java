@@ -1,5 +1,8 @@
 package com.vampbear.jappalyzer;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -17,22 +20,56 @@ import java.util.regex.Pattern;
 public class Technology {
 
     private final String name;
-    private final String description;
-    private final List<Pattern> htmlTemplates;
-    private final List<String> domTemplates;
-    private final List<String> scriptSrc;
-    private final Map<String, Pattern> headerTemplates;
-
+    private String description;
+    private final List<Pattern> htmlTemplates = new ArrayList<>();
+    private final List<String> domTemplates = new ArrayList<>();
+    private final List<String> scriptSrc = new ArrayList<>();
+    private final Map<String, Pattern> headerTemplates = new HashMap<>();
     private String iconName = "";
     private String website = "";
 
-    public Technology(String name, String description) {
+    public Technology(String name) {
         this.name = name;
-        this.description = description;
-        this.htmlTemplates = new ArrayList<>();
-        this.domTemplates = new ArrayList<>();
-        this.scriptSrc = new ArrayList<>();
-        this.headerTemplates = new HashMap<>();
+    }
+
+    public Technology(String name, String jsonString) {
+        this(name, new JSONObject(jsonString));
+    }
+
+    public Technology(String name, JSONObject object) {
+        this.name = name;
+
+        if (object.has("description")) {
+            this.description = object.getString("description");
+        }
+
+        List<String> htmlTemplates = readValuesByKey(object, "html");
+        for (String template : htmlTemplates) {
+            this.addHtmlTemplate(template);
+        }
+        List<String> domTemplates = readValuesByKey(object, "dom");
+        for (String template : domTemplates) {
+            this.addDomTemplate(template);
+        }
+        List<String> scriptSrcTemplates = readValuesByKey(object, "scriptSrc");
+        for (String template : scriptSrcTemplates) {
+            this.addScriptSrc(template);
+        }
+        if (object.has("headers")) {
+            JSONObject headersObject = object.getJSONObject("headers");
+            for (String header : headersObject.keySet()) {
+                String headerPattern = headersObject.getString(header);
+                this.addHeaderTemplate(header, headerPattern);
+            }
+        }
+        if (object.has("website")) {
+            String website = object.getString("website");
+            this.setWebsite(website);
+        }
+        if (object.has("icon")) {
+            String icon = object.getString("icon");
+            this.setIconName(icon);
+        }
     }
 
     public String getName() {
@@ -70,6 +107,39 @@ public class Technology {
 
     public void addScriptSrc(String scriptSrc) {
         this.scriptSrc.add(scriptSrc);
+    }
+
+    public List<Pattern> getHtmlTemplates() {
+        return htmlTemplates;
+    }
+
+    public List<String> getDomTemplates() {
+        return domTemplates;
+    }
+
+    public List<String> getScriptSrc() {
+        return scriptSrc;
+    }
+
+    public Map<String, Pattern> getHeaderTemplates() {
+        return headerTemplates;
+    }
+
+    private static List<String> readValuesByKey(JSONObject object, String key) {
+        List<String> values = new ArrayList<>();
+        if (object.has(key)) {
+            if (object.get(key) instanceof String) {
+                values.add(object.getString(key));
+            } else if (object.get(key) instanceof JSONArray) {
+                JSONArray templates = object.getJSONArray(key);
+                for (Object item : templates) {
+                    if (item instanceof String) {
+                        values.add((String) item);
+                    }
+                }
+            }
+        }
+        return values;
     }
 
     @Override

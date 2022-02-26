@@ -1,6 +1,6 @@
 package com.vampbear.jappalyzer;
 
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -154,11 +154,8 @@ public class Jappalyzer {
         List<Technology> technologies = new LinkedList<>();
         try {
             byte[] content = Files.readAllBytes(file);
-            JSONObject fileJSON = new JSONObject(new String(content));
-            for (String key : fileJSON.keySet()) {
-                JSONObject object = (JSONObject) fileJSON.get(key);
-                technologies.add(convertToTechnology(key, object));
-            }
+            String technologyString = new String(content);
+            return readTechnologiesFromString(technologyString);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -170,61 +167,12 @@ public class Jappalyzer {
         JSONObject fileJSON = new JSONObject(technologiesString);
         for (String key : fileJSON.keySet()) {
             JSONObject object = (JSONObject) fileJSON.get(key);
-            technologies.add(convertToTechnology(key, object));
+            try {
+                technologies.add(new Technology(key, object));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
         return technologies;
-    }
-
-    private static Technology convertToTechnology(String key, JSONObject object) {
-        String description = "";
-        if (object.has("description")) {
-            description = object.getString("description");
-        }
-        Technology technology = new Technology(key, description);
-        List<String> htmlTemplates = readValuesByKey(object, "html");
-        for (String template : htmlTemplates) {
-            technology.addHtmlTemplate(template);
-        }
-        List<String> domTemplates = readValuesByKey(object, "dom");
-        for (String template : domTemplates) {
-            technology.addDomTemplate(template);
-        }
-        List<String> scriptSrcTemplates = readValuesByKey(object, "scriptSrc");
-        for (String template : scriptSrcTemplates) {
-            technology.addScriptSrc(template);
-        }
-        if (object.has("headers")) {
-            JSONObject headersObject = object.getJSONObject("headers");
-            for (String header : headersObject.keySet()) {
-                String headerPattern = headersObject.getString(header);
-                technology.addHeaderTemplate(header, headerPattern);
-            }
-        }
-        if (object.has("website")) {
-            String website = object.getString("website");
-            technology.setWebsite(website);
-        }
-        if (object.has("icon")) {
-            String icon = object.getString("icon");
-            technology.setIconName(icon);
-        }
-        return technology;
-    }
-
-    private static List<String> readValuesByKey(JSONObject object, String key) {
-        List<String> values = new ArrayList<>();
-        if (object.has(key)) {
-            if (object.get(key) instanceof String) {
-                values.add(object.getString(key));
-            } else if (object.get(key) instanceof JSONArray) {
-                JSONArray templates = object.getJSONArray(key);
-                for (Object item : templates) {
-                    if (item instanceof String) {
-                        values.add((String) item);
-                    }
-                }
-            }
-        }
-        return values;
     }
 }

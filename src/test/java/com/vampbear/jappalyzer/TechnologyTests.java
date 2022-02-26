@@ -1,15 +1,37 @@
 package com.vampbear.jappalyzer;
 
+import javafx.scene.shape.PathElement;
 import org.junit.Test;
 
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.regex.Pattern;
 
 import static org.junit.Assert.assertEquals;
 
 public class TechnologyTests {
+
+    private static final String TECHNOLOGY_STRING = "{\n" +
+            "    \"cats\": [\n" +
+            "      31\n" +
+            "    ],\n" +
+            "    \"description\": \"DPD is an international parcel delivery service for sorter compatible parcels.\", " +
+            "    \"cookies\": {\n" +
+            "      \"__derak_auth\": \"\",\n" +
+            "      \"__derak_user\": \"\"\n" +
+            "    },\n" +
+            "    \"headers\": {\n" +
+            "      \"Derak-Umbrage\": \"\",\n" +
+            "      \"Server\": \"^DERAK\\\\.CLOUD$\"\n" +
+            "    },\n" +
+            "    \"icon\": \"DerakCloud.png\",\n" +
+            "    \"js\": {\n" +
+            "      \"derakCloud.init\": \"\"\n" +
+            "    },\n" +
+            "    \"website\": \"https://derak.cloud\"\n" +
+            "  }";
 
     private static final String fontAwesomeContent = "<section id=\"pixel-perfect\" class=\"pb6 ph6 ph7-l\"><link href=\"https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css\" rel=\"stylesheet\"> <div class=\"bt bw2 b--gray1 pt6 mw9 center\"><article class=\"flex flex-column flex-row-xl flex-nowrap-xl items-stretch-xl nr6 nb4\"><div class=\"pr6 pb4 w-40-xl\"><h2 class=\"mt0 mb2 f5 fw6\">Professionally Designed + Pixel-Perfect</h2> <div class=\"f4-l lh-copy\"><p class=\"mv0\">Each and every symbol is designed from scratch against guidelines and standards forged from years of experience of illustrating and designing icons. The result is a consistent look and feel that spans thousands of icons across four unique styles – with <a href=\"/v6.0\" class=\"link color-inherit link-underline-dark hover-primary6\">more coming in v6</a>.</p></div> <a href=\"/v5.15/icons?d=gallery&amp;p=1\" class=\"mt4 dn dib-xl link button-depth fw6 ba b--black-20 br2 ph5 pv3 hover-b--black-30 tc near-white nowrap hover-white bg-primary6 hover-bg-primary7\"><svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"binoculars\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" class=\"mr2 svg-inline--fa fa-binoculars fa-w-16 fa-lg\"><path fill=\"currentColor\" d=\"M416 48c0-8.84-7.16-16-16-16h-64c-8.84 0-16 7.16-16 16v48h96V48zM63.91 159.99C61.4 253.84 3.46 274.22 0 404v44c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32V288h32V128H95.84c-17.63 0-31.45 14.37-31.93 31.99zm384.18 0c-.48-17.62-14.3-31.99-31.93-31.99H320v160h32v160c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-44c-3.46-129.78-61.4-150.16-63.91-244.01zM176 32h-64c-8.84 0-16 7.16-16 16v48h96V48c0-8.84-7.16-16-16-16zm48 256h64V128h-64v160z\" class=\"\"></path></svg>\n" +
             "          See All 7,864 Icons\n" +
@@ -19,7 +41,7 @@ public class TechnologyTests {
 
     @Test
     public void fontAwesomeTest() {
-        Technology technology = new Technology("Font Awesome", "");
+        Technology technology = new Technology("Font Awesome");
         technology.addHtmlTemplate("<link[^>]* href=[^>]+(?:([\\d.]+)/)?(?:css/)?font-awesome(?:\\.min)?\\.css\\;version:\\1");
         technology.addHtmlTemplate("<link[^>]* href=[^>]*kit\\-pro\\.fontawesome\\.com/releases/v([0-9.]+)/\\;version:\\1");
         assertEquals("html", technology.appliebleTo(fontAwesomeContent));
@@ -33,6 +55,17 @@ public class TechnologyTests {
         Technology technology = new Technology("Nginx", "");
         technology.addHeaderTemplate("Server", "nginx(?:/([\\d.]+))?\\;version:\\1");
         assertEquals("header", technology.appliebleTo(pageResponse));
+    }
+
+    @Test
+    public void stringConstructorTest() {
+        Technology technology = new Technology("DERAK.CLOUD", TECHNOLOGY_STRING);
+        assertEquals("DERAK.CLOUD", technology.getName());
+        assertEquals("DPD is an international parcel delivery service for sorter compatible parcels.", technology.getDescription());
+        assertEquals("https://derak.cloud", technology.getWebsite());
+        assertEquals("DerakCloud.png", technology.getIconName());
+        assertEquals("", technology.getHeaderTemplates().get("Derak-Umbrage").toString());
+        assertEquals("^DERAK\\.CLOUD$", technology.getHeaderTemplates().get("Server").toString());
     }
 
 }

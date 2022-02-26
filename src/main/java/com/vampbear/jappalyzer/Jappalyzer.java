@@ -22,10 +22,10 @@ public class Jappalyzer {
         List<Technology> technologies = loadTechnologies();
         System.out.println("Count: " + technologies.size());
         try {
-            Jappalyzer jappalyzer = Jappalyzer.latest();
+            Jappalyzer jappalyzer = Jappalyzer.create();
             List<Technology> instanceTechnologies = jappalyzer.getTechnologies();
             System.out.println("Instance techs: " + instanceTechnologies.size());
-            List<TechnologyMatch> foundTechs = jappalyzer.fromUrl("https://wordpress.com/");
+            List<TechnologyMatch> foundTechs = jappalyzer.fromUrl("https://www.arlt.com/");
             foundTechs.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();

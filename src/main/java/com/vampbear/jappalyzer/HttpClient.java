@@ -26,28 +26,7 @@ public class HttpClient {
             int status = conn.getResponseCode();
             Map<String, List<String>> headers = conn.getHeaderFields();
             String content = readInputStream(conn);
-            PageResponse pageResponse = new PageResponse(status, headers, content);
-            List<String> setCookiesHeaders = headers.get("Set-Cookie");
-            if (setCookiesHeaders != null) {
-                for (String cookieValue : setCookiesHeaders) {
-                    List<HttpCookie> cookies = HttpCookie.parse(cookieValue);
-                    for (HttpCookie cookie : cookies) {
-                        pageResponse.addCookie(cookie.getName(), cookie.getValue());
-                    }
-                }
-            }
-
-            List<String> cookiesHeaders = headers.get("Cookie");
-            if (cookiesHeaders != null) {
-                for (String cookieValue : cookiesHeaders) {
-                    List<HttpCookie> cookies = HttpCookie.parse(cookieValue);
-                    for (HttpCookie cookie : cookies) {
-                        pageResponse.addCookie(cookie.getName(), cookie.getValue());
-                    }
-                }
-            }
-
-            return pageResponse;
+            return new PageResponse(status, headers, content);
         } finally {
             if (conn != null) conn.disconnect();
         }

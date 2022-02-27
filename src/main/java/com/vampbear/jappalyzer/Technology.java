@@ -1,10 +1,8 @@
 package com.vampbear.jappalyzer;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.jsoup.select.Selector;
 
@@ -18,6 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Technology {
+
 
     private final String name;
     private String description;
@@ -142,6 +141,10 @@ public class Technology {
         return headerTemplates;
     }
 
+    public Pattern getHeaderTemplates(String headerKey) {
+        return headerTemplates.get(headerKey.toLowerCase());
+    }
+
     private static List<String> readValuesByKey(JSONObject object, String key) {
         List<String> values = new ArrayList<>();
         if (object.has(key)) {
@@ -175,12 +178,17 @@ public class Technology {
         String content = page.getOrigContent();
 
         for (String header : this.headerTemplates.keySet()) {
-            List<String> headerValues = page.getHeaders().get(header);
-            if (headerValues != null && !headerValues.isEmpty()) {
-                for (String value : headerValues) {
-                    Matcher matcher = headerTemplates.get(header).matcher(value);
-                    if (matcher.find()) {
-                        return "header";
+            Pattern pattern = this.headerTemplates.get(header);
+            if (pattern.toString().isEmpty() && page.getHeaders().containsKey(header)) {
+                return TechnologyMatch.HEADER;
+            } else {
+                List<String> headerValues = page.getHeaders().get(header);
+                if (headerValues != null && !headerValues.isEmpty()) {
+                    for (String value : headerValues) {
+                        Matcher matcher = headerTemplates.get(header).matcher(value);
+                        if (matcher.find()) {
+                            return TechnologyMatch.HEADER;
+                        }
                     }
                 }
             }
@@ -253,7 +261,7 @@ public class Technology {
 
     public void addHeaderTemplate(String headerName, String template) {
         Pattern pattern = Pattern.compile(prepareRegexp(template));
-        this.headerTemplates.put(headerName, pattern);
+        this.headerTemplates.put(headerName.toLowerCase(), pattern);
     }
 
     public Map<String, Pattern> getCookieTemplates() {

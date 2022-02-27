@@ -55,11 +55,41 @@ public class TechnologyTests {
     }
 
     @Test
+    public void emptyHeaderTest() {
+        Technology technology = new Technology("test");
+        technology.addHeaderTemplate("X-Flex-Lang", "");
+        Map<String, List<String>> headers = new HashMap<>();
+        headers.put("X-Flex-Lang", Collections.singletonList("IT"));
+        PageResponse pageResponse = new PageResponse(200, headers, "");
+        assertEquals(TechnologyMatch.HEADER, technology.appliebleTo(pageResponse));
+    }
+
+    @Test
+    public void emptyHeaderPageLowerCaseTest() {
+        Technology technology = new Technology("test");
+        technology.addHeaderTemplate("X-Flex-Lang", "");
+        Map<String, List<String>> headers = new HashMap<>();
+        headers.put("x-flex-lang", Collections.singletonList("IT"));
+        PageResponse pageResponse = new PageResponse(200, headers, "");
+        assertEquals(TechnologyMatch.HEADER, technology.appliebleTo(pageResponse));
+    }
+
+    @Test
+    public void emptyHeaderTechnologyLowerCaseTest() {
+        Technology technology = new Technology("test");
+        technology.addHeaderTemplate("x-flex-lang", "");
+        Map<String, List<String>> headers = new HashMap<>();
+        headers.put("X-Flex-Lang", Collections.singletonList("IT"));
+        PageResponse pageResponse = new PageResponse(200, headers, "");
+        assertEquals(TechnologyMatch.HEADER, technology.appliebleTo(pageResponse));
+    }
+
+    @Test
     public void serverHeaderTest() {
         Map<String, List<String>> headers = new HashMap<>();
         headers.put("Server", Collections.singletonList("nginx"));
         PageResponse pageResponse = new PageResponse(200, headers, "");
-        Technology technology = new Technology("Nginx", "");
+        Technology technology = new Technology("Nginx");
         technology.addHeaderTemplate("Server", "nginx(?:/([\\d.]+))?\\;version:\\1");
         assertEquals("header", technology.appliebleTo(pageResponse));
     }
@@ -89,8 +119,8 @@ public class TechnologyTests {
         assertEquals("https://derak.cloud", technology.getWebsite());
         assertEquals("DerakCloud.png", technology.getIconName());
 
-        assertEquals("", technology.getHeaderTemplates().get("Derak-Umbrage").toString());
-        assertEquals("^DERAK\\.CLOUD$", technology.getHeaderTemplates().get("Server").toString());
+        assertEquals("", technology.getHeaderTemplates("Derak-Umbrage").toString());
+        assertEquals("^DERAK\\.CLOUD$", technology.getHeaderTemplates("Server").toString());
 
         assertEquals("^(?:[\\d]+)$", technology.getCookieTemplates().get("trbo_session").toString());
         assertEquals("", technology.getCookieTemplates().get("django_language").toString());

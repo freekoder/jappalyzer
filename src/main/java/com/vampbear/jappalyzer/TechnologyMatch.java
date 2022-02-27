@@ -2,9 +2,11 @@ package com.vampbear.jappalyzer;
 
 public class TechnologyMatch {
 
+    public static final String HEADER = "header";
+
     private final Technology technology;
-    private long duration;
-    private String reason;
+    private final long duration;
+    private final String reason;
 
     public TechnologyMatch(Technology technology, String reason, long duration) {
         this.technology = technology;

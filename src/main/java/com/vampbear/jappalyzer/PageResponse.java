@@ -41,9 +41,13 @@ public class PageResponse {
 
     public void setHeaders(Map<String, List<String>> headers) {
         if (headers == null) return;
-        this.headers.putAll(headers);
-        processCookies(headers.get("Set-Cookie"));
-        processCookies(headers.get("Cookie"));
+        for (String headerKey : headers.keySet()) {
+            if (headerKey != null) {
+                this.headers.put(headerKey.toLowerCase(), headers.get(headerKey));
+            }
+        }
+        processCookies(headers.get("set-cookie"));
+        processCookies(headers.get("cookie"));
     }
 
     private void processCookies(List<String> cookieValues) {

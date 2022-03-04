@@ -25,6 +25,7 @@ public class Technology {
     private final List<Pattern> scriptSrc = new ArrayList<>();
     private final Map<String, Pattern> headerTemplates = new HashMap<>();
     private final Map<String, Pattern> cookieTemplates = new HashMap<>();
+    private final Map<String, Pattern> metaTemplates = new HashMap<>();
     private String iconName = "";
     private String website = "";
 
@@ -65,22 +66,36 @@ public class Technology {
                 this.addHeaderTemplate(header, headerPattern);
             }
         }
+
         if (object.has("cookies")) {
             JSONObject cookiesObject = object.getJSONObject("cookies");
             for (String cookie : cookiesObject.keySet()) {
                 String cookiePattern = cookiesObject.getString(cookie);
                 this.addCookieTemplate(cookie, cookiePattern);
             }
-
         }
+
+        if (object.has("meta")) {
+            JSONObject metaObject = object.getJSONObject("meta");
+            for (String metaKey : metaObject.keySet()) {
+                String metaPattern = metaObject.getString(metaKey);
+                this.addMetaTemplate(metaKey, metaPattern);
+            }
+        }
+
         if (object.has("website")) {
             String website = object.getString("website");
             this.setWebsite(website);
         }
+
         if (object.has("icon")) {
             String icon = object.getString("icon");
             this.setIconName(icon);
         }
+    }
+
+    private void addMetaTemplate(String name, String pattern) {
+        this.metaTemplates.put(name, Pattern.compile(prepareRegexp(pattern)));
     }
 
     public void addCookieTemplate(String cookie, String cookiePattern) {
@@ -209,6 +224,23 @@ public class Technology {
                             if (matcher.find()) {
                                 return TechnologyMatch.COOKIE;
                             }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!page.getMetaMap().isEmpty()) {
+            for (String name : this.metaTemplates.keySet()) {
+                Pattern pattern = this.metaTemplates.get(name);
+                if (pattern.toString().isEmpty() && page.getMetaMap().containsKey(name)) {
+                    return TechnologyMatch.META;
+                } else {
+                    String metaContent = page.getMetaMap().get(name);
+                    if (metaContent != null && !metaContent.isEmpty()) {
+                        Matcher matcher = this.metaTemplates.get(name).matcher(metaContent);
+                        if (matcher.find()) {
+                            return TechnologyMatch.META;
                         }
                     }
                 }

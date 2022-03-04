@@ -9,8 +9,7 @@ import java.util.HashMap;
 import java.util.Collections;
 import java.util.regex.Pattern;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TechnologyTests {
 
@@ -33,6 +32,46 @@ public class TechnologyTests {
             "    },\n" +
             "    \"website\": \"https://derak.cloud\"\n" +
             "  }";
+
+    public static final String JOOMLA_TECH_STRING = "{\n" +
+            "    \"cats\": [\n" +
+            "      1\n" +
+            "    ],\n" +
+            "    \"cpe\": \"cpe:/a:joomla:joomla\",\n" +
+            "    \"description\": \"Joomla is a free and open-source content management system for publishing web content.\",\n" +
+            "    \"headers\": {\n" +
+            "      \"X-Content-Encoded-By\": \"Joomla! ([\\\\d.]+)\\\\;version:\\\\1\"\n" +
+            "    },\n" +
+            "    \"html\": \"(?:<div[^>]+id=\\\"wrapper_r\\\"|<(?:link|script)[^>]+(?:feed|components)/com_|<table[^>]+class=\\\"pill)\\\\;confidence:50\",\n" +
+            "    \"icon\": \"Joomla.svg\",\n" +
+            "    \"implies\": \"PHP\",\n" +
+            "    \"js\": {\n" +
+            "      \"Joomla\": \"\",\n" +
+            "      \"jcomments\": \"\"\n" +
+            "    },\n" +
+            "    \"meta\": {\n" +
+            "      \"generator\": \"Joomla!(?: ([\\\\d.]+))?\\\\;version:\\\\1\"\n" +
+            "    },\n" +
+            "    \"oss\": true,\n" +
+            "    \"url\": \"option=com_\",\n" +
+            "    \"website\": \"https://www.joomla.org\"\n" +
+            "  }";
+
+    public static final String JOOMLA_META_CONTENT = "<!DOCTYPE html>\n" +
+            "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fa-ir\" lang=\"fa-ir\" dir=\"rtl\">\n" +
+            "<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n" +
+            "\n" +
+            "    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n" +
+            "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" +
+            "\n" +
+            "\n" +
+            "    <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n" +
+            "\t<meta name=\"keywords\" content=\"هاست لینوکس,هاست ایران,هاست,هاست خارجی,خرید هاست,ثبت ارزان دامنه,هاست ایرانی , هاست ویندوز\" />\n" +
+            "\t<meta name=\"description\" content=\"بهترین کیفیت و قیمت خرید هاست لینوکس و هاست ایران را تجربه کنید همراه با تحویل آنی و ثبت ارزان دامنه با پشتیبانی 24 ساعته\" />\n" +
+            "\t<meta name=\"generator\" content=\"Joomla! - Open Source Content Management\" />\n" +
+            "\t<title>هاست لینوکس | هاست ایران | هاست ویندوز | ثبت ارزان دامنه | هاست نگار</title>\n" +
+            "\t<link href=\"/favicon.ico\" rel=\"shortcut icon\" type=\"image/vnd.microsoft.icon\" />" +
+            "</head><body></body></html>";
 
     private static final String fontAwesomeContent = "<section id=\"pixel-perfect\" class=\"pb6 ph6 ph7-l\"><link href=\"https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css\" rel=\"stylesheet\"> <div class=\"bt bw2 b--gray1 pt6 mw9 center\"><article class=\"flex flex-column flex-row-xl flex-nowrap-xl items-stretch-xl nr6 nb4\"><div class=\"pr6 pb4 w-40-xl\"><h2 class=\"mt0 mb2 f5 fw6\">Professionally Designed + Pixel-Perfect</h2> <div class=\"f4-l lh-copy\"><p class=\"mv0\">Each and every symbol is designed from scratch against guidelines and standards forged from years of experience of illustrating and designing icons. The result is a consistent look and feel that spans thousands of icons across four unique styles – with <a href=\"/v6.0\" class=\"link color-inherit link-underline-dark hover-primary6\">more coming in v6</a>.</p></div> <a href=\"/v5.15/icons?d=gallery&amp;p=1\" class=\"mt4 dn dib-xl link button-depth fw6 ba b--black-20 br2 ph5 pv3 hover-b--black-30 tc near-white nowrap hover-white bg-primary6 hover-bg-primary7\"><svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"binoculars\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" class=\"mr2 svg-inline--fa fa-binoculars fa-w-16 fa-lg\"><path fill=\"currentColor\" d=\"M416 48c0-8.84-7.16-16-16-16h-64c-8.84 0-16 7.16-16 16v48h96V48zM63.91 159.99C61.4 253.84 3.46 274.22 0 404v44c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32V288h32V128H95.84c-17.63 0-31.45 14.37-31.93 31.99zm384.18 0c-.48-17.62-14.3-31.99-31.93-31.99H320v160h32v160c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-44c-3.46-129.78-61.4-150.16-63.91-244.01zM176 32h-64c-8.84 0-16 7.16-16 16v48h96V48c0-8.84-7.16-16-16-16zm48 256h64V128h-64v160z\" class=\"\"></path></svg>\n" +
             "          See All 7,864 Icons\n" +
@@ -133,6 +172,20 @@ public class TechnologyTests {
 
         assertEquals("^(?:[\\d]+)$", technology.getCookieTemplates().get("trbo_session").toString());
         assertEquals("", technology.getCookieTemplates().get("django_language").toString());
+    }
+
+    @Test
+    public void metaPatternTest() {
+        Technology technology = new Technology("Joomla", JOOMLA_TECH_STRING);
+        PageResponse pageResponse = new PageResponse(200, null, JOOMLA_META_CONTENT);
+        assertEquals(TechnologyMatch.META, technology.appliebleTo(pageResponse));
+    }
+
+    @Test
+    public void metaEmptyPatternTest() {
+        fail(
+
+        );
     }
 
 }

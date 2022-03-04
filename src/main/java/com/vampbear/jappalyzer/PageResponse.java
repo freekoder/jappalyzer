@@ -15,6 +15,7 @@ public class PageResponse {
     private Document document;
     private String origContent;
     private final List<String> scriptSources = new ArrayList<>();
+    private final Map<String, String> metaMap = new HashMap<>();
 
     public PageResponse(String content) {
         this(200, Collections.emptyMap(), content);
@@ -36,6 +37,13 @@ public class PageResponse {
             if (!scriptSrc.equals("")) {
                 this.scriptSources.add(scriptSrc);
             }
+        }
+
+        Elements metas = document.select("meta");
+        for (Element meta : metas) {
+            String metaName = meta.attr("name");
+            String metaContent = meta.attr("content");
+            metaMap.put(metaName, metaContent);
         }
     }
 
@@ -87,5 +95,9 @@ public class PageResponse {
 
     public List<String> getScriptSources() {
         return this.scriptSources;
+    }
+
+    public Map<String, String> getMetaMap() {
+        return this.metaMap;
     }
 }

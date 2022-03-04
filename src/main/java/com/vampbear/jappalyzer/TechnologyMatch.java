@@ -4,6 +4,7 @@ public class TechnologyMatch {
 
     public static final String HEADER = "header";
     public static final String COOKIE = "cookie";
+    public static final String META = "meta";
 
     private final Technology technology;
     private final long duration;

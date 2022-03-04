@@ -122,7 +122,7 @@ public class Technology {
     }
 
     public void addScriptSrc(String scriptSrc) {
-        this.scriptSrc.add(Pattern.compile(scriptSrc));
+        this.scriptSrc.add(Pattern.compile(prepareRegexp(scriptSrc)));
     }
 
     public List<Pattern> getHtmlTemplates() {
@@ -177,34 +177,38 @@ public class Technology {
         Document document = page.getDocument();
         String content = page.getOrigContent();
 
-        for (String header : this.headerTemplates.keySet()) {
-            Pattern pattern = this.headerTemplates.get(header);
-            if (pattern.toString().isEmpty() && page.getHeaders().containsKey(header)) {
-                return TechnologyMatch.HEADER;
-            } else {
-                List<String> headerValues = page.getHeaders().get(header);
-                if (headerValues != null && !headerValues.isEmpty()) {
-                    for (String value : headerValues) {
-                        Matcher matcher = headerTemplates.get(header).matcher(value);
-                        if (matcher.find()) {
-                            return TechnologyMatch.HEADER;
+        if (!page.getHeaders().isEmpty()) {
+            for (String header : this.headerTemplates.keySet()) {
+                Pattern pattern = this.headerTemplates.get(header);
+                if (pattern.toString().isEmpty() && page.getHeaders().containsKey(header)) {
+                    return TechnologyMatch.HEADER;
+                } else {
+                    List<String> headerValues = page.getHeaders().get(header);
+                    if (headerValues != null && !headerValues.isEmpty()) {
+                        for (String value : headerValues) {
+                            Matcher matcher = headerTemplates.get(header).matcher(value);
+                            if (matcher.find()) {
+                                return TechnologyMatch.HEADER;
+                            }
                         }
                     }
                 }
             }
         }
 
-        for (String cookie : this.cookieTemplates.keySet()) {
-            Pattern pattern = this.cookieTemplates.get(cookie);
-            if (pattern.toString().isEmpty() && page.getCookies().containsKey(cookie)) {
-                return TechnologyMatch.COOKIE;
-            } else {
-                List<String> values = page.getCookies().get(cookie);
-                if (values != null && !values.isEmpty()) {
-                    for (String value : values) {
-                        Matcher matcher = cookieTemplates.get(cookie).matcher(value);
-                        if (matcher.find()) {
-                            return TechnologyMatch.COOKIE;
+        if (!page.getCookies().isEmpty()) {
+            for (String cookie : this.cookieTemplates.keySet()) {
+                Pattern pattern = this.cookieTemplates.get(cookie);
+                if (pattern.toString().isEmpty() && page.getCookies().containsKey(cookie)) {
+                    return TechnologyMatch.COOKIE;
+                } else {
+                    List<String> values = page.getCookies().get(cookie);
+                    if (values != null && !values.isEmpty()) {
+                        for (String value : values) {
+                            Matcher matcher = cookieTemplates.get(cookie).matcher(value);
+                            if (matcher.find()) {
+                                return TechnologyMatch.COOKIE;
+                            }
                         }
                     }
                 }

@@ -32,6 +32,10 @@ public class Jappalyzer {
         }
     }
 
+    public static Jappalyzer empty() {
+        return new Jappalyzer();
+    }
+
     private List<Technology> getTechnologies() {
         return this.technologies;
     }
@@ -174,5 +178,14 @@ public class Jappalyzer {
             }
         }
         return technologies;
+    }
+
+    public void addTechnology(Technology technology) {
+        this.technologies.add(technology);
+    }
+
+    public List<TechnologyMatch> fromString(String content) {
+        PageResponse pageResponse = new PageResponse(200, null, content);
+        return getTechnologyMatches(pageResponse);
     }
 }

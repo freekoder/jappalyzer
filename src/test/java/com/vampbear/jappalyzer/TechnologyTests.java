@@ -85,6 +85,15 @@ public class TechnologyTests {
     }
 
     @Test
+    public void emptyCookieTechnologyTest() {
+        Technology technology = new Technology("test");
+        technology.addCookieTemplate("forterToken", "");
+        PageResponse pageResponse = new PageResponse(200, null, "");
+        pageResponse.addCookie("forterToken", "");
+        assertEquals(TechnologyMatch.COOKIE, technology.appliebleTo(pageResponse));
+    }
+
+    @Test
     public void serverHeaderTest() {
         Map<String, List<String>> headers = new HashMap<>();
         headers.put("Server", Collections.singletonList("nginx"));

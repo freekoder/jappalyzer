@@ -195,12 +195,17 @@ public class Technology {
         }
 
         for (String cookie : this.cookieTemplates.keySet()) {
-            List<String> values = page.getCookies().get(cookie);
-            if (values != null && !values.isEmpty()) {
-                for (String value : values) {
-                    Matcher matcher = cookieTemplates.get(cookie).matcher(value);
-                    if (matcher.find()) {
-                        return "cookie";
+            Pattern pattern = this.cookieTemplates.get(cookie);
+            if (pattern.toString().isEmpty() && page.getCookies().containsKey(cookie)) {
+                return TechnologyMatch.COOKIE;
+            } else {
+                List<String> values = page.getCookies().get(cookie);
+                if (values != null && !values.isEmpty()) {
+                    for (String value : values) {
+                        Matcher matcher = cookieTemplates.get(cookie).matcher(value);
+                        if (matcher.find()) {
+                            return TechnologyMatch.COOKIE;
+                        }
                     }
                 }
             }

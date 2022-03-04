@@ -3,6 +3,7 @@ package com.vampbear.jappalyzer;
 public class TechnologyMatch {
 
     public static final String HEADER = "header";
+    public static final String COOKIE = "cookie";
 
     private final Technology technology;
     private final long duration;

@@ -85,6 +85,19 @@ public class TechnologyTests {
             "</head>" +
             "</html>";
 
+    public static final String META_KEY_TECH = "{" +
+            "\"meta\": {\n" +
+            "      \"pjax-push\": \"\",\n" +
+            "      \"pjax-replace\": \"\",\n" +
+            "      \"pjax-timeout\": \"\"\n" +
+            "    }" +
+            "}";
+
+    public static final String META_KEY_CONTENT = "" +
+            "<html><head>\n" +
+            "\t<meta name=\"pjax-push\" content=\"Some unimportant content\" />\n" +
+            "</head><body></body></html>";
+
     @Test
     public void fontAwesomeTest() {
         Technology technology = new Technology("Font Awesome");
@@ -183,9 +196,9 @@ public class TechnologyTests {
 
     @Test
     public void metaEmptyPatternTest() {
-        fail(
-
-        );
+        Technology technology = new Technology("JQuery pjax", META_KEY_TECH);
+        PageResponse pageResponse = new PageResponse(200, null, META_KEY_CONTENT);
+        assertEquals(TechnologyMatch.META, technology.appliebleTo(pageResponse));
     }
 
 }

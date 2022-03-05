@@ -201,4 +201,10 @@ public class TechnologyTests {
         assertEquals(TechnologyMatch.META, technology.appliebleTo(pageResponse));
     }
 
+    @Test
+    public void cpeParseTest() {
+        Technology technology = new Technology("Joomla", JOOMLA_TECH_STRING);
+        assertEquals("cpe:/a:joomla:joomla", technology.getCPE());
+    }
+
 }

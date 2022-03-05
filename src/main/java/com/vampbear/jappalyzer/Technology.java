@@ -1,6 +1,7 @@
 package com.vampbear.jappalyzer;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -28,6 +29,7 @@ public class Technology {
     private final Map<String, Pattern> metaTemplates = new HashMap<>();
     private String iconName = "";
     private String website = "";
+    private String cpe = "";
 
     public Technology(String name) {
         this.name = name;
@@ -42,6 +44,10 @@ public class Technology {
 
         if (object.has("description")) {
             this.description = object.getString("description");
+        }
+
+        if (object.has("cpe")) {
+            this.cpe = object.getString("cpe");
         }
 
         List<String> htmlTemplates = readValuesByKey(object, "html");
@@ -75,11 +81,16 @@ public class Technology {
             }
         }
 
+        // TODO: fix bug with Abicart (not string but array)
         if (object.has("meta")) {
             JSONObject metaObject = object.getJSONObject("meta");
             for (String metaKey : metaObject.keySet()) {
-                String metaPattern = metaObject.getString(metaKey);
-                this.addMetaTemplate(metaKey, metaPattern);
+                try {
+                    String metaPattern = metaObject.getString(metaKey);
+                    this.addMetaTemplate(metaKey, metaPattern);
+                } catch (JSONException e) {
+                    System.out.println(name);
+                }
             }
         }
 
@@ -307,5 +318,9 @@ public class Technology {
 
     public Map<String, Pattern> getCookieTemplates() {
         return this.cookieTemplates;
+    }
+
+    public String getCPE() {
+        return this.cpe;
     }
 }

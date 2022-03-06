@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
 
 public class Technology {
 
-
     private final String name;
     private String description;
     private final List<Pattern> htmlTemplates = new ArrayList<>();
@@ -30,6 +29,7 @@ public class Technology {
     private String iconName = "";
     private String website = "";
     private String cpe = "";
+    private final List<Category> categories = new ArrayList<>();
 
     public Technology(String name) {
         this.name = name;
@@ -48,6 +48,15 @@ public class Technology {
 
         if (object.has("cpe")) {
             this.cpe = object.getString("cpe");
+        }
+
+        if (object.has("cats")) {
+            JSONArray array = object.getJSONArray("cats");
+            for (int i = 0; i < array.length(); i++) {
+                int categoryId = array.getInt(i);
+                Category category = Categories.getCategoryById(categoryId);
+                this.categories.add(category);
+            }
         }
 
         List<String> htmlTemplates = readValuesByKey(object, "html");
@@ -322,5 +331,9 @@ public class Technology {
 
     public String getCPE() {
         return this.cpe;
+    }
+
+    public List<Category> getCategories() {
+        return this.categories;
     }
 }

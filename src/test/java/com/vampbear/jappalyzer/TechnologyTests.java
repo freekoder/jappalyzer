@@ -1,12 +1,10 @@
 package com.vampbear.jappalyzer;
 
 import javafx.scene.shape.PathElement;
+import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
 
-import java.util.Map;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Collections;
+import java.util.*;
 import java.util.regex.Pattern;
 
 import static org.junit.Assert.*;
@@ -97,6 +95,22 @@ public class TechnologyTests {
             "<html><head>\n" +
             "\t<meta name=\"pjax-push\" content=\"Some unimportant content\" />\n" +
             "</head><body></body></html>";
+
+    public static final String CATS_TECH = "" +
+            "{\n" +
+            "    \"cats\": [\n" +
+            "      41,\n" +
+            "      91\n" +
+            "    ],\n" +
+            "    \"description\": \"PacePay offers a BNPL (Buy now pay later) solution for merchants.\",\n" +
+            "    \"icon\": \"Pace.svg\",\n" +
+            "    \"js\": {\n" +
+            "      \"pacePay\": \"\"\n" +
+            "    },\n" +
+            "    \"saas\": true,\n" +
+            "    \"scriptSrc\": \"pay\\\\.pacenow\\\\.co\",\n" +
+            "    \"website\": \"https://pacenow.co/\"\n" +
+            "}";
 
     @Test
     public void fontAwesomeTest() {
@@ -207,4 +221,15 @@ public class TechnologyTests {
         assertEquals("cpe:/a:joomla:joomla", technology.getCPE());
     }
 
+    @Test
+    public void categoriesTest() {
+        Technology technology = new Technology("Pace", CATS_TECH);
+        assertTrue(
+                CollectionUtils.isEqualCollection(
+                        Arrays.asList(
+                                new Category(41, "Payment processors", 8),
+                                new Category(91, "Buy now pay later", 9)
+                        ),
+                        technology.getCategories()));
+    }
 }

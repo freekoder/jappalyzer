@@ -4,6 +4,7 @@ import javafx.scene.shape.PathElement;
 import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -223,7 +224,11 @@ public class TechnologyTests {
 
     @Test
     public void categoriesTest() {
-        Technology technology = new Technology("Pace", CATS_TECH);
+        Categories categories = new Categories(Arrays.asList(
+                new Category(41, "Payment processors", 8),
+                new Category(91, "Buy now pay later", 9)
+        ));
+        Technology technology = new Technology("Pace", CATS_TECH, categories);
         assertTrue(
                 CollectionUtils.isEqualCollection(
                         Arrays.asList(

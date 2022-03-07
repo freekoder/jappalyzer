@@ -9,10 +9,7 @@ import org.jsoup.select.Selector;
 
 import java.io.BufferedReader;
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,7 +36,15 @@ public class Technology {
         this(name, new JSONObject(jsonString));
     }
 
+    public Technology(String name, String jsonString, Categories categories) {
+        this(name, new JSONObject(jsonString), categories);
+    }
+
     public Technology(String name, JSONObject object) {
+        this(name, object, new Categories(Collections.emptyList()));
+    }
+
+    public Technology(String name, JSONObject object, Categories categories) {
         this.name = name;
 
         if (object.has("description")) {
@@ -54,7 +59,7 @@ public class Technology {
             JSONArray array = object.getJSONArray("cats");
             for (int i = 0; i < array.length(); i++) {
                 int categoryId = array.getInt(i);
-                Category category = Categories.getCategoryById(categoryId);
+                Category category = categories.getCategoryById(categoryId);
                 this.categories.add(category);
             }
         }

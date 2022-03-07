@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Collections;
 import java.io.BufferedReader;
 import org.json.JSONException;
 import java.io.InputStreamReader;
@@ -16,6 +15,9 @@ public class DataLoader {
 
     public static final String TECHNOLOGIES_GIT_PATH_TEMPLATE =
             "https://raw.githubusercontent.com/AliasIO/wappalyzer/master/src/technologies/%s.json";
+
+    public static final String CATEGORIES_GIT_PATH =
+            "https://raw.githubusercontent.com/AliasIO/wappalyzer/master/src/categories.json";
 
     public List<Technology> loadInternalTechnologies() {
         Categories categories = readInternalCategories();
@@ -28,7 +30,21 @@ public class DataLoader {
     }
 
     private Categories readLatestCategories() {
-        return new Categories(Collections.emptyList());
+        List<Category> categories = new ArrayList<>();
+        HttpClient httpClient = new HttpClient();
+        try {
+            PageResponse pageResponse = httpClient.getPageByUrl(CATEGORIES_GIT_PATH);
+            JSONObject categoriesJSON = new JSONObject(pageResponse.getOrigContent());
+            for (String key : categoriesJSON.keySet()) {
+                JSONObject categoryObject = categoriesJSON.getJSONObject(key);
+                categories.add(
+                        new Category(
+                                Integer.parseInt(key), categoryObject.getString("name"), categoryObject.getInt("priority")
+                        )
+                );
+            }
+        } catch (IOException | JSONException ignore) {}
+        return new Categories(categories);
     }
 
     private List<Technology> readTechnologiestFromGit(Categories categories) {

@@ -34,6 +34,7 @@ public class TechnologyMatch {
                 "technology=" + technology.getName() +
                 ", reason=" + reason +
                 ", duration=" + duration + "ms" +
+                ", categories=" + technology.getCategories() +
                 '}';
     }
 }

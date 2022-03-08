@@ -1,12 +1,9 @@
 package com.vampbear.jappalyzer;
 
-import javafx.scene.shape.PathElement;
 import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
 
-import java.lang.reflect.Array;
 import java.util.*;
-import java.util.regex.Pattern;
 
 import static org.junit.Assert.*;
 
@@ -112,6 +109,22 @@ public class TechnologyTests {
             "    \"scriptSrc\": \"pay\\\\.pacenow\\\\.co\",\n" +
             "    \"website\": \"https://pacenow.co/\"\n" +
             "}";
+
+    public static final String PRICING_SAAS_TECH = "{\n" +
+            "    \"cats\": [\n" +
+            "      16\n" +
+            "    ],\n" +
+            "    \"description\": \"Jumio is an online mobile payments and identity verification company that provides card and ID scanning and validation products for mobile and web transactions.\",\n" +
+            "    \"icon\": \"Jumio.svg\",\n" +
+            "    \"dom\": \"iframe[src*='.netverify.com/']\",\n" +
+            "    \"saas\": true,\n" +
+            "    \"pricing\": [\n" +
+            "      \"payg\",\n" +
+            "      \"mid\",\n" +
+            "      \"recurring\"\n" +
+            "    ],\n" +
+            "    \"website\": \"https://www.jumio.com\"\n" +
+            "  }";
 
     @Test
     public void fontAwesomeTest() {
@@ -236,5 +249,19 @@ public class TechnologyTests {
                                 new Category(91, "Buy now pay later", 9)
                         ),
                         technology.getCategories()));
+    }
+
+    @Test
+    public void pricingTest() {
+        Technology technology = new Technology("Jumio", PRICING_SAAS_TECH);
+        assertTrue(
+                CollectionUtils.isEqualCollection(
+                        Arrays.asList("payg", "mid", "recurring"), technology.getPricing()));
+    }
+
+    @Test
+    public void saasTest() {
+        Technology technology = new Technology("Jumio", PRICING_SAAS_TECH);
+        assertTrue(technology.isSaas());
     }
 }

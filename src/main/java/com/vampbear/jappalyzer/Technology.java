@@ -26,6 +26,8 @@ public class Technology {
     private String iconName = "";
     private String website = "";
     private String cpe = "";
+    private boolean saas = false;
+    private final List<String> pricing = new ArrayList<>();
     private final List<Category> categories = new ArrayList<>();
 
     public Technology(String name) {
@@ -61,6 +63,17 @@ public class Technology {
                 int categoryId = array.getInt(i);
                 Category category = categories.getCategoryById(categoryId);
                 this.categories.add(category);
+            }
+        }
+
+        if (object.has("saas")) {
+            this.saas  = object.getBoolean("saas");
+        }
+
+        if (object.has("pricing")) {
+            JSONArray pricings = object.getJSONArray("pricing");
+            for (int i = 0; i < pricings.length(); i++) {
+                this.pricing.add(pricings.getString(i));
             }
         }
 
@@ -200,6 +213,18 @@ public class Technology {
             }
         }
         return values;
+    }
+
+    public String getCpe() {
+        return cpe;
+    }
+
+    public boolean isSaas() {
+        return saas;
+    }
+
+    public List<String> getPricing() {
+        return pricing;
     }
 
     @Override

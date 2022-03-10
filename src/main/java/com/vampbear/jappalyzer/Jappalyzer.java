@@ -9,23 +9,11 @@ public class Jappalyzer {
 
     private List<Technology> technologies = new LinkedList<>();
 
-    public static void main(String[] args) {
-        try {
-            Jappalyzer jappalyzer = Jappalyzer.create();
-            List<Technology> instanceTechnologies = jappalyzer.getTechnologies();
-            System.out.println("Instance techs: " + instanceTechnologies.size());
-            List<TechnologyMatch> foundTechs = jappalyzer.fromUrl("https://www.flexcmp.com/dxp");
-            foundTechs.forEach(System.out::println);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static Jappalyzer empty() {
         return new Jappalyzer();
     }
 
-    private List<Technology> getTechnologies() {
+    public List<Technology> getTechnologies() {
         return this.technologies;
     }
 

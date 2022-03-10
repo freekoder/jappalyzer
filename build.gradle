@@ -1,5 +1,5 @@
 plugins {
-    id 'application'
+    id 'java'
     id 'java-library'
 }
 
@@ -10,8 +10,15 @@ repositories {
     mavenCentral()
 }
 
-application {
-    mainClass = 'com.vampbear.jappalyzer.Jappalyzer'
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.vampbear.jappalyzer.Main'
+    }
+    archiveClassifier.set("standalone")
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
 }
 
 dependencies {
@@ -19,10 +26,10 @@ dependencies {
     implementation 'org.json:json:20211205'
     // https://mvnrepository.com/artifact/org.jsoup/jsoup
     implementation 'org.jsoup:jsoup:1.14.3'
+    // https://mvnrepository.com/artifact/commons-cli/commons-cli
+    implementation 'commons-cli:commons-cli:1.5.0'
     // https://mvnrepository.com/artifact/junit/junit
     testImplementation 'junit:junit:4.13.2'
     // https://mvnrepository.com/artifact/org.apache.commons/commons-collections4
     testImplementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
-    // https://mvnrepository.com/artifact/commons-cli/commons-cli
-    implementation 'commons-cli:commons-cli:1.5.0'
 }

@@ -5,6 +5,17 @@ A Java implementation of the [Wappalyzer](https://github.com/AliasIO/wappalyzer)
 Uses data from https://github.com/AliasIO/wappalyzer
 
 
+## Build
+
+### Build library
+```shell
+$ gradle build
+```
+
+### Build console application (with dependencies)
+```shell
+$ gradle fatJar
+```
 ## Usage
 
 #### Get technologies from web page

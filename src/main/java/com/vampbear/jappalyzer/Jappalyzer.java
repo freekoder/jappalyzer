@@ -56,11 +56,9 @@ public class Jappalyzer {
     private List<TechnologyMatch> getTechnologyMatches(PageResponse pageResponse) {
         List<TechnologyMatch> matches = new ArrayList<>();
         for (Technology technology : technologies) {
-            long startTimestamp = System.currentTimeMillis();
-            String reason = technology.appliebleTo(pageResponse);
-            if (!reason.isEmpty()) {
-                long endTimestamp = System.currentTimeMillis();
-                matches.add(new TechnologyMatch(technology, reason, endTimestamp - startTimestamp));
+            TechnologyMatch match = technology.appliebleTo(pageResponse);
+            if (match.isMatched()) {
+                matches.add(match);
             }
         }
         return matches;

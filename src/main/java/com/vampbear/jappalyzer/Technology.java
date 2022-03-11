@@ -238,7 +238,8 @@ public class Technology {
     }
 
     // TODO: change String to full Check class
-    public String appliebleTo(PageResponse page) {
+    public TechnologyMatch appliebleTo(PageResponse page) {
+        long startTimestamp = System.currentTimeMillis();
         Document document = page.getDocument();
         String content = page.getOrigContent();
 
@@ -246,14 +247,16 @@ public class Technology {
             for (String header : this.headerTemplates.keySet()) {
                 Pattern pattern = this.headerTemplates.get(header);
                 if (pattern.toString().isEmpty() && page.getHeaders().containsKey(header)) {
-                    return TechnologyMatch.HEADER;
+                    long endTimestamp = System.currentTimeMillis();
+                    return new TechnologyMatch(this, TechnologyMatch.HEADER, endTimestamp - startTimestamp);
                 } else {
                     List<String> headerValues = page.getHeaders().get(header);
                     if (headerValues != null && !headerValues.isEmpty()) {
                         for (String value : headerValues) {
                             Matcher matcher = headerTemplates.get(header).matcher(value);
                             if (matcher.find()) {
-                                return TechnologyMatch.HEADER;
+                                long endTimestamp = System.currentTimeMillis();
+                                return new TechnologyMatch(this, TechnologyMatch.HEADER, endTimestamp -startTimestamp);
                             }
                         }
                     }
@@ -265,14 +268,16 @@ public class Technology {
             for (String cookie : this.cookieTemplates.keySet()) {
                 Pattern pattern = this.cookieTemplates.get(cookie);
                 if (pattern.toString().isEmpty() && page.getCookies().containsKey(cookie)) {
-                    return TechnologyMatch.COOKIE;
+                    long endTimestamp = System.currentTimeMillis();
+                    return new TechnologyMatch(this, TechnologyMatch.COOKIE, endTimestamp - startTimestamp);
                 } else {
                     List<String> values = page.getCookies().get(cookie);
                     if (values != null && !values.isEmpty()) {
                         for (String value : values) {
                             Matcher matcher = cookieTemplates.get(cookie).matcher(value);
                             if (matcher.find()) {
-                                return TechnologyMatch.COOKIE;
+                                long endTimestamp = System.currentTimeMillis();
+                                return new TechnologyMatch(this, TechnologyMatch.COOKIE, endTimestamp - startTimestamp);
                             }
                         }
                     }
@@ -284,13 +289,15 @@ public class Technology {
             for (String name : this.metaTemplates.keySet()) {
                 Pattern pattern = this.metaTemplates.get(name);
                 if (pattern.toString().isEmpty() && page.getMetaMap().containsKey(name)) {
-                    return TechnologyMatch.META;
+                    long endTimestamp = System.currentTimeMillis();
+                    return new TechnologyMatch(this, TechnologyMatch.META, endTimestamp - startTimestamp);
                 } else {
                     String metaContent = page.getMetaMap().get(name);
                     if (metaContent != null && !metaContent.isEmpty()) {
                         Matcher matcher = this.metaTemplates.get(name).matcher(metaContent);
                         if (matcher.find()) {
-                            return TechnologyMatch.META;
+                            long endTimestamp = System.currentTimeMillis();
+                            return new TechnologyMatch(this, TechnologyMatch.META, endTimestamp - startTimestamp);
                         }
                     }
                 }
@@ -299,7 +306,8 @@ public class Technology {
 
         for (String domTemplate : this.domTemplates) {
             if (containsDomTemplate(document, prepareRegexp(domTemplate), getName())) {
-                return "dom";
+                long endTimestamp = System.currentTimeMillis();
+                return new TechnologyMatch(this, TechnologyMatch.DOM, endTimestamp - startTimestamp);
             }
         }
 
@@ -307,7 +315,8 @@ public class Technology {
             for (String script : page.getScriptSources()) {
                 Matcher matcher = scriptSrcPattern.matcher(script);
                 if (matcher.find()) {
-                    return "script";
+                    long endTimestamp = System.currentTimeMillis();
+                    return new TechnologyMatch(this, TechnologyMatch.SCRIPT, endTimestamp - startTimestamp);
                 }
             }
         }
@@ -316,14 +325,16 @@ public class Technology {
             BufferedReader bf = new BufferedReader(new StringReader(content));
             boolean match = bf.lines().anyMatch(line -> htmlTemplate.matcher(line).find());
             if (match) {
-                return "html";
+                long endTimestamp = System.currentTimeMillis();
+                return new TechnologyMatch(this, TechnologyMatch.HTML, endTimestamp - startTimestamp);
             }
         }
 
-        return "";
+        long endTimestamp = System.currentTimeMillis();
+        return TechnologyMatch.notMatched(endTimestamp - startTimestamp);
     }
 
-    public String appliebleTo(String content) {
+    public TechnologyMatch appliebleTo(String content) {
         return appliebleTo(new PageResponse(content));
     }
 
@@ -336,13 +347,6 @@ public class Technology {
             e.printStackTrace();
         }
         return false;
-    }
-
-    private boolean containsHtmlTemplate(String content, String htmlTemplate) {
-        String preparedTemplate = prepareRegexp(htmlTemplate);
-        Pattern pattern = Pattern.compile(preparedTemplate, Pattern.MULTILINE);
-        Matcher matcher = pattern.matcher(content);
-        return matcher.find();
     }
 
     private String prepareRegexp(String pattern) {

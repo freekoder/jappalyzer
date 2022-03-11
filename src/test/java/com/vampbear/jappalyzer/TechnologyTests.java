@@ -131,7 +131,8 @@ public class TechnologyTests {
         Technology technology = new Technology("Font Awesome");
         technology.addHtmlTemplate("<link[^>]* href=[^>]+(?:([\\d.]+)/)?(?:css/)?font-awesome(?:\\.min)?\\.css\\;version:\\1");
         technology.addHtmlTemplate("<link[^>]* href=[^>]*kit\\-pro\\.fontawesome\\.com/releases/v([0-9.]+)/\\;version:\\1");
-        assertEquals("html", technology.appliebleTo(fontAwesomeContent));
+        TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.HTML);
+        assertEquals(expected, technology.appliebleTo(fontAwesomeContent));
     }
 
     @Test
@@ -141,7 +142,8 @@ public class TechnologyTests {
         Map<String, List<String>> headers = new HashMap<>();
         headers.put("X-Flex-Lang", Collections.singletonList("IT"));
         PageResponse pageResponse = new PageResponse(200, headers, "");
-        assertEquals(TechnologyMatch.HEADER, technology.appliebleTo(pageResponse));
+        TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.HEADER);
+        assertEquals(expected, technology.appliebleTo(pageResponse));
     }
 
     @Test
@@ -151,7 +153,8 @@ public class TechnologyTests {
         Map<String, List<String>> headers = new HashMap<>();
         headers.put("x-flex-lang", Collections.singletonList("IT"));
         PageResponse pageResponse = new PageResponse(200, headers, "");
-        assertEquals(TechnologyMatch.HEADER, technology.appliebleTo(pageResponse));
+        TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.HEADER);
+        assertEquals(expected, technology.appliebleTo(pageResponse));
     }
 
     @Test
@@ -161,7 +164,8 @@ public class TechnologyTests {
         Map<String, List<String>> headers = new HashMap<>();
         headers.put("X-Flex-Lang", Collections.singletonList("IT"));
         PageResponse pageResponse = new PageResponse(200, headers, "");
-        assertEquals(TechnologyMatch.HEADER, technology.appliebleTo(pageResponse));
+        TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.HEADER);
+        assertEquals(expected, technology.appliebleTo(pageResponse));
     }
 
     @Test
@@ -170,7 +174,8 @@ public class TechnologyTests {
         technology.addCookieTemplate("forterToken", "");
         PageResponse pageResponse = new PageResponse(200, null, "");
         pageResponse.addCookie("forterToken", "");
-        assertEquals(TechnologyMatch.COOKIE, technology.appliebleTo(pageResponse));
+        TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.COOKIE);
+        assertEquals(expected, technology.appliebleTo(pageResponse));
     }
 
     @Test
@@ -180,7 +185,8 @@ public class TechnologyTests {
         PageResponse pageResponse = new PageResponse(200, headers, "");
         Technology technology = new Technology("Nginx");
         technology.addHeaderTemplate("Server", "nginx(?:/([\\d.]+))?\\;version:\\1");
-        assertEquals("header", technology.appliebleTo(pageResponse));
+        TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.HEADER);
+        assertEquals(expected, technology.appliebleTo(pageResponse));
     }
 
     @Test
@@ -189,7 +195,8 @@ public class TechnologyTests {
         technology.addCookieTemplate("trbo_session", "^(?:[\\d]+)$");
         PageResponse pageResponse = new PageResponse(200, null, "");
         pageResponse.addCookie("trbo_session", "12312312");
-        assertEquals("cookie", technology.appliebleTo(pageResponse));
+        TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.COOKIE);
+        assertEquals(expected, technology.appliebleTo(pageResponse));
     }
 
     @Test
@@ -197,7 +204,8 @@ public class TechnologyTests {
         Technology technology = new Technology("test");
         technology.addScriptSrc("livewire(?:\\.min)?\\.js");
         PageResponse pageResponse = new PageResponse(200, null, PAGE_WITH_SCRIPT);
-        assertEquals("script", technology.appliebleTo(pageResponse));
+        TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.SCRIPT);
+        assertEquals(expected, technology.appliebleTo(pageResponse));
     }
 
     @Test
@@ -219,14 +227,16 @@ public class TechnologyTests {
     public void metaPatternTest() {
         Technology technology = new Technology("Joomla", JOOMLA_TECH_STRING);
         PageResponse pageResponse = new PageResponse(200, null, JOOMLA_META_CONTENT);
-        assertEquals(TechnologyMatch.META, technology.appliebleTo(pageResponse));
+        TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.META, 0L);
+        assertEquals(expected, technology.appliebleTo(pageResponse));
     }
 
     @Test
     public void metaEmptyPatternTest() {
         Technology technology = new Technology("JQuery pjax", META_KEY_TECH);
         PageResponse pageResponse = new PageResponse(200, null, META_KEY_CONTENT);
-        assertEquals(TechnologyMatch.META, technology.appliebleTo(pageResponse));
+        TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.META, 0L);
+        assertEquals(expected, technology.appliebleTo(pageResponse));
     }
 
     @Test

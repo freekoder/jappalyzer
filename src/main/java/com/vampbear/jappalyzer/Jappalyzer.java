@@ -4,6 +4,7 @@ import java.util.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.stream.Collectors;
 
 public class Jappalyzer {
 
@@ -54,14 +55,10 @@ public class Jappalyzer {
     }
 
     private List<TechnologyMatch> getTechnologyMatches(PageResponse pageResponse) {
-        List<TechnologyMatch> matches = new ArrayList<>();
-        for (Technology technology : technologies) {
-            TechnologyMatch match = technology.appliebleTo(pageResponse);
-            if (match.isMatched()) {
-                matches.add(match);
-            }
-        }
-        return matches;
+        return technologies.stream().parallel()
+                .map(technology -> technology.appliebleTo(pageResponse))
+                .filter(TechnologyMatch::isMatched)
+                .collect(Collectors.toList());
     }
 
     private static String readFileContent(String path) {

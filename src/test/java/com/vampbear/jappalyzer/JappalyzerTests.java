@@ -96,6 +96,18 @@ public class JappalyzerTests {
                 ));
     }
 
+    @Test
+    public void sportConrodTest () {
+        Jappalyzer jappalyzer = Jappalyzer.create();
+        List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/sport-conrod.html");
+        List<String> techNames = getTechnologiesNames(matches);
+        System.out.println(techNames);
+        assertTrue(
+                CollectionUtils.isEqualCollection(
+                        Arrays.asList("jsDelivr", "Lightbox", "Polyfill"), techNames
+                ));
+    }
+
     private List<String> getTechnologiesNames(List<TechnologyMatch> matches) {
         return matches.stream().map(TechnologyMatch::getTechnology).map(Technology::getName).collect(Collectors.toList());
     }

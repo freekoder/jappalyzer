@@ -133,7 +133,7 @@ public class JappalyzerTests {
         Technology technology = new Technology("Abicart", ABICART_TECHNOLOGY);
         PageResponse pageResponse = new PageResponse(200, null, ABICART_CONTENT);
         TechnologyMatch match = new TechnologyMatch(technology, TechnologyMatch.META);
-        assertEquals(match, technology.appliebleTo(pageResponse));
+        assertEquals(match, technology.applicableTo(pageResponse));
     }
 
     private List<String> getTechnologiesNames(List<TechnologyMatch> matches) {

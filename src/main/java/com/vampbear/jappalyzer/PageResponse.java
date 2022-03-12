@@ -10,12 +10,13 @@ import org.jsoup.select.Elements;
 public class PageResponse {
 
     private final int statusCode;
-    private final Map<String, List<String>> headers = new HashMap<>();
-    private final Map<String, List<String>> cookies = new HashMap<>();
     private Document document;
     private String origContent;
+
     private final List<String> scriptSources = new ArrayList<>();
-    private final Map<String, String> metaMap = new HashMap<>();
+    private final Map<String, List<String>> headers = new HashMap<>();
+    private final Map<String, List<String>> cookies = new HashMap<>();
+    private final Map<String, List<String>> metaMap = new HashMap<>();
 
     public PageResponse(String content) {
         this(200, Collections.emptyMap(), content);
@@ -43,7 +44,8 @@ public class PageResponse {
         for (Element meta : metas) {
             String metaName = meta.attr("name");
             String metaContent = meta.attr("content");
-            metaMap.put(metaName, metaContent);
+            metaMap.putIfAbsent(metaName, new ArrayList<>());
+            metaMap.get(metaName).add(metaContent);
         }
     }
 
@@ -97,7 +99,7 @@ public class PageResponse {
         return this.scriptSources;
     }
 
-    public Map<String, String> getMetaMap() {
+    public Map<String, List<String>> getMetaMap() {
         return this.metaMap;
     }
 }

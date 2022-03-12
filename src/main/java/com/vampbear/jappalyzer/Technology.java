@@ -15,22 +15,23 @@ import java.util.regex.Pattern;
 public class Technology {
 
     private final String name;
-    private String description;
+    private final String description;
+    private String iconName;
+    private String website;
+    private final String cpe;
+    private final boolean saas;
+    private final List<String> pricing = new ArrayList<>();
+    private final List<Category> categories = new ArrayList<>();
+
     private final List<Pattern> htmlTemplates = new ArrayList<>();
     private final List<String> domTemplates = new ArrayList<>();
     private final List<Pattern> scriptSrc = new ArrayList<>();
     private final Map<String, List<Pattern>> headerTemplates = new HashMap<>();
     private final Map<String, List<Pattern>> cookieTemplates = new HashMap<>();
     private final Map<String, List<Pattern>> metaTemplates = new HashMap<>();
-    private String iconName = "";
-    private String website = "";
-    private String cpe = "";
-    private boolean saas = false;
-    private final List<String> pricing = new ArrayList<>();
-    private final List<Category> categories = new ArrayList<>();
 
     public Technology(String name) {
-        this.name = name;
+        this(name, "{}");
     }
 
     public Technology(String name, String jsonString) {
@@ -53,7 +54,6 @@ public class Technology {
         this.iconName = readStringOrEmpty("icon", object);
         this.cpe = readStringOrEmpty("cpe", object);
         this.saas = readBooleanOrFalse("saas", object);
-
 
         if (object.has("cats")) {
             JSONArray array = object.getJSONArray("cats");
@@ -241,76 +241,27 @@ public class Technology {
                 '}';
     }
 
-    public TechnologyMatch appliebleTo(PageResponse page) {
+    public TechnologyMatch applicableTo(PageResponse page) {
         long startTimestamp = System.currentTimeMillis();
         Document document = page.getDocument();
         String content = page.getOrigContent();
 
         if (!page.getHeaders().isEmpty()) {
-            for (String header : this.headerTemplates.keySet()) {
-                List<Pattern> patterns = this.headerTemplates.get(header);
-                for (Pattern pattern : patterns) {
-                    if (pattern.toString().isEmpty() && page.getHeaders().containsKey(header)) {
-                        long endTimestamp = System.currentTimeMillis();
-                        return new TechnologyMatch(this, TechnologyMatch.HEADER, endTimestamp - startTimestamp);
-                    } else {
-                        List<String> headerValues = page.getHeaders().get(header);
-                        if (headerValues != null && !headerValues.isEmpty()) {
-                            for (String value : headerValues) {
-                                Matcher matcher = pattern.matcher(value);
-                                if (matcher.find()) {
-                                    long endTimestamp = System.currentTimeMillis();
-                                    return new TechnologyMatch(this, TechnologyMatch.HEADER, endTimestamp -startTimestamp);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            boolean match = getTechnologyMapMatch(this.headerTemplates, page.getHeaders());
+            long duration = System.currentTimeMillis() - startTimestamp;
+            if (match) return new TechnologyMatch(this, TechnologyMatch.HEADER, duration);
         }
 
         if (!page.getCookies().isEmpty()) {
-            for (String cookie : this.cookieTemplates.keySet()) {
-                List<Pattern> patterns = this.cookieTemplates.get(cookie);
-                for (Pattern pattern : patterns) {
-                    if (pattern.toString().isEmpty() && page.getCookies().containsKey(cookie)) {
-                        long endTimestamp = System.currentTimeMillis();
-                        return new TechnologyMatch(this, TechnologyMatch.COOKIE, endTimestamp - startTimestamp);
-                    } else {
-                        List<String> values = page.getCookies().get(cookie);
-                        if (values != null && !values.isEmpty()) {
-                            for (String value : values) {
-                                Matcher matcher = pattern.matcher(value);
-                                if (matcher.find()) {
-                                    long endTimestamp = System.currentTimeMillis();
-                                    return new TechnologyMatch(this, TechnologyMatch.COOKIE, endTimestamp - startTimestamp);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            boolean match = getTechnologyMapMatch(this.cookieTemplates, page.getCookies());
+            long duration = System.currentTimeMillis() - startTimestamp;
+            if (match) return new TechnologyMatch(this, TechnologyMatch.COOKIE, duration);
         }
 
         if (!page.getMetaMap().isEmpty()) {
-            for (String name : this.metaTemplates.keySet()) {
-                List<Pattern> patterns = this.metaTemplates.get(name);
-                for (Pattern pattern : patterns) {
-                    if (pattern.toString().isEmpty() && page.getMetaMap().containsKey(name)) {
-                        long endTimestamp = System.currentTimeMillis();
-                        return new TechnologyMatch(this, TechnologyMatch.META, endTimestamp - startTimestamp);
-                    } else {
-                        String metaContent = page.getMetaMap().get(name);
-                        if (metaContent != null && !metaContent.isEmpty()) {
-                            Matcher matcher = pattern.matcher(metaContent);
-                            if (matcher.find()) {
-                                long endTimestamp = System.currentTimeMillis();
-                                return new TechnologyMatch(this, TechnologyMatch.META, endTimestamp - startTimestamp);
-                            }
-                        }
-                    }
-                }
-            }
+            boolean match = getTechnologyMapMatch(this.metaTemplates, page.getMetaMap());
+            long duration = System.currentTimeMillis() - startTimestamp;
+            if (match) return new TechnologyMatch(this, TechnologyMatch.META, duration);
         }
 
         for (String domTemplate : this.domTemplates) {
@@ -343,8 +294,30 @@ public class Technology {
         return TechnologyMatch.notMatched(this,endTimestamp - startTimestamp);
     }
 
-    public TechnologyMatch appliebleTo(String content) {
-        return appliebleTo(new PageResponse(content));
+    private boolean getTechnologyMapMatch(Map<String, List<Pattern>> templates, Map<String, List<String>> page) {
+        for (String header : templates.keySet()) {
+            List<Pattern> patterns = templates.get(header);
+            for (Pattern pattern : patterns) {
+                if (pattern.toString().isEmpty() && page.containsKey(header)) {
+                    return true;
+                } else {
+                    List<String> headerValues = page.get(header);
+                    if (headerValues != null && !headerValues.isEmpty()) {
+                        for (String value : headerValues) {
+                            Matcher matcher = pattern.matcher(value);
+                            if (matcher.find()) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public TechnologyMatch applicableTo(String content) {
+        return applicableTo(new PageResponse(content));
     }
 
     private boolean containsDomTemplate(Document document, String template, String name) {

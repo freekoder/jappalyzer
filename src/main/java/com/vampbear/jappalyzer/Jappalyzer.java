@@ -56,7 +56,7 @@ public class Jappalyzer {
 
     private List<TechnologyMatch> getTechnologyMatches(PageResponse pageResponse) {
         return technologies.stream().parallel()
-                .map(technology -> technology.appliebleTo(pageResponse))
+                .map(technology -> technology.applicableTo(pageResponse))
                 .filter(TechnologyMatch::isMatched)
                 .collect(Collectors.toList());
     }

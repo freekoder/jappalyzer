@@ -237,7 +237,6 @@ public class Technology {
                 '}';
     }
 
-    // TODO: change String to full Check class
     public TechnologyMatch appliebleTo(PageResponse page) {
         long startTimestamp = System.currentTimeMillis();
         Document document = page.getDocument();
@@ -331,7 +330,7 @@ public class Technology {
         }
 
         long endTimestamp = System.currentTimeMillis();
-        return TechnologyMatch.notMatched(endTimestamp - startTimestamp);
+        return TechnologyMatch.notMatched(this,endTimestamp - startTimestamp);
     }
 
     public TechnologyMatch appliebleTo(String content) {

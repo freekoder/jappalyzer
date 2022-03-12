@@ -22,21 +22,18 @@ public class TechnologyMatch {
     }
 
     public TechnologyMatch(Technology technology, String reason, long duration) {
+        this(technology, reason, true, duration);
+    }
+
+    private TechnologyMatch(Technology technology, String reason, boolean matched, long duration) {
         this.technology = technology;
+        this.matched = matched;
+        this.duration = duration;
         this.reason = reason;
-        this.duration = duration;
-        this.matched = true;
     }
 
-    public TechnologyMatch(long duration) {
-        this.matched = false;
-        this.duration = duration;
-        this.technology = new Technology("null");
-        this.reason = "";
-    }
-
-    public static TechnologyMatch notMatched(long duration) {
-        return new TechnologyMatch(duration);
+    public static TechnologyMatch notMatched(Technology technology, long duration) {
+        return new TechnologyMatch(technology, "", false, duration);
     }
 
     public boolean isMatched() {

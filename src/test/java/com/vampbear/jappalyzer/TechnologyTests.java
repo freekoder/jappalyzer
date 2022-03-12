@@ -232,11 +232,11 @@ public class TechnologyTests {
         assertEquals("https://derak.cloud", technology.getWebsite());
         assertEquals("DerakCloud.png", technology.getIconName());
 
-        assertEquals("", technology.getHeaderTemplates("Derak-Umbrage").toString());
-        assertEquals("^DERAK\\.CLOUD$", technology.getHeaderTemplates("Server").toString());
+        assertEquals("", technology.getHeaderTemplates("Derak-Umbrage").get(0).toString());
+        assertEquals("^DERAK\\.CLOUD$", technology.getHeaderTemplates("Server").get(0).toString());
 
-        assertEquals("^(?:[\\d]+)$", technology.getCookieTemplates().get("trbo_session").toString());
-        assertEquals("", technology.getCookieTemplates().get("django_language").toString());
+        assertEquals("^(?:[\\d]+)$", technology.getCookieTemplates().get("trbo_session").get(0).toString());
+        assertEquals("", technology.getCookieTemplates().get("django_language").get(0).toString());
     }
 
     @Test

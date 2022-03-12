@@ -19,8 +19,8 @@ public class Technology {
     private final List<Pattern> htmlTemplates = new ArrayList<>();
     private final List<String> domTemplates = new ArrayList<>();
     private final List<Pattern> scriptSrc = new ArrayList<>();
-    private final Map<String, Pattern> headerTemplates = new HashMap<>();
-    private final Map<String, Pattern> cookieTemplates = new HashMap<>();
+    private final Map<String, List<Pattern>> headerTemplates = new HashMap<>();
+    private final Map<String, List<Pattern>> cookieTemplates = new HashMap<>();
     private final Map<String, List<Pattern>> metaTemplates = new HashMap<>();
     private String iconName = "";
     private String website = "";
@@ -48,13 +48,12 @@ public class Technology {
     public Technology(String name, JSONObject object, Categories categories) {
         this.name = name;
 
-        if (object.has("description")) {
-            this.description = object.getString("description");
-        }
+        this.description = readStringOrEmpty("description", object);
+        this.website = readStringOrEmpty("website", object);
+        this.iconName = readStringOrEmpty("icon", object);
+        this.cpe = readStringOrEmpty("cpe", object);
+        this.saas = readBooleanOrFalse("saas", object);
 
-        if (object.has("cpe")) {
-            this.cpe = object.getString("cpe");
-        }
 
         if (object.has("cats")) {
             JSONArray array = object.getJSONArray("cats");
@@ -65,10 +64,6 @@ public class Technology {
             }
         }
 
-        if (object.has("saas")) {
-            this.saas  = object.getBoolean("saas");
-        }
-
         if (object.has("pricing")) {
             JSONArray pricings = object.getJSONArray("pricing");
             for (int i = 0; i < pricings.length(); i++) {
@@ -76,19 +71,25 @@ public class Technology {
             }
         }
 
-        List<String> htmlTemplates = readValuesByKey(object, "html");
-        for (String template : htmlTemplates) {
-            this.addHtmlTemplate(template);
+        if (object.has("html")) {
+            List<String> htmlTemplates = readValuesFromObject(object.get("html"));
+            for (String template : htmlTemplates) {
+                this.addHtmlTemplate(template);
+            }
         }
 
-        List<String> domTemplates = readValuesByKey(object, "dom");
-        for (String template : domTemplates) {
-            this.addDomTemplate(template);
+        if (object.has("dom")) {
+            List<String> domTemplates = readValuesFromObject(object.get("dom"));
+            for (String template : domTemplates) {
+                this.addDomTemplate(template);
+            }
         }
 
-        List<String> scriptSrcTemplates = readValuesByKey(object, "scriptSrc");
-        for (String template : scriptSrcTemplates) {
-            this.addScriptSrc(template);
+        if (object.has("scriptSrc")) {
+            List<String> scriptSrcTemplates = readValuesFromObject(object.get("scriptSrc"));
+            for (String template : scriptSrcTemplates) {
+                this.addScriptSrc(template);
+            }
         }
 
         if (object.has("headers")) {
@@ -109,37 +110,56 @@ public class Technology {
 
         if (object.has("meta")) {
             JSONObject metaObject = object.getJSONObject("meta");
-            for (String metaKey : metaObject.keySet()) {
-                Object keyObject = metaObject.get(metaKey);
-                if (keyObject instanceof JSONArray) {
-                    for (Object arrayItem : (JSONArray)keyObject) {
-                        this.addMetaTemplate(metaKey, (String)arrayItem);
-                    }
-                } else if (keyObject instanceof String) {
-                    this.addMetaTemplate(metaKey, (String)keyObject);
+            for (String key : metaObject.keySet()) {
+                List<String> patterns = readValuesFromObject(metaObject.get(key));
+                for (String pattern : patterns) {
+                    this.addMetaTemplate(key, pattern);
                 }
             }
         }
+    }
 
-        if (object.has("website")) {
-            String website = object.getString("website");
-            this.setWebsite(website);
-        }
-
-        if (object.has("icon")) {
-            String icon = object.getString("icon");
-            this.setIconName(icon);
+    private boolean readBooleanOrFalse(String key, JSONObject object) {
+        if (object.has(key) && (object.get(key) instanceof Boolean)) {
+            return object.getBoolean(key);
+        } else {
+            return false;
         }
     }
 
+    private String readStringOrEmpty(String key, JSONObject object) {
+        if (object.has(key) && (object.get(key) instanceof String)) {
+            return object.getString(key);
+        } else {
+            return "";
+        }
+    }
+
+    private List<String> readValuesFromObject(Object jsonObject) {
+        ArrayList<String> patterns = new ArrayList<>();
+        if (jsonObject instanceof JSONArray) {
+            for (Object arrayItem : (JSONArray)jsonObject) {
+                patterns.add((String) arrayItem);
+            }
+        } else if (jsonObject instanceof String) {
+            patterns.add((String)jsonObject);
+        }
+        return patterns;
+    }
+
     private void addMetaTemplate(String name, String pattern) {
-        this.metaTemplates.computeIfAbsent(name, k -> new ArrayList<>());
+        this.metaTemplates.putIfAbsent(name, new ArrayList<>());
         this.metaTemplates.get(name).add(Pattern.compile(prepareRegexp(pattern)));
     }
 
     public void addCookieTemplate(String cookie, String cookiePattern) {
-        Pattern pattern = Pattern.compile(prepareRegexp(cookiePattern));
-        this.cookieTemplates.put(cookie, pattern);
+        this.cookieTemplates.putIfAbsent(cookie, new ArrayList<>());
+        this.cookieTemplates.get(cookie).add(Pattern.compile(prepareRegexp(cookiePattern)));
+    }
+
+    public void addHeaderTemplate(String headerName, String template) {
+        this.headerTemplates.putIfAbsent(headerName.toLowerCase(), new ArrayList<>());
+        this.headerTemplates.get(headerName.toLowerCase()).add(Pattern.compile(prepareRegexp(template)));
     }
 
     public String getName() {
@@ -191,29 +211,12 @@ public class Technology {
         return scriptSrc;
     }
 
-    public Map<String, Pattern> getHeaderTemplates() {
+    public Map<String, List<Pattern>> getHeaderTemplates() {
         return headerTemplates;
     }
 
-    public Pattern getHeaderTemplates(String headerKey) {
+    public List<Pattern> getHeaderTemplates(String headerKey) {
         return headerTemplates.get(headerKey.toLowerCase());
-    }
-
-    private static List<String> readValuesByKey(JSONObject object, String key) {
-        List<String> values = new ArrayList<>();
-        if (object.has(key)) {
-            if (object.get(key) instanceof String) {
-                values.add(object.getString(key));
-            } else if (object.get(key) instanceof JSONArray) {
-                JSONArray templates = object.getJSONArray(key);
-                for (Object item : templates) {
-                    if (item instanceof String) {
-                        values.add((String) item);
-                    }
-                }
-            }
-        }
-        return values;
     }
 
     public String getCpe() {
@@ -245,18 +248,20 @@ public class Technology {
 
         if (!page.getHeaders().isEmpty()) {
             for (String header : this.headerTemplates.keySet()) {
-                Pattern pattern = this.headerTemplates.get(header);
-                if (pattern.toString().isEmpty() && page.getHeaders().containsKey(header)) {
-                    long endTimestamp = System.currentTimeMillis();
-                    return new TechnologyMatch(this, TechnologyMatch.HEADER, endTimestamp - startTimestamp);
-                } else {
-                    List<String> headerValues = page.getHeaders().get(header);
-                    if (headerValues != null && !headerValues.isEmpty()) {
-                        for (String value : headerValues) {
-                            Matcher matcher = headerTemplates.get(header).matcher(value);
-                            if (matcher.find()) {
-                                long endTimestamp = System.currentTimeMillis();
-                                return new TechnologyMatch(this, TechnologyMatch.HEADER, endTimestamp -startTimestamp);
+                List<Pattern> patterns = this.headerTemplates.get(header);
+                for (Pattern pattern : patterns) {
+                    if (pattern.toString().isEmpty() && page.getHeaders().containsKey(header)) {
+                        long endTimestamp = System.currentTimeMillis();
+                        return new TechnologyMatch(this, TechnologyMatch.HEADER, endTimestamp - startTimestamp);
+                    } else {
+                        List<String> headerValues = page.getHeaders().get(header);
+                        if (headerValues != null && !headerValues.isEmpty()) {
+                            for (String value : headerValues) {
+                                Matcher matcher = pattern.matcher(value);
+                                if (matcher.find()) {
+                                    long endTimestamp = System.currentTimeMillis();
+                                    return new TechnologyMatch(this, TechnologyMatch.HEADER, endTimestamp -startTimestamp);
+                                }
                             }
                         }
                     }
@@ -266,18 +271,20 @@ public class Technology {
 
         if (!page.getCookies().isEmpty()) {
             for (String cookie : this.cookieTemplates.keySet()) {
-                Pattern pattern = this.cookieTemplates.get(cookie);
-                if (pattern.toString().isEmpty() && page.getCookies().containsKey(cookie)) {
-                    long endTimestamp = System.currentTimeMillis();
-                    return new TechnologyMatch(this, TechnologyMatch.COOKIE, endTimestamp - startTimestamp);
-                } else {
-                    List<String> values = page.getCookies().get(cookie);
-                    if (values != null && !values.isEmpty()) {
-                        for (String value : values) {
-                            Matcher matcher = cookieTemplates.get(cookie).matcher(value);
-                            if (matcher.find()) {
-                                long endTimestamp = System.currentTimeMillis();
-                                return new TechnologyMatch(this, TechnologyMatch.COOKIE, endTimestamp - startTimestamp);
+                List<Pattern> patterns = this.cookieTemplates.get(cookie);
+                for (Pattern pattern : patterns) {
+                    if (pattern.toString().isEmpty() && page.getCookies().containsKey(cookie)) {
+                        long endTimestamp = System.currentTimeMillis();
+                        return new TechnologyMatch(this, TechnologyMatch.COOKIE, endTimestamp - startTimestamp);
+                    } else {
+                        List<String> values = page.getCookies().get(cookie);
+                        if (values != null && !values.isEmpty()) {
+                            for (String value : values) {
+                                Matcher matcher = pattern.matcher(value);
+                                if (matcher.find()) {
+                                    long endTimestamp = System.currentTimeMillis();
+                                    return new TechnologyMatch(this, TechnologyMatch.COOKIE, endTimestamp - startTimestamp);
+                                }
                             }
                         }
                     }
@@ -356,12 +363,7 @@ public class Technology {
         return splittedPattern[0];
     }
 
-    public void addHeaderTemplate(String headerName, String template) {
-        Pattern pattern = Pattern.compile(prepareRegexp(template));
-        this.headerTemplates.put(headerName.toLowerCase(), pattern);
-    }
-
-    public Map<String, Pattern> getCookieTemplates() {
+    public Map<String, List<Pattern>> getCookieTemplates() {
         return this.cookieTemplates;
     }
 

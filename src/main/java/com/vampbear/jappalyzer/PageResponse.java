@@ -1,7 +1,11 @@
 package com.vampbear.jappalyzer;
 
+import java.io.BufferedReader;
+import java.io.StringReader;
 import java.net.HttpCookie;
 import java.util.*;
+import java.util.stream.Collectors;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,6 +16,7 @@ public class PageResponse {
     private final int statusCode;
     private Document document;
     private String origContent;
+    private List<String> contentLines;
 
     private final List<String> scriptSources = new ArrayList<>();
     private final Map<String, List<String>> headers = new HashMap<>();
@@ -31,6 +36,8 @@ public class PageResponse {
     private void processContent(String content) {
         this.origContent = content;
         this.document = Jsoup.parse(content);
+        BufferedReader bf = new BufferedReader(new StringReader(content));
+        this.contentLines = bf.lines().collect(Collectors.toList());
 
         Elements scripts = document.select("script");
         for (Element script : scripts) {
@@ -101,5 +108,9 @@ public class PageResponse {
 
     public Map<String, List<String>> getMetaMap() {
         return this.metaMap;
+    }
+
+    public List<String> getContentLines() {
+        return contentLines;
     }
 }

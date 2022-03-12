@@ -138,11 +138,11 @@ public class Technology {
     private List<String> readValuesFromObject(Object jsonObject) {
         ArrayList<String> patterns = new ArrayList<>();
         if (jsonObject instanceof JSONArray) {
-            for (Object arrayItem : (JSONArray)jsonObject) {
+            for (Object arrayItem : (JSONArray) jsonObject) {
                 patterns.add((String) arrayItem);
             }
         } else if (jsonObject instanceof String) {
-            patterns.add((String)jsonObject);
+            patterns.add((String) jsonObject);
         }
         return patterns;
     }
@@ -231,20 +231,8 @@ public class Technology {
         return pricing;
     }
 
-    @Override
-    public String toString() {
-        return "Technology{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", iconName='" + iconName + '\'' +
-                ", website='" + website + '\'' +
-                '}';
-    }
-
     public TechnologyMatch applicableTo(PageResponse page) {
         long startTimestamp = System.currentTimeMillis();
-        Document document = page.getDocument();
-        String content = page.getOrigContent();
 
         if (!page.getHeaders().isEmpty()) {
             boolean match = getTechnologyMapMatch(this.headerTemplates, page.getHeaders());
@@ -265,33 +253,31 @@ public class Technology {
         }
 
         for (String domTemplate : this.domTemplates) {
-            if (containsDomTemplate(document, prepareRegexp(domTemplate), getName())) {
-                long endTimestamp = System.currentTimeMillis();
-                return new TechnologyMatch(this, TechnologyMatch.DOM, endTimestamp - startTimestamp);
+            if (containsDomTemplate(page.getDocument(), prepareRegexp(domTemplate), getName())) {
+                long duration  = System.currentTimeMillis() - startTimestamp;
+                return new TechnologyMatch(this, TechnologyMatch.DOM, duration);
             }
         }
 
         for (Pattern scriptSrcPattern : this.scriptSrc) {
-            for (String script : page.getScriptSources()) {
-                Matcher matcher = scriptSrcPattern.matcher(script);
-                if (matcher.find()) {
-                    long endTimestamp = System.currentTimeMillis();
-                    return new TechnologyMatch(this, TechnologyMatch.SCRIPT, endTimestamp - startTimestamp);
-                }
-            }
+            boolean match = getTechnologyStringListMatch(page.getScriptSources(), scriptSrcPattern);
+            long duration  = System.currentTimeMillis() - startTimestamp;
+            if (match) return new TechnologyMatch(this, TechnologyMatch.SCRIPT, duration);
         }
 
         for (Pattern htmlTemplate : this.htmlTemplates) {
-            BufferedReader bf = new BufferedReader(new StringReader(content));
-            boolean match = bf.lines().anyMatch(line -> htmlTemplate.matcher(line).find());
-            if (match) {
-                long endTimestamp = System.currentTimeMillis();
-                return new TechnologyMatch(this, TechnologyMatch.HTML, endTimestamp - startTimestamp);
-            }
+            boolean match = getTechnologyStringListMatch(page.getContentLines(), htmlTemplate);
+            long duration  = System.currentTimeMillis() - startTimestamp;
+            if (match) return new TechnologyMatch(this, TechnologyMatch.HTML, duration);
         }
 
-        long endTimestamp = System.currentTimeMillis();
-        return TechnologyMatch.notMatched(this,endTimestamp - startTimestamp);
+        long duration = System.currentTimeMillis() - startTimestamp;
+        return TechnologyMatch.notMatched(this, duration);
+    }
+
+    // TODO : check performance of filter + findFirst
+    private boolean getTechnologyStringListMatch(List<String> lines, Pattern pattern) {
+        return lines.stream().parallel().anyMatch(line -> pattern.matcher(line).find());
     }
 
     private boolean getTechnologyMapMatch(Map<String, List<Pattern>> templates, Map<String, List<String>> page) {
@@ -354,5 +340,15 @@ public class Technology {
             return Collections.emptyList();
         }
         return patterns;
+    }
+
+    @Override
+    public String toString() {
+        return "Technology{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", iconName='" + iconName + '\'' +
+                ", website='" + website + '\'' +
+                '}';
     }
 }

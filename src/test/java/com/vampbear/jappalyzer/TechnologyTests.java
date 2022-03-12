@@ -4,6 +4,8 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 
@@ -125,6 +127,20 @@ public class TechnologyTests {
             "    ],\n" +
             "    \"website\": \"https://www.jumio.com\"\n" +
             "  }";
+
+    public static final String META_GENERATOR_LIST_TECH = "{\n" +
+            "    \"cats\": [\n" +
+            "      6\n" +
+            "    ],\n" +
+            "    \"description\": \"Abicart is an ecommerce platform developed by the Swedish company Abicart AB.\",\n" +
+            "    \"icon\": \"abicart.png\",\n" +
+            "    \"meta\": {\n" +
+            "      \"generator\": [\n" +
+            "        \"Abicart\",\n" +
+            "        \"Textalk Webshop\"\n" +
+            "      ]\n" +
+            "    }" +
+            "}";
 
     @Test
     public void fontAwesomeTest() {
@@ -273,5 +289,15 @@ public class TechnologyTests {
     public void saasTest() {
         Technology technology = new Technology("Jumio", PRICING_SAAS_TECH);
         assertTrue(technology.isSaas());
+    }
+
+    @Test
+    public void shouldTechnologyHasTwoMetaGenerators() {
+        Technology technology = new Technology("Abicart", META_GENERATOR_LIST_TECH);
+        List<Pattern> generatorTemplates = technology.getMetaTemplates("generator");
+        List<String> expected = new ArrayList<>();
+        expected.add("Abicart");
+        expected.add("Textalk Webshop");
+        assertEquals(expected, generatorTemplates.stream().map(Pattern::toString).collect(Collectors.toList()));
     }
 }

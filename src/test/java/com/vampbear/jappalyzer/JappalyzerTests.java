@@ -36,6 +36,26 @@ public class JappalyzerTests {
             "<script type='text/javascript' id='ba_big_menu_scripts-js-extra'>\n" +
             "</head><body></body></html>";
 
+    public static final String ABICART_TECHNOLOGY = "{\n" +
+            "    \"cats\": [\n" +
+            "      6\n" +
+            "    ],\n" +
+            "    \"description\": \"Abicart is an ecommerce platform developed by the Swedish company Abicart AB.\",\n" +
+            "    \"icon\": \"abicart.png\",\n" +
+            "    \"meta\": {\n" +
+            "      \"generator\": [\n" +
+            "        \"Abicart\",\n" +
+            "        \"Textalk Webshop\"\n" +
+            "      ]\n" +
+            "    }" +
+            "}";
+
+
+    public static final String ABICART_CONTENT = "" +
+            "<html><head>\n" +
+            "<meta name=\"generator\" content=\"Abicart\"/>\n" +
+            "</head><body></body></html>";
+
     @Test
     public void wordpressComTest() {
         Jappalyzer jappalyzer = Jappalyzer.create();
@@ -106,6 +126,14 @@ public class JappalyzerTests {
                 CollectionUtils.isEqualCollection(
                         Arrays.asList("jsDelivr", "Lightbox", "Polyfill"), techNames
                 ));
+    }
+
+    @Test
+    public void shouldDetectAbicartTechnology() {
+        Technology technology = new Technology("Abicart", ABICART_TECHNOLOGY);
+        PageResponse pageResponse = new PageResponse(200, null, ABICART_CONTENT);
+        TechnologyMatch match = new TechnologyMatch(technology, TechnologyMatch.META);
+        assertEquals(match, technology.appliebleTo(pageResponse));
     }
 
     private List<String> getTechnologiesNames(List<TechnologyMatch> matches) {

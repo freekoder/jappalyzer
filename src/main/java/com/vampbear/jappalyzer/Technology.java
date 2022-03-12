@@ -1,7 +1,6 @@
 package com.vampbear.jappalyzer;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -22,7 +21,7 @@ public class Technology {
     private final List<Pattern> scriptSrc = new ArrayList<>();
     private final Map<String, Pattern> headerTemplates = new HashMap<>();
     private final Map<String, Pattern> cookieTemplates = new HashMap<>();
-    private final Map<String, Pattern> metaTemplates = new HashMap<>();
+    private final Map<String, List<Pattern>> metaTemplates = new HashMap<>();
     private String iconName = "";
     private String website = "";
     private String cpe = "";
@@ -108,15 +107,16 @@ public class Technology {
             }
         }
 
-        // TODO: fix bug with Abicart (not string but array)
         if (object.has("meta")) {
             JSONObject metaObject = object.getJSONObject("meta");
             for (String metaKey : metaObject.keySet()) {
-                try {
-                    String metaPattern = metaObject.getString(metaKey);
-                    this.addMetaTemplate(metaKey, metaPattern);
-                } catch (JSONException e) {
-                    System.out.println(name);
+                Object keyObject = metaObject.get(metaKey);
+                if (keyObject instanceof JSONArray) {
+                    for (Object arrayItem : (JSONArray)keyObject) {
+                        this.addMetaTemplate(metaKey, (String)arrayItem);
+                    }
+                } else if (keyObject instanceof String) {
+                    this.addMetaTemplate(metaKey, (String)keyObject);
                 }
             }
         }
@@ -133,7 +133,8 @@ public class Technology {
     }
 
     private void addMetaTemplate(String name, String pattern) {
-        this.metaTemplates.put(name, Pattern.compile(prepareRegexp(pattern)));
+        this.metaTemplates.computeIfAbsent(name, k -> new ArrayList<>());
+        this.metaTemplates.get(name).add(Pattern.compile(prepareRegexp(pattern)));
     }
 
     public void addCookieTemplate(String cookie, String cookiePattern) {
@@ -286,17 +287,19 @@ public class Technology {
 
         if (!page.getMetaMap().isEmpty()) {
             for (String name : this.metaTemplates.keySet()) {
-                Pattern pattern = this.metaTemplates.get(name);
-                if (pattern.toString().isEmpty() && page.getMetaMap().containsKey(name)) {
-                    long endTimestamp = System.currentTimeMillis();
-                    return new TechnologyMatch(this, TechnologyMatch.META, endTimestamp - startTimestamp);
-                } else {
-                    String metaContent = page.getMetaMap().get(name);
-                    if (metaContent != null && !metaContent.isEmpty()) {
-                        Matcher matcher = this.metaTemplates.get(name).matcher(metaContent);
-                        if (matcher.find()) {
-                            long endTimestamp = System.currentTimeMillis();
-                            return new TechnologyMatch(this, TechnologyMatch.META, endTimestamp - startTimestamp);
+                List<Pattern> patterns = this.metaTemplates.get(name);
+                for (Pattern pattern : patterns) {
+                    if (pattern.toString().isEmpty() && page.getMetaMap().containsKey(name)) {
+                        long endTimestamp = System.currentTimeMillis();
+                        return new TechnologyMatch(this, TechnologyMatch.META, endTimestamp - startTimestamp);
+                    } else {
+                        String metaContent = page.getMetaMap().get(name);
+                        if (metaContent != null && !metaContent.isEmpty()) {
+                            Matcher matcher = pattern.matcher(metaContent);
+                            if (matcher.find()) {
+                                long endTimestamp = System.currentTimeMillis();
+                                return new TechnologyMatch(this, TechnologyMatch.META, endTimestamp - startTimestamp);
+                            }
                         }
                     }
                 }
@@ -368,5 +371,13 @@ public class Technology {
 
     public List<Category> getCategories() {
         return this.categories;
+    }
+
+    public List<Pattern> getMetaTemplates(String name) {
+        List<Pattern> patterns = this.metaTemplates.get(name);
+        if (patterns == null) {
+            return Collections.emptyList();
+        }
+        return patterns;
     }
 }

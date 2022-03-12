@@ -1,14 +1,12 @@
 package com.vampbear.jappalyzer;
 
 import org.junit.Test;
-import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.List;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.*;
 
 public class JappalyzerTests {
 
@@ -61,10 +59,7 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/wp.com.html");
         List<String> techNames = getTechnologiesNames(matches);
-        assertTrue(
-                CollectionUtils.isEqualCollection(
-                        Arrays.asList("Google Font API", "WordPress"), techNames
-                ));
+        assertThat(techNames).containsExactlyInAnyOrder("Google Font API", "WordPress");
     }
 
     @Test
@@ -72,17 +67,12 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/Baeldung.html");
         List<String> techNames = getTechnologiesNames(matches);
-        System.out.println(techNames);
-        assertTrue(
-                CollectionUtils.isEqualCollection(
-                        Arrays.asList("Google Analytics",
-                                "Google Font API",
-                                "jQuery Migrate",
-                                "jQuery",
-                                "Elementor",
-                                "WordPress"),
-                        techNames
-                ));
+        assertThat(techNames).containsExactlyInAnyOrder("Google Analytics",
+                "Google Font API",
+                "jQuery Migrate",
+                "jQuery",
+                "Elementor",
+                "WordPress");
     }
 
     @Test
@@ -91,7 +81,7 @@ public class JappalyzerTests {
         Technology technology = new Technology("jQuery Migrate", JQUERY_MIGRATE_TECH);
         jappalyzer.addTechnology(technology);
         List<TechnologyMatch> matches = jappalyzer.fromString(JQUERY_MIGRATE_CONTENT);
-        assertEquals(1, matches.size());
+        assertThat(matches.size()).isEqualTo(1);
     }
 
     @Test
@@ -99,10 +89,7 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/yandex.html");
         List<String> techNames = getTechnologiesNames(matches);
-        assertTrue(
-                CollectionUtils.isEqualCollection(
-                        Arrays.asList("React", "jQuery", "Cart Functionality", "BEM"), techNames)
-        );
+        assertThat(techNames).containsExactlyInAnyOrder("React", "jQuery", "Cart Functionality", "BEM");
     }
 
     @Test
@@ -110,10 +97,7 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/twitter.html");
         List<String> techNames = getTechnologiesNames(matches);
-        assertTrue(
-                CollectionUtils.isEqualCollection(
-                        Collections.emptyList(), techNames
-                ));
+        assertThat(techNames).isEmpty();
     }
 
     @Test
@@ -121,11 +105,7 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/sport-conrod.html");
         List<String> techNames = getTechnologiesNames(matches);
-        System.out.println(techNames);
-        assertTrue(
-                CollectionUtils.isEqualCollection(
-                        Arrays.asList("jsDelivr", "Lightbox", "Polyfill"), techNames
-                ));
+        assertThat(techNames).containsExactlyInAnyOrder("jsDelivr", "Lightbox", "Polyfill");
     }
 
     @Test
@@ -133,7 +113,7 @@ public class JappalyzerTests {
         Technology technology = new Technology("Abicart", ABICART_TECHNOLOGY);
         PageResponse pageResponse = new PageResponse(200, null, ABICART_CONTENT);
         TechnologyMatch match = new TechnologyMatch(technology, TechnologyMatch.META);
-        assertEquals(match, technology.applicableTo(pageResponse));
+        assertThat(technology.applicableTo(pageResponse)).isEqualTo(match);
     }
 
     private List<String> getTechnologiesNames(List<TechnologyMatch> matches) {

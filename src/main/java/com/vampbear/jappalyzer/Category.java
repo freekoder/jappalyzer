@@ -1,5 +1,6 @@
 package com.vampbear.jappalyzer;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Category  {
@@ -7,6 +8,7 @@ public class Category  {
     private final int id;
     private final String name;
     private final int priority;
+    private List<Group> groups;
 
     public Category(int id, String name, int priority) {
         this.id = id;
@@ -44,5 +46,13 @@ public class Category  {
         return "Category{" +
                 "name='" + name + '\'' +
                 '}';
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
+
+    public List<Group> getGroups() {
+        return groups;
     }
 }

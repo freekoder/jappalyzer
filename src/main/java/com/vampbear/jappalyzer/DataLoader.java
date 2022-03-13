@@ -1,12 +1,11 @@
 package com.vampbear.jappalyzer;
 
 
-import java.util.List;
+import java.util.*;
+
 import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.io.BufferedReader;
 import org.json.JSONException;
 import java.io.InputStreamReader;
@@ -19,32 +18,71 @@ public class DataLoader {
     public static final String CATEGORIES_GIT_PATH =
             "https://raw.githubusercontent.com/AliasIO/wappalyzer/master/src/categories.json";
 
+    public static final String GROUPS_GIT_PATH = "" +
+            "https://raw.githubusercontent.com/AliasIO/wappalyzer/master/src/groups.json";
+
     public List<Technology> loadInternalTechnologies() {
-        Categories categories = readInternalCategories();
+        Map<Integer, Group> idGroupMap = readInternalGroups();
+        Categories categories = readInternalCategories(idGroupMap);
         return readTechnologiesFromInternalResources(categories);
     }
 
+    private Map<Integer, Group> readInternalGroups() {
+        try {
+            String groupsContent = readFileContentFromResource("groups.json");
+            return createGroupsMap(new JSONObject(groupsContent));
+        } catch (IOException | JSONException ignore) {}
+        return Collections.emptyMap();
+    }
+
     public List<Technology> loadLatestTechnologies() {
-        Categories categories = readLatestCategories();
+        Map<Integer, Group> idGroupMap = readLatestGroups();
+        Categories categories = readLatestCategories(idGroupMap);
         return readTechnologiestFromGit(categories);
     }
 
-    private Categories readLatestCategories() {
+    private Map<Integer, Group> readLatestGroups() {
+        HttpClient httpClient = new HttpClient();
+        try {
+            PageResponse pageResponse = httpClient.getPageByUrl(GROUPS_GIT_PATH);
+            JSONObject groupsContent = new JSONObject(pageResponse.getOrigContent());
+            return createGroupsMap(new JSONObject(groupsContent));
+        } catch (IOException | JSONException ignore) {}
+        return Collections.emptyMap();
+    }
+
+    private Map<Integer, Group> createGroupsMap(JSONObject groupsJSON) {
+        Map<Integer, Group> idGroupMap = new HashMap<>();
+        for (String key : groupsJSON.keySet()) {
+            JSONObject groupObject = groupsJSON.getJSONObject(key);
+            int id = Integer.parseInt(key);
+            idGroupMap.put(id, new Group(id, groupObject.getString("name")));
+        }
+        return idGroupMap;
+    }
+
+    private Categories readLatestCategories(Map<Integer, Group> idGroupMap) {
         List<Category> categories = new ArrayList<>();
         HttpClient httpClient = new HttpClient();
         try {
             PageResponse pageResponse = httpClient.getPageByUrl(CATEGORIES_GIT_PATH);
             JSONObject categoriesJSON = new JSONObject(pageResponse.getOrigContent());
             for (String key : categoriesJSON.keySet()) {
-                JSONObject categoryObject = categoriesJSON.getJSONObject(key);
-                categories.add(
-                        new Category(
-                                Integer.parseInt(key), categoryObject.getString("name"), categoryObject.getInt("priority")
-                        )
-                );
+                JSONObject categoryJSON = categoriesJSON.getJSONObject(key);
+                categories.add(extractCategory(categoryJSON, key, idGroupMap));
             }
         } catch (IOException | JSONException ignore) {}
         return new Categories(categories);
+    }
+
+    private Category extractCategory(JSONObject categoryJSON, String key, Map<Integer, Group> idGroupMap) {
+        List<Integer> groupsIds = readGroupIds(categoryJSON);
+        List<Group> groups = convertIdsToGroups(idGroupMap, groupsIds);
+        Category category = new Category(
+                Integer.parseInt(key), categoryJSON.getString("name"), categoryJSON.getInt("priority")
+        );
+        category.setGroups(groups);
+        return category;
     }
 
     private List<Technology> readTechnologiestFromGit(Categories categories) {
@@ -68,21 +106,38 @@ public class DataLoader {
         return technologies;
     }
 
-    private Categories readInternalCategories() {
+    private Categories readInternalCategories(Map<Integer, Group> idGroupMap) {
         List<Category> categories = new ArrayList<>();
         try {
             String categoriesContent = readFileContentFromResource("categories.json");
             JSONObject categoriesJSON = new JSONObject(categoriesContent);
             for (String key : categoriesJSON.keySet()) {
-                JSONObject categoryObject = categoriesJSON.getJSONObject(key);
-                categories.add(
-                        new Category(
-                                Integer.parseInt(key), categoryObject.getString("name"), categoryObject.getInt("priority")
-                        )
-                );
+                JSONObject categoryJSON = categoriesJSON.getJSONObject(key);
+                categories.add(extractCategory(categoryJSON, key, idGroupMap));
             }
         } catch (IOException | JSONException ignore) {}
         return new Categories(categories);
+    }
+
+    private List<Group> convertIdsToGroups(Map<Integer, Group> idGroupMap, List<Integer> groupsIds) {
+        ArrayList<Group> groups = new ArrayList<>();
+        for (Integer id : groupsIds) {
+            if (idGroupMap.containsKey(id)) {
+                groups.add(idGroupMap.get(id));
+            }
+        }
+        return groups;
+    }
+
+    private List<Integer> readGroupIds(JSONObject categoryObject) {
+        ArrayList<Integer> groupsIds = new ArrayList<>();
+        if (categoryObject.has("groups")) {
+            for (int i = 0; i < categoryObject.getJSONArray("groups").length(); i++) {
+                int id = categoryObject.getJSONArray("groups").getInt(i);
+                groupsIds.add(id);
+            }
+        }
+        return groupsIds;
     }
 
     private List<Technology> readTechnologiesFromInternalResources(Categories categories) {

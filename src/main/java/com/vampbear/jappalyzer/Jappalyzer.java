@@ -26,7 +26,7 @@ public class Jappalyzer {
         return jappalyzer;
     }
 
-    private static Jappalyzer latest() {
+    public static Jappalyzer latest() {
         DataLoader dataLoader = new DataLoader();
         List<Technology> technologies = dataLoader.loadLatestTechnologies();
         Jappalyzer jappalyzer = new Jappalyzer();

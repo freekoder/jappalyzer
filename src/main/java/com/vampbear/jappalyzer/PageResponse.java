@@ -36,7 +36,7 @@ public class PageResponse {
     private void processContent(String content) {
         this.origContent = content;
         this.document = Jsoup.parse(content);
-        BufferedReader bf = new BufferedReader(new StringReader(content));
+        BufferedReader bf = new BufferedReader(new StringReader(this.document.outerHtml()));
         this.contentLines = bf.lines().collect(Collectors.toList());
 
         Elements scripts = document.select("script");

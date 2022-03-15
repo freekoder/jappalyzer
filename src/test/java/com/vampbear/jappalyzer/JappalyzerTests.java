@@ -100,7 +100,7 @@ public class JappalyzerTests {
     }
 
     @Test
-    public void sportConrodTest () {
+    public void sportConrodTest() {
         Jappalyzer jappalyzer = Jappalyzer.create();
         List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/sport-conrod.html");
         List<String> techNames = getTechnologiesNames(matches);

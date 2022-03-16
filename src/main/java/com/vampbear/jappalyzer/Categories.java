@@ -1,5 +1,6 @@
 package com.vampbear.jappalyzer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,5 +17,9 @@ public class Categories {
 
     public Category getCategoryById(int id) {
         return categoryMap.get(id);
+    }
+
+    public List<Category> getCategories() {
+        return new ArrayList<>(categoryMap.values());
     }
 }

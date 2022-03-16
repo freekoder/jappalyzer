@@ -76,8 +76,9 @@ public class JappalyzerTests {
 
     @Test
     public void queryMigrateMissTest() {
+        TechnologyBuilder technologyBuilder = new TechnologyBuilder();
         Jappalyzer jappalyzer = Jappalyzer.empty();
-        Technology technology = new Technology("jQuery Migrate", JQUERY_MIGRATE_TECH);
+        Technology technology = technologyBuilder.fromString("jQuery Migrate", JQUERY_MIGRATE_TECH);
         jappalyzer.addTechnology(technology);
         List<TechnologyMatch> matches = jappalyzer.fromString(JQUERY_MIGRATE_CONTENT);
         assertThat(matches.size()).isEqualTo(1);
@@ -109,7 +110,8 @@ public class JappalyzerTests {
 
     @Test
     public void shouldDetectAbicartTechnology() {
-        Technology technology = new Technology("Abicart", ABICART_TECHNOLOGY);
+        TechnologyBuilder technologyBuilder = new TechnologyBuilder();
+        Technology technology = technologyBuilder.fromString("Abicart", ABICART_TECHNOLOGY);
         PageResponse pageResponse = new PageResponse(200, null, ABICART_CONTENT);
         TechnologyMatch match = new TechnologyMatch(technology, TechnologyMatch.META);
         assertThat(technology.applicableTo(pageResponse)).isEqualTo(match);

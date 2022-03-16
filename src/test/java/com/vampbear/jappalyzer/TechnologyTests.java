@@ -1,5 +1,6 @@
 package com.vampbear.jappalyzer;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
@@ -140,6 +141,19 @@ public class TechnologyTests {
             "    }" +
             "}";
 
+    private TechnologyBuilder technologyBuilder;
+
+    @Before
+    public void setUp() {
+        List<Category> categories = Arrays.asList(
+                new Category(41, "Payment processors", 8),
+                new Category(91, "Buy now pay later", 9),
+                new Category(22, "TEST CATEGORY 1", 9),
+                new Category(33, "TEST CATEGORY 2", 9)
+        );
+        this.technologyBuilder = new TechnologyBuilder(categories);
+    }
+
     @Test
     public void shouldMatchFontAwesome() {
         Technology technology = new Technology("Font Awesome");
@@ -224,7 +238,7 @@ public class TechnologyTests {
 
     @Test
     public void stringConstructorTest() {
-        Technology technology = new Technology("DERAK.CLOUD", TECHNOLOGY_STRING);
+        Technology technology = this.technologyBuilder.fromString("DERAK.CLOUD", TECHNOLOGY_STRING);
         assertThat(technology.getName()).isEqualTo("DERAK.CLOUD");
         assertThat(technology.getDescription()).isEqualTo("DPD is an international parcel delivery service for sorter compatible parcels.");
         assertThat(technology.getWebsite()).isEqualTo("https://derak.cloud");
@@ -237,7 +251,7 @@ public class TechnologyTests {
 
     @Test
     public void metaPatternTest() {
-        Technology technology = new Technology("Joomla", JOOMLA_TECH_STRING);
+        Technology technology = this.technologyBuilder.fromString("Joomla", JOOMLA_TECH_STRING);
         PageResponse pageResponse = new PageResponse(200, null, JOOMLA_META_CONTENT);
         TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.META, 0L);
         assertThat(technology.applicableTo(pageResponse)).isEqualTo(expected);
@@ -245,7 +259,7 @@ public class TechnologyTests {
 
     @Test
     public void metaEmptyPatternTest() {
-        Technology technology = new Technology("JQuery pjax", META_KEY_TECH);
+        Technology technology = this.technologyBuilder.fromString("JQuery pjax", META_KEY_TECH);
         PageResponse pageResponse = new PageResponse(200, null, META_KEY_CONTENT);
         TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.META, 0L);
         assertThat(technology.applicableTo(pageResponse)).isEqualTo(expected);
@@ -253,19 +267,13 @@ public class TechnologyTests {
 
     @Test
     public void cpeParseTest() {
-        Technology technology = new Technology("Joomla", JOOMLA_TECH_STRING);
+        Technology technology = this.technologyBuilder.fromString("Joomla", JOOMLA_TECH_STRING);
         assertThat(technology.getCPE()).isEqualTo("cpe:/a:joomla:joomla");
     }
 
     @Test
     public void categoriesTest() {
-        Categories categories = new Categories(Arrays.asList(
-                new Category(41, "Payment processors", 8),
-                new Category(91, "Buy now pay later", 9),
-                new Category(22, "TEST CATEGORY 1", 9),
-                new Category(33, "TEST CATEGORY 2", 9)
-        ));
-        Technology technology = new Technology("Pace", CATS_TECH, categories);
+        Technology technology = this.technologyBuilder.fromString("Pace", CATS_TECH);
         assertThat(technology.getCategories()).containsExactlyInAnyOrder(
                 new Category(41, "Payment processors", 8),
                 new Category(91, "Buy now pay later", 9)
@@ -274,19 +282,19 @@ public class TechnologyTests {
 
     @Test
     public void pricingTest() {
-        Technology technology = new Technology("Jumio", PRICING_SAAS_TECH);
+        Technology technology = this.technologyBuilder.fromString("Jumio", PRICING_SAAS_TECH);
         assertThat(technology.getPricing()).containsExactlyElementsOf(Arrays.asList("payg", "mid", "recurring"));
     }
 
     @Test
     public void saasTest() {
-        Technology technology = new Technology("Jumio", PRICING_SAAS_TECH);
+        Technology technology = this.technologyBuilder.fromString("Jumio", PRICING_SAAS_TECH);
         assertThat(technology.isSaas()).isTrue();
     }
 
     @Test
     public void shouldTechnologyHasTwoMetaGenerators() {
-        Technology technology = new Technology("Abicart", META_GENERATOR_LIST_TECH);
+        Technology technology = this.technologyBuilder.fromString("Abicart", META_GENERATOR_LIST_TECH);
         List<Pattern> generatorTemplates = technology.getMetaTemplates("generator");
         List<String> templateNames = generatorTemplates.stream().map(Pattern::toString).collect(Collectors.toList());
         assertThat(templateNames).containsExactlyInAnyOrder("Abicart", "Textalk Webshop");

@@ -173,10 +173,12 @@ public class DataLoader {
     private List<Technology> readTechnologiesFromString(String technologiesString, Categories categories) {
         List<Technology> technologies = new LinkedList<>();
         JSONObject fileJSON = new JSONObject(technologiesString);
+        TechnologyBuilder technologyBuilder = new TechnologyBuilder(categories.getCategories());
         for (String key : fileJSON.keySet()) {
             JSONObject object = (JSONObject) fileJSON.get(key);
             try {
-                technologies.add(new Technology(key, object, categories));
+                Technology technology = technologyBuilder.fromJSON(key, object);
+                technologies.add(technology);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

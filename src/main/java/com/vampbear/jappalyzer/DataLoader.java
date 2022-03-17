@@ -23,7 +23,7 @@ public class DataLoader {
 
     public List<Technology> loadInternalTechnologies() {
         Map<Integer, Group> idGroupMap = readInternalGroups();
-        Categories categories = readInternalCategories(idGroupMap);
+        List<Category> categories = readInternalCategories(idGroupMap);
         return readTechnologiesFromInternalResources(categories);
     }
 
@@ -37,7 +37,7 @@ public class DataLoader {
 
     public List<Technology> loadLatestTechnologies() {
         Map<Integer, Group> idGroupMap = readLatestGroups();
-        Categories categories = readLatestCategories(idGroupMap);
+        List<Category> categories = readLatestCategories(idGroupMap);
         return readTechnologiestFromGit(categories);
     }
 
@@ -61,7 +61,7 @@ public class DataLoader {
         return idGroupMap;
     }
 
-    private Categories readLatestCategories(Map<Integer, Group> idGroupMap) {
+    private List<Category> readLatestCategories(Map<Integer, Group> idGroupMap) {
         List<Category> categories = new ArrayList<>();
         HttpClient httpClient = new HttpClient();
         try {
@@ -72,7 +72,7 @@ public class DataLoader {
                 categories.add(extractCategory(categoryJSON, key, idGroupMap));
             }
         } catch (IOException | JSONException ignore) {}
-        return new Categories(categories);
+        return categories;
     }
 
     private Category extractCategory(JSONObject categoryJSON, String key, Map<Integer, Group> idGroupMap) {
@@ -85,7 +85,7 @@ public class DataLoader {
         return category;
     }
 
-    private List<Technology> readTechnologiestFromGit(Categories categories) {
+    private List<Technology> readTechnologiestFromGit(List<Category> categories) {
         ArrayList<Technology> technologies = new ArrayList<>();
         HttpClient httpClient = new HttpClient();
         String[] keys = new String[]{
@@ -106,7 +106,7 @@ public class DataLoader {
         return technologies;
     }
 
-    private Categories readInternalCategories(Map<Integer, Group> idGroupMap) {
+    private List<Category> readInternalCategories(Map<Integer, Group> idGroupMap) {
         List<Category> categories = new ArrayList<>();
         try {
             String categoriesContent = readFileContentFromResource("categories.json");
@@ -116,7 +116,7 @@ public class DataLoader {
                 categories.add(extractCategory(categoryJSON, key, idGroupMap));
             }
         } catch (IOException | JSONException ignore) {}
-        return new Categories(categories);
+        return categories;
     }
 
     private List<Group> convertIdsToGroups(Map<Integer, Group> idGroupMap, List<Integer> groupsIds) {
@@ -140,7 +140,7 @@ public class DataLoader {
         return groupsIds;
     }
 
-    private List<Technology> readTechnologiesFromInternalResources(Categories categories) {
+    private List<Technology> readTechnologiesFromInternalResources(List<Category> categories) {
         List<Technology> technologies = new LinkedList<>();
         String[] keys = new String[]{
                 "a", "b", "c", "d", "e", "f", "g", "h", "i",
@@ -170,10 +170,10 @@ public class DataLoader {
         return sb.toString();
     }
 
-    private List<Technology> readTechnologiesFromString(String technologiesString, Categories categories) {
+    private List<Technology> readTechnologiesFromString(String technologiesString, List<Category> categories) {
         List<Technology> technologies = new LinkedList<>();
         JSONObject fileJSON = new JSONObject(technologiesString);
-        TechnologyBuilder technologyBuilder = new TechnologyBuilder(categories.getCategories());
+        TechnologyBuilder technologyBuilder = new TechnologyBuilder(categories);
         for (String key : fileJSON.keySet()) {
             JSONObject object = (JSONObject) fileJSON.get(key);
             try {

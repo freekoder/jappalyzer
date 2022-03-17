@@ -1,58 +1,16 @@
 package com.vampbear.jappalyzer;
 
+import com.vampbear.jappalyzer.utils.TestUtils;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import static org.assertj.core.api.Assertions.*;
 
 public class TechnologyTests {
-
-    private static final String TECHNOLOGY_STRING = "{\n" +
-            "    \"cats\": [\n" +
-            "      31\n" +
-            "    ],\n" +
-            "    \"description\": \"DPD is an international parcel delivery service for sorter compatible parcels.\", " +
-            "    \"cookies\": {\n" +
-            "      \"trbo_session\": \"^(?:[\\\\d]+)$\",\n" +
-            "      \"django_language\": \"\"" +
-            "    }," +
-            "    \"headers\": {\n" +
-            "      \"Derak-Umbrage\": \"\",\n" +
-            "      \"Server\": \"^DERAK\\\\.CLOUD$\"\n" +
-            "    },\n" +
-            "    \"icon\": \"DerakCloud.png\",\n" +
-            "    \"js\": {\n" +
-            "      \"derakCloud.init\": \"\"\n" +
-            "    },\n" +
-            "    \"website\": \"https://derak.cloud\"\n" +
-            "  }";
-
-    public static final String JOOMLA_TECH_STRING = "{\n" +
-            "    \"cats\": [\n" +
-            "      1\n" +
-            "    ],\n" +
-            "    \"cpe\": \"cpe:/a:joomla:joomla\",\n" +
-            "    \"description\": \"Joomla is a free and open-source content management system for publishing web content.\",\n" +
-            "    \"headers\": {\n" +
-            "      \"X-Content-Encoded-By\": \"Joomla! ([\\\\d.]+)\\\\;version:\\\\1\"\n" +
-            "    },\n" +
-            "    \"html\": \"(?:<div[^>]+id=\\\"wrapper_r\\\"|<(?:link|script)[^>]+(?:feed|components)/com_|<table[^>]+class=\\\"pill)\\\\;confidence:50\",\n" +
-            "    \"icon\": \"Joomla.svg\",\n" +
-            "    \"implies\": \"PHP\",\n" +
-            "    \"js\": {\n" +
-            "      \"Joomla\": \"\",\n" +
-            "      \"jcomments\": \"\"\n" +
-            "    },\n" +
-            "    \"meta\": {\n" +
-            "      \"generator\": \"Joomla!(?: ([\\\\d.]+))?\\\\;version:\\\\1\"\n" +
-            "    },\n" +
-            "    \"oss\": true,\n" +
-            "    \"url\": \"option=com_\",\n" +
-            "    \"website\": \"https://www.joomla.org\"\n" +
-            "  }";
 
     public static final String JOOMLA_META_CONTENT = "<!DOCTYPE html>\n" +
             "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fa-ir\" lang=\"fa-ir\" dir=\"rtl\">\n" +
@@ -95,51 +53,6 @@ public class TechnologyTests {
             "\t<meta name=\"pjax-push\" content=\"Some unimportant content\" />\n" +
             "</head><body></body></html>";
 
-    public static final String CATS_TECH = "" +
-            "{\n" +
-            "    \"cats\": [\n" +
-            "      41,\n" +
-            "      91\n" +
-            "    ],\n" +
-            "    \"description\": \"PacePay offers a BNPL (Buy now pay later) solution for merchants.\",\n" +
-            "    \"icon\": \"Pace.svg\",\n" +
-            "    \"js\": {\n" +
-            "      \"pacePay\": \"\"\n" +
-            "    },\n" +
-            "    \"saas\": true,\n" +
-            "    \"scriptSrc\": \"pay\\\\.pacenow\\\\.co\",\n" +
-            "    \"website\": \"https://pacenow.co/\"\n" +
-            "}";
-
-    public static final String PRICING_SAAS_TECH = "{\n" +
-            "    \"cats\": [\n" +
-            "      16\n" +
-            "    ],\n" +
-            "    \"description\": \"Jumio is an online mobile payments and identity verification company that provides card and ID scanning and validation products for mobile and web transactions.\",\n" +
-            "    \"icon\": \"Jumio.svg\",\n" +
-            "    \"dom\": \"iframe[src*='.netverify.com/']\",\n" +
-            "    \"saas\": true,\n" +
-            "    \"pricing\": [\n" +
-            "      \"payg\",\n" +
-            "      \"mid\",\n" +
-            "      \"recurring\"\n" +
-            "    ],\n" +
-            "    \"website\": \"https://www.jumio.com\"\n" +
-            "  }";
-
-    public static final String META_GENERATOR_LIST_TECH = "{\n" +
-            "    \"cats\": [\n" +
-            "      6\n" +
-            "    ],\n" +
-            "    \"description\": \"Abicart is an ecommerce platform developed by the Swedish company Abicart AB.\",\n" +
-            "    \"icon\": \"abicart.png\",\n" +
-            "    \"meta\": {\n" +
-            "      \"generator\": [\n" +
-            "        \"Abicart\",\n" +
-            "        \"Textalk Webshop\"\n" +
-            "      ]\n" +
-            "    }" +
-            "}";
 
     private TechnologyBuilder technologyBuilder;
 
@@ -237,21 +150,21 @@ public class TechnologyTests {
     }
 
     @Test
-    public void stringConstructorTest() {
-        Technology technology = this.technologyBuilder.fromString("DERAK.CLOUD", TECHNOLOGY_STRING);
+    public void stringConstructorTest() throws IOException {
+        String derakCloudContent = TestUtils.readContentFromResource("technologies/derak.json");
+        Technology technology = this.technologyBuilder.fromString("DERAK.CLOUD", derakCloudContent);
         assertThat(technology.getName()).isEqualTo("DERAK.CLOUD");
-        assertThat(technology.getDescription()).isEqualTo("DPD is an international parcel delivery service for sorter compatible parcels.");
+        assertThat(technology.getDescription()).isEqualTo("Derak cloud service");
         assertThat(technology.getWebsite()).isEqualTo("https://derak.cloud");
         assertThat(technology.getIconName()).isEqualTo("DerakCloud.png");
         assertThat(technology.getHeaderTemplates("Derak-Umbrage").get(0).toString()).isEmpty();
         assertThat(technology.getHeaderTemplates("Server").get(0).toString()).isEqualTo("^DERAK\\.CLOUD$");
-        assertThat(technology.getCookieTemplates().get("trbo_session").get(0).toString()).isEqualTo("^(?:[\\d]+)$");
-        assertThat(technology.getCookieTemplates().get("django_language").get(0).toString()).isEmpty();
     }
 
     @Test
-    public void metaPatternTest() {
-        Technology technology = this.technologyBuilder.fromString("Joomla", JOOMLA_TECH_STRING);
+    public void shouldMatchWithMeta() throws IOException {
+        String techDescription = TestUtils.readContentFromResource("technologies/joomla.json");
+        Technology technology = this.technologyBuilder.fromString("Joomla", techDescription);
         PageResponse pageResponse = new PageResponse(200, null, JOOMLA_META_CONTENT);
         TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.META, 0L);
         assertThat(technology.applicableTo(pageResponse)).isEqualTo(expected);
@@ -266,14 +179,16 @@ public class TechnologyTests {
     }
 
     @Test
-    public void cpeParseTest() {
-        Technology technology = this.technologyBuilder.fromString("Joomla", JOOMLA_TECH_STRING);
+    public void shouldReadCPEFromTechDescription() throws IOException {
+        String techDescription = TestUtils.readContentFromResource("technologies/joomla.json");
+        Technology technology = this.technologyBuilder.fromString("Joomla", techDescription);
         assertThat(technology.getCPE()).isEqualTo("cpe:/a:joomla:joomla");
     }
 
     @Test
-    public void categoriesTest() {
-        Technology technology = this.technologyBuilder.fromString("Pace", CATS_TECH);
+    public void shouldBeIncludedInTwoCategories() throws IOException {
+        String techDesc = TestUtils.readContentFromResource("technologies/pace.json");
+        Technology technology = this.technologyBuilder.fromString("Pace", techDesc);
         assertThat(technology.getCategories()).containsExactlyInAnyOrder(
                 new Category(41, "Payment processors", 8),
                 new Category(91, "Buy now pay later", 9)
@@ -281,20 +196,23 @@ public class TechnologyTests {
     }
 
     @Test
-    public void pricingTest() {
-        Technology technology = this.technologyBuilder.fromString("Jumio", PRICING_SAAS_TECH);
+    public void shouldContainsPricing() throws IOException {
+        String techDesc = TestUtils.readContentFromResource("technologies/jumio.json");
+        Technology technology = this.technologyBuilder.fromString("Jumio", techDesc);
         assertThat(technology.getPricing()).containsExactlyElementsOf(Arrays.asList("payg", "mid", "recurring"));
     }
 
     @Test
-    public void saasTest() {
-        Technology technology = this.technologyBuilder.fromString("Jumio", PRICING_SAAS_TECH);
+    public void shouldContainsSaas() throws IOException {
+        String techDesc = TestUtils.readContentFromResource("technologies/jumio.json");
+        Technology technology = this.technologyBuilder.fromString("Jumio", techDesc);
         assertThat(technology.isSaas()).isTrue();
     }
 
     @Test
-    public void shouldTechnologyHasTwoMetaGenerators() {
-        Technology technology = this.technologyBuilder.fromString("Abicart", META_GENERATOR_LIST_TECH);
+    public void shouldTechnologyHasTwoMetaGenerators() throws IOException {
+        String techDesc = TestUtils.readContentFromResource("technologies/abicart.json");
+        Technology technology = this.technologyBuilder.fromString("Abicart", techDesc);
         List<Pattern> generatorTemplates = technology.getMetaTemplates("generator");
         List<String> templateNames = generatorTemplates.stream().map(Pattern::toString).collect(Collectors.toList());
         assertThat(templateNames).containsExactlyInAnyOrder("Abicart", "Textalk Webshop");

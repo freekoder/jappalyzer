@@ -22,7 +22,7 @@ public class TechnologyBuilderTest {
     }
 
     @Test
-    public void souldReturnTwoImpliesValues() throws IOException {
+    public void shouldReturnTwoImpliesValues() throws IOException {
         Technology technology = getTechnologyFromFile("Wordpress", "wordpress.json");
         assertThat(technology.getImplies()).containsExactlyInAnyOrder("PHP", "MySQL");
     }

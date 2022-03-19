@@ -18,6 +18,7 @@ public class Technology {
     private boolean saas;
     private final List<String> pricing = new ArrayList<>();
     private final List<Category> categories = new ArrayList<>();
+    private final List<String> implies = new LinkedList<>();
 
     private final List<Pattern> htmlTemplates = new ArrayList<>();
     private final List<String> domTemplates = new ArrayList<>();
@@ -88,6 +89,14 @@ public class Technology {
 
     public void addCategory(Category category) {
         this.categories.add(category);
+    }
+
+    public List<String> getImplies() {
+        return this.implies;
+    }
+
+    public void addImplies(String imply) {
+        this.implies.add(imply);
     }
 
     public List<Pattern> getHtmlTemplates() {

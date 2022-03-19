@@ -29,6 +29,13 @@ public class TechnologyBuilder {
         technology.setCPE(readStringOrEmpty("cpe", object));
         technology.setSaas(readBooleanOrFalse("saas", object));
 
+        if (object.has("implies")) {
+            List<String> implies = readValuesFromObject(object.get("implies"));
+            for (String imply : implies) {
+                technology.addImplies(imply);
+            }
+        }
+
         if (object.has("cats")) {
             JSONArray array = object.getJSONArray("cats");
             for (int i = 0; i < array.length(); i++) {

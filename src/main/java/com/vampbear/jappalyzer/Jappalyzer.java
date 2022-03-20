@@ -34,18 +34,27 @@ public class Jappalyzer {
         return jappalyzer;
     }
 
+    public Set<TechnologyMatch> fromFile(String path) {
+        String fileContent = readFileContent(path);
+        PageResponse pageResponse = new PageResponse(fileContent);
+        return getTechnologyMatches(pageResponse);
+    }
+
+    public Set<TechnologyMatch> fromString(String content) {
+        PageResponse pageResponse = new PageResponse(200, null, content);
+        return getTechnologyMatches(pageResponse);
+    }
+
+    public Set<TechnologyMatch> fromPageResponse(PageResponse pageResponse) {
+        return getTechnologyMatches(pageResponse);
+    }
+
     public void addTechnology(Technology technology) {
         this.technologies.add(technology);
     }
 
     private void setTechnologies(List<Technology> technologies) {
         this.technologies = new ArrayList<>(technologies);
-    }
-
-    public Set<TechnologyMatch> fromFile(String path) {
-        String fileContent = readFileContent(path);
-        PageResponse pageResponse = new PageResponse(fileContent);
-        return getTechnologyMatches(pageResponse);
     }
 
     public Set<TechnologyMatch> fromUrl(String url) throws IOException {
@@ -69,22 +78,20 @@ public class Jappalyzer {
             List<TechnologyMatch> impliedMatches = new ArrayList<>();
             for (TechnologyMatch match : matchesSet) {
                 for (String implyName : match.getTechnology().getImplies()) {
-                    Technology impliedTechnology = getTechnologyByName(implyName);
-                    if (impliedTechnology != null) {
-                        TechnologyMatch impliedMatch = new TechnologyMatch(impliedTechnology, TechnologyMatch.IMPLIED);
+                    getTechnologyByName(implyName).ifPresent(technology -> {
+                        TechnologyMatch impliedMatch = new TechnologyMatch(technology, TechnologyMatch.IMPLIED);
                         impliedMatches.add(impliedMatch);
-                    }
+                    });
                 }
             }
             matchesSet.addAll(impliedMatches);
         } while (matchesSet.size() != currentMatchesSize);
     }
 
-    private Technology getTechnologyByName(String name) {
-        Optional<Technology> optional = this.technologies.stream()
+    private Optional<Technology> getTechnologyByName(String name) {
+        return this.technologies.stream()
                 .filter(item -> item.getName().equals(name))
                 .findFirst();
-        return optional.orElse(null);
     }
 
     private static String readFileContent(String path) {
@@ -95,10 +102,5 @@ public class Jappalyzer {
             e.printStackTrace();
         }
         return content;
-    }
-
-    public Set<TechnologyMatch> fromString(String content) {
-        PageResponse pageResponse = new PageResponse(200, null, content);
-        return getTechnologyMatches(pageResponse);
     }
 }

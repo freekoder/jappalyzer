@@ -180,4 +180,14 @@ public class TechnologyTests {
         List<String> templateNames = generatorTemplates.stream().map(Pattern::toString).collect(Collectors.toList());
         assertThat(templateNames).containsExactlyInAnyOrder("Abicart", "Textalk Webshop");
     }
+
+    @Test
+    public void shouldMatchWithHeader() throws IOException {
+        String techDesc = TestUtils.readContentFromResource("technologies/wpengine.json");
+        Technology technology = this.technologyBuilder.fromString("WP Engine", techDesc);
+        PageResponse pageResponse = new PageResponse(200, null, "");
+        pageResponse.addHeader("X-Powered-By", "WP Engine");
+        TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.HEADER, 0L);
+        assertThat(technology.applicableTo(pageResponse)).isEqualTo(expected);
+    }
 }

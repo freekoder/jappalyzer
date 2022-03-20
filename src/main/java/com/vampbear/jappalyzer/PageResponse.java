@@ -67,6 +67,15 @@ public class PageResponse {
         processCookies(headers.get("cookie"));
     }
 
+    //TODO: Check for adding cookies twice with set headers and add header
+    public void addHeader(String name, String value) {
+        this.headers.putIfAbsent(name.toLowerCase(), new ArrayList<>());
+        this.headers.get(name.toLowerCase()).add(value);
+
+        processCookies(headers.get("set-cookie"));
+        processCookies(headers.get("cookie"));
+    }
+
     private void processCookies(List<String> cookieValues) {
         if (cookieValues == null) return;
         for (String cookieValue : cookieValues) {

@@ -69,11 +69,17 @@ public class TechnologyMatch {
 
     @Override
     public String toString() {
-        return "TechnologyMatch{" +
-                "technology=" + technology.getName() +
-                ", reason=" + reason +
-                ", duration=" + duration + "ms" +
-                ", categories=" + technology.getCategories() +
-                '}';
+        if (matched) {
+            return "TechnologyMatch{" +
+                    "technology=" + technology.getName() +
+                    ", reason=" + reason +
+                    ", duration=" + duration + "ms" +
+                    ", categories=" + technology.getCategories() +
+                    '}';
+        } else {
+            return "TechnologyMatch{" +
+                    "technology=" + technology.getName() +
+                    ", notMatched}";
+        }
     }
 }

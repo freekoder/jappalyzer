@@ -82,11 +82,32 @@ public class JappalyzerTests {
     }
 
     @Test
-    public void shouldReturnTechnologiesWithImplies() {
+    public void shouldReturnTechnologiesWithDirectImplies() {
         Jappalyzer jappalyzer = Jappalyzer.create();
         Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/wordpress.html");
         List<String> techNames = getTechnologiesNames(matches);
         assertThat(techNames).contains("PHP", "MySQL");
+    }
+
+    @Test
+    public void shouldReturnTechnologiesWithTwoLevelImplies() {
+        Jappalyzer jappalyzer = Jappalyzer.create();
+        PageResponse pageResponse = new PageResponse(200, null, "");
+        pageResponse.addHeader("X-Powered-By", "WP Engine");
+        Set<TechnologyMatch> matches = jappalyzer.fromPageResponse(pageResponse);
+        List<String> techNames = getTechnologiesNames(matches);
+
+        assertThat(techNames).contains("WordPress", "PHP", "MySQL");
+        assertThat(getMatchByName("WordPress", matches).getReason()).isEqualTo(TechnologyMatch.IMPLIED);
+        assertThat(getMatchByName("PHP", matches).getReason()).isEqualTo(TechnologyMatch.IMPLIED);
+        assertThat(getMatchByName("MySQL", matches).getReason()).isEqualTo(TechnologyMatch.IMPLIED);
+    }
+
+    private TechnologyMatch getMatchByName(String name, Collection<TechnologyMatch> matches) {
+        return matches.stream()
+                .filter(item -> item.getTechnology().getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     private List<String> getTechnologiesNames(Collection<TechnologyMatch> matches) {

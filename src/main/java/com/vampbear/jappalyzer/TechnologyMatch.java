@@ -10,6 +10,7 @@ public class TechnologyMatch {
     public static final String DOM = "dom";
     public static final String SCRIPT = "script";
     public static final String HTML = "html";
+    public static final String IMPLIED = "implied";
 
     private final Technology technology;
     private final long duration;

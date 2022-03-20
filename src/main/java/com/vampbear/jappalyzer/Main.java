@@ -4,6 +4,7 @@ import org.apache.commons.cli.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
 
@@ -50,7 +51,7 @@ public class Main {
 
             List<Technology> instanceTechnologies = jappalyzer.getTechnologies();
             if (verbose) System.out.println("Known technologies size: " + instanceTechnologies.size());
-            List<TechnologyMatch> foundTechs = jappalyzer.fromUrl(url);
+            Set<TechnologyMatch> foundTechs = jappalyzer.fromUrl(url);
             foundTechs.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();

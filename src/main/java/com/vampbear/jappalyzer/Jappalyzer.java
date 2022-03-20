@@ -42,23 +42,49 @@ public class Jappalyzer {
         this.technologies = new ArrayList<>(technologies);
     }
 
-    public List<TechnologyMatch> fromFile(String path) {
+    public Set<TechnologyMatch> fromFile(String path) {
         String fileContent = readFileContent(path);
         PageResponse pageResponse = new PageResponse(fileContent);
         return getTechnologyMatches(pageResponse);
     }
 
-    public List<TechnologyMatch> fromUrl(String url) throws IOException {
+    public Set<TechnologyMatch> fromUrl(String url) throws IOException {
         HttpClient httpClient = new HttpClient();
         PageResponse pageResponse = httpClient.getPageByUrl(url);
         return getTechnologyMatches(pageResponse);
     }
 
-    private List<TechnologyMatch> getTechnologyMatches(PageResponse pageResponse) {
-        return technologies.stream().parallel()
+    private Set<TechnologyMatch> getTechnologyMatches(PageResponse pageResponse) {
+        Set<TechnologyMatch> matchesSet = technologies.stream().parallel()
                 .map(technology -> technology.applicableTo(pageResponse))
-                .filter(TechnologyMatch::isMatched)
-                .collect(Collectors.toList());
+                .filter(TechnologyMatch::isMatched).collect(Collectors.toSet());
+        enrichMatchesWithImpliedTechnologies(matchesSet);
+        return matchesSet;
+    }
+
+    private void enrichMatchesWithImpliedTechnologies(Set<TechnologyMatch> matchesSet) {
+        int currentMatchesSize;
+        do {
+            currentMatchesSize = matchesSet.size();
+            List<TechnologyMatch> impliedMatches = new ArrayList<>();
+            for (TechnologyMatch match : matchesSet) {
+                for (String implyName : match.getTechnology().getImplies()) {
+                    Technology impliedTechnology = getTechnologyByName(implyName);
+                    if (impliedTechnology != null) {
+                        TechnologyMatch impliedMatch = new TechnologyMatch(impliedTechnology, TechnologyMatch.IMPLIED);
+                        impliedMatches.add(impliedMatch);
+                    }
+                }
+            }
+            matchesSet.addAll(impliedMatches);
+        } while (matchesSet.size() != currentMatchesSize);
+    }
+
+    private Technology getTechnologyByName(String name) {
+        Optional<Technology> optional = this.technologies.stream()
+                .filter(item -> item.getName().equals(name))
+                .findFirst();
+        return optional.orElse(null);
     }
 
     private static String readFileContent(String path) {
@@ -71,7 +97,7 @@ public class Jappalyzer {
         return content;
     }
 
-    public List<TechnologyMatch> fromString(String content) {
+    public Set<TechnologyMatch> fromString(String content) {
         PageResponse pageResponse = new PageResponse(200, null, content);
         return getTechnologyMatches(pageResponse);
     }

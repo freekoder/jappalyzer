@@ -4,7 +4,9 @@ import com.vampbear.jappalyzer.utils.TestUtils;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.*;
@@ -14,7 +16,7 @@ public class JappalyzerTests {
     @Test
     public void wordpressComTest() {
         Jappalyzer jappalyzer = Jappalyzer.create();
-        List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/wp.com.html");
+        Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/wp.com.html");
         List<String> techNames = getTechnologiesNames(matches);
         assertThat(techNames).containsExactlyInAnyOrder("Google Font API", "WordPress");
     }
@@ -22,7 +24,7 @@ public class JappalyzerTests {
     @Test
     public void baeldungTest() {
         Jappalyzer jappalyzer = Jappalyzer.create();
-        List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/Baeldung.html");
+        Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/Baeldung.html");
         List<String> techNames = getTechnologiesNames(matches);
         assertThat(techNames).containsExactlyInAnyOrder("Google Analytics",
                 "Google Font API",
@@ -40,14 +42,14 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.empty();
         jappalyzer.addTechnology(technology);
         String htmlContent = TestUtils.readContentFromResource("contents/jquery_migrate.html");
-        List<TechnologyMatch> matches = jappalyzer.fromString(htmlContent);
+        Set<TechnologyMatch> matches = jappalyzer.fromString(htmlContent);
         assertThat(matches.size()).isEqualTo(1);
     }
 
     @Test
     public void yandexTest() {
         Jappalyzer jappalyzer = Jappalyzer.create();
-        List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/yandex.html");
+        Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/yandex.html");
         List<String> techNames = getTechnologiesNames(matches);
         assertThat(techNames).containsExactlyInAnyOrder("React", "jQuery", "Cart Functionality", "BEM");
     }
@@ -55,7 +57,7 @@ public class JappalyzerTests {
     @Test
     public void twitterTest() {
         Jappalyzer jappalyzer = Jappalyzer.create();
-        List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/twitter.html");
+        Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/twitter.html");
         List<String> techNames = getTechnologiesNames(matches);
         assertThat(techNames).isEmpty();
     }
@@ -63,7 +65,7 @@ public class JappalyzerTests {
     @Test
     public void sportConrodTest() {
         Jappalyzer jappalyzer = Jappalyzer.create();
-        List<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/sport-conrod.html");
+        Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/sport-conrod.html");
         List<String> techNames = getTechnologiesNames(matches);
         assertThat(techNames).containsExactlyInAnyOrder("jsDelivr", "Lightbox", "Polyfill");
     }
@@ -79,7 +81,18 @@ public class JappalyzerTests {
         assertThat(technology.applicableTo(pageResponse)).isEqualTo(match);
     }
 
-    private List<String> getTechnologiesNames(List<TechnologyMatch> matches) {
-        return matches.stream().map(TechnologyMatch::getTechnology).map(Technology::getName).collect(Collectors.toList());
+    @Test
+    public void shouldReturnTechnologiesWithImplies() {
+        Jappalyzer jappalyzer = Jappalyzer.create();
+        Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/wordpress.html");
+        List<String> techNames = getTechnologiesNames(matches);
+        assertThat(techNames).contains("PHP", "MySQL");
+    }
+
+    private List<String> getTechnologiesNames(Collection<TechnologyMatch> matches) {
+        return matches.stream()
+                .map(TechnologyMatch::getTechnology)
+                .map(Technology::getName)
+                .collect(Collectors.toList());
     }
 }

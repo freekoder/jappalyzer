@@ -18,7 +18,8 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/wp.com.html");
         List<String> techNames = getTechnologiesNames(matches);
-        assertThat(techNames).containsExactlyInAnyOrder("Google Font API", "WordPress");
+        assertThat(techNames).containsExactlyInAnyOrder(
+                "Google Font API", "WordPress", "PHP", "MySQL");
     }
 
     @Test
@@ -26,12 +27,9 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/Baeldung.html");
         List<String> techNames = getTechnologiesNames(matches);
-        assertThat(techNames).containsExactlyInAnyOrder("Google Analytics",
-                "Google Font API",
-                "jQuery Migrate",
-                "jQuery",
-                "Elementor",
-                "WordPress");
+        assertThat(techNames)
+                .containsExactlyInAnyOrder("Google Analytics", "Google Font API", "jQuery Migrate",
+                "jQuery", "Elementor", "PHP", "MySQL", "WordPress");
     }
 
     @Test

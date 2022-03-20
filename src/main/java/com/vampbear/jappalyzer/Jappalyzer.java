@@ -84,8 +84,21 @@ public class Jappalyzer {
                     });
                 }
             }
-            matchesSet.addAll(impliedMatches);
+            for (TechnologyMatch match : impliedMatches) {
+                if (!alreadyContainsTechnology(match.getTechnology(), matchesSet)) {
+                    matchesSet.add(match);
+                }
+            }
         } while (matchesSet.size() != currentMatchesSize);
+    }
+
+    private boolean alreadyContainsTechnology(Technology technology, Set<TechnologyMatch> matchesSet) {
+        for (TechnologyMatch match : matchesSet) {
+            if (match.getTechnology().getName().equals(technology.getName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private Optional<Technology> getTechnologyByName(String name) {

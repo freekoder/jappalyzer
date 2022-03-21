@@ -108,6 +108,13 @@ public class TechnologyBuilder {
         List<String> templates = new LinkedList<>();
         if (object instanceof String) {
             templates.add((String) object);
+        } else if (object instanceof JSONArray) {
+            JSONArray array = (JSONArray) object;
+            for (Object item : array) {
+                if (item instanceof String) {
+                    templates.add((String) item);
+                }
+            }
         } else if (object instanceof JSONObject) {
             JSONObject jsonObject = (JSONObject) object;
             templates.addAll(jsonObject.keySet());

@@ -78,7 +78,7 @@ public class TechnologyBuilderTest {
     }
 
     @Test
-    public void shouldContainsTwoDOMPatterns() throws IOException {
+    public void shouldContainsTwoDOMPatternsFromObject() throws IOException {
         Technology technology = buildTechnologyFromFile("Magento", "magento.json");
         assertThat(technology.getDomTemplates().size()).isEqualTo(2);
         assertThat(technology.getDomTemplates().get(0))
@@ -88,7 +88,15 @@ public class TechnologyBuilderTest {
     }
 
     @Test
-    public void shouldContainsOneDOMPattern() throws IOException {
+    public void shouldContainsTwoDOMPatternsFromArray() throws IOException {
+        Technology technology = buildTechnologyFromFile("Adobe Flash", "adobeflash.json");
+        assertThat(technology.getDomTemplates().size()).isEqualTo(2);
+        assertThat(technology.getDomTemplates().get(0)).isEqualTo("object[type='application/x-shockwave-flash']");
+        assertThat(technology.getDomTemplates().get(1)).isEqualTo("param[value*='.swf']");
+    }
+
+    @Test
+    public void shouldContainsOneDOMPatternFromString() throws IOException {
         Technology technology = buildTechnologyFromFile("Jetpack", "jetpack.json");
         assertThat(technology.getDomTemplates().size()).isEqualTo(1);
         assertThat(technology.getDomTemplates().get(0)).isEqualTo("link[href*='/wp-content/plugins/jetpack/']");

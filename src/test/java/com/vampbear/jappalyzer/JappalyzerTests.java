@@ -101,6 +101,14 @@ public class JappalyzerTests {
         assertThat(getMatchByName("MySQL", matches).getReason()).isEqualTo(TechnologyMatch.IMPLIED);
     }
 
+    @Test
+    public void shouldMatchMagento() {
+        Jappalyzer jappalyzer = Jappalyzer.create();
+        Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/magento.html");
+        List<String> techNames = getTechnologiesNames(matches);
+        assertThat(techNames).contains("Magento", "PHP", "MySQL");
+    }
+
     private TechnologyMatch getMatchByName(String name, Collection<TechnologyMatch> matches) {
         return matches.stream()
                 .filter(item -> item.getTechnology().getName().equals(name))

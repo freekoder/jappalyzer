@@ -62,7 +62,7 @@ public class TechnologyBuilder {
         }
 
         if (object.has("dom")) {
-            List<String> domTemplates = readValuesFromObject(object.get("dom"));
+            List<String> domTemplates = readDOMTemplates(object.get("dom"));
             for (String template : domTemplates) {
                 technology.addDomTemplate(template);
             }
@@ -101,6 +101,15 @@ public class TechnologyBuilder {
             }
         }
         return technology;
+    }
+
+    private List<String> readDOMTemplates(Object object) {
+        List<String> templates = new LinkedList<>();
+        if (object instanceof JSONObject) {
+            JSONObject jsonObject = (JSONObject) object;
+            templates.addAll(jsonObject.keySet());
+        }
+        return templates;
     }
 
     private Category getCategoryById(int id) {

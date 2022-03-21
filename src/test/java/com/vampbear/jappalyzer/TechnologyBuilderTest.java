@@ -27,6 +27,12 @@ public class TechnologyBuilderTest {
         assertThat(technology.getImplies()).containsExactlyInAnyOrder("PHP", "MySQL");
     }
 
+    @Test
+    public void shouldContainsTwoDOMPatterns() throws IOException {
+        Technology technology = getTechnologyFromFile("Magento", "magento.json");
+        assertThat(technology.getDomTemplates().size()).isEqualTo(2);
+    }
+
     private Technology getTechnologyFromFile(String Abicart, String techFilename) throws IOException {
         String techDesc = TestUtils.readContentFromResource("technologies/" + techFilename);
         TechnologyBuilder technologyBuilder = new TechnologyBuilder();

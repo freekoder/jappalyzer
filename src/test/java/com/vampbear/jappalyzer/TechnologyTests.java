@@ -4,10 +4,8 @@ import com.vampbear.jappalyzer.utils.TestUtils;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.*;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+import java.io.IOException;
 import static org.assertj.core.api.Assertions.*;
 
 public class TechnologyTests {
@@ -16,13 +14,7 @@ public class TechnologyTests {
 
     @Before
     public void setUp() {
-        List<Category> categories = Arrays.asList(
-                new Category(41, "Payment processors", 8),
-                new Category(91, "Buy now pay later", 9),
-                new Category(22, "TEST CATEGORY 1", 9),
-                new Category(33, "TEST CATEGORY 2", 9)
-        );
-        this.technologyBuilder = new TechnologyBuilder(categories);
+        this.technologyBuilder = new TechnologyBuilder();
     }
 
     @Test
@@ -110,18 +102,6 @@ public class TechnologyTests {
     }
 
     @Test
-    public void stringConstructorTest() throws IOException {
-        String derakCloudContent = TestUtils.readContentFromResource("technologies/derak.json");
-        Technology technology = this.technologyBuilder.fromString("DERAK.CLOUD", derakCloudContent);
-        assertThat(technology.getName()).isEqualTo("DERAK.CLOUD");
-        assertThat(technology.getDescription()).isEqualTo("Derak cloud service");
-        assertThat(technology.getWebsite()).isEqualTo("https://derak.cloud");
-        assertThat(technology.getIconName()).isEqualTo("DerakCloud.png");
-        assertThat(technology.getHeaderTemplates("Derak-Umbrage").get(0).toString()).isEmpty();
-        assertThat(technology.getHeaderTemplates("Server").get(0).toString()).isEqualTo("^DERAK\\.CLOUD$");
-    }
-
-    @Test
     public void shouldMatchWithMeta() throws IOException {
         String techDescription = TestUtils.readContentFromResource("technologies/joomla.json");
         Technology technology = this.technologyBuilder.fromString("Joomla", techDescription);
@@ -139,46 +119,6 @@ public class TechnologyTests {
         PageResponse pageResponse = new PageResponse(200, null, htmlContent);
         TechnologyMatch expected = new TechnologyMatch(technology, TechnologyMatch.META, 0L);
         assertThat(technology.applicableTo(pageResponse)).isEqualTo(expected);
-    }
-
-    @Test
-    public void shouldReadCPEFromTechDescription() throws IOException {
-        String techDescription = TestUtils.readContentFromResource("technologies/joomla.json");
-        Technology technology = this.technologyBuilder.fromString("Joomla", techDescription);
-        assertThat(technology.getCPE()).isEqualTo("cpe:/a:joomla:joomla");
-    }
-
-    @Test
-    public void shouldBeIncludedInTwoCategories() throws IOException {
-        String techDesc = TestUtils.readContentFromResource("technologies/pace.json");
-        Technology technology = this.technologyBuilder.fromString("Pace", techDesc);
-        assertThat(technology.getCategories()).containsExactlyInAnyOrder(
-                new Category(41, "Payment processors", 8),
-                new Category(91, "Buy now pay later", 9)
-        );
-    }
-
-    @Test
-    public void shouldContainsPricing() throws IOException {
-        String techDesc = TestUtils.readContentFromResource("technologies/jumio.json");
-        Technology technology = this.technologyBuilder.fromString("Jumio", techDesc);
-        assertThat(technology.getPricing()).containsExactlyElementsOf(Arrays.asList("payg", "mid", "recurring"));
-    }
-
-    @Test
-    public void shouldContainsSaas() throws IOException {
-        String techDesc = TestUtils.readContentFromResource("technologies/jumio.json");
-        Technology technology = this.technologyBuilder.fromString("Jumio", techDesc);
-        assertThat(technology.isSaas()).isTrue();
-    }
-
-    @Test
-    public void shouldTechnologyHasTwoMetaGenerators() throws IOException {
-        String techDesc = TestUtils.readContentFromResource("technologies/abicart.json");
-        Technology technology = this.technologyBuilder.fromString("Abicart", techDesc);
-        List<Pattern> generatorTemplates = technology.getMetaTemplates("generator");
-        List<String> templateNames = generatorTemplates.stream().map(Pattern::toString).collect(Collectors.toList());
-        assertThat(templateNames).containsExactlyInAnyOrder("Abicart", "Textalk Webshop");
     }
 
     @Test

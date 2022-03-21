@@ -2,6 +2,7 @@ package com.vampbear.jappalyzer;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.JSONString;
 
 import java.util.*;
 
@@ -105,7 +106,9 @@ public class TechnologyBuilder {
 
     private List<String> readDOMTemplates(Object object) {
         List<String> templates = new LinkedList<>();
-        if (object instanceof JSONObject) {
+        if (object instanceof String) {
+            templates.add((String) object);
+        } else if (object instanceof JSONObject) {
             JSONObject jsonObject = (JSONObject) object;
             templates.addAll(jsonObject.keySet());
         }

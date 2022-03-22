@@ -30,6 +30,19 @@
     "saas": true,
     "website": "https://ma-jin.jp"
   },
+  "MDUI": {
+    "cats": [
+      66
+    ],
+    "description": "MDUI is a CSS Framework based on material design.",
+    "icon": "MDUI.png",
+    "js": {
+      "_mduiEventId": "",
+      "mdui.Drawer": ""
+    },
+    "oss": true,
+    "website": "https://www.mdui.org"
+  },
   "MGID": {
     "cats": [
       36
@@ -45,6 +58,21 @@
     "saas": true,
     "scriptSrc": "\\.mgid\\.com/",
     "website": "https://www.mgid.com"
+  },
+  "MGPanel": {
+    "cats": [
+      1
+    ],
+    "description": "MGPanel has it all, a content management system that gives programmers the freedom to create professional web pages from scratch, also providing their clients with a self-managing platform.",
+    "icon": "MGPanel.png",
+    "implies": "MySQL",
+    "pricing": [
+      "poa"
+    ],
+    "requires": "PHP",
+    "saas": true,
+    "scriptSrc": "\\.mgpanel\\.org/",
+    "website": "https://mgpanel.org"
   },
   "MODX": {
     "cats": [
@@ -108,6 +136,31 @@
     "scriptSrc": "service(?:2)?\\.mtcaptcha\\.com/",
     "website": "https://www.mtcaptcha.com"
   },
+  "MUI": {
+    "cats": [
+      66
+    ],
+    "css": "\\.MuiPaper-root",
+    "description": "MUI(formerly Material UI) is a simple and customisable component library to build faster, beautiful, and more accessible React applications.",
+    "dom": "style[data-meta='MuiPaper']",
+    "icon": "MUI.svg",
+    "oss": true,
+    "pricing": [
+      "freemium",
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://mui.com"
+  },
+  "Macaron": {
+    "cats": [
+      18
+    ],
+    "description": "Macaron is a high productive and modular web framework in Go.",
+    "icon": "Macaron.png",
+    "implies": "Go",
+    "website": "https://go-macaron.com"
+  },
   "MachoThemes NewsMag": {
     "cats": [
       80
@@ -145,7 +198,7 @@
     "cpe": "cpe:/a:magento:magento",
     "description": "Magento is an open-source ecommerce platform written in PHP.",
     "dom": {
-      "script[data-requiremodule*='mage'], script[data-requiremodule*='Magento_'], html[data-image-optimizing-origin]": {
+      "script[data-requiremodule*='mage/'], script[data-requiremodule*='Magento_'], html[data-image-optimizing-origin]": {
         "exists": "\\;version:2"
       },
       "script[type='text/x-magento-init']": {
@@ -420,6 +473,27 @@
     "scriptSrc": "\\.marchex\\.io/",
     "website": "https://www.marchex.com"
   },
+  "Marfeel": {
+    "cats": [
+      10,
+      36
+    ],
+    "description": "Marfeel is a publisher platform that allows publishers to create, optimise and monetise their mobile websites.",
+    "icon": "Marfeel.svg",
+    "js": {
+      "marfeel": ""
+    },
+    "pricing": [
+      "freemium",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.marfeel\\.com/",
+      "\\.mrf\\.io/"
+    ],
+    "website": "https://www.marfeel.com"
+  },
   "MariaDB": {
     "cats": [
       34
@@ -492,6 +566,24 @@
       "v([\\d.]+)/js/marketo-alt-form\\.min\\.js\\;version:\\1"
     ],
     "website": "https://www.marketo.com"
+  },
+  "Marko": {
+    "cats": [
+      18,
+      66
+    ],
+    "description": "Marko is HTML re-imagined as a language for building dynamic and reactive user interfaces.",
+    "dom": "#data-marko-key, html[data-framework='marko']",
+    "icon": "Marko.svg",
+    "implies": "Node.js",
+    "js": {
+      "markoComponent": "",
+      "markoSections": "",
+      "markoVars": ""
+    },
+    "oss": true,
+    "scripts": "\\.marko(\\.js)?",
+    "website": "https://markojs.com"
   },
   "Mastercard": {
     "cats": [
@@ -1097,6 +1189,23 @@
     "scriptSrc": "ajax\\.aspnetcdn\\.com/ajax/",
     "website": "https://docs.microsoft.com/en-us/aspnet/ajax/cdn/overview"
   },
+  "Microsoft Application Insights": {
+    "cats": [
+      78
+    ],
+    "description": "Microsoft Application Insights is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps.",
+    "icon": "Microsoft.svg",
+    "js": {
+      "appInsights.SeverityLevel": "",
+      "appInsights.addTelemetryInitializer": "",
+      "appInsightsSDK": "appInsights"
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview"
+  },
   "Microsoft Clarity": {
     "cats": [
       10
@@ -1221,6 +1330,22 @@
     "saas": true,
     "scriptSrc": "\\.miestro\\.com",
     "website": "https://miestro.com"
+  },
+  "Milestone CMS": {
+    "cats": [
+      1
+    ],
+    "description": "Milestone CMS is a SEO-first CMS that offers built-in advanced schema markups and Core Web Vitals conformance for improved search performance.",
+    "icon": "Milestone.svg",
+    "implies": "Microsoft ASP.NET",
+    "meta": {
+      "generator": "^Milestone\\sCMS\\s([\\d\\.]+)$\\;version:\\1"
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.milestoneinternet.com/products/milestone-cms"
   },
   "Milligram": {
     "cats": [
@@ -1577,6 +1702,20 @@
     "scriptSrc": "moment(?:\\.min)?\\.js",
     "website": "https://momentjs.com"
   },
+  "Monaco Editor": {
+    "cats": [
+      24
+    ],
+    "css": "\\.monaco-editor",
+    "description": "Monaco Editor is the code editor that powers VS Code. Monaco Editor is a tool in the text editor category of a tech stack.",
+    "icon": "Microsoft.svg",
+    "js": {
+      "MonacoEnvironment": "",
+      "monaco.editor": ""
+    },
+    "oss": true,
+    "website": "https://microsoft.github.io/monaco-editor/"
+  },
   "Mondial Relay": {
     "cats": [
       99
@@ -1856,6 +1995,18 @@
     "scriptSrc": "mustache(?:\\.min)?\\.js",
     "website": "https://mustache.github.io"
   },
+  "Muuri": {
+    "cats": [
+      59
+    ],
+    "description": "Muuri is a JavaScript layout engine that allows you to build all kinds of layouts and make them responsive, sortable, filterable, draggable and/or animated.",
+    "icon": "Muuri.svg",
+    "js": {
+      "Muuri": ""
+    },
+    "oss": true,
+    "website": "https://muuri.dev"
+  },
   "My Flying Box": {
     "cats": [
       99
@@ -1872,28 +2023,38 @@
     "cats": [
       6
     ],
-    "html": [
-      "<div class='mfl-made-by-myfoodlink'>",
-      "<a href=\"https://www.myfoodlink.com.au"
+    "description": "My Food Link provides a fully hosted specialist online supermarket ecommerce platform to supermarkets and grocers.",
+    "icon": "My Food Link.svg",
+    "js": {
+      "Myfoodlink": "",
+      "myfoodlink": ""
+    },
+    "pricing": [
+      "poa"
     ],
-    "icon": "myfoodlink.png",
-    "website": "https://www.myfoodlink.com.au/"
+    "saas": true,
+    "website": "https://www.myfoodlink.com.au"
   },
   "MyBB": {
     "cats": [
       2
     ],
+    "cookies": {
+      "mybb[lastactive]": "",
+      "mybb[lastvisit]": ""
+    },
     "cpe": "cpe:/a:mybb:mybb",
     "description": "MyBB is a free and open-source forum software written in PHP.",
-    "html": "(?:<script [^>]+\\s+<!--\\s+lang\\.no_new_posts|<a[^>]* title=\"Powered By MyBB)",
     "icon": "MyBB.png",
     "implies": [
       "PHP",
       "MySQL"
     ],
     "js": {
-      "MyBB": ""
+      "MyBB": "",
+      "MyBBEditor": ""
     },
+    "oss": true,
     "website": "https://mybb.com"
   },
   "MyBlogLog": {
@@ -2092,6 +2253,20 @@
     },
     "scriptSrc": "math(?:\\.min)?\\.js",
     "website": "http://mathjs.org"
+  },
+  "mdBook": {
+    "cats": [
+      4
+    ],
+    "description": "mdBook is a utility to create modern online books from Markdown files.",
+    "icon": "mdBook.svg",
+    "implies": [
+      "Rust",
+      "Handlebars"
+    ],
+    "oss": true,
+    "scripts": "localStorage\\.getItem\\('mdbook-(?:sidebar|theme)'\\)",
+    "website": "https://github.com/rust-lang/mdBook"
   },
   "microCMS": {
     "cats": [

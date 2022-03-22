@@ -12,26 +12,6 @@
     "scriptSrc": "/?([\\d.]+)?/aframe(?:\\.min)?\\.js\\;version:\\1",
     "website": "https://aframe.io"
   },
-  "a3 Lazy Load": {
-    "cats": [
-      87,
-      92
-    ],
-    "description": "a3 Lazy Load is a mobile oriented, very simple to use plugin that will speed up sites page load speed.",
-    "icon": "a3.png",
-    "js": {
-      "a3_lazyload_extend_params": "",
-      "a3_lazyload_params": ""
-    },
-    "pricing": [
-      "freemium",
-      "low",
-      "recurring"
-    ],
-    "requires": "WordPress",
-    "scriptSrc": "/wp-content/plugins/a3-lazy-load/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
-    "website": "https://a3rev.com/shop/a3-lazy-load/"
-  },
   "A8.net": {
     "cats": [
       71
@@ -96,6 +76,42 @@
     "saas": true,
     "scriptSrc": "\\.ebis\\.ne\\.jp/",
     "website": "http://www.ebis.ne.jp"
+  },
+  "ADFOX": {
+    "cats": [
+      36
+    ],
+    "description": "ADFOX is an advertising management platform for media publishers.",
+    "icon": "ADFOX.svg",
+    "js": {
+      "AdFox_getCodeScript": "",
+      "Site.adFoxParams": "",
+      "adFoxParams": "",
+      "adfoxAsyncParams": "",
+      "adfoxBiddersMap": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://adfox.yandex.ru"
+  },
+  "AFThemes CoverNews": {
+    "cats": [
+      80
+    ],
+    "description": "AFThemes CoverNews is a clean and elegant free WordPress theme that is perfect for online blog and magazine.",
+    "icon": "AFThemes.png",
+    "pricing": [
+      "freemium",
+      "onetime",
+      "recurring",
+      "low"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/covernews(?:-pro)?/",
+    "website": "https://afthemes.com/products/covernews"
   },
   "ALL-INKL": {
     "cats": [
@@ -291,6 +307,23 @@
     "saas": true,
     "website": "https://abicart.com/"
   },
+  "Accentuate Custom Fields": {
+    "cats": [
+      100
+    ],
+    "description": "Accentuate Custom Fields is the professional and de facto solution to easily extend your Shopify store with your own custom fields such multi-language text fields, images, checkboxes, dates, selection list and custom JSON objects.",
+    "dom": "a[style*='.accentuate.io/'], a[data-bg*='.accentuate.io/'], div[style*='.accentuate.io/'], img[src*='.accentuate.io/'], img[data-src*='.accentuate.io/']",
+    "icon": "Accentuate Custom Fields.png",
+    "pricing": [
+      "freemium",
+      "mid",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scripts": "\\.accentuate\\.io/",
+    "website": "https://www.accentuate.io"
+  },
   "AccessTrade": {
     "cats": [
       71
@@ -391,6 +424,20 @@
     "saas": true,
     "website": "https://partners.accuweather.com"
   },
+  "Ace": {
+    "cats": [
+      24
+    ],
+    "description": "Ace is an embeddable code editor written in JavaScript.",
+    "icon": "Ace.png",
+    "js": {
+      "ace.EditSession": "",
+      "ace.Editor": "",
+      "ace.version": "([\\d\\.]+)\\;version:\\1"
+    },
+    "oss": true,
+    "website": "https://github.com/ajaxorg/ace"
+  },
   "Ackee": {
     "cats": [
       10
@@ -466,7 +513,8 @@
     ],
     "icon": "acquia-site-factory.png",
     "implies": [
-      "Acquia Cloud Platform"
+      "Acquia Cloud Platform",
+      "Drupal Multisite"
     ],
     "saas": true,
     "scriptSrc": [
@@ -614,12 +662,19 @@
     },
     "pricing": [
       "low",
-      "recurring"
+      "recurring",
+      "poa"
     ],
     "saas": true,
     "scriptSrc": [
       "plugins/activecampaign-subscription-forms/site_tracking\\.js",
-      "\\.activehosted\\.com/"
+      "\\.activehosted\\.com",
+      "\\.app-us1\\.com",
+      "\\.ac-page\\.com"
+    ],
+    "url": [
+      "\\.activehosted\\.com",
+      "\\.ac-page\\.com"
     ],
     "website": "https://www.activecampaign.com"
   },
@@ -717,12 +772,20 @@
     "cats": [
       36
     ],
-    "html": "(?:<embed[^>]+(?:src=\"https?://mh\\d?\\.adriver\\.ru/|flashvars=\"[^\"]*(?:http:%3A//(?:ad|mh\\d?)\\.adriver\\.ru/|adriver_banner))|<(?:(?:iframe|img)[^>]+src|a[^>]+href)=\"https?://ad\\.adriver\\.ru/)",
+    "description": "AdRiver is a company which provide internet advertising management and audit software.",
+    "dom": "link[href*='.adriver.ru'], img[src*='.adriver.ru'], iframe[src*='.adriver.ru']",
     "icon": "AdRiver.png",
     "js": {
+      "AdriverCounter": "",
+      "AdriverPrebid": "",
+      "adfoxBiddersMap.adriver": "",
       "adriver": ""
     },
-    "scriptSrc": "(?:adriver\\.core\\.\\d\\.js|https?://(?:content|ad|masterh\\d)\\.adriver\\.ru/)",
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.adriver\\.ru/",
     "website": "http://adriver.ru"
   },
   "AdRoll": {
@@ -812,6 +875,22 @@
     "saas": true,
     "scriptSrc": "\\.ada\\.support",
     "website": "https://www.ada.cx"
+  },
+  "AdaSiteCompliance": {
+    "cats": [
+      68
+    ],
+    "description": "AdaSiteCompliance is a web accessibility solution, making websites compliant and accessible to WCAG 2.1 and section 508 compliance standards.",
+    "icon": "AdaSiteCompliance.png",
+    "js": {
+      "ADASTOOLBOXAPPSTATE": "",
+      "adascHelper": ""
+    },
+    "pricing": [
+      "onetime",
+      "high"
+    ],
+    "website": "https://adasitecompliance.com"
   },
   "Adabra": {
     "cats": [
@@ -917,9 +996,6 @@
     "icon": "AddToAny.svg",
     "implies": "AddToAny",
     "oss": true,
-    "pricing": [
-      "freemium"
-    ],
     "requires": "WordPress",
     "scriptSrc": "/wp-content/plugins/add-to-any/addtoany\\.min\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://github.com/projectestac/wordpress-add-to-any"
@@ -986,6 +1062,25 @@
     "implies": "PHP",
     "website": "http://www.adminer.org"
   },
+  "Admiral": {
+    "cats": [
+      19
+    ],
+    "description": "Admiral is a Visitor Relationship Management (VRM) platform.",
+    "icon": "Admiral.svg",
+    "js": {
+      "admiral": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "scripts": "admiral(?:-engaged|:enabled)",
+    "website": "https://www.getadmiral.com"
+  },
   "Admitad": {
     "cats": [
       71
@@ -1046,13 +1141,14 @@
     "cats": [
       36
     ],
+    "description": "Adnegah is a digital marketing and internet advertising agency.",
+    "dom": "iframe[scr*='adnegah.net']",
     "headers": {
       "X-Advertising-By": "adnegah\\.net"
     },
-    "html": "<iframe [^>]*src=\"[^\"]+adnegah\\.net",
-    "icon": "adnegah.png",
-    "scriptSrc": "[^a-z]adnegah.*\\.js$",
-    "website": "https://Adnegah.net"
+    "icon": "Adnegah.png",
+    "scriptSrc": "\\.adnegah\\.net/",
+    "website": "https://adnegah.net"
   },
   "Adobe Analytics": {
     "cats": [
@@ -1082,6 +1178,7 @@
       86
     ],
     "cookies": {
+      "Demdex": "",
       "aam_uuid": ""
     },
     "description": "Adobe Audience Manager is a versatile audience data management platform.",
@@ -1092,6 +1189,17 @@
     ],
     "saas": true,
     "website": "https://business.adobe.com/products/audience-manager/adobe-audience-manager.html"
+  },
+  "Adobe Client Data Layer": {
+    "cats": [
+      12
+    ],
+    "description": "Adobe Client Data Layer is a framework of JavaScript objects on your site that contains all variable values used in your implementation.",
+    "icon": "Adobe.svg",
+    "js": {
+      "adobeDataLayer.version": "([\\d\\.]+)\\;version:\\1"
+    },
+    "website": "https://github.com/adobe/adobe-client-data-layer"
   },
   "Adobe ColdFusion": {
     "cats": [
@@ -1111,6 +1219,19 @@
     "url": "\\.cfm(?:$|\\?)",
     "website": "http://adobe.com/products/coldfusion-family.html"
   },
+  "Adobe Dynamic Media Classic": {
+    "cats": [
+      95
+    ],
+    "description": "Adobe Dynamic Media Classic is a platform that enables customers to manage, enhance, publish, and deliver dynamic rich media content and personal experiences to consumers across all channels and devices, including web, print material, email campaigns, desktops, social, and mobile.",
+    "icon": "Adobe Experience Platform.svg",
+    "headers": {
+      "Content-Security-Policy": "\\.scene7\\.com"
+    },
+    "dom": "source[srcset*='.scene7.com/'], link[href*='.scene7.com']",
+    "saas": true,
+    "website": "https://business.adobe.com/uk/products/experience-manager/scene7-login.html"
+  },
   "Adobe DTM": {
     "cats": [
       42
@@ -1129,12 +1250,12 @@
     ],
     "cpe": "cpe:/a:adobe:experience_manager",
     "description": "Adobe Experience Manager (AEM) is a content management solution for building websites, mobile apps and forms.",
-    "icon": "Adobe Experience Platform.svg",
     "html": [
       "<div class=\"[^\"]*parbase",
       "<div[^>]+data-component-path=\"[^\"+]jcr:",
       "<div class=\"[^\"]*aem-Grid"
     ],
+    "icon": "Adobe Experience Platform.svg",
     "implies": "Java",
     "pricing": [
       "poa"
@@ -1300,9 +1421,14 @@
     "cats": [
       36
     ],
-    "html": "<div (?:id=\"[a-zA-Z0-9_]*\" )?class=\"goAdverticum\"",
+    "description": "Adverticum is the developer and operator of Hungary's market leading online ad serving solution, the Adverticum AdServer.",
+    "dom": "a[href*='ad.adverticum.net'], div.goAdverticum",
     "icon": "Adverticum.svg",
-    "scriptSrc": "(?:ad\\.)?adverticum\\.net/g3\\.js",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.adverticum\\.net/",
     "website": "http://adverticum.net"
   },
   "Adyen": {
@@ -1315,19 +1441,6 @@
       "adyen.encrypt.version": "^(.+)$\\;version:\\1"
     },
     "website": "https://www.adyen.com"
-  },
-  "Adzerk": {
-    "cats": [
-      36
-    ],
-    "html": "<iframe [^>]*src=\"[^\"]+adzerk\\.net",
-    "icon": "Adzerk.png",
-    "js": {
-      "ados": "",
-      "adosResults": ""
-    },
-    "scriptSrc": "adzerk\\.net/ados\\.js",
-    "website": "http://adzerk.com"
   },
   "Aegea": {
     "cats": [
@@ -1357,6 +1470,20 @@
     ],
     "saas": true,
     "website": "https://www.aerocommerce.com"
+  },
+  "Affilae": {
+    "cats": [
+      71
+    ],
+    "description": "Affilae is an affiliate marketing platform that enables brands to connect, collaborate with influencers and affiliates.",
+    "icon": "Affilae.png",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "static\\.affilae\\.com/(?:.+v([\\d\\.]+)|.+)?\\.js\\;version:\\1",
+    "website": "https://affilae.com"
   },
   "Affiliate B": {
     "cats": [
@@ -1423,11 +1550,19 @@
     "cats": [
       6
     ],
-    "html": [
-      "<dd>This OnlineStore is brought to you by ViA-Online GmbH Afterbuy\\. Information and contribution at https://www\\.afterbuy\\.de</dd>"
+    "description": "AfterBuy is a software company that specialises in ecommerce software for small to enterprise level businesses.",
+    "icon": "AfterBuy.png",
+    "js": {
+      "AfterbuyString": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "payg"
     ],
-    "icon": "after-buy.png",
-    "scriptSrc": "shop-static\\.afterbuy\\.de",
+    "saas": true,
+    "scriptSrc": "\\.afterbuy\\.de/",
     "website": "http://www.afterbuy.de"
   },
   "Afterpay": {
@@ -1437,20 +1572,24 @@
     ],
     "cpe": "cpe:/a:afterpay:afterpay",
     "description": "Afterpay is a 'buy now, pay later' platform that makes it possible to pay off purchased goods in fortnightly instalments.",
-    "dom": "#afterpay, .afterpay, [aria-label='Afterpay'], link[href*='/wp-content/plugins/afterpay-gateway-for-woocommerce/']",
+    "dom": "#afterpay, .afterpay, .AfterpayMessage, [aria-label='Afterpay'], link[href*='/wp-content/plugins/afterpay-gateway-for-woocommerce/']",
     "icon": "afterpay.png",
     "js": {
       "Afterpay": "",
       "AfterpayAttractWidget": "",
+      "AfterpayGenericErrorHtml": "",
+      "AfterpayWidgetHtml": "",
       "afterpay_product": "",
       "checkout.enabledpayments.afterpay": "^true$"
     },
+    "requiresCategory": 6,
     "saas": true,
     "scriptSrc": [
       "portal\\.afterpay\\.com",
       "static\\.afterpay\\.com",
       "present-afterpay\\.js",
-      "afterpay-products\\.min\\.js"
+      "afterpay-products\\.min\\.js",
+      "js\\.stripe\\.com/v3/fingerprinted/js/elements-afterpay-clearpay-message-.+\\.js"
     ],
     "website": "https://www.afterpay.com/"
   },
@@ -1527,10 +1666,10 @@
     "cats": [
       19
     ],
-    "html": [
-      "<form[^>]+?action=\"[^\"]*airform\\.io[^>]+?>"
-    ],
+    "description": "Airform is a functional HTML forms for front-end developers.",
+    "dom": "form[action*='airform.io/']",
     "icon": "Airform.svg",
+    "oss": true,
     "website": "https://airform.io"
   },
   "Airship": {
@@ -1703,9 +1842,6 @@
       "OpenLayers"
     ],
     "oss": true,
-    "pricing": [
-      "freemium"
-    ],
     "website": "https://aksaracms.com"
   },
   "Albacross": {
@@ -1762,6 +1898,9 @@
     "cats": [
       29
     ],
+    "cookies": {
+      "_ALGOLIA": ""
+    },
     "description": "Algolia offers a hosted web search product delivering real-time results.",
     "headers": {
       "Content-Security-Policy": "\\.algolia"
@@ -1781,7 +1920,8 @@
   },
   "Ali Reviews": {
     "cats": [
-      90
+      90,
+      100
     ],
     "description": "Ali reviews is a shopify app to collect reviews from customers.",
     "icon": "Alireviews.svg",
@@ -1837,6 +1977,18 @@
     "saas": true,
     "scriptSrc": "portal\\.allyable\\.com/",
     "website": "https://allyable.com"
+  },
+  "AlmaLinux": {
+    "cats": [
+      28
+    ],
+    "description": "AlmaLinux is an open-source, community-driven Linux operating system that fills the gap left by the discontinuation of the CentOS Linux stable release.",
+    "headers": {
+      "server": "AlmaLinux"
+    },
+    "icon": "AlmaLinux.svg",
+    "oss": true,
+    "website": "https://almalinux.org"
   },
   "Alpine Linux": {
     "cats": [
@@ -2414,10 +2566,53 @@
       "antd.version": "^([\\d\\.]+)$\\;version:\\1"
     },
     "oss": true,
+    "website": "https://ant.design"
+  },
+  "AntV G2": {
+    "cats": [
+      25
+    ],
+    "description": "AntV G2 is a highly interactive data-driven visualisation grammar for statistical charts.",
+    "dom": "div.g2-tooltip",
+    "icon": "AntV.svg",
+    "js": {
+      "G2.Chart": "",
+      "G2.VERSION": "([\\d\\.]+)\\;version:\\1"
+    },
     "pricing": [
       "freemium"
     ],
-    "website": "https://ant.design"
+    "saas": true,
+    "website": "https://g2plot.antv.vision"
+  },
+  "AntV G6": {
+    "cats": [
+      25
+    ],
+    "description": "AntV G6 is a graph visualisation framework in JavaScript.",
+    "icon": "AntV.svg",
+    "js": {
+      "g6.Graph": "",
+      "g6.version": "([\\d\\.]+)\\;version:\\1"
+    },
+    "pricing": [
+      "freemium"
+    ],
+    "saas": true,
+    "website": "https://g6.antv.vision"
+  },
+  "Antsomi CDP 365": {
+    "cats": [
+      97
+    ],
+    "description": "Antsomi CDP 365 is a AI-enabled customer data platform from Southeast Asia.",
+    "icon": "Antsomi.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.cdp\\.asia/",
+    "website": "https://www.antsomi.com"
   },
   "AnyClip": {
     "cats": [
@@ -2560,6 +2755,7 @@
     "cats": [
       59
     ],
+    "description": "Apollo is a fully-featured caching GraphQL client with integrations for React, Angular, and more.",
     "dom": "script#__APOLLO_STATE__",
     "icon": "Apollo.svg",
     "implies": [
@@ -2591,10 +2787,20 @@
     "cats": [
       1
     ],
-    "html": "<[^>]+data-apos-refreshable[^>]",
+    "description": "ApostropheCMS is a powerful website builder platform built on an enterprise open source CMS.",
     "icon": "ApostropheCMS.svg",
     "implies": "Node.js",
-    "website": "http://apostrophecms.org"
+    "js": {
+      "APOS_DIALOGS.dialogAttributes": "",
+      "apos.csrfCookieName": ""
+    },
+    "pricing": [
+      "freemium",
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://apostrophecms.com"
   },
   "AppDynamics": {
     "cats": [
@@ -2685,6 +2891,7 @@
     "icon": "Apple.svg",
     "js": {
       "ApplePay": "",
+      "braintree.applePay": "",
       "checkout.enabledpayments.applepay": "^true$",
       "dw.applepay": "",
       "enableApplePay": ""
@@ -2704,20 +2911,37 @@
         "text": "(Sign (in|up)|Log in|Continue) with Apple"
       }
     },
-    "html": "<meta[ˆ>]*appleid-signin-client-id",
     "icon": "Apple.svg",
     "js": {
       "AppleID": ""
     },
+    "meta": {
+      "appleid-signin-client-id": ""
+    },
     "scriptSrc": "appleid\\.auth\\.js",
     "website": "https://developer.apple.com/sign-in-with-apple/"
+  },
+  "ApplicantStack": {
+    "cats": [
+      101
+    ],
+    "description": "ApplicantStack is a full-service applicant tracking system that automates and streamlines all stages of the hiring process.",
+    "dom": "a[href*='.applicantstack.com/']",
+    "icon": "ApplicantStack.png",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.applicantstack\\.com/",
+    "website": "https://www.applicantstack.com"
   },
   "Appointy": {
     "cats": [
       72
     ],
-    "description": "Appointy’s online scheduling software.",
-    "html": "<iframe[^>]+src=\"?https://[\\w\\d\\-]+\\.appointy\\.com",
+    "description": "Appointy is a cloud-based scheduling solution that helps professionals and businesses to manage their appointment scheduling activities and routines.",
+    "dom": "a[href*='.appointy.com/'][target='_blank'], iframe[src*='.appointy.com/']",
     "icon": "Appointy.png",
     "pricing": [
       "low",
@@ -2798,14 +3022,16 @@
       6
     ],
     "cpe": "cpe:/a:arastta:ecommerce",
+    "description": "Arastta is a free and open-source project with contributors from all over the world.",
     "excludes": "OpenCart",
     "headers": {
       "Arastta": "^(.+)$\\;version:\\1",
-      "X-Arastta": ""
+      "X-Arastta": "",
+      "x-arastta": ""
     },
-    "html": "Powered by <a [^>]*href=\"https?://(?:www\\.)?arastta\\.org[^>]+>Arastta",
     "icon": "Arastta.svg",
     "implies": "PHP",
+    "oss": true,
     "scriptSrc": "arastta\\.js",
     "website": "http://arastta.org"
   },
@@ -2829,16 +3055,24 @@
     "website": "https://arc.io",
     "xhr": "\\.arc\\.io"
   },
-  "Arc Publishing": {
+  "Arc XP": {
     "cats": [
-      1
+      1,
+      95
     ],
-    "html": "<div [^>]*id=\"pb-root\"",
-    "icon": "Arc-Publishing.svg",
+    "description": "Arc XP is a cloud-based digital experience platform that helps enterprise companies, retail brands and media and entertainment organization create and distribute content, drive digital commerce, and deliver powerful experiences.",
+    "dom": "#pb-root",
+    "icon": "Arc XP.svg",
     "js": {
       "Fusion.arcSite": ""
     },
-    "website": "https://www.arcpublishing.com/"
+    "pricing": [
+      "recurring",
+      "poa",
+      "high"
+    ],
+    "saas": true,
+    "website": "https://www.arcxp.com"
   },
   "ArcGIS API for JavaScript": {
     "cats": [
@@ -2914,6 +3148,16 @@
     },
     "website": "http://www.arvancloud.com"
   },
+  "Asana": {
+    "cats": [
+      13
+    ],
+    "description": "Asana is a web and mobile application designed to help teams organize, track, and manage their work.",
+    "dom": "a[href*='form.asana.com'], a[href*='app.asana.com']",
+    "icon": "Asana.svg",
+    "saas": true,
+    "website": "https://asana.com"
+  },
   "AsciiDoc": {
     "cats": [
       1,
@@ -2929,6 +3173,19 @@
       "generator": "^AsciiDoc ([\\d.]+)\\;version:\\1"
     },
     "website": "http://www.methods.co.nz/asciidoc"
+  },
+  "Asciidoctor": {
+    "cats": [
+      4
+    ],
+    "description": "Asciidoctor is an open-source text processor and publishing toolchain, written in Ruby, for converting AsciiDoc content to HTML 5, DocBook 5, and other formats.",
+    "icon": "Asciidoctor.png",
+    "meta": {
+      "generator": "^Asciidoctor\\s([\\d\\.]+)$\\;version:\\1"
+    },
+    "implies": "Ruby",
+    "oss": true,
+    "website": "https://github.com/asciidoctor/asciidoctor"
   },
   "Asciinema": {
     "cats": [
@@ -2999,6 +3256,28 @@
       "Astra"
     ],
     "website": "https://wpastra.com/did-you-know-astra-is-widget-ready"
+  },
+  "Astro": {
+    "cats": [
+      57,
+      12
+    ],
+    "description": "Astro is a new JavaScript-based static site builder.",
+    "dom": {
+      "[class^='astro-']": {
+        "attributes": {
+          "class": "astro-[\\d\\w]{8,}"
+        }
+      },
+      "link[href*='/_astro/']": {
+        "attributes": {
+          "href": "/_astro/(?:common|index)-[\\d\\w]+\\.css"
+        }
+      }
+    },
+    "icon": "Astro.svg",
+    "oss": true,
+    "website": "https://astro.build"
   },
   "Astute Solutions": {
     "cats": [
@@ -3198,15 +3477,15 @@
     "cats": [
       12
     ],
-    "html": [
-      "<[^>]+aurelia-app=[^>]",
-      "<[^>]+data-main=[^>]aurelia-bootstrapper",
-      "<[^>]+au-target-id=[^>]\\d"
-    ],
+    "description": "Aurelia is an open-source UI JavaScript framework designed to create single page applications.",
+    "dom": "div[aurelia-app], body[aurelia-app], a[au-target-id]",
     "icon": "Aurelia.svg",
-    "scriptSrc": [
-      "aurelia(?:\\.min)?\\.js"
-    ],
+    "js": {
+      "_aureliaConfigureModuleLoader": "",
+      "localAurelia": ""
+    },
+    "oss": true,
+    "scriptSrc": "/aurelia[\\d\\w\\-\\.]+\\.js",
     "website": "http://aurelia.io"
   },
   "Auryc": {
@@ -3224,6 +3503,19 @@
     "saas": true,
     "scriptSrc": "cdn\\.auryc\\.com/",
     "website": "https://www.auryc.com"
+  },
+  "Australia Post": {
+    "cats": [
+      99
+    ],
+    "description": "Australia Post is the government business enterprise that provides postal services in Australia.",
+    "icon": "AusPost.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bAusPost\\b",
+      "\\bAustralia Post\\b"
+    ],
+    "website": "https://auspost.com.au"
   },
   "Auth0": {
     "cats": [
@@ -3297,14 +3589,16 @@
     "cats": [
       6
     ],
-    "html": "<link[^>]* href=\"https?://edge\\.avangate\\.net/",
+    "description": "Avangate (2Checkout) is a digital ecommerce platform for businesses that sell physical goods or digital products.",
     "icon": "Avangate.svg",
+    "implies": "Verifone 2Checkout",
     "js": {
-      "__avng8_": "",
-      "avng8_": ""
+      "AvaCart.version": "(.+)\\;version:\\1",
+      "__avng8_callbacks": "",
+      "avaSlugify": ""
     },
     "scriptSrc": "^https?://edge\\.avangate\\.net/",
-    "website": "http://avangate.com"
+    "website": "https://www.2checkout.com"
   },
   "Avasize": {
     "cats": [
@@ -3467,6 +3761,25 @@
     "implies": "Azure",
     "website": "https://azure.microsoft.com/en-us/services/cdn/"
   },
+  "Azure Monitor": {
+    "cats": [
+      10,
+      92
+    ],
+    "description": "Azure Monitor collects monitoring telemetry from a variety of on-premises and Azure sources. Azure Monitor helps you maximise the availability and performance of your applications and services.",
+    "dom": "link[href*='js.monitor.azure.com']",
+    "headers": {
+      "Content-Security-Policy": "js\\.monitor\\.azure\\.com"
+    },
+    "icon": "azure.svg",
+    "implies": "Azure",
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "js\\.monitor\\.azure\\.com/",
+    "website": "https://azure.microsoft.com/en-us/services/monitor"
+  },
   "a-blog cms": {
     "cats": [
       1
@@ -3477,6 +3790,26 @@
       "generator": "a-blog cms"
     },
     "website": "http://www.a-blogcms.jp"
+  },
+  "a3 Lazy Load": {
+    "cats": [
+      87,
+      92
+    ],
+    "description": "a3 Lazy Load is a mobile oriented, very simple to use plugin that will speed up sites page load speed.",
+    "icon": "a3.png",
+    "js": {
+      "a3_lazyload_extend_params": "",
+      "a3_lazyload_params": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/a3-lazy-load/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://a3rev.com/shop/a3-lazy-load/"
   },
   "aThemes Airi": {
     "cats": [
@@ -3510,6 +3843,36 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/themes/astrid/",
     "website": "https://athemes.com/theme/astrid"
+  },
+  "aThemes Hiero": {
+    "cats": [
+      80
+    ],
+    "description": "aThemes Hiero is an awesome magazine theme for your WordPress site feature bold colors and details to the content.",
+    "icon": "aThemes.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/hiero/",
+    "website": "https://athemes.com/theme/hiero"
+  },
+  "aThemes Moesia": {
+    "cats": [
+      80
+    ],
+    "description": "aThemes Moesia is the business theme you need in order to build your presence on the Internet.",
+    "dom": "link#moesia-style-css",
+    "icon": "aThemes.svg",
+    "pricing": [
+      "low",
+      "recurring",
+      "onetime",
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/moesia(?:-pro-ii)?/",
+    "website": "https://athemes.com/theme/moesia"
   },
   "aThemes Sydney": {
     "cats": [
@@ -3587,6 +3950,18 @@
       "<link [^>]+(?:/([\\d.]+)/)?animate\\.(?:min\\.)?css\\;version:\\1"
     ],
     "website": "https://daneden.github.io/animate.css/"
+  },
+  "anime.js": {
+    "cats": [
+      25
+    ],
+    "description": "Anime.js (/ˈæn.ə.meɪ/) is a lightweight JavaScript animation library with a simple, yet powerful API.It works with CSS properties, SVG, DOM attributes and JavaScript Objects.",
+    "icon": "anime.js.svg",
+    "js": {
+      "anime.version": "^([\\d\\.]+)$\\;version:\\1"
+    },
+    "oss": true,
+    "website": "https://animejs.com/"
   },
   "augmented-ui": {
     "cats": [

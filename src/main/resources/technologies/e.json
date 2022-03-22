@@ -94,9 +94,6 @@
       "ewww_webp_supported": ""
     },
     "oss": true,
-    "pricing": [
-      "freemium"
-    ],
     "requires": "WordPress",
     "scriptSrc": "/wp-content/plugins/ewww-image-optimizer/",
     "website": "https://github.com/nosilver4u/ewww-image-optimizer"
@@ -153,6 +150,22 @@
     "implies": "Docker",
     "website": "https://easyengine.io"
   },
+  "Easy Redirects": {
+    "cats": [
+      100
+    ],
+    "description": "Easy Redirects is a Shopify app built by Eastside, and part of the best Shopify Apps collection.",
+    "icon": "Easy Redirects.png",
+    "requires": "Shopify",
+    "scriptSrc": "easy-redirects\\..+/redirect-app\\.js",
+    "saas": true,
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "website": "https://apps.shopify.com/easyredirects"
+  },
   "EasyStore": {
     "cats": [
       6
@@ -181,6 +194,21 @@
       "\\bEasylog\\b"
     ],
     "website": "http://www.easylog.com.br"
+  },
+  "ECharts": {
+    "cats": [
+      25
+    ],
+    "oss": true,
+    "description": "ECharts is an open-source JavaScript visualisation library.",
+    "dom": "div[_echarts_instance_]",
+    "scriptSrc": [
+      "/echarts\\.min\\.[a-zA-Z0-9]*\\.js",
+      "/echarts(?:\\.simple)?(?:\\.esm)?(?:\\.common)?(?:\\.min)?\\.js",
+      "cdn\\.jsdelivr\\.net/(?:npm|gh/apache)/echarts@([\\d.]+(?:-[^/]+)?|latest)/dist/echarts.*\\.js\\;version:\\1"
+    ],
+    "icon": "echarts.png",
+    "website": "https://echarts.apache.org/"
   },
   "Ecovium": {
     "cats": [
@@ -229,6 +257,18 @@
     "url": "https?://(?:[^/]+\\.)?edgecastcdn\\.net/",
     "website": "http://www.edgecast.com"
   },
+  "Editor.js": {
+    "cats": [
+      24
+    ],
+    "description": "Editor.js is a Javascript library which allows developers to implement a block base text editor with plugins on their page.",
+    "icon": "Editor.js.png",
+    "js": {
+      "EditorJS": ""
+    },
+    "oss": true,
+    "website": "https://editorjs.io"
+  },
   "Elastic APM": {
     "cats": [
       10,
@@ -245,6 +285,26 @@
     },
     "website": "https://www.elastic.co/apm"
   },
+  "ElasticPress": {
+    "cats": [
+      87
+    ],
+    "description": "ElasticPress is a hosting service that connects your WordPress site to search hosting.",
+    "headers": {
+      "x-elasticpress-query": ""
+    },
+    "icon": "elasticpress.svg",
+    "implies": [
+      "Elasticsearch"
+    ],
+    "pricing": [
+      "recurring",
+      "freemium",
+      "mid"
+    ],
+    "saas": true,
+    "website": "https://www.elasticpress.io/"
+  },
   "ElasticSuite": {
     "cats": [
       29
@@ -254,10 +314,6 @@
       "STVID": "\\;confidence:50"
     },
     "description": "ElasticSuite is a merchandising suite for Magento and OroCommerce.",
-    "html": [
-      "<input [^>]*Smile_Elasticsuite[^>]*>",
-      "<[\\S\\s.*]*Smile_Elasticsuite[\\S\\s.*]*>"
-    ],
     "icon": "ElasticSuite.svg",
     "implies": [
       "PHP",
@@ -274,7 +330,7 @@
       "OroCommerce",
       "Magento"
     ],
-    "scriptSrc": "Smile_ElasticsuiteTracker/js/tracking\\.js",
+    "scriptSrc": "/Smile_ElasticsuiteTracker/",
     "website": "https://elasticsuite.io"
   },
   "Elasticsearch": {
@@ -405,7 +461,7 @@
       "ELOQUA": ""
     },
     "description": "Eloqua is a Software-as-a-Service (SaaS) platform for marketing automation offered that aims to help B2B marketers and organisations manage marketing campaigns and sales lead generation.",
-    "icon": "Oracle.png",
+    "icon": "Oracle.svg",
     "js": {
       "_elq": "",
       "_elqQ": "",
@@ -520,8 +576,7 @@
   },
   "Enable": {
     "cats": [
-      68,
-      87
+      68
     ],
     "description": "Enable is a web accessibility plugin by uPress.",
     "icon": "Enable.png",
@@ -532,9 +587,8 @@
       "freemium",
       "poa"
     ],
-    "requires": "WordPress",
-    "scriptSrc": "cdn\\.enable\\.co\\.il/.+\\.js\\?ver=(\\d+(?:\\.\\d+)+)\\;version:\\1",
-    "website": "https://www.enable-accessibility.com"
+    "scriptSrc": "cdn\\.enable\\.co\\.il/",
+    "website": "https://www.enable.co.il"
   },
   "Engagio": {
     "cats": [
@@ -615,6 +669,22 @@
     ],
     "website": "https://www.envialia.com"
   },
+  "Envo Shop": {
+    "cats": [
+      80
+    ],
+    "description": "Envo Shop is a fast, clean and modern-looking responsive free WooCommerce WordPress theme by Envo Themes.",
+    "icon": "Envo Themes.png",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/envo-shop/.+customscript\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://envothemes.com/free-envo-shop"
+  },
   "Envo Storefront": {
     "cats": [
       80
@@ -630,6 +700,22 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/themes/envo-storefront/.+customscript\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://envothemes.com/free-envo-storefront"
+  },
+  "Envo eCommerce": {
+    "cats": [
+      80
+    ],
+    "description": "Envo eCommerce is a fast, clean and modern-looking responsive free WooCommerce theme for WordPress.",
+    "icon": "Envo Themes.png",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/envo-ecommerce/.+customscript\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://envothemes.com/free-envo-ecommerce/"
   },
   "Envoy": {
     "cats": [
@@ -1176,6 +1262,20 @@
     "scriptSrc": "\\.ezo(?:js|ic|dn)\\.(?:com|net)",
     "website": "https://www.ezoic.com"
   },
+  "e-Shop Commerce": {
+    "cats": [
+      6
+    ],
+    "description": "e-Shop is a all-in-one Software-as-a-Service (SaaS) that allows Israeli customers to set up an online store and sell their products.",
+    "icon": "eShop eCommerce.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "/template_inc/eshopstoresframework",
+    "website": "https://www.e-shop.co.il"
+  },
   "e-goi": {
     "cats": [
       32,
@@ -1220,6 +1320,20 @@
     "icon": "eBay.svg",
     "scriptSrc": "epnt\\.ebay\\.com/",
     "website": "https://partnernetwork.ebay.com"
+  },
+  "eCaupo": {
+    "cats": [
+      6
+    ],
+    "description": "eCaupo is no delivery portal, but your own shop.",
+    "icon": "eCaupo.png",
+    "pricing": [
+      "low",
+      "recurring",
+      "payg"
+    ],
+    "scriptSrc": "\\.ecaupo\\.(?:at|com)/",
+    "website": "https://www.ecaupo.com"
   },
   "eClass": {
     "cats": [

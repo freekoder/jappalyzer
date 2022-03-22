@@ -1,4 +1,21 @@
 {
+  "U-KOMI": {
+    "cats": [
+      90
+    ],
+    "description": "U-KOMI is a user generated content review marketing tool.",
+    "icon": "U-KOMI.svg",
+    "js": {
+      "GetUkomiSliderItemInfo": "",
+      "ukomiInstaLikeStep01": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://u-komi.com/en/"
+  },
   "UIKit": {
     "cats": [
       66
@@ -70,6 +87,19 @@
       "\\b(?<!-)UPS\\b"
     ],
     "website": "https://www.ups.com"
+  },
+  "USPS": {
+    "cats": [
+      99
+    ],
+    "description": "The United States Postal Service (USPS) is an independent agency of the executive branch of the United States federal government responsible for providing postal service in the United States.",
+    "icon": "USPS.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bUSPS\\b",
+      "\\bUnited States Postal Service\\b"
+    ],
+    "website": "https://www.usps.com"
   },
   "USWDS": {
     "cats": [
@@ -164,14 +194,24 @@
     "url": "/cgi-bin/UCEditor\\?",
     "website": "http://ultracart.com"
   },
+  "Umami": {
+    "cats": [
+      10
+    ],
+    "description": "Umami is a self-hosted web analytics solution. It's goal is to provide a friendlier, privacy-focused alternative to Google Analytics and a free, open-sourced alternative to paid solutions.",
+    "icon": "umami.svg",
+    "oss": true,
+    "scriptSrc": "umami\\.js",
+    "website": "https://umami.is/"
+  },
   "Umbraco": {
     "cats": [
       1
     ],
+    "description": "Umbraco is an open-source Microsoft ASP.NET based content management system.",
     "headers": {
       "X-Umbraco-Version": "^(.+)$\\;version:\\1"
     },
-    "html": "powered by <a href=[^>]+umbraco",
     "icon": "Umbraco.png",
     "implies": "Microsoft ASP.NET",
     "js": {
@@ -183,8 +223,17 @@
     "meta": {
       "generator": "umbraco"
     },
+    "oss": true,
+    "pricing": [
+      "freemium",
+      "recurring",
+      "low"
+    ],
+    "saas": true,
+    "scripts": "/Umbraco/Api/",
     "url": "/umbraco/login\\.aspx(?:$|\\?)",
-    "website": "http://umbraco.com"
+    "website": "http://umbraco.com",
+    "xhr": "/umbraco/api/"
   },
   "Unbounce": {
     "cats": [
@@ -335,6 +384,25 @@
     "saas": true,
     "scriptSrc": "app\\.upserve\\.com/",
     "website": "https://onlineordering.upserve.com"
+  },
+  "UptimeRobot": {
+    "cats": [
+      13
+    ],
+    "description": "UptimeRobot is a web-based software that is designed to monitor the sites frequently to check whether any site is down owing to server problem or any bug in coding.",
+    "dom": "a[href*='stats.uptimerobot.com/']",
+    "headers": {
+      "content-security-policy": "\\.uptimerobot\\.com"
+    },
+    "icon": "UptimeRobot.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "stats\\.uptimerobot\\.com/",
+    "website": "https://uptimerobot.com"
   },
   "Upvoty": {
     "cats": [
@@ -507,6 +575,44 @@
     "scriptSrc": "\\.usercentrics\\.eu/.+\\.js",
     "website": "https://usercentrics.com"
   },
+  "Userflow": {
+    "cats": [
+      58
+    ],
+    "description": "Userflow is a user onboarding software for building product tours and onboarding checklists, tailored to your app and your users.",
+    "icon": "Userflow.svg",
+    "js": {
+      "USERFLOWJS_QUEUE": "",
+      "userflow.endAllFlows": "\\;confidence:50",
+      "userflow.endChecklist": "\\;confidence:50"
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.userflow\\.com/",
+    "website": "https://userflow.com"
+  },
+  "Userpilot": {
+    "cats": [
+      58,
+      97
+    ],
+    "description": "Userpilot is a cloud-based product experience platform designed for customer success and product teams to onboard users and increase product adoption through behavior-triggered experiences.",
+    "icon": "Userpilot.svg",
+    "js": {
+      "userpilot.triggerById": "",
+      "userpilotInitiatorSDK": "",
+      "userpilotPako": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://userpilot.com"
+  },
   "Ushahidi": {
     "cats": [
       1,
@@ -543,6 +649,18 @@
     "saas": true,
     "scriptSrc": "static\\.usizy\\.es/",
     "website": "https://usizy.com"
+  },
+  "Uvicorn": {
+    "cats": [
+      22
+    ],
+    "headers": {
+      "Server": "uvicorn"
+    },
+    "icon": "uvicorn.png",
+    "implies": "Python",
+    "oss": true,
+    "website": "https://www.uvicorn.org/"
   },
   "uKnowva": {
     "cats": [

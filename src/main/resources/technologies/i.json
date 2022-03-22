@@ -103,6 +103,21 @@
     "website": "https://www.ipinfodb.com/",
     "xhr": "api\\.ipinfodb\\.com"
   },
+  "IPinfo": {
+    "cats": [
+      79
+    ],
+    "description": "IPinfo is an IP address data provider.",
+    "icon": "IPinfo.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "ipinfo\\.io/",
+    "website": "https://ipinfo.io",
+    "xhr": "ipinfo\\.io/"
+  },
   "Iamport": {
     "cats": [
       41
@@ -208,6 +223,25 @@
     "scriptSrc": "/wp-content/plugins/nextgen-gallery(?:-pro|-plus)?/",
     "website": "https://www.imagely.com/wordpress-gallery-plugin"
   },
+  "Imber": {
+    "cats": [
+      52
+    ],
+    "description": "Imber is an all-in-one marketing automation platform built for customer support (live chat), sales, and marketing.",
+    "icon": "Imber.png",
+    "js": {
+      "$imber.getVisitor": "",
+      "IMBER_ID": "",
+      "IMBER_SOCKET": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://imber.live"
+  },
   "Immutable.js": {
     "cats": [
       59
@@ -292,6 +326,24 @@
     "saas": true,
     "scriptSrc": "vendor-cdn\\.imweb\\.me/",
     "website": "https://imweb.me"
+  },
+  "InMoment": {
+    "cats": [
+      10,
+      73
+    ],
+    "description": "InMoment provides SaaS based customer survey and enterprise feedback management solutions.",
+    "headers": {
+      "Content-Security-Policy": "\\.inmoment\\.com",
+      "Content-Security-Policy-Report-Only": "\\.inmoment\\.com"
+    },
+    "icon": "InMoment.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.inmoment\\.com(?:\\.\\w+)?/",
+    "website": "https://inmoment.com"
   },
   "Incapsula": {
     "cats": [
@@ -421,22 +473,6 @@
       "recurring"
     ],
     "website": "https://www.infomaniak.com"
-  },
-  "inSided": {
-    "cats": [
-      97
-    ],
-    "description": "inSided is the only Customer Success Community Platform built to help SaaS companies improve customer success and retention.",
-    "icon": "inSided.svg",
-    "js": {
-      "inSidedData": "",
-      "insided": ""
-    },
-    "pricing": [
-      "poa"
-    ],
-    "saas": true,
-    "website": "https://www.insided.com"
   },
   "Insider": {
     "cats": [
@@ -710,6 +746,22 @@
     "scriptSrc": "Scripts/_app/Inv(?:\\w+)\\.js\\?v=(.+)$\\;version:\\1",
     "website": "https://www.inveon.com"
   },
+  "Invoca": {
+    "cats": [
+      32
+    ],
+    "description": "Invoca is an AI-powered call tracking and conversational analytics company.",
+    "icon": "Invoca.svg",
+    "js": {
+      "Invoca.PNAPI.version": "([\\d\\.]+)\\;version:\\1",
+      "InvocaTagId": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.invoca.com"
+  },
   "Ionic": {
     "cats": [
       18
@@ -729,6 +781,19 @@
     "html": "<link[^>]* href=[^>]+ionicons(?:\\.min)?\\.css",
     "icon": "Ionicons.png",
     "website": "http://ionicons.com"
+  },
+  "IrisLMS": {
+    "cats": [
+      21
+    ],
+    "description": "IrisLMS comprehensive education management system, in order to support e-learning and provide suitable conditions for holding online and offline classes with all facilities.",
+    "icon": "IrisLMS.png",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.irislms\\.ir/",
+    "website": "https://irislms.ir"
   },
   "Irroba": {
     "cats": [
@@ -837,6 +902,15 @@
     "scriptSrc": "\\.i-mobile\\.co\\.jp/",
     "website": "http://www2.i-mobile.co.jp"
   },
+  "i30con": {
+    "cats": [
+      17
+    ],
+    "description": "i30con is an icon toolkit based on CSS and JavaScript.",
+    "dom": "[class^='i30con']",
+    "icon": "30namaPlayer.png",
+    "website": "https://30nama.com/"
+  },
   "iEXExchanger": {
     "cats": [
       1
@@ -922,6 +996,22 @@
     },
     "url": "imperia/md/",
     "website": "https://www.pirobase-imperia.com/de/produkte/produktuebersicht/imperia-cms"
+  },
+  "inSided": {
+    "cats": [
+      97
+    ],
+    "description": "inSided is the only Customer Success Community Platform built to help SaaS companies improve customer success and retention.",
+    "icon": "inSided.svg",
+    "js": {
+      "inSidedData": "",
+      "insided": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.insided.com"
   },
   "ip-api": {
     "cats": [

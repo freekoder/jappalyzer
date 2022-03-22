@@ -42,13 +42,16 @@
     "icon": "SAP.svg",
     "implies": "Java",
     "js": {
+      "ACC.config.commonResourcePath": "/_ui/responsive/common\\;confidence:25",
+      "ACC.config.rootPath": "/_ui/responsive\\;confidence:25",
+      "ACC.config.themeResourcePath": "/_ui/responsive/theme-\\;confidence:50",
       "smartedit": ""
     },
     "pricing": [
       "poa"
     ],
     "saas": true,
-    "website": "https://www.sap.com/products/crm/e-commerce-platforms.html"
+    "website": "https://www.sap.com/products/commerce-cloud.html"
   },
   "SAP Customer Data Cloud Sign-in": {
     "cats": [
@@ -110,6 +113,22 @@
       "\\bSEUR\\b"
     ],
     "website": "https://www.seur.com"
+  },
+  "SHE Media": {
+    "cats": [
+      36
+    ],
+    "description": "SHE Media is an ad network, which means that they basically serve as a coordinator between advertisers and publishers (bloggers).",
+    "icon": "SHE Media.png",
+    "js": {
+      "SheMedia": "",
+      "blogherads.adq": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://www.shemedia.com"
   },
   "SIMsite": {
     "cats": [
@@ -208,6 +227,22 @@
     "icon": "SQLite.png",
     "website": "http://www.sqlite.org"
   },
+  "STN Video": {
+    "cats": [
+      36,
+      14
+    ],
+    "description": "STN Video is a online video platform that solves digital video for publishers, content creators, and advertisers.",
+    "icon": "STN Video.png",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "embed\\.sendtonews\\.com/",
+    "scripts": "embed\\.sendtonews\\.com/",
+    "website": "https://www.stnvideo.com"
+  },
   "STUDIO": {
     "cats": [
       51
@@ -253,9 +288,6 @@
     "dom": "link[href*='/wp-content/plugins/svg-support/']",
     "icon": "SVG Support.png",
     "oss": true,
-    "pricing": [
-      "freemium"
-    ],
     "requires": "WordPress",
     "scriptSrc": "/wp-content/plugins/svg-support/",
     "website": "https://github.com/wp-plugins/svg-support"
@@ -591,6 +623,26 @@
     "saas": true,
     "website": "https://www.salsify.com"
   },
+  "Saly": {
+    "cats": [
+      6
+    ],
+    "description": "Saly is an enterprise-class B2B ecommerce platform. Dedicated to solving problems faced by manufacturers, wholesalers and distributors.",
+    "icon": "Saly.svg",
+    "implies": [
+      "PHP",
+      "Svelte"
+    ],
+    "meta": {
+      "application-name": "^Saly\\sB2B\\sPlatform$"
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://saly.pl"
+  },
   "Sana Commerce": {
     "cats": [
       6
@@ -697,6 +749,19 @@
     "saas": true,
     "scriptSrc": "satori\\.segs\\.jp/",
     "website": "https://satori.marketing"
+  },
+  "Satori Studio Bento": {
+    "cats": [
+      80
+    ],
+    "description": "Satori Studio Bento is a powerful yet user-friendly free WordPress theme intended for use in the broadest range of web projects.",
+    "icon": "Satori Studio.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/bento/",
+    "website": "https://satoristudio.net/bento-free-wordpress-theme"
   },
   "Sazito": {
     "cats": [
@@ -871,6 +936,25 @@
     "saas": true,
     "scriptSrc": "cdn\\.searchspring\\.net",
     "website": "https://searchspring.com"
+  },
+  "Secomapp": {
+    "cats": [
+      100
+    ],
+    "description": "Secomapp is a trusted Shopify Expert providing services through Shopify Apps.",
+    "icon": "Secomapp.png",
+    "js": {
+      "SECOMAPP": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "cdn\\.secomapp\\.com/",
+    "website": "https://www.secomapp.com"
   },
   "Sectigo": {
     "cats": [
@@ -1077,6 +1161,7 @@
       6
     ],
     "description": "Sellix is an ecommerce payment processor. It accepts PayPal, PerfectMoney and popular cryptocurrencies.",
+    "dom": "link[href*='.sellix.io']",
     "icon": "Sellix.svg",
     "pricing": [
       "low",
@@ -1086,6 +1171,23 @@
     "saas": true,
     "scriptSrc": "cdn\\.sellix\\.io/static/js/embed\\.js",
     "website": "https://sellix.io/"
+  },
+  "Sellsy": {
+    "cats": [
+      53
+    ],
+    "description": "Sellsy is a cloud-based sales management solution for small to midsize businesses",
+    "icon": "Sellsy.svg",
+    "js": {
+      "SellsySnippet": ""
+    },
+    "pricing": [
+      "payg",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.sellsy\\.com/",
+    "website": "https://go.sellsy.com"
   },
   "Selly": {
     "cats": [
@@ -1349,10 +1451,14 @@
     "icon": "Sezzle.svg",
     "js": {
       "AwesomeSezzle": "",
+      "renderSezzleIframe": "",
       "sezzle_footer_images": ""
     },
+    "meta": {
+      "sezzle_cid": ""
+    },
     "saas": true,
-    "scriptSrc": "widget\\.sezzle\\.in",
+    "scriptSrc": "widget\\.sezzle\\.(?:in|com)",
     "website": "https://sezzle.com/"
   },
   "Shanon": {
@@ -1509,14 +1615,29 @@
         "text": "ShopPay"
       }
     },
-    "icon": "Shopify.svg",
+    "icon": "Shop Pay.svg",
     "js": {
       "ShopifyPay.apiHost": ""
     },
+    "requires": "Shopify",
     "scriptSrc": [
       "cdn\\.shopify\\.com/shopifycloud/shopify_pay/"
     ],
     "website": "https://shop.app"
+  },
+  "Shop Pay Installments": {
+    "cats": [
+      91
+    ],
+    "description": "Shop Pay Installments allows customers to pay for orders between 50 USD and 3,000 USD in 4 interest-free installments.",
+    "dom": ".shopify-installments__learn-more, .shopify-installments, #shopify-installments-cta",
+    "icon": "Shop Pay.svg",
+    "implies": [
+      "Affirm",
+      "Shop Pay"
+    ],
+    "requires": "Shopify",
+    "website": "https://shoppay.affirm.com"
   },
   "ShopGold": {
     "cats": [
@@ -1547,6 +1668,25 @@
     "oss": true,
     "requires": "October CMS",
     "website": "https://shopaholic.one"
+  },
+  "Shopapps": {
+    "cats": [
+      100
+    ],
+    "description": "Shopapps is a trusted Shopify Expert providing services through Shopify Apps.",
+    "icon": "Shopapps.png",
+    "js": {
+      "iStockUrl": "iwish\\.myshopapps\\.com/",
+      "iWishUrl": "iwish\\.myshopapps\\.com/"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "cdn\\.myshopapps\\.com/",
+    "website": "http://www.shopapps.in"
   },
   "Shopatron": {
     "cats": [
@@ -2107,7 +2247,7 @@
     ],
     "description": "Simpli.fi is a programmatic advertising and agency management software.",
     "icon": "Simplifi.png",
-    "scriptSrc": "i\\.simpli\\.fi",
+    "scriptSrc": "\\.simpli\\.fi",
     "website": "https://simpli.fi/"
   },
   "Simplo7": {
@@ -2354,6 +2494,25 @@
     "scriptSrc": "/wp-content/plugins/so-widgets-bundle/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://siteorigin.com/widgets-bundle"
   },
+  "SitePad": {
+    "cats": [
+      57
+    ],
+    "description": "Build your professional website using easy to use editor and publish static web pages.",
+    "icon": "SitePad.png",
+    "implies": [
+      "PHP"
+    ],
+    "meta": {
+      "generator": "^SitePad .+$"
+    },
+    "pricing": [
+      "freemium",
+      "recurring",
+      "low"
+    ],
+    "website": "https://sitepad.com/"
+  },
   "SiteSpect": {
     "cats": [
       74
@@ -2408,14 +2567,18 @@
     ],
     "cookies": {
       "SC_ANALYTICS_GLOBAL_COOKIE": "",
+      "SC_OS_SessionId": "",
       "sc_expview": ""
     },
     "description": "Sitecore provides web content management, and multichannel marketing automation software.",
     "html": "<img[^>]+src=\"[^>]*/~/media/[^>]+\\.ashx",
-    "icon": "Sitecore.png",
+    "icon": "Sitecore.svg",
     "pricing": [
-      "poa"
+      "poa",
+      "recurring",
+      "high"
     ],
+    "requires": "Microsoft ASP.NET",
     "saas": true,
     "website": "https://www.sitecore.com/"
   },
@@ -2490,6 +2653,18 @@
     "icon": "Sizmek.png",
     "scriptSrc": "serving-sys\\.com/",
     "website": "http://sizmek.com"
+  },
+  "Skai": {
+    "cats": [
+      10
+    ],
+    "description": "Skai (formerly Kenshoo) is a marketing activation solution for brands and agencies.",
+    "icon": "Skai.svg",
+    "js": {
+      "Ktag_Constants": ""
+    },
+    "scripts": "\\.xg4ken\\.com",
+    "website": "https://skai.io"
   },
   "Skedify": {
     "cats": [
@@ -2653,6 +2828,21 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/plugins/smart-slider-3(?:-pro)?/",
     "website": "https://smartslider3.com"
+  },
+  "SmartRecruiters": {
+    "cats": [
+      101
+    ],
+    "description": "SmartRecruiters is a web-based talent acquisition platform.",
+    "dom": "a[href*='careers.smartrecruiters.com/']",
+    "icon": "SmartRecruiters.png",
+    "pricing": [
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.smartrecruiters\\.com/",
+    "website": "https://www.smartrecruiters.com"
   },
   "SmartSite": {
     "cats": [
@@ -2911,6 +3101,27 @@
     "saas": true,
     "scriptSrc": "https://cdn\\.snipcart\\.com/themes/v([\\w.]+)/default/snipcart\\.js\\;version:\\1",
     "website": "https://snipcart.com"
+  },
+  "SniperFast": {
+    "cats": [
+      29
+    ],
+    "description": "SniperFast is instant search system for ecommerce sites.",
+    "icon": "SniperFast.png",
+    "js": {
+      "sniperEnableSearch": "",
+      "sniper_search_key": "",
+      "sniperfast_page_id": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requiresCategory": 6,
+    "saas": true,
+    "scriptSrc": "\\.sniperfast\\.com",
+    "website": "https://www.sniperfast.com"
   },
   "Sniply": {
     "cats": [
@@ -3218,6 +3429,7 @@
       "recurring"
     ],
     "saas": true,
+    "scriptSrc": "\\.sndcdn\\.com/",
     "website": "https://developers.soundcloud.com/docs/api/html5-widget"
   },
   "SoundManager": {
@@ -3334,6 +3546,20 @@
     },
     "website": "https://www.sphinx-doc.org/"
   },
+  "SpiceThemes SpicePress": {
+    "cats": [
+      80
+    ],
+    "description": "SpicePress is a responsive and fully customizable business template by SpiceThemes.",
+    "icon": "SpiceThemes.png",
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/spicepress(?:-pro)?/",
+    "website": "https://spicethemes.com/spicepress-wordpress-theme"
+  },
   "Spinnakr": {
     "cats": [
       10
@@ -3411,25 +3637,18 @@
     "saas": true,
     "website": "https://www.splittypay.com"
   },
-  "Splunk": {
+  "Splunkd": {
     "cats": [
       19
     ],
-    "html": "<p class=\"footer\">&copy; [-\\d]+ Splunk Inc\\.(?: Splunk ([\\d\\.]+(?: build [\\d\\.]*\\d)?))?[^<]*</p>\\;version:\\1",
-    "icon": "Splunk.png",
-    "meta": {
-      "author": "Splunk Inc\\;confidence:50"
-    },
-    "website": "http://splunk.com"
-  },
-  "Splunkd": {
-    "cats": [
-      22
-    ],
+    "description": "Splunkd is the system process that handles indexing, searching, forwarding.",
     "headers": {
       "Server": "Splunkd"
     },
-    "icon": "Splunk.png",
+    "icon": "Splunk.svg",
+    "pricing": [
+      "poa"
+    ],
     "website": "http://splunk.com"
   },
   "SpotHopper": {
@@ -3987,6 +4206,20 @@
     "icon": "Stimulus.png",
     "website": "https://stimulusjs.org/"
   },
+  "StimulusReflex": {
+    "cats": [
+      18
+    ],
+    "description": "StimulusReflex lets you create reactive web interfaces with Ruby on Rails.",
+    "dom": "[data-reflex]",
+    "icon": "stimulus-reflex-logo.svg",
+    "implies": [
+      "Ruby on Rails",
+      "Stimulus"
+    ],
+    "scripts": "\\.stimulate",
+    "website": "https://docs.stimulusreflex.com"
+  },
   "Stitches": {
     "cats": [
       12,
@@ -4000,14 +4233,6 @@
     },
     "oss": true,
     "website": "https://stitches.dev"
-  },
-  "Store Systems": {
-    "cats": [
-      6
-    ],
-    "html": "Shopsystem von <a href=[^>]+store-systems\\.de\"",
-    "icon": "Store Systems.png",
-    "website": "http://store-systems.de"
   },
   "StoreHippo": {
     "cats": [
@@ -4066,10 +4291,16 @@
     "cats": [
       1
     ],
-    "icon": "storyblok.png",
+    "description": "Storyblok is a headless CMS with a visual editor for developers, marketers and content editors. Storyblok helps your team to manage content and digital experiences for every use-case from corporate websites, ecommerce, helpdesks, mobile apps, screen displays, and more.",
+    "icon": "Storyblok.svg",
     "meta": {
       "generator": "storyblok"
     },
+    "pricing": [
+      "recurring",
+      "mid"
+    ],
+    "saas": true,
     "website": "https://www.storyblok.com"
   },
   "Strapdown.js": {
@@ -4309,8 +4540,7 @@
     "icon": "SummerCart.svg",
     "implies": "PHP",
     "js": {
-      "SC": "\\;confidence:10",
-      "SCEvents": "\\;confidence:40"
+      "SCEvents": ""
     },
     "pricing": [
       "mid",
@@ -4348,8 +4578,24 @@
       "Server": "SunOS( [\\d\\.]+)?\\;version:\\1",
       "Servlet-engine": "SunOS( [\\d\\.]+)?\\;version:\\1"
     },
-    "icon": "Oracle.png",
+    "icon": "Oracle.svg",
     "website": "http://oracle.com/solaris"
+  },
+  "Super Builder": {
+    "cats": [
+      51
+    ],
+    "description": "Super Builder is a new tool for creating sleek landing pages right in Notion.",
+    "dom": "link[href*='super-static-assets.'], img[srcset*='super-static-assets.']",
+    "icon": "Super Builder.svg",
+    "implies": "Next.js",
+    "oss": false,
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://super.so"
   },
   "Super Socializer": {
     "cats": [
@@ -4427,6 +4673,9 @@
     ],
     "description": "SvelteKit is the official Svelte framework for building web applications with a flexible filesystem-based routing.",
     "dom": {
+      "#svelte-announcer": {
+        "exists": ""
+      },
       "a": {
         "attributes": {
           "sveltekit:prefetch": ""
@@ -4434,6 +4683,11 @@
       }
     },
     "icon": "Svelte.svg",
+    "implies": [
+      "Svelte",
+      "Node.js",
+      "Vite"
+    ],
     "oss": true,
     "website": "https://kit.svelte.dev"
   },

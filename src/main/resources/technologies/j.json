@@ -87,6 +87,17 @@
     "scriptSrc": "^(?:https):?//load\\.jsecoin\\.com/load/",
     "website": "https://jsecoin.com/"
   },
+  "JSS": {
+    "cats": [
+      12,
+      47
+    ],
+    "description": "JSS is an authoring tool for CSS which allows you to use JavaScript to describe styles in a declarative, conflict-free and reusable way.",
+    "dom": "style[data-jss]",
+    "icon": "JSS.png",
+    "oss": true,
+    "website": "https://cssinjs.org/"
+  },
   "JShop": {
     "cats": [
       6
@@ -389,10 +400,27 @@
     "scriptSrc": "\\.jivosite\\.com",
     "website": "https://www.jivosite.com"
   },
+  "JobAdder": {
+    "cats": [
+      101
+    ],
+    "description": "JobAdder is a cloud-based recruitment management platform for staffing agencies and in-house corporate hiring teams.",
+    "dom": "a[href*='clientapps.jobadder.com/'], link[href*='jobadder.com']",
+    "icon": "JobAdder.png",
+    "pricing": [
+      "payg",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.jobadder\\.com/",
+    "website": "https://jobadder.com"
+  },
   "JobberBase": {
     "cats": [
-      19
+      19,
+      101
     ],
+    "description": "Jobberbase is an open-source job board platform that enables the creation of job sites.",
     "icon": "JobberBase.png",
     "implies": "PHP",
     "js": {
@@ -401,7 +429,26 @@
     "meta": {
       "generator": "Jobberbase"
     },
+    "oss": true,
     "website": "http://www.jobberbase.com"
+  },
+  "Jobvite": {
+    "cats": [
+      101
+    ],
+    "description": "Jobvite is an applicant tracking software and recruiting platform.",
+    "dom": "a[href*='.jobvite.com/']",
+    "icon": "Jobvite.png",
+    "js": {
+      "Jobvite": ""
+    },
+    "pricing": [
+      "high",
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://www.jobvite.com"
   },
   "JoomShopping": {
     "cats": [
@@ -415,7 +462,6 @@
     },
     "oss": true,
     "pricing": [
-      "freemium",
       "onetime"
     ],
     "scriptSrc": "/components/com_jshopping/",
@@ -494,14 +540,14 @@
       16
     ],
     "description": "Jumio is an online mobile payments and identity verification company that provides card and ID scanning and validation products for mobile and web transactions.",
-    "icon": "Jumio.svg",
     "dom": "iframe[src*='.netverify.com/']",
-    "saas": true,
+    "icon": "Jumio.svg",
     "pricing": [
       "payg",
       "mid",
       "recurring"
     ],
+    "saas": true,
     "website": "https://www.jumio.com"
   },
   "Jumpseller": {

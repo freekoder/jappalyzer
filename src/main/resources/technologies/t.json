@@ -114,6 +114,24 @@
     "url": "/typo3/",
     "website": "https://typo3.org/"
   },
+  "Tabarnapp": {
+    "cats": [
+      100
+    ],
+    "description": "Tabarnapp is a platform for Shopify apps and themes.",
+    "icon": "Tabarnapp.png",
+    "js": {
+      "tabarnapp_loaded_ad": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "cdn\\.tabarn\\.app/",
+    "website": "https://tabarnapp.com"
+  },
   "Tabby": {
     "cats": [
       41,
@@ -174,9 +192,6 @@
     "dom": "link[href*='/wp-content/plugins/tablepress/']",
     "icon": "TablePress.png",
     "oss": true,
-    "pricing": [
-      "freemium"
-    ],
     "requires": "WordPress",
     "website": "https://tablepress.org"
   },
@@ -205,6 +220,22 @@
     "scriptSrc": "\\.taboola\\.com",
     "website": "https://www.taboola.com",
     "xhr": "\\.taboola\\.com"
+  },
+  "TagPro": {
+    "cats": [
+      42
+    ],
+    "description": "TagPro is software that updates and allows you to manage tags within websites, identifying various types of variables to optimise loads for advertising.",
+    "icon": "TagPro.png",
+    "js": {
+      "initAdproTags": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "tagpro\\.adpromedia\\.net/",
+    "website": "https://tagpro.adpromedia.net"
   },
   "Tagboard": {
     "cats": [
@@ -282,6 +313,7 @@
         }
       }
     },
+    "css": "\\--tw*\\;confidence:75",
     "icon": "tailwindcss.svg",
     "website": "https://tailwindcss.com/"
   },
@@ -649,6 +681,26 @@
     },
     "website": "http://textpattern.com"
   },
+  "The.com": {
+    "cats": [
+      18,
+      51
+    ],
+    "description": "The.com is a low-code website building platform with community-created components that you can share and own.",
+    "icon": "The.com.svg",
+    "implies": [
+      "React",
+      "Amazon S3"
+    ],
+    "scriptSrc": "the-dotcom-public-cdn\\.s3\\.amazonaws\\.com/",
+    "saas": true,
+    "pricing": [
+      "payg",
+      "mid",
+      "recurring"
+    ],
+    "website": "https://www.the.com"
+  },
   "The Arena Group": {
     "cats": [
       36
@@ -746,6 +798,37 @@
     ],
     "website": "http://thelia.net"
   },
+  "Theme Freesia Edge": {
+    "cats": [
+      80
+    ],
+    "description": "Edge is a responsive blogger WordPress theme by Theme Freesia.",
+    "icon": "Theme Freesia.png",
+    "js": {
+      "edge_slider_value": ""
+    },
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/edge(?:-plus)?/",
+    "website": "https://themefreesia.com/themes/edge"
+  },
+  "Theme Freesia Photograph": {
+    "cats": [
+      80
+    ],
+    "description": "Photograph is a WordPress theme exclusively built for photographer, blogger, portfolio, photography agency or photo studio websites.",
+    "icon": "Theme Freesia.png",
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/photograph(?:-plus)?/",
+    "website": "https://themefreesia.com/themes/Photograph"
+  },
   "Theme Freesia ShoppingCart": {
     "cats": [
       80
@@ -763,6 +846,21 @@
     "scriptSrc": "/wp-content/themes/shoppingcart(?:-plus)?/",
     "website": "https://themefreesia.com/themes/shoppingcart"
   },
+  "Theme Horse Attitude": {
+    "cats": [
+      80
+    ],
+    "description": "Attitude is a simple, clean and responsive retina ready WordPress theme by Theme Horse.",
+    "dom": "link[href*='/wp-content/themes/attitude-pro/']",
+    "icon": "Theme Horse.png",
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/attitude(?:-pro)?/",
+    "website": "https://www.themehorse.com/themes/attitude"
+  },
   "Theme Horse NewsCard": {
     "cats": [
       80
@@ -778,15 +876,23 @@
     "scriptSrc": "/wp-content/themes/newscard(?:-pro)?/",
     "website": "https://www.themehorse.com/themes/newscard"
   },
-  "ThemeIsle Menu Icons": {
+  "Theme Vision Agama": {
     "cats": [
-      87
+      80
     ],
-    "description": "ThemeIsle Menu Icons plugin gives you the ability to add icons to your menu items, similar to the look of the latest dashboard menu.",
-    "icon": "ThemeIsle.png",
+    "description": "Agama is a free multi-purpose WordPress theme by Theme Vision.",
+    "icon": "Theme Vision.png",
+    "js": {
+      "agama": "",
+      "agama_pro": ""
+    },
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
     "requires": "WordPress",
-    "dom": "link[href*='/wp-content/plugins/menu-icons/']",
-    "website": "https://wordpress.org/plugins/menu-icons"
+    "scriptSrc": "/wp-content/themes/agama(?:-pro)?/.+functions\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://theme-vision.com/agama"
   },
   "Theme4Press Evolve": {
     "cats": [
@@ -933,6 +1039,16 @@
     "scriptSrc": "/wp-content/themes/e(?:s|S)tore(?:-pro)?/",
     "website": "https://themegrill.com/themes/estore"
   },
+  "ThemeIsle Menu Icons": {
+    "cats": [
+      87
+    ],
+    "description": "ThemeIsle Menu Icons plugin gives you the ability to add icons to your menu items, similar to the look of the latest dashboard menu.",
+    "dom": "link[href*='/wp-content/plugins/menu-icons/']",
+    "icon": "ThemeIsle.png",
+    "requires": "WordPress",
+    "website": "https://wordpress.org/plugins/menu-icons"
+  },
   "ThemeZee Donovan": {
     "cats": [
       80
@@ -972,6 +1088,40 @@
     "scriptSrc": "/wp-content/themes/poseidon/",
     "website": "https://themezee.com/themes/poseidon"
   },
+  "ThemeZee Wellington": {
+    "cats": [
+      80
+    ],
+    "description": "Wellington is a clean and simple magazine WordPress theme by ThemeZee.",
+    "icon": "ThemeZee.png",
+    "js": {
+      "wellingtonScreenReaderText": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/wellington/",
+    "website": "https://themezee.com/themes/wellington"
+  },
+  "Themeansar Newsberg": {
+    "cats": [
+      80
+    ],
+    "description": "Themeansar Newsberg is a fast, clean, modern-looking, responsive news magazine WordPress theme.",
+    "dom": "link#newsberg-style-css",
+    "excludes": "Themeansar Newsup",
+    "icon": "Themeansar.png",
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "website": "https://themeansar.com/free-themes/newsberg"
+  },
   "Themeansar Newsup": {
     "cats": [
       80
@@ -985,6 +1135,22 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/themes/newsup(?:-pro)?/",
     "website": "https://themeansar.com/free-themes/newsup"
+  },
+  "Themebeez Cream Magazine": {
+    "cats": [
+      80
+    ],
+    "description": "Cream Magazine is a news and magazine WordPress theme by Themebeez.",
+    "icon": "Themebeez.png",
+    "js": {
+      "cream_magazine_script_obj": ""
+    },
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "website": "https://themebeez.com/themes/cream-magazine"
   },
   "Themebeez Orchid Store": {
     "cats": [
@@ -1074,9 +1240,27 @@
     "scriptSrc": "/wp-content/themes/iconic-one(?:-[\\w]+)?/",
     "website": "https://themonic.com/iconic-one"
   },
+  "Thesis": {
+    "cats": [
+      10
+    ],
+    "description": "Thesis is a conversion rate optimisation company.",
+    "icon": "Thesis.svg",
+    "js": {
+      "thix.history": "\\;confidence:50",
+      "thix.t": "\\;confidence:50"
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "thix\\.ttsep\\.com/",
+    "website": "https://www.thesistesting.com"
+  },
   "Thimatic": {
     "cats": [
-      90
+      90,
+      100
     ],
     "description": "Thimatic is a Shopify app for product reviews.",
     "icon": "Thimatic.png",
@@ -1102,6 +1286,21 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/themes/consulting(?:-pro)?/",
     "website": "https://www.thinkupthemes.com/themes/consulting"
+  },
+  "Think Up Themes Minamaze": {
+    "cats": [
+      80
+    ],
+    "description": "Think Up Themes Minamaze is a multipurpose WordPress theme that is available for free download and also offers a pro version.",
+    "dom": "link#minamaze-style-css",
+    "icon": "Think Up Themes.png",
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/minamaze(?:-pro)?/",
+    "website": "https://www.thinkupthemes.com/themes/minamaze"
   },
   "ThinkPHP": {
     "cats": [
@@ -1148,6 +1347,24 @@
     "saas": true,
     "scriptSrc": "\\.online-metrix\\.net",
     "website": "https://risk.lexisnexis.com/products/threatmetrix"
+  },
+  "Threekit": {
+    "cats": [
+      76,
+      95
+    ],
+    "description": "Threekit is a visual customer experience solution that enables brands to create, manage and scale photorealistic images and 3D product visuals, all from a single design file.",
+    "icon": "Threekit.svg",
+    "js": {
+      "threekit.configuratorForm": "",
+      "threekitAR": "",
+      "threekitPlayer": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.threekit.com"
   },
   "ThriveCart": {
     "cats": [
@@ -1531,6 +1748,17 @@
     },
     "website": "https://www.transifex.com"
   },
+  "Translate WordPress": {
+    "cats": [
+      87,
+      89
+    ],
+    "description": "Translate WordPress is a website translator plugin which can translate any website to any language automatically. Translate WordPress plugin is now a part of GTranslate family.",
+    "icon": "GTranslate.svg",
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/google-language-translator/.+scripts\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://gtranslate.io"
+  },
   "Translucide": {
     "cats": [
       1
@@ -1655,6 +1883,34 @@
     "website": "https://triplelift.com",
     "xhr": "\\.3lift\\.com"
   },
+  "Trix": {
+    "cats": [
+      24
+    ],
+    "description": "Trix is an open-source project from Basecamp, the creators of Ruby on Rails.",
+    "icon": "trix.png",
+    "js": {
+      "Trix.VERSION": "^(.+)$\\;version:\\1"
+    },
+    "website": "https://trix-editor.org"
+  },
+  "Trove Recommerce": {
+    "cats": [
+      6
+    ],
+    "description": "Trove (formerly Yerdle) builds white-label technology and end-to-end operations for ecommerce platforms.",
+    "dom": "img[src*='res.cloudinary.com/yerdle']",
+    "headers": {
+      "x-trove-app-name": "",
+      "x-trove-country-code": "",
+      "x-trove-order-uuid": "",
+      "x-yerdle-app-name": ""
+    },
+    "icon": "trove.png",
+    "saas": true,
+    "website": "https://trove.co",
+    "xhr": "reware-production\\.yerdlesite\\.com"
+  },
   "TruValidate": {
     "cats": [
       16,
@@ -1694,6 +1950,25 @@
     "icon": "Truecommerce.svg",
     "scriptSrc": "cdn\\.nexternal\\.com/",
     "website": "https://www.truecommerce.com"
+  },
+  "Trumba": {
+    "cats": [
+      72
+    ],
+    "description": "Trumba offers web-hosted event calendar software for publishing online, interactive, calendars of events.",
+    "dom": "a[href*='www.trumba.com/calendars/']",
+    "icon": "Trumba.png",
+    "js": {
+      "$Trumba": "",
+      "$Trumba.version": "([\\d\\.]+)\\;version:\\1",
+      "Trumba": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.trumba.com"
   },
   "Trunkrs": {
     "cats": [
@@ -1746,6 +2021,22 @@
     "scriptSrc": "widgets\\.trustedshops\\.com/",
     "website": "https://www.trustedshops.co.uk"
   },
+  "Trustindex Google Reviews": {
+    "cats": [
+      87,
+      90
+    ],
+    "description": "Google Reviews s a premium plugin that can help you to embed reviews on your site by Trustindex.",
+    "dom": "link[href*='/wp-content/plugins/widget-google-reviews/']",
+    "icon": "Trustindex.svg",
+    "pricing": [
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "saas": true,
+    "scriptSrc": "/wp-content/plugins/widget-google-reviews/",
+    "website": "https://www.trustindex.io"
+  },
   "Trustpilot": {
     "cats": [
       90
@@ -1789,6 +2080,18 @@
     "icon": "Tumblr.png",
     "url": "^https?://(?:www\\.)?[^/]+\\.tumblr\\.com/",
     "website": "http://www.tumblr.com"
+  },
+  "Turbo": {
+    "cats": [
+      92
+    ],
+    "description": "Turbo is a JavaScript framework for building fast web applications.",
+    "icon": "Turbo.svg",
+    "js": {
+      "Turbo": ""
+    },
+    "oss": true,
+    "website": "https://turbo.hotwired.dev/"
   },
   "Turbolinks": {
     "cats": [
@@ -2078,6 +2381,7 @@
       "Server": "TwistedWeb(?:/([\\d.]+))?\\;version:\\1"
     },
     "icon": "TwistedWeb.png",
+    "oss": true,
     "website": "http://twistedmatrix.com/trac/wiki/TwistedWeb"
   },
   "Twitch Player": {
@@ -2294,6 +2598,18 @@
     },
     "icon": "thttpd.png",
     "website": "https://acme.com/software/thttpd"
+  },
+  "toastr": {
+    "cats": [
+      12
+    ],
+    "description": "toastr is a Javascript library for non-blocking notifications. The goal is to create a simple core library that can be customized and extended.",
+    "icon": "toastr.png",
+    "js": {
+      "toastr.version": "(.*)\\;version:\\1"
+    },
+    "oss": true,
+    "website": "https://github.com/CodeSeven/toastr"
   },
   "total.js": {
     "cats": [

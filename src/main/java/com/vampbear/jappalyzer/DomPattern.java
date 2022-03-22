@@ -1,21 +1,36 @@
 package com.vampbear.jappalyzer;
 
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import org.jsoup.select.Selector;
+
 import java.util.Map;
 import java.util.Collections;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DomPattern {
 
     private final String selector;
     private final Map<String, String> attributes;
+    private final Map<String, String> properties;
+    private final String text;
 
     public DomPattern(String selector) {
         this(selector, Collections.emptyMap());
     }
 
     public DomPattern(String selector, Map<String, String> attributes) {
-        this.selector = selector;
+        this(selector, attributes, Collections.emptyMap(), "");
+    }
+
+    public DomPattern(String selector, Map<String, String> attributes, Map<String, String> properties, String text) {
+        this.selector = prepareRegexp(selector);
         this.attributes = attributes;
+        this.properties = properties;
+        this.text = text;
     }
 
     public String getSelector() {
@@ -24,6 +39,40 @@ public class DomPattern {
 
     public Map<String, String> getAttributes() {
         return this.attributes;
+    }
+
+    public boolean applicableToDocument(Document document) {
+        try {
+            Elements elements = document.select(selector);
+            if (elements.size() > 0
+                    && attributes.isEmpty()
+                    && properties.isEmpty()
+                    && text.isEmpty()) {
+                return true;
+            } else {
+                for (Element element : elements) {
+                    if (elementMatchAttributes(element, attributes)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        } catch (Selector.SelectorParseException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private boolean elementMatchAttributes(Element element, Map<String, String> attributes) {
+        for (String attribute : attributes.keySet()) {
+            String attrValue = element.attr(attribute);
+            Pattern pattern = Pattern.compile(prepareRegexp(attributes.get(attribute)));
+            Matcher matcher = pattern.matcher(attrValue);
+            if (matcher.find()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -45,5 +94,10 @@ public class DomPattern {
                 "selector='" + selector + '\'' +
                 ", attributes=" + attributes +
                 '}';
+    }
+
+    private String prepareRegexp(String pattern) {
+        String[] splittedPattern = pattern.split("\\\\;");
+        return splittedPattern[0];
     }
 }

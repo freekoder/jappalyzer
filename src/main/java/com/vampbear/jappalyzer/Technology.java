@@ -1,9 +1,5 @@
 package com.vampbear.jappalyzer;
 
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import org.jsoup.select.Selector;
-
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -159,6 +155,9 @@ public class Technology {
         this.scriptSrc.add(Pattern.compile(prepareRegexp(scriptSrc)));
     }
 
+    public TechnologyMatch applicableTo(String content) {
+        return applicableTo(new PageResponse(content));
+    }
 
     public TechnologyMatch applicableTo(PageResponse page) {
         long startTimestamp = System.currentTimeMillis();
@@ -182,7 +181,7 @@ public class Technology {
         }
 
         for (DomPattern domTemplate : this.domTemplates) {
-            if (containsDomTemplate(page.getDocument(), prepareRegexp(domTemplate.getSelector()), getName())) {
+            if (domTemplate.applicableToDocument(page.getDocument())) {
                 long duration  = System.currentTimeMillis() - startTimestamp;
                 return new TechnologyMatch(this, TechnologyMatch.DOM, duration);
             }
@@ -227,21 +226,6 @@ public class Technology {
                     }
                 }
             }
-        }
-        return false;
-    }
-
-    public TechnologyMatch applicableTo(String content) {
-        return applicableTo(new PageResponse(content));
-    }
-
-    private boolean containsDomTemplate(Document document, String template, String name) {
-        try {
-            Elements elements = document.select(template);
-            return elements.size() > 0;
-        } catch (Selector.SelectorParseException e) {
-            System.out.println("Technology name " + name);
-            e.printStackTrace();
         }
         return false;
     }

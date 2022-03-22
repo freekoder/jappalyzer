@@ -125,7 +125,7 @@ public class TechnologyBuilder {
                         attributesMap.put(attribute, attributesObject.getString(attribute));
                     }
                 }
-                templates.add(new DomPattern(selector, attributesMap));
+                templates.add(new DomPattern(selector, attributesMap, Collections.emptyMap(), ""));
             }
         }
         return templates;

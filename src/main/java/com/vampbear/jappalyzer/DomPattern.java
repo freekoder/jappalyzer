@@ -47,6 +47,7 @@ public class DomPattern {
         return this.attributes;
     }
 
+    // TODO: understand text attribute at the button selector of "Apple Sign-in" technology
     public boolean applicableToDocument(Document document) {
         try {
             Elements elements = document.select(selector);

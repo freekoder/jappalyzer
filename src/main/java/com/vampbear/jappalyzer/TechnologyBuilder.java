@@ -121,6 +121,7 @@ public class TechnologyBuilder {
 
                 String text = "";
                 Map<String, String> attributesMap = new HashMap<>();
+                Map<String, String> propertiesMap = new HashMap<>();
 
                 if (selectorParams.has("attributes")) {
                     JSONObject attributesObject = selectorParams.getJSONObject("attributes");
@@ -129,11 +130,18 @@ public class TechnologyBuilder {
                     }
                 }
 
+                if (selectorParams.has("properties")) {
+                    JSONObject attributesObject = selectorParams.getJSONObject("properties");
+                    for (String attribute : attributesObject.keySet()) {
+                        propertiesMap.put(attribute, attributesObject.getString(attribute));
+                    }
+                }
+
                 if (selectorParams.has("text")) {
                     text = selectorParams.getString("text");
                 }
 
-                templates.add(new DomPattern(selector, attributesMap, Collections.emptyMap(), text));
+                templates.add(new DomPattern(selector, attributesMap, propertiesMap, text));
             }
         }
         return templates;

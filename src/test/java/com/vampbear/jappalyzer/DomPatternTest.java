@@ -48,4 +48,13 @@ public class DomPatternTest {
         assertThat(pattern.applicableToDocument(document)).isTrue();
     }
 
+    @Test
+    public void shouldIgnoreDomPatternsWithProperties() {
+        Map<String, String> attributes = Collections.emptyMap();
+        Map<String, String> properties = Collections.singletonMap("_reactRootContainer", "");
+        DomPattern pattern = new DomPattern("body > div", attributes, properties, "");
+        Document document = Jsoup.parse("<html><body><div>test</div></body></html>");
+        assertThat(pattern.applicableToDocument(document)).isFalse();
+    }
+
 }

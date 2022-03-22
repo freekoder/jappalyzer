@@ -59,8 +59,10 @@ public class DomPattern {
                         }
                     }
 
-                    if (elementMatchAttributes(element, attributes)) {
-                        return true;
+                    if (properties.isEmpty()) {
+                        if (elementMatchAttributes(element, attributes)) {
+                            return true;
+                        }
                     }
                 }
                 return false;

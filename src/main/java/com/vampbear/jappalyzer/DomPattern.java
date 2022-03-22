@@ -51,6 +51,14 @@ public class DomPattern {
                 return true;
             } else {
                 for (Element element : elements) {
+                    if (!text.isEmpty()) {
+                        Pattern pattern = Pattern.compile(prepareRegexp(text));
+                        Matcher matcher = pattern.matcher(element.text());
+                        if (matcher.find()) {
+                            return true;
+                        }
+                    }
+
                     if (elementMatchAttributes(element, attributes)) {
                         return true;
                     }
@@ -66,6 +74,13 @@ public class DomPattern {
     private boolean elementMatchAttributes(Element element, Map<String, String> attributes) {
         for (String attribute : attributes.keySet()) {
             String attrValue = element.attr(attribute);
+            if (attrValue.isEmpty()) {
+                continue;
+            }
+            String patternString = attributes.get(attribute);
+            if (patternString.isEmpty() && !attrValue.isEmpty()) {
+                return true;
+            }
             Pattern pattern = Pattern.compile(prepareRegexp(attributes.get(attribute)));
             Matcher matcher = pattern.matcher(attrValue);
             if (matcher.find()) {

@@ -118,14 +118,22 @@ public class TechnologyBuilder {
             JSONObject jsonObject = (JSONObject) object;
             for (String selector : jsonObject.keySet()) {
                 JSONObject selectorParams = jsonObject.getJSONObject(selector);
+
+                String text = "";
                 Map<String, String> attributesMap = new HashMap<>();
+
                 if (selectorParams.has("attributes")) {
                     JSONObject attributesObject = selectorParams.getJSONObject("attributes");
                     for (String attribute : attributesObject.keySet()) {
                         attributesMap.put(attribute, attributesObject.getString(attribute));
                     }
                 }
-                templates.add(new DomPattern(selector, attributesMap, Collections.emptyMap(), ""));
+
+                if (selectorParams.has("text")) {
+                    text = selectorParams.getString("text");
+                }
+
+                templates.add(new DomPattern(selector, attributesMap, Collections.emptyMap(), text));
             }
         }
         return templates;

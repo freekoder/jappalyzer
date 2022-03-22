@@ -78,7 +78,7 @@ public class DomPattern {
                 continue;
             }
             String patternString = attributes.get(attribute);
-            if (patternString.isEmpty() && !attrValue.isEmpty()) {
+            if (patternString.isEmpty()) {
                 return true;
             }
             Pattern pattern = Pattern.compile(prepareRegexp(attributes.get(attribute)));

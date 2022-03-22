@@ -44,7 +44,7 @@ public class DomPatternTest {
     public void shouldMatchOnEmptyAttribute() {
         Map<String, String> attributes = Collections.singletonMap("sveltekit:prefetch", "");
         DomPattern pattern = new DomPattern("a", attributes);
-        Document document = Jsoup.parse("<html><body><a href=\"#\" sveltekit:prefetch=\"true\">link</a></body></html>");
+        Document document = Jsoup.parse("<html><body><a sveltekit:prefetch href=\"/tutorial\" class=\"cta\">Learn Svelte</a></body></html>");
         assertThat(pattern.applicableToDocument(document)).isTrue();
     }
 

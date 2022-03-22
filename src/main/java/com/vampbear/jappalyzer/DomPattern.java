@@ -87,11 +87,16 @@ public class DomPattern {
 
     private boolean elementMatchAttributes(Element element, Map<String, String> attributes) {
         for (String attribute : attributes.keySet()) {
+            String patternString = attributes.get(attribute);
+            if (patternString.isEmpty() && element.hasAttr(attribute)) {
+                return true;
+            }
+
             String attrValue = element.attr(attribute);
             if (attrValue.isEmpty()) {
                 continue;
             }
-            String patternString = attributes.get(attribute);
+
             if (patternString.isEmpty()) {
                 return true;
             }

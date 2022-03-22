@@ -21,7 +21,7 @@ public class Technology {
     private final List<String> implies = new LinkedList<>();
 
     private final List<Pattern> htmlTemplates = new ArrayList<>();
-    private final List<String> domTemplates = new ArrayList<>();
+    private final List<DomPattern> domTemplates = new ArrayList<>();
     private final List<Pattern> scriptSrc = new ArrayList<>();
     private final Map<String, List<Pattern>> headerTemplates = new HashMap<>();
     private final Map<String, List<Pattern>> cookieTemplates = new HashMap<>();
@@ -143,11 +143,11 @@ public class Technology {
         this.headerTemplates.get(headerName.toLowerCase()).add(Pattern.compile(prepareRegexp(template)));
     }
 
-    public List<String> getDomTemplates() {
+    public List<DomPattern> getDomPatterns() {
         return domTemplates;
     }
 
-    public void addDomTemplate(String template) {
+    public void addDomPattern(DomPattern template) {
         this.domTemplates.add(template);
     }
 
@@ -181,8 +181,8 @@ public class Technology {
             if (match) return new TechnologyMatch(this, TechnologyMatch.META, duration);
         }
 
-        for (String domTemplate : this.domTemplates) {
-            if (containsDomTemplate(page.getDocument(), prepareRegexp(domTemplate), getName())) {
+        for (DomPattern domTemplate : this.domTemplates) {
+            if (containsDomTemplate(page.getDocument(), prepareRegexp(domTemplate.getSelector()), getName())) {
                 long duration  = System.currentTimeMillis() - startTimestamp;
                 return new TechnologyMatch(this, TechnologyMatch.DOM, duration);
             }

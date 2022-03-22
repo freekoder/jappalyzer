@@ -2,7 +2,6 @@ package com.vampbear.jappalyzer;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONString;
 
 import java.util.*;
 
@@ -63,9 +62,9 @@ public class TechnologyBuilder {
         }
 
         if (object.has("dom")) {
-            List<String> domTemplates = readDOMTemplates(object.get("dom"));
-            for (String template : domTemplates) {
-                technology.addDomTemplate(template);
+            List<DomPattern> domPatterns = readDOMPatterns(object.get("dom"));
+            for (DomPattern pattern : domPatterns) {
+                technology.addDomPattern(pattern);
             }
         }
 
@@ -104,20 +103,30 @@ public class TechnologyBuilder {
         return technology;
     }
 
-    private List<String> readDOMTemplates(Object object) {
-        List<String> templates = new LinkedList<>();
+    private List<DomPattern> readDOMPatterns(Object object) {
+        List<DomPattern> templates = new LinkedList<>();
         if (object instanceof String) {
-            templates.add((String) object);
+            templates.add(new DomPattern((String) object));
         } else if (object instanceof JSONArray) {
             JSONArray array = (JSONArray) object;
             for (Object item : array) {
                 if (item instanceof String) {
-                    templates.add((String) item);
+                    templates.add(new DomPattern((String) item));
                 }
             }
         } else if (object instanceof JSONObject) {
             JSONObject jsonObject = (JSONObject) object;
-            templates.addAll(jsonObject.keySet());
+            for (String selector : jsonObject.keySet()) {
+                JSONObject selectorParams = jsonObject.getJSONObject(selector);
+                Map<String, String> attributesMap = new HashMap<>();
+                if (selectorParams.has("attributes")) {
+                    JSONObject attributesObject = selectorParams.getJSONObject("attributes");
+                    for (String attribute : attributesObject.keySet()) {
+                        attributesMap.put(attribute, attributesObject.getString(attribute));
+                    }
+                }
+                templates.add(new DomPattern(selector, attributesMap));
+            }
         }
         return templates;
     }

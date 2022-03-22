@@ -3,8 +3,7 @@ package com.vampbear.jappalyzer;
 import com.vampbear.jappalyzer.utils.TestUtils;
 import org.junit.Test;
 
-import java.util.List;
-import java.util.Arrays;
+import java.util.*;
 import java.io.IOException;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -80,26 +79,34 @@ public class TechnologyBuilderTest {
     @Test
     public void shouldContainsTwoDOMPatternsFromObject() throws IOException {
         Technology technology = buildTechnologyFromFile("Magento", "magento.json");
-        assertThat(technology.getDomTemplates().size()).isEqualTo(2);
-        assertThat(technology.getDomTemplates().get(0))
-                .isEqualTo("script[data-requiremodule*='mage'], script[data-requiremodule*='Magento_'], html[data-image-optimizing-origin]");
-        assertThat(technology.getDomTemplates().get(1))
-                .isEqualTo("script[type='text/x-magento-init']");
+        DomPattern expected1 = new DomPattern("script[data-requiremodule*='mage'], script[data-requiremodule*='Magento_'], html[data-image-optimizing-origin]");
+        DomPattern expected2 = new DomPattern("script[type='text/x-magento-init']");
+        assertThat(technology.getDomPatterns()).containsExactlyInAnyOrder(expected1, expected2);
     }
 
     @Test
     public void shouldContainsTwoDOMPatternsFromArray() throws IOException {
         Technology technology = buildTechnologyFromFile("Adobe Flash", "adobeflash.json");
-        assertThat(technology.getDomTemplates().size()).isEqualTo(2);
-        assertThat(technology.getDomTemplates().get(0)).isEqualTo("object[type='application/x-shockwave-flash']");
-        assertThat(technology.getDomTemplates().get(1)).isEqualTo("param[value*='.swf']");
+        DomPattern expected1 = new DomPattern("object[type='application/x-shockwave-flash']");
+        DomPattern expected2 = new DomPattern("param[value*='.swf']");
+        assertThat(technology.getDomPatterns()).containsExactlyInAnyOrder(expected1, expected2);
+    }
+
+    @Test
+    public void shouldContainsAttributesAtDomPattern() throws IOException {
+        Technology technology = buildTechnologyFromFile("Rezgo", "rezgo.json");
+        Map<String, String> expectedAttrs1 = Collections.singletonMap("id", "rezgo_content_frame");
+        DomPattern expected1 = new DomPattern("iframe", expectedAttrs1);
+        Map<String, String> expectedAttrs2 = Collections.singletonMap("href", "wp-content/plugins/rezgo/rezgo/templates");
+        DomPattern expected2 = new DomPattern("link", expectedAttrs2);
+        assertThat(technology.getDomPatterns()).containsExactlyInAnyOrder(expected1, expected2);
     }
 
     @Test
     public void shouldContainsOneDOMPatternFromString() throws IOException {
         Technology technology = buildTechnologyFromFile("Jetpack", "jetpack.json");
-        assertThat(technology.getDomTemplates().size()).isEqualTo(1);
-        assertThat(technology.getDomTemplates().get(0)).isEqualTo("link[href*='/wp-content/plugins/jetpack/']");
+        DomPattern expected = new DomPattern("link[href*='/wp-content/plugins/jetpack/']");
+        assertThat(technology.getDomPatterns()).containsExactlyInAnyOrder(expected);
     }
 
     private Technology buildTechnologyFromFile(String Abicart, String techFilename) throws IOException {

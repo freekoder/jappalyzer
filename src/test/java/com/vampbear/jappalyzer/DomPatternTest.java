@@ -57,4 +57,15 @@ public class DomPatternTest {
         assertThat(pattern.applicableToDocument(document)).isFalse();
     }
 
+    @Test
+    public void shouldMatchSelectorWithExists() {
+        DomPattern pattern = new DomPattern(
+                "iframe[src*='paypal.com'], img[src*='paypal.com'], img[src*='paypalobjects.com'], [aria-labelledby='pi-paypal'], [data-paypal-v4='true']",
+                Collections.emptyMap(),
+                Collections.emptyMap(),
+                "", "");
+        Document document = Jsoup.parse("<html><body><iframe src=\"paypal.com\"></iframe></body></html>");
+        assertThat(pattern.applicableToDocument(document)).isTrue();
+    }
+
 }

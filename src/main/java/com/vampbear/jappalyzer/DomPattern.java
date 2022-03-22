@@ -17,6 +17,7 @@ public class DomPattern {
     private final Map<String, String> attributes;
     private final Map<String, String> properties;
     private final String text;
+    private final String exists;
 
     public DomPattern(String selector) {
         this(selector, Collections.emptyMap());
@@ -27,10 +28,15 @@ public class DomPattern {
     }
 
     public DomPattern(String selector, Map<String, String> attributes, Map<String, String> properties, String text) {
+        this(selector, attributes, properties, text, null);
+    }
+
+    public DomPattern(String selector, Map<String, String> attributes, Map<String, String> properties, String text, String exists) {
         this.selector = prepareRegexp(selector);
         this.attributes = attributes;
         this.properties = properties;
         this.text = text;
+        this.exists = exists;
     }
 
     public String getSelector() {
@@ -44,33 +50,38 @@ public class DomPattern {
     public boolean applicableToDocument(Document document) {
         try {
             Elements elements = document.select(selector);
-            if (elements.size() > 0
-                    && attributes.isEmpty()
-                    && properties.isEmpty()
-                    && text.isEmpty()) {
-                return true;
-            } else {
-                for (Element element : elements) {
-                    if (!text.isEmpty()) {
-                        Pattern pattern = Pattern.compile(prepareRegexp(text));
-                        Matcher matcher = pattern.matcher(element.text());
-                        if (matcher.find()) {
-                            return true;
-                        }
-                    }
+            if (elements.size() > 0) {
+                if ((exists != null) || hasNoElementConstraints(attributes, properties, text)) return true;
 
-                    if (properties.isEmpty()) {
-                        if (elementMatchAttributes(element, attributes)) {
-                            return true;
-                        }
-                    }
+                for (Element element : elements) {
+                    if (matchedWithConstraints(element, attributes, properties, text)) return true;
                 }
                 return false;
             }
+
         } catch (Selector.SelectorParseException e) {
             e.printStackTrace();
         }
         return false;
+    }
+
+    private boolean matchedWithConstraints(Element element, Map<String, String> attributes, Map<String, String> properties, String text) {
+        if (!text.isEmpty()) {
+            Pattern pattern = Pattern.compile(prepareRegexp(text));
+            Matcher matcher = pattern.matcher(element.text());
+            if (matcher.find()) {
+                return true;
+            }
+        }
+
+        if (properties.isEmpty()) {
+            return elementMatchAttributes(element, attributes);
+        }
+        return false;
+    }
+
+    private boolean hasNoElementConstraints(Map<String, String> attributes, Map<String, String> properties, String text) {
+        return attributes.isEmpty() && properties.isEmpty() && text.isEmpty();
     }
 
     private boolean elementMatchAttributes(Element element, Map<String, String> attributes) {

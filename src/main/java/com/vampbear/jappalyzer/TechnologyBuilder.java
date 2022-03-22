@@ -120,6 +120,7 @@ public class TechnologyBuilder {
                 JSONObject selectorParams = jsonObject.getJSONObject(selector);
 
                 String text = "";
+                String exists = null;
                 Map<String, String> attributesMap = new HashMap<>();
                 Map<String, String> propertiesMap = new HashMap<>();
 
@@ -141,7 +142,11 @@ public class TechnologyBuilder {
                     text = selectorParams.getString("text");
                 }
 
-                templates.add(new DomPattern(selector, attributesMap, propertiesMap, text));
+                if (selectorParams.has("exists")) {
+                    exists = selectorParams.getString("exists");
+                }
+
+                templates.add(new DomPattern(selector, attributesMap, propertiesMap, text, exists));
             }
         }
         return templates;

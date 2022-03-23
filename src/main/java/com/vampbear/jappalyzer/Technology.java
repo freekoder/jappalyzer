@@ -163,19 +163,19 @@ public class Technology {
         if (!page.getHeaders().isEmpty()) {
             PatternMatch match = getTechnologyMapMatch(this.headerTemplates, page.getHeaders());
             long duration = System.currentTimeMillis() - startTimestamp;
-            if (match.isMatched()) return new TechnologyMatch(this, TechnologyMatch.HEADER, duration);
+            if (match.isMatched()) return new TechnologyMatch(this, match.getVersion(), TechnologyMatch.HEADER, true, duration);
         }
 
         if (!page.getCookies().isEmpty()) {
             PatternMatch match = getTechnologyMapMatch(this.cookieTemplates, page.getCookies());
             long duration = System.currentTimeMillis() - startTimestamp;
-            if (match.isMatched()) return new TechnologyMatch(this, TechnologyMatch.COOKIE, duration);
+            if (match.isMatched()) return new TechnologyMatch(this, match.getVersion(), TechnologyMatch.COOKIE, true, duration);
         }
 
         if (!page.getMetaMap().isEmpty()) {
             PatternMatch match = getTechnologyMapMatch(this.metaTemplates, page.getMetaMap());
             long duration = System.currentTimeMillis() - startTimestamp;
-            if (match.isMatched()) return new TechnologyMatch(this, TechnologyMatch.META, duration);
+            if (match.isMatched()) return new TechnologyMatch(this,  match.getVersion(), TechnologyMatch.META, true, duration);
         }
 
         for (DomPattern domTemplate : this.domTemplates) {
@@ -188,13 +188,13 @@ public class Technology {
         for (PatternWithVersion scriptSrcPattern : this.scriptSrc) {
             PatternMatch match = getTechnologyStringListMatch(page.getScriptSources(), scriptSrcPattern);
             long duration  = System.currentTimeMillis() - startTimestamp;
-            if (match.isMatched()) return new TechnologyMatch(this, TechnologyMatch.SCRIPT, duration);
+            if (match.isMatched()) return new TechnologyMatch(this, match.getVersion(), TechnologyMatch.SCRIPT, true, duration);
         }
 
         for (PatternWithVersion htmlTemplate : this.htmlTemplates) {
             PatternMatch match = getTechnologyStringListMatch(page.getContentLines(), htmlTemplate);
             long duration  = System.currentTimeMillis() - startTimestamp;
-            if (match.isMatched()) return new TechnologyMatch(this, TechnologyMatch.HTML, duration);
+            if (match.isMatched()) return new TechnologyMatch(this, match.getVersion(), TechnologyMatch.HTML, true, duration);
         }
 
         long duration = System.currentTimeMillis() - startTimestamp;

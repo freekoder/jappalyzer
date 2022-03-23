@@ -16,6 +16,7 @@ public class TechnologyMatch {
     private final long duration;
     private final String reason;
     private final boolean matched;
+    private final String version;
 
 
     public TechnologyMatch(Technology technology, String reason) {
@@ -23,18 +24,23 @@ public class TechnologyMatch {
     }
 
     public TechnologyMatch(Technology technology, String reason, long duration) {
-        this(technology, reason, true, duration);
+        this(technology, "", reason, true, duration);
     }
 
-    private TechnologyMatch(Technology technology, String reason, boolean matched, long duration) {
+    public TechnologyMatch(Technology technology, String version, String reason, boolean matched, long duration) {
         this.technology = technology;
+        if (version == null) {
+            this.version = "";
+        } else {
+            this.version = version;
+        }
         this.matched = matched;
         this.duration = duration;
         this.reason = reason;
     }
 
     public static TechnologyMatch notMatched(Technology technology, long duration) {
-        return new TechnologyMatch(technology, "", false, duration);
+        return new TechnologyMatch(technology, "", "", false, duration);
     }
 
     public boolean isMatched() {
@@ -72,6 +78,7 @@ public class TechnologyMatch {
         if (matched) {
             return "TechnologyMatch{" +
                     "technology=" + technology.getName() +
+                    ", version='" + version + "'" +
                     ", reason=" + reason +
                     ", duration=" + duration + "ms" +
                     ", categories=" + technology.getCategories() +

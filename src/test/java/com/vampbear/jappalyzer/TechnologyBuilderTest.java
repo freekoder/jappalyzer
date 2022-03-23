@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import java.util.*;
 import java.io.IOException;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.*;
@@ -19,8 +18,8 @@ public class TechnologyBuilderTest {
         assertThat(technology.getDescription()).isEqualTo("Derak cloud service");
         assertThat(technology.getWebsite()).isEqualTo("https://derak.cloud");
         assertThat(technology.getIconName()).isEqualTo("DerakCloud.png");
-        assertThat(technology.getHeaderTemplates("Derak-Umbrage").get(0).toString()).isEmpty();
-        assertThat(technology.getHeaderTemplates("Server").get(0).toString()).isEqualTo("^DERAK\\.CLOUD$");
+        assertThat(technology.getHeaderTemplates("Derak-Umbrage").get(0).getPattern()).isEmpty();
+        assertThat(technology.getHeaderTemplates("Server").get(0).getPattern()).isEqualTo("^DERAK\\.CLOUD$");
     }
 
     @Test
@@ -41,8 +40,10 @@ public class TechnologyBuilderTest {
     @Test
     public void shouldTechnologyHasTwoMetaGenerators() throws IOException {
         Technology technology = buildTechnologyFromFile("Abicart", "abicart.json");
-        List<Pattern> generatorTemplates = technology.getMetaTemplates("generator");
-        List<String> templateNames = generatorTemplates.stream().map(Pattern::toString).collect(Collectors.toList());
+        List<PatternWithVersion> generatorTemplates = technology.getMetaTemplates("generator");
+        List<String> templateNames = generatorTemplates.stream()
+                .map(PatternWithVersion::getPattern)
+                .collect(Collectors.toList());
         assertThat(templateNames).containsExactlyInAnyOrder("Abicart", "Textalk Webshop");
     }
 

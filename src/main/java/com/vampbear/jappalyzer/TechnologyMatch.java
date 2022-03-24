@@ -1,5 +1,6 @@
 package com.vampbear.jappalyzer;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class TechnologyMatch {
@@ -49,6 +50,10 @@ public class TechnologyMatch {
 
     public Technology getTechnology() {
         return technology;
+    }
+
+    public String getVersion() {
+        return version;
     }
 
     public long getDuration() {

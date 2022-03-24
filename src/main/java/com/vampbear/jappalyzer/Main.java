@@ -5,6 +5,7 @@ import org.apache.commons.cli.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -57,9 +58,26 @@ public class Main {
             long duration = System.currentTimeMillis() - loadingPageStartTimestamp;
             if (verbose) System.out.println("Page loaded with " + duration + "ms");
             Set<TechnologyMatch> foundTechs = jappalyzer.fromPageResponse(pageResponse);
-            foundTechs.forEach(System.out::println);
+            System.out.println("Technologies:");
+            for (TechnologyMatch match : foundTechs) {
+                System.out.println(getTechnologyMatchString(match));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static String getTechnologyMatchString(TechnologyMatch technologyMatch) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("* ");
+        sb.append(technologyMatch.getTechnology().getName());
+        if (!technologyMatch.getVersion().isEmpty()) {
+            sb.append(" (").append(technologyMatch.getVersion()).append(")");
+        }
+        List<String> categoriesNames = technologyMatch.getTechnology().getCategories().stream()
+                .map(Category::getName)
+                .collect(Collectors.toList());
+        sb.append(" [").append(String.join(", ", categoriesNames)).append("]");
+        return sb.toString();
     }
 }

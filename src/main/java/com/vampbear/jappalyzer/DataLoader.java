@@ -62,7 +62,7 @@ public class DataLoader {
     }
 
     private List<Category> readLatestCategories(Map<Integer, Group> idGroupMap) {
-        List<Category> categories = new ArrayList<>();
+        List<Category> categories = new LinkedList<>();
         HttpClient httpClient = new HttpClient();
         try {
             PageResponse pageResponse = httpClient.getPageByUrl(CATEGORIES_GIT_PATH);
@@ -86,7 +86,7 @@ public class DataLoader {
     }
 
     private List<Technology> readTechnologiestFromGit(List<Category> categories) {
-        ArrayList<Technology> technologies = new ArrayList<>();
+        List<Technology> technologies = new LinkedList<>();
         HttpClient httpClient = new HttpClient();
         String[] keys = new String[]{
                 "a", "b", "c", "d", "e", "f", "g", "h", "i",
@@ -107,7 +107,7 @@ public class DataLoader {
     }
 
     private List<Category> readInternalCategories(Map<Integer, Group> idGroupMap) {
-        List<Category> categories = new ArrayList<>();
+        List<Category> categories = new LinkedList<>();
         try {
             String categoriesContent = readFileContentFromResource("categories.json");
             JSONObject categoriesJSON = new JSONObject(categoriesContent);
@@ -120,7 +120,7 @@ public class DataLoader {
     }
 
     private List<Group> convertIdsToGroups(Map<Integer, Group> idGroupMap, List<Integer> groupsIds) {
-        ArrayList<Group> groups = new ArrayList<>();
+        List<Group> groups = new LinkedList<>();
         for (Integer id : groupsIds) {
             if (idGroupMap.containsKey(id)) {
                 groups.add(idGroupMap.get(id));
@@ -130,7 +130,7 @@ public class DataLoader {
     }
 
     private List<Integer> readGroupIds(JSONObject categoryObject) {
-        ArrayList<Integer> groupsIds = new ArrayList<>();
+        List<Integer> groupsIds = new LinkedList<>();
         if (categoryObject.has("groups")) {
             for (int i = 0; i < categoryObject.getJSONArray("groups").length(); i++) {
                 int id = categoryObject.getJSONArray("groups").getInt(i);

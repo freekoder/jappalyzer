@@ -18,7 +18,7 @@ public class PageResponse {
     private String origContent;
     private List<String> contentLines;
 
-    private final List<String> scriptSources = new ArrayList<>();
+    private final List<String> scriptSources = new LinkedList<>();
     private final Map<String, List<String>> headers = new HashMap<>();
     private final Map<String, List<String>> cookies = new HashMap<>();
     private final Map<String, List<String>> metaMap = new HashMap<>();
@@ -51,7 +51,7 @@ public class PageResponse {
         for (Element meta : metas) {
             String metaName = meta.attr("name");
             String metaContent = meta.attr("content");
-            metaMap.putIfAbsent(metaName, new ArrayList<>());
+            metaMap.putIfAbsent(metaName, new LinkedList<>());
             metaMap.get(metaName).add(metaContent);
         }
     }
@@ -69,7 +69,7 @@ public class PageResponse {
 
     //TODO: Check for adding cookies twice with set headers and add header
     public void addHeader(String name, String value) {
-        this.headers.putIfAbsent(name.toLowerCase(), new ArrayList<>());
+        this.headers.putIfAbsent(name.toLowerCase(), new LinkedList<>());
         this.headers.get(name.toLowerCase()).add(value);
 
         processCookies(headers.get("set-cookie"));
@@ -103,7 +103,7 @@ public class PageResponse {
     }
 
     public void addCookie(String name, String value) {
-        this.cookies.computeIfAbsent(name, k -> new ArrayList<>());
+        this.cookies.computeIfAbsent(name, k -> new LinkedList<>());
         this.cookies.get(name).add(value);
     }
 

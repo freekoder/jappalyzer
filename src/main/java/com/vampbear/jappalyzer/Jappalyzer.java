@@ -54,7 +54,7 @@ public class Jappalyzer {
     }
 
     private void setTechnologies(List<Technology> technologies) {
-        this.technologies = new ArrayList<>(technologies);
+        this.technologies = new LinkedList<>(technologies);
     }
 
     public Set<TechnologyMatch> fromUrl(String url) throws IOException {
@@ -75,7 +75,7 @@ public class Jappalyzer {
         int currentMatchesSize;
         do {
             currentMatchesSize = matchesSet.size();
-            List<TechnologyMatch> impliedMatches = new ArrayList<>();
+            List<TechnologyMatch> impliedMatches = new LinkedList<>();
             for (TechnologyMatch match : matchesSet) {
                 for (String implyName : match.getTechnology().getImplies()) {
                     getTechnologyByName(implyName).ifPresent(technology -> {

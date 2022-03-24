@@ -10,13 +10,13 @@ public class Technology {
     private String website;
     private String cpe;
     private boolean saas;
-    private final List<String> pricing = new ArrayList<>();
-    private final List<Category> categories = new ArrayList<>();
+    private final List<String> pricing = new LinkedList<>();
+    private final List<Category> categories = new LinkedList<>();
     private final List<String> implies = new LinkedList<>();
 
-    private final List<PatternWithVersion> htmlTemplates = new ArrayList<>();
-    private final List<DomPattern> domTemplates = new ArrayList<>();
-    private final List<PatternWithVersion> scriptSrc = new ArrayList<>();
+    private final List<PatternWithVersion> htmlTemplates = new LinkedList<>();
+    private final List<DomPattern> domTemplates = new LinkedList<>();
+    private final List<PatternWithVersion> scriptSrc = new LinkedList<>();
     private final Map<String, List<PatternWithVersion>> headerTemplates = new HashMap<>();
     private final Map<String, List<PatternWithVersion>> cookieTemplates = new HashMap<>();
     private final Map<String, List<PatternWithVersion>> metaTemplates = new HashMap<>();
@@ -111,7 +111,7 @@ public class Technology {
     }
 
     public void addMetaTemplate(String name, String pattern) {
-        this.metaTemplates.putIfAbsent(name, new ArrayList<>());
+        this.metaTemplates.putIfAbsent(name, new LinkedList<>());
         this.metaTemplates.get(name).add(new PatternWithVersion(pattern));
     }
 
@@ -120,7 +120,7 @@ public class Technology {
     }
 
     public void addCookieTemplate(String cookie, String cookiePattern) {
-        this.cookieTemplates.putIfAbsent(cookie, new ArrayList<>());
+        this.cookieTemplates.putIfAbsent(cookie, new LinkedList<>());
         this.cookieTemplates.get(cookie).add(new PatternWithVersion(cookiePattern));
     }
 
@@ -133,7 +133,7 @@ public class Technology {
     }
 
     public void addHeaderTemplate(String headerName, String template) {
-        this.headerTemplates.putIfAbsent(headerName.toLowerCase(), new ArrayList<>());
+        this.headerTemplates.putIfAbsent(headerName.toLowerCase(), new LinkedList<>());
         this.headerTemplates.get(headerName.toLowerCase()).add(new PatternWithVersion(template));
     }
 

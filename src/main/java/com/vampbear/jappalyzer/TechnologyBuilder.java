@@ -174,7 +174,7 @@ public class TechnologyBuilder {
     }
 
     private static List<String> readValuesFromObject(Object jsonObject) {
-        ArrayList<String> patterns = new ArrayList<>();
+        List<String> patterns = new LinkedList<>();
         if (jsonObject instanceof JSONArray) {
             for (Object arrayItem : (JSONArray) jsonObject) {
                 patterns.add((String) arrayItem);

@@ -51,7 +51,12 @@ public class Main {
 
             List<Technology> instanceTechnologies = jappalyzer.getTechnologies();
             if (verbose) System.out.println("Known technologies size: " + instanceTechnologies.size());
-            Set<TechnologyMatch> foundTechs = jappalyzer.fromUrl(url);
+            HttpClient httpClient = new HttpClient();
+            long loadingPageStartTimestamp = System.currentTimeMillis();
+            PageResponse pageResponse = httpClient.getPageByUrl(url);
+            long duration = System.currentTimeMillis() - loadingPageStartTimestamp;
+            if (verbose) System.out.println("Page loaded with " + duration + "ms");
+            Set<TechnologyMatch> foundTechs = jappalyzer.fromPageResponse(pageResponse);
             foundTechs.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();

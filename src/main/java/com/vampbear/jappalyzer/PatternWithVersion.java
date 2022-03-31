@@ -20,7 +20,7 @@ public class PatternWithVersion {
     public PatternMatch match(String content) {
         Matcher matcher = pattern.matcher(content);
         if (matcher.find()) {
-            if (hasVersion) {
+            if (hasVersion && matcher.groupCount() > 0) {
                 // TODO: set group id from regexp description
                 String version = matcher.group(1);
                 return new PatternMatch(true, version);

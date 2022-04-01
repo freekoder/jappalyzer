@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'java-library'
+    id 'maven-publish'
 }
 
 sourceCompatibility = 1.8
@@ -19,6 +20,18 @@ task fatJar(type: Jar) {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
     with jar
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.vampbear'
+            artifactId = 'jappalyzer'
+            version = '0.5'
+
+            from components.java
+        }
+    }
 }
 
 dependencies {

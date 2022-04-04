@@ -5,12 +5,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 public class HttpClient {
 
-    public HttpClient() {}
+    private Map<String, String> config;
+
+    public HttpClient() {
+        this(Collections.emptyMap());
+    }
+
+    public HttpClient(Map<String, String> config) {
+        this.config = config;
+    }
 
     public PageResponse getPageByUrl(String url) throws IOException {
         HttpURLConnection conn = null;
@@ -19,6 +28,7 @@ public class HttpClient {
             conn.setRequestMethod("GET");
             conn.setRequestProperty("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36 OPR/38.0.2220.41");
             conn.setInstanceFollowRedirects(true);
+            conn.setConnectTimeout(getConnectTimeout(config));
 
             int status = conn.getResponseCode();
             Map<String, List<String>> headers = conn.getHeaderFields();
@@ -26,6 +36,18 @@ public class HttpClient {
             return new PageResponse(status, headers, content);
         } finally {
             if (conn != null) conn.disconnect();
+        }
+    }
+
+    private int getConnectTimeout(Map<String, String> config) {
+        if (config.containsKey("connect.timeout")) {
+            try {
+                return Integer.parseInt(config.get("connect.timeout"));
+            } catch (NumberFormatException e) {
+                return 3000;
+            }
+        } else {
+            return 3000;
         }
     }
 

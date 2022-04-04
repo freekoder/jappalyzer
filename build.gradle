@@ -27,7 +27,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.vampbear'
             artifactId = 'jappalyzer'
-            version = '0.5'
+            version = '0.5.1'
 
             from components.java
         }

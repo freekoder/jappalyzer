@@ -38,7 +38,7 @@
     "cats": [
       4
     ],
-    "cpe": "cpe:/a:dave_thomas:rdoc",
+    "cpe": "cpe:2.3:a:dave_thomas:rdoc:*:*:*:*:*:*:*:*",
     "description": "RDoc produces HTML and command-line documentation for Ruby projects.",
     "html": [
       "<link[^>]+href=\"[^\"]*rdoc-style\\.css",
@@ -378,6 +378,23 @@
     "scriptSrc": "/wp-content/plugins/wpcf7-recaptcha/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://wordpress.org/plugins/wpcf7-recaptcha/"
   },
+  "ReConvert": {
+    "cats": [
+      100
+    ],
+    "description": "ReConvert is a post-purchase upsell & thank you page.",
+    "icon": "ReConvert.svg",
+    "implies": "Shopify",
+    "pricing": [
+      "low",
+      "payg",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.stilyoapps\\.com/reconvert/assets/js/store_reconvert_node\\.js",
+    "website": "https://www.reconvert.io"
+  },
   "ReDoc": {
     "cats": [
       4
@@ -396,25 +413,31 @@
     "cats": [
       12
     ],
-    "cpe": "cpe:/a:facebook:react",
+    "cpe": "cpe:2.3:a:facebook:react:*:*:*:*:*:*:*:*",
     "description": "React is an open-source JavaScript library for building user interfaces or UI components.",
     "dom": {
       "body > div": {
         "properties": {
           "_reactRootContainer": ""
         }
+      },
+      "div[id*='react-root'], span[id*='react-']": {
+        "exists": ""
       }
     },
     "html": "<[^>]+data-react",
     "icon": "React.svg",
     "js": {
-      "React.version": "^(.+)$\\;version:\\1",
+      "React.version": "^([\\d\\.]+)$\\;version:\\1",
       "ReactOnRails": "",
       "__REACT_ON_RAILS_EVENT_HANDLERS_RAN_ONCE__": ""
     },
+    "meta": {
+      "description": "^Web site created using create-react-app$"
+    },
     "scriptSrc": [
-      "react(?:-with-addons)?[.-]([\\d.]*\\d)[^/]*\\.js\\;version:\\1",
-      "/([\\d.]+)/react(?:\\.min)?\\.js\\;version:\\1",
+      "react(?:-with-addons)?[.-](\\d+(?:\\.\\d+)+)[^/]*\\.js\\;version:\\1",
+      "/([\\d\\.]+)/react(?:\\.min)?\\.js\\;version:\\1",
       "^react\\b.*\\.js"
     ],
     "website": "https://reactjs.org"
@@ -468,6 +491,27 @@
     ],
     "website": "https://reactrouter.com/"
   },
+  "Reactive": {
+    "cats": [
+      1,
+      6
+    ],
+    "description": "Reactive is a subscription-based software that allows you to set up an online store and website. It has a CMS and has been created to support retail, coffee bars, restaurants owners and accomodation properties such as hotels or villas. With Reactive one can sell products or accept reservations and online orders.",
+    "icon": "Reactive.svg",
+    "implies": [
+      "Ruby on Rails"
+    ],
+    "meta": {
+      "generator": "Reactive"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "url": "^https?//.+\\.reactiveonline\\.io",
+    "website": "https://reactiveonline.io"
+  },
   "Really Simple CAPTCHA": {
     "cats": [
       87
@@ -493,7 +537,8 @@
   },
   "Rebuy": {
     "cats": [
-      76
+      76,
+      100
     ],
     "description": "Rebuy offers personlisation solutions for ecommerce sites.",
     "icon": "Rebuy.png",
@@ -575,9 +620,10 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "rechargeassets-bootstrapheroes-rechargeapps\\.netdna-ssl\\.com"
+      "rechargeassets-bootstrapheroes-rechargeapps\\.netdna-ssl\\.com",
+      "\\.rechargecdn\\.com/"
     ],
-    "website": "https://rechargepayments.com/"
+    "website": "https://rechargepayments.com"
   },
   "Recite Me": {
     "cats": [
@@ -588,13 +634,29 @@
     "scriptSrc": "api\\.reciteme\\.com/asset/js",
     "website": "https://reciteme.com/"
   },
+  "Recomify": {
+    "cats": [
+      100
+    ],
+    "description": "Recomify is a 1-click install, cost-effective smart product recommendation engine.",
+    "icon": "Recomify.png",
+    "implies": "Shopify",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "app\\.recomify\\.com/",
+    "website": "https://www.recomify.com"
+  },
   "RecoverMyCart": {
     "cats": [
       76,
       100
     ],
-    "description": "RecoverMyCart is a shopify app for abandoned basket recovery.",
+    "description": "RecoverMyCart is a Shopify app for abandoned basket recovery.",
     "icon": "RecoverMyCart.png",
+    "implies": "Shopify",
     "pricing": [
       "low",
       "freemium",
@@ -638,7 +700,7 @@
     "cats": [
       28
     ],
-    "cpe": "cpe:/o:redhat:linux",
+    "cpe": "cpe:2.3:o:redhat:linux:*:*:*:*:*:*:*:*",
     "description": "Red Hat is an open-source Linux operating system.",
     "headers": {
       "Server": "Red Hat",
@@ -646,6 +708,15 @@
     },
     "icon": "Red Hat.svg",
     "website": "https://www.redhat.com"
+  },
+  "Red Hat Gluster": {
+    "cats": [
+      48
+    ],
+    "description": "Gluster is a free and open source scalable network filesystem.",
+    "icon": "gluster.png",
+    "saas": true,
+    "website": "https://www.gluster.org"
   },
   "Red je Pakketje": {
     "cats": [
@@ -704,7 +775,7 @@
     "cats": [
       34
     ],
-    "cpe": "cpe:/a:redislabs:redis",
+    "cpe": "cpe:2.3:a:redislabs:redis:*:*:*:*:*:*:*:*",
     "description": "Redis is an in-memory data structure project implementing a distributed, in-memory key–value database with optional durability. Redis supports different kinds of abstract data structures, such as strings, lists, maps, sets, sorted sets, HyperLogLogs, bitmaps, streams, and spatial indexes.",
     "icon": "Redis.svg",
     "website": "https://redis.io"
@@ -728,7 +799,7 @@
     "cookies": {
       "_redmine_session": ""
     },
-    "cpe": "cpe:/a:redmine:redmine",
+    "cpe": "cpe:2.3:a:redmine:redmine:*:*:*:*:*:*:*:*",
     "description": "Redmine is a free and open-source, web-based project management and issue tracking tool.",
     "html": "Powered by <a href=\"[^>]+Redmine",
     "icon": "Redmine.png",
@@ -737,6 +808,15 @@
       "description": "Redmine"
     },
     "website": "http://www.redmine.org"
+  },
+  "Redonner": {
+    "cats": [
+      84
+    ],
+    "description": "This company promotes the collection and recycling of textiles by rewarding each donation of clothing made on its website with 'Re' points, allowing you to benefit from advantages and discounts at more than 70 partner brands.",
+    "icon": "Redonner.svg",
+    "scriptSrc": "\\.redonner\\.fr/",
+    "website": "https://www.redonner.fr"
   },
   "Redux": {
     "cats": [
@@ -749,6 +829,40 @@
     ],
     "website": "https://redux.js.org/"
   },
+  "RedwoodJS": {
+    "cats": [
+      12,
+      18
+    ],
+    "description": "RedwoodJS is a full-stack serverless web application framework built by Tom Preston Werner (co-founder of Github) et al.",
+    "dom": "div#redwood-app",
+    "icon": "RedwoodJS.svg",
+    "implies": [
+      "React",
+      "GraphQL",
+      "TypeScript"
+    ],
+    "oss": true,
+    "website": "https://redwoodjs.com"
+  },
+  "Reelevant": {
+    "cats": [
+      76
+    ],
+    "description": "Reelevant is a visual content platform that helps businesses to create on-demand content for their viewers in order to increase conversion rates.",
+    "headers": {
+      "Content-Security-Policy": "\\.reelevant\\.com"
+    },
+    "icon": "Reelevant.svg",
+    "js": {
+      "reel.companyId": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://try.reelevant.com"
+  },
   "Reevoo": {
     "cats": [
       90
@@ -756,11 +870,17 @@
     "description": "Reevoo is a provider of UGC solutions like reviews.",
     "icon": "Reevoo.svg",
     "js": {
-      "ReevooApi": ""
+      "ReevooApi": "",
+      "reevooAccessCode": "",
+      "reevooLoader.tracking": "",
+      "reevooUrl": "\\.reevoo\\.com/"
     },
+    "pricing": [
+      "poa"
+    ],
     "saas": true,
-    "scriptSrc": "mark\\.reevoo\\.com",
-    "website": "https://www.reevoo.com/"
+    "scriptSrc": "\\.reevoo\\.com/",
+    "website": "https://www.reevoo.com"
   },
   "ReferralCandy": {
     "cats": [
@@ -822,6 +942,23 @@
     "scriptSrc": "\\.cloudfront\\.net/js/reflektion\\.js",
     "website": "https://reflektion.com"
   },
+  "Refundid": {
+    "cats": [
+      102
+    ],
+    "description": "Refundid provides ecommerce customers instant refunds for their online returns.",
+    "dom": "a[href*='.refundid.com/']",
+    "icon": "Refundid.png",
+    "js": {
+      "launchRefundidPopup": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "requiresCategory": 6,
+    "saas": true,
+    "website": "https://refundid.com"
+  },
   "Regiondo": {
     "cats": [
       5,
@@ -859,6 +996,21 @@
     ],
     "website": "https://www.relaiscolis.com"
   },
+  "Remarkable Commerce": {
+    "cats": [
+      6
+    ],
+    "description": "Remarkable Commerce is a technology and services company which provides a ecommerce platform for mid-sized retailers.",
+    "icon": "Remarkable.png",
+    "js": {
+      "Remarkable.BasketItems": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://remarkable.net/"
+  },
   "Remix": {
     "cats": [
       18,
@@ -874,6 +1026,23 @@
     },
     "oss": true,
     "website": "https://remix.run/"
+  },
+  "Reputon": {
+    "cats": [
+      90,
+      100
+    ],
+    "description": "Reputon is an customer reviews Shopify app.",
+    "icon": "Reputon.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "\\.reputon\\.com/",
+    "website": "https://reputon.com"
   },
   "RequireJS": {
     "cats": [
@@ -952,7 +1121,7 @@
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:caucho:resin",
+    "cpe": "cpe:2.3:a:caucho:resin:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "^Resin(?:/(\\S*))?\\;version:\\1"
     },
@@ -1057,6 +1226,42 @@
     "scriptSrc": "cdn\\.retailrocket\\.net",
     "website": "https://retailrocket.net"
   },
+  "ReturnGO": {
+    "cats": [
+      102
+    ],
+    "description": "ReturnGO's AI-driven returns management platform significantly improves customer lifetime value and post-purchase experience.",
+    "icon": "ReturnGO.png",
+    "js": {
+      "returnGoCanBeRun": "",
+      "returnGoIntegrationData": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.returngo\\.ai/",
+    "website": "https://returngo.ai"
+  },
+  "Returnly": {
+    "cats": [
+      102
+    ],
+    "description": "Returnly is the provider of digital return experiences for direct-to-consumer brands.",
+    "dom": "a[href*='.returnly.com/']",
+    "icon": "Returnly.svg",
+    "js": {
+      "Returnly.ContainerSwitcher": "",
+      "Returnly.InternalEventTracker": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://returnly.com"
+  },
   "RevJet": {
     "cats": [
       36
@@ -1123,6 +1328,22 @@
     "scriptSrc": "admin\\.revenuehunt\\.com/",
     "website": "https://revenuehunt.com"
   },
+  "Revieve": {
+    "cats": [
+      76
+    ],
+    "description": "Revieve is a technology company delivering consumer-centric personalised digital brand experiences powered by AI/AR.",
+    "icon": "Revieve.svg",
+    "js": {
+      "Revieve.__esModule": "",
+      "revieveConfig.onClickProduct": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.revieve.com"
+  },
   "ReviewSolicitors": {
     "cats": [
       90
@@ -1139,6 +1360,24 @@
     "scriptSrc": "\\.reviewsolicitors\\.co\\.uk/",
     "website": "https://www.reviewsolicitors.co.uk"
   },
+  "Reviews.io": {
+    "cats": [
+      90
+    ],
+    "description": "Reviews.io is a review collection tool for companies to collect merchant (company) & product reviews from genuine customers, then share these on Google.",
+    "dom": "a[href*='.reviews.io/company-reviews/']",
+    "icon": "Reviews.io.svg",
+    "js": {
+      "reviewsio_hasVoted": "",
+      "reviewsio_shareLink": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.reviews.io"
+  },
   "RevolverMaps": {
     "cats": [
       35
@@ -1148,19 +1387,26 @@
     "scriptSrc": "\\.revolvermaps\\.com",
     "website": "https://www.revolvermaps.com"
   },
-  "Revslider": {
+  "Revy": {
     "cats": [
-      19,
-      87
+      100
     ],
-    "description": "Slider Revolution is a WordPress plugin that allows you to create responsive sliders with many animation effects, text, image and video layers, and many other features.",
-    "html": [
-      "<link[^>]* href=[\\'\"][^']+revslider[/\\w-]+\\.css\\?ver=([0-9.]+)[\\'\"]\\;version:\\1"
+    "description": "Revy is dedicated to build Shopify Apps to generate more sales for merchants.",
+    "icon": "Revy.png",
+    "js": {
+      "RevyApp": "",
+      "RevyBundle": "",
+      "RevyUpsell": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
     ],
-    "icon": "revslider.png",
-    "requires": "WordPress",
-    "scriptSrc": "/revslider/[/\\w-]+/js",
-    "website": "https://revolution.themepunch.com/"
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "api\\.revy\\.io/",
+    "website": "https://revy.io"
   },
   "Rewardful": {
     "cats": [
@@ -1230,6 +1476,26 @@
     "saas": true,
     "scriptSrc": "\\.richrelevance\\.com/",
     "website": "https://richrelevance.com"
+  },
+  "Richpanel": {
+    "cats": [
+      53
+    ],
+    "description": "Richpanel is a purpose-built CRM and customer support platform for ecommerce and DTC brands.",
+    "icon": "Richpanel.svg",
+    "js": {
+      "Richpanel.PLUGIN_API_URL": "",
+      "RichpanelAppProxy": "",
+      "richpanel_messenger_url": ""
+    },
+    "pricing": [
+      "freemium",
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.richpanel\\.com/",
+    "website": "https://www.richpanel.com"
   },
   "Rickshaw": {
     "cats": [
@@ -1321,6 +1587,23 @@
       "generator": "^RiteCMS(?: (.+))?\\;version:\\1"
     },
     "website": "http://ritecms.com"
+  },
+  "Rive": {
+    "cats": [
+      25
+    ],
+    "description": "Rive is a real-time interactive design and animation tool.",
+    "icon": "Rive.svg",
+    "js": {
+      "rive.Rive": ""
+    },
+    "pricing": [
+      "freemium",
+      "payg",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://rive.app"
   },
   "Roadiz CMS": {
     "cats": [
@@ -1449,6 +1732,7 @@
     "cats": [
       30
     ],
+    "cpe": "cpe:2.3:a:roundcube:webmail:*:*:*:*:*:*:*:*",
     "description": "RoundCube is free and open-source web-based IMAP email client.",
     "html": "<title>RoundCube",
     "icon": "RoundCube.png",
@@ -1461,7 +1745,7 @@
   },
   "Route": {
     "cats": [
-      19
+      107
     ],
     "description": "Route is a delivery and shipping tracking app",
     "icon": "route.png",
@@ -1510,7 +1794,7 @@
     "cats": [
       27
     ],
-    "cpe": "cpe:/a:ruby-lang:ruby",
+    "cpe": "cpe:2.3:a:ruby-lang:ruby:*:*:*:*:*:*:*:*",
     "description": "Ruby is an open-source object-oriented programming language.",
     "headers": {
       "Server": "(?:Mongrel|WEBrick|Ruby)"
@@ -1542,7 +1826,7 @@
     "cookies": {
       "_session_id": "\\;confidence:75"
     },
-    "cpe": "cpe:/a:rubyonrails:rails",
+    "cpe": "cpe:2.3:a:rubyonrails:rails:*:*:*:*:*:*:*:*",
     "description": "Ruby on Rails is a server-side web application framework written in Ruby under the MIT License.",
     "headers": {
       "Server": "mod_(?:rails|rack)",
@@ -1562,7 +1846,7 @@
   },
   "Rudderstack": {
     "cats": [
-      10
+      97
     ],
     "description": "Rudderstack is a customer data platform (CDP) that helps you collect, clean, and control your customer data.",
     "icon": "Rudderstack.png",
@@ -1588,11 +1872,13 @@
     "cats": [
       12
     ],
+    "description": "RxJS is a reactive library used to implement reactive programming to deal with async implementation, callbacks, and event-based programs.",
     "icon": "RxJS.png",
     "js": {
       "Rx.CompositeDisposable": "",
       "Rx.Symbol": ""
     },
+    "oss": true,
     "scriptSrc": "rx(?:\\.\\w+)?(?:\\.compat|\\.global)?(?:\\.min)?\\.js",
     "website": "http://reactivex.io"
   },

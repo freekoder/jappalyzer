@@ -132,6 +132,23 @@
     "requires": "WordPress",
     "website": "https://gtranslate.io"
   },
+  "GTranslate app": {
+    "cats": [
+      100,
+      89
+    ],
+    "description": "GTranslate app is a website translator which can translate any website to any language automatically.",
+    "dom": "img[src*='gtranslate.io/shopify']",
+    "icon": "GTranslate.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "scriptSrc": "gtranslate\\.io/shopify/",
+    "website": "https://apps.shopify.com/multilingual-shop-by-gtranslate"
+  },
   "GX WebManager": {
     "cats": [
       1
@@ -173,16 +190,34 @@
     "scriptSrc": "gm_javascript\\.js\\.php",
     "website": "http://gambio.de"
   },
+  "Gameball": {
+    "cats": [
+      84
+    ],
+    "description": "Gameball is a loyalty & retention platform that offers gamified customer engagement tools for customers such as rewards, points, and referrals.",
+    "icon": "Gameball.svg",
+    "js": {
+      "GbSdk.settings.shop": "",
+      "gbReferralCodeInput": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "payg",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "assets\\.gameball\\.co/",
+    "website": "https://www.gameball.co"
+  },
   "Gatsby": {
     "cats": [
       57,
       12
     ],
     "description": "Gatsby is a React-based open-source framework with performance, scalability and security built-in.",
-    "html": [
-      "<div id=\"___gatsby\">",
-      "<style id=\"gatsby-inlined-css\">"
-    ],
+    "dom": "div#___gatsby, style#gatsby-inlined-css",
     "icon": "Gatsby.svg",
     "implies": [
       "React",
@@ -192,6 +227,21 @@
       "generator": "^Gatsby(?: ([0-9.]+))?$\\;version:\\1"
     },
     "website": "https://www.gatsbyjs.org/"
+  },
+  "Gatsby Cloud Image CDN": {
+    "cats": [
+      31
+    ],
+    "description": "Image CDN is a new feature of hosting on Gatsby Cloud. Instead of processing images at build time, Image CDN defers and offloads image processing to the edge.",
+    "dom": "img[srcset*='/_gatsby/image/'], source[srcset*='/_gatsby/image/']",
+    "icon": "Gatsby.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.gatsbyjs.com/products/cloud/image-cdn"
   },
   "Gauges": {
     "cats": [
@@ -205,6 +255,26 @@
       "_gauges": ""
     },
     "website": "https://get.gaug.es"
+  },
+  "GemPages": {
+    "cats": [
+      100,
+      51
+    ],
+    "description": "GemPages is a powerful Shopify landing page buidler that empowers SMEs, agency, and freelancers to build their brands and sell online.",
+    "icon": "GemPages.svg",
+    "implies": "Shopify",
+    "js": {
+      "GEMSTORE": "",
+      "GEMVENDOR": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "/files/gempagev\\d+\\.js",
+    "website": "https://gempages.net"
   },
   "Gemius": {
     "cats": [
@@ -323,7 +393,7 @@
     "cats": [
       28
     ],
-    "cpe": "cpe:/o:gentoo:linux",
+    "cpe": "cpe:2.3:o:gentoo:linux:*:*:*:*:*:*:*:*",
     "description": "Gentoo is a free operating system based on Linux.",
     "headers": {
       "X-Powered-By": "gentoo"
@@ -376,6 +446,22 @@
       "GSFN": ""
     },
     "website": "https://getsatisfaction.com/corp/"
+  },
+  "GetButton": {
+    "cats": [
+      5,
+      52
+    ],
+    "description": "The chat button by GetButton takes website visitor directly to the messaging app such as Facebook Messenger or WhatsApp and allows them to initiate a conversation with you.",
+    "icon": "GetButton.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.getbutton\\.io/",
+    "website": "https://getbutton.io"
   },
   "GetFeedback": {
     "cats": [
@@ -431,7 +517,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:get-simple:getsimple_cms",
+    "cpe": "cpe:2.3:a:get-simple:getsimple_cms:*:*:*:*:*:*:*:*",
     "icon": "GetSimple CMS.png",
     "implies": "PHP",
     "meta": {
@@ -527,6 +613,22 @@
     },
     "website": "http://ghost.org"
   },
+  "Gist Giftship": {
+    "cats": [
+      100
+    ],
+    "description": "Gist Giftship is a gifting app on Shopify that allows your customers to complete all of their gift shopping at once.",
+    "icon": "Gist.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "payg"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "assets/js/giftship\\.([\\d\\.]+)\\.js\\;version:\\1",
+    "website": "https://gist-apps.com/giftship"
+  },
   "GitBook": {
     "cats": [
       4
@@ -560,7 +662,6 @@
       "X-GitHub-Request-Id": ""
     },
     "icon": "GitHub.svg",
-    "implies": "Ruby on Rails",
     "url": "^https?://[^/]+\\.github\\.io",
     "website": "https://pages.github.com/"
   },
@@ -572,6 +673,7 @@
     "cookies": {
       "_gitlab_session": ""
     },
+    "cpe": "cpe:2.3:a:gitlab:gitlab:*:*:*:*:*:*:*:*",
     "description": "GitLab is a web-based DevOps lifecycle tool that provides a Git-repository manager providing wiki, issue-tracking and continuous integration and deployment pipeline features, using an open-source license.",
     "html": [
       "<meta content=\"https?://[^/]+/assets/gitlab_logo-",
@@ -610,7 +712,7 @@
     "cookies": {
       "i_like_gitea": ""
     },
-    "cpe": "cpe:/a:gitea:gitea",
+    "cpe": "cpe:2.3:a:gitea:gitea:*:*:*:*:*:*:*:*",
     "description": "Gitea is an open-source forge software package for hosting software development version control using Git as well as other collaborative features like bug tracking, wikis and code review. It supports self-hosting but also provides a free public first-party instance hosted on DiDi's cloud.",
     "html": [
       "<div class=\"ui left\">\\n\\s+© Gitea Version: ([\\d.]+)\\;version:\\1"
@@ -664,19 +766,46 @@
     },
     "saas": true,
     "scriptSrc": "cdn\\.gladly\\.com",
-    "website": " https://www.gladly.com/"
+    "website": "https://www.gladly.com"
   },
   "GlassFish": {
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:oracle:glassfish_server",
+    "cpe": "cpe:2.3:a:oracle:glassfish_server:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "GlassFish(?: Server)?(?: Open Source Edition)?(?: ?/?([\\d.]+))?\\;version:\\1"
     },
     "icon": "GlassFish.png",
     "implies": "Java",
     "website": "http://glassfish.java.net"
+  },
+  "Glassbox": {
+    "cats": [
+      10
+    ],
+    "description": "Glassbox is an Israeli software company. It sells session-replay analytics software and services.",
+    "icon": "Glassbox.svg",
+    "js": {
+      "SessionCamRecorder": "",
+      "sessioncamConfiguration": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.glassboxcdn\\.com/",
+    "website": "https://www.glassbox.com"
+  },
+  "Glider.js": {
+    "cats": [
+      59
+    ],
+    "description": "Glider.js is a fast, lightweight, responsive, dependency-free scrollable list with customisable paging controls.",
+    "icon": "Glider.js.svg",
+    "oss": true,
+    "scriptSrc": "(?:/|@)?([\\d\\.]{2,})?/glider\\.min\\.js\\;version:\\1",
+    "website": "https://nickpiscitelli.github.io/Glider.js"
   },
   "Glitch": {
     "cats": [
@@ -694,7 +823,7 @@
   },
   "Global-e": {
     "cats": [
-      6
+      106
     ],
     "cookies": {
       "GlobalE_CT_Data": "",
@@ -713,6 +842,103 @@
     "saas": true,
     "scriptSrc": "\\.global-e\\.com",
     "website": "https://www.global-e.com"
+  },
+  "GlobalShopex": {
+    "cats": [
+      106
+    ],
+    "description": "GlobalShopex offers a logistics ecommerce solution easy to integrate, which helps online businesses to sell in over 200 countries.",
+    "icon": "GlobalShopex.png",
+    "js": {
+      "GSXMiniCheckout": "",
+      "GSXPreviewCheckout": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "//globalshopex\\.com/",
+    "website": "http://www.globalshopex.com"
+  },
+  "Globo Also Bought": {
+    "cats": [
+      100
+    ],
+    "description": "Also Bought is a conversion Shopify app by Globo.",
+    "icon": "Globo apps.png",
+    "implies": "Shopify",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "assets/globo\\.alsobought\\.js",
+    "website": "https://apps.shopify.com/globo-related-products"
+  },
+  "Globo Color Swatch": {
+    "cats": [
+      100
+    ],
+    "description": "Globo Color Swatch app gives you an easy-to-use tool to display product variants on both collection page, homepage and product page creatively as a means to enhance customers' experience and stimulate them to purchase.",
+    "icon": "Globo apps.png",
+    "implies": "Shopify",
+    "pricing": [
+      "freemium"
+    ],
+    "saas": true,
+    "scriptSrc": "assets/globo\\.swatch\\.data\\.js",
+    "website": "https://apps.shopify.com/globo-related-products"
+  },
+  "Globo Form Builder": {
+    "cats": [
+      100
+    ],
+    "description": "Form Builder is a Shopify form builder app for contact form built by Globo.",
+    "icon": "Globo apps.png",
+    "implies": "Shopify",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "/assets/globo\\.formbuilder\\.init\\.js",
+    "website": "https://apps.shopify.com/form-builder-contact-form"
+  },
+  "Globo Pre-Order": {
+    "cats": [
+      100
+    ],
+    "description": "Globo Pre-Order is a Shopify app for building pre-order functionality on Shopify stores.",
+    "icon": "Globo apps.png",
+    "implies": "Shopify",
+    "js": {
+      "GloboPreorderParams": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://apps.shopify.com/pre-order-pro"
+  },
+  "Glopal": {
+    "cats": [
+      106
+    ],
+    "description": "Glopal provides advanced international marketing solutions for ecommerce retailers and brands seeking to grow their businesses' globally.",
+    "icon": "Glopal.png",
+    "pricing": [
+      "freemium",
+      "mid",
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.glopal\\.com/",
+    "website": "https://www.glopal.com"
   },
   "GloriaFood": {
     "cats": [
@@ -773,9 +999,29 @@
     "cats": [
       27
     ],
-    "cpe": "cpe:/a:golang:go",
+    "cpe": "cpe:2.3:a:golang:go:*:*:*:*:*:*:*:*",
     "icon": "Go.svg",
     "website": "https://golang.org"
+  },
+  "Go Instore": {
+    "cats": [
+      103
+    ],
+    "description": "Go Instore uses high-definition live video to connect online customers with in-store product experts.",
+    "headers": {
+      "content-security-policy": "\\.goinstore\\.com"
+    },
+    "icon": "Go Instore.svg",
+    "js": {
+      "GISAPP.videoJsCtrl": "",
+      "gisAppLib.postRobot": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "//gis\\.goinstore\\.com/",
+    "website": "https://goinstore.com"
   },
   "GoAffPro": {
     "cats": [
@@ -798,7 +1044,7 @@
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:embedthis:goahead",
+    "cpe": "cpe:2.3:a:embedthis:goahead:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "GoAhead"
     },
@@ -830,6 +1076,24 @@
     },
     "icon": "GoCache.png",
     "website": "https://www.gocache.com.br/"
+  },
+  "GoCertify": {
+    "cats": [
+      5
+    ],
+    "cookies": {
+      "_gocertify_session": ""
+    },
+    "description": "GoCertify is a conversion-focused and cost-effective way to verify students, key workers, under-26s, over-60s, military and more for exclusive discounts.",
+    "dom": "a[href*='secure.gocertify.me']",
+    "icon": "GoCertify.png",
+    "pricing": [
+      "poa",
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "assets\\.gocertify\\.me/",
+    "website": "https://www.gocertify.me"
   },
   "GoDaddy": {
     "cats": [
@@ -897,6 +1161,17 @@
     "requires": "WordPress",
     "website": "https://github.com/godaddy-wordpress/primer-child-lyrical"
   },
+  "GoDaddy Online Store": {
+    "cats": [
+      6
+    ],
+    "headers": {
+      "via": "^1\\.1 mysimplestore\\.com$"
+    },
+    "icon": "GoDaddy.svg",
+    "saas": true,
+    "website": "https://www.godaddy.com/en-uk/websites/online-store"
+  },
   "GoDaddy Primer": {
     "cats": [
       80
@@ -946,6 +1221,24 @@
       "go.version": "(.*)\\;version:\\1"
     },
     "website": "https://gojs.net/"
+  },
+  "GoKwik": {
+    "cats": [
+      19
+    ],
+    "description": "GoKwik is a platform for solving shopping experience problems on ecommerce websites on the internet.",
+    "icon": "GoKwik.svg",
+    "js": {
+      "gokwikBuyNow": "",
+      "gokwikCheckoutApp": "",
+      "gokwikSdk": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "requiresCategory": 6,
+    "saas": true,
+    "website": "https://www.gokwik.co"
   },
   "GoStats": {
     "cats": [
@@ -997,7 +1290,7 @@
     "cookies": {
       "i_like_gogits": ""
     },
-    "cpe": "cpe:/a:gogs:gogs",
+    "cpe": "cpe:2.3:a:gogs:gogs:*:*:*:*:*:*:*:*",
     "description": "Gogs is a self-hosted Git service written in Go.",
     "html": [
       "<div class=\"ui left\">\\n\\s+© \\d{4} Gogs Version: ([\\d.]+) Page:\\;version:\\1",
@@ -1025,6 +1318,7 @@
       "Goog_AdSense_": "",
       "Goog_AdSense_OsdAdapter": "",
       "__google_ad_urls": "",
+      "adsbygoogle": "",
       "google_ad_": ""
     },
     "saas": true,
@@ -1034,7 +1328,7 @@
       "2mdn\\.net",
       "ad\\.ca\\.doubleclick\\.net"
     ],
-    "website": "https://www.google.fr/adsense/start/"
+    "website": "https://www.google.com/adsense/start/"
   },
   "Google Ads": {
     "cats": [
@@ -1106,11 +1400,8 @@
     "cats": [
       22
     ],
-    "headers": {
-      "Server": "Google Frontend"
-    },
     "icon": "Google App Engine.svg",
-    "website": "http://code.google.com/appengine"
+    "website": "https://cloud.google.com/appengine"
   },
   "Google Call Conversion Tracking": {
     "cats": [
@@ -1145,7 +1436,7 @@
     "cats": [
       63
     ],
-    "cpe": "cpe:/a:google:cloud_platform",
+    "cpe": "cpe:2.3:a:google:cloud_platform:*:*:*:*:*:*:*:*",
     "description": "Google Cloud is a suite of cloud computing services.",
     "icon": "google_cloud.svg",
     "website": "https://cloud.google.com"
@@ -1301,18 +1592,6 @@
     ],
     "website": "https://developers.google.com/publisher-tag/guides/get-started"
   },
-  "Google Remarketing Tag": {
-    "cats": [
-      77
-    ],
-    "description": "Google Remarketing Tag is a web tagging library for Google's site measurement, conversion tracking and remarketing products.",
-    "icon": "Google Tag Manager.svg",
-    "js": {
-      "gtag": ""
-    },
-    "saas": true,
-    "website": "https://support.google.com/google-ads/answer/2476688"
-  },
   "Google Sign-in": {
     "cats": [
       69
@@ -1383,7 +1662,7 @@
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:google:web_server",
+    "cpe": "cpe:2.3:a:google:web_server:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "gws"
     },
@@ -1394,7 +1673,7 @@
     "cats": [
       18
     ],
-    "cpe": "cpe:/a:google:web_toolkit",
+    "cpe": "cpe:2.3:a:google:web_toolkit:*:*:*:*:*:*:*:*",
     "description": "Google Web Toolkit (GWT) is an open-source Java software development framework that makes writing AJAX applications.",
     "icon": "Google Web Toolkit.png",
     "implies": "Java",
@@ -1442,13 +1721,54 @@
     "saas": true,
     "website": "https://www.gorgias.com/"
   },
+  "GotiPath": {
+    "cats": [
+      31
+    ],
+    "description": "GotiPath is a content delivery network (CDN) provider that is associated with telecom giant Telekom Malaysia Berhad.",
+    "dom": "img[src*='.gotipath.com/'], link[href*='.gpcdn.net/']",
+    "headers": {
+      "X-Cache": "\\.swiftserve\\.com"
+    },
+    "icon": "GotiPath.png",
+    "pricing": [
+      "recurring",
+      "poa",
+      "payg"
+    ],
+    "website": "https://gotipath.com"
+  },
+  "Govalo": {
+    "cats": [
+      100
+    ],
+    "description": "Govalo is a software startup company that builds a Shopify app.",
+    "icon": "Govalo.svg",
+    "implies": "Shopify",
+    "js": {
+      "Govalo.meta": ""
+    },
+    "pricing": [
+      "freemium",
+      "payg",
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.shopify\\.com/extensions/.+/([\\d\\.]+)/assets/govalo\\.min\\.js\\;version:\\1",
+    "website": "https://govalo.com"
+  },
   "Grab Pay Later": {
     "cats": [
       41,
       91
     ],
-    "description": "Grab Pay Later is a Buy now pay later solution offered by Grab.",
+    "description": "Grab Pay Later is a buy now pay later solution offered by Grab.",
     "icon": "Grab.svg",
+    "js": {
+      "GrabWidget": "",
+      "grab_widget_money_format": ""
+    },
     "saas": true,
     "scriptSrc": "grab-paylater\\.js",
     "website": "https://www.grab.com/sg/finance/pay-later/"
@@ -1464,11 +1784,11 @@
       "Macaron"
     ],
     "js": {
-      "__grafana_public_path__": "",
-      "grafanaBootData.settings.buildInfo['version']": "([\\d.]+)\\;version:\\1"
+      "__grafana_public_path__": ""
     },
     "oss": true,
     "scriptSrc": "grafana\\..+\\.com/public/build/",
+    "scripts": ".+latestVersion\":\"[\\d\\.\\w\\-]+\"\\,\"version\":\"([\\d\\.]+)\\;version:\\1\\;confidence:75",
     "website": "https://grafana.com"
   },
   "Graffiti CMS": {
@@ -1788,6 +2108,23 @@
     "scriptSrc": "cdn\\.gumlet\\.com",
     "website": "https://www.gumlet.com/"
   },
+  "Gumroad": {
+    "cats": [
+      6
+    ],
+    "description": "Gumroad is a self-publishing digital marketplace platform to sell digital services such as books, memberships, courses and other digital services.",
+    "icon": "Gumroad.svg",
+    "js": {
+      "GumroadOverlay": "",
+      "createGumroadOverlay": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "gumroad\\.com/js/gumroad\\.js",
+    "website": "https://gumroad.com"
+  },
   "Gumstack": {
     "cats": [
       5
@@ -1835,7 +2172,7 @@
     "cats": [
       47
     ],
-    "cpe": "cpe:/a:git-scm:git",
+    "cpe": "cpe:2.3:a:git-scm:git:*:*:*:*:*:*:*:*",
     "icon": "git.svg",
     "meta": {
       "generator": "\\bgit/([\\d.]+\\d)\\;version:\\1"
@@ -1846,7 +2183,7 @@
     "cats": [
       47
     ],
-    "cpe": "cpe:/a:gitlist:gitlist",
+    "cpe": "cpe:2.3:a:gitlist:gitlist:*:*:*:*:*:*:*:*",
     "html": "<p>Powered by <a[^>]+>GitList ([\\d.]+)\\;version:\\1",
     "implies": [
       "PHP",

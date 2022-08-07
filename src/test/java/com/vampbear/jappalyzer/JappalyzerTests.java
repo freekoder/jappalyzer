@@ -29,7 +29,7 @@ public class JappalyzerTests {
         List<String> techNames = getTechnologiesNames(matches);
         assertThat(techNames)
                 .containsExactlyInAnyOrder("Google Analytics", "Google Font API", "jQuery Migrate",
-                "jQuery", "Elementor", "PHP", "MySQL", "WordPress");
+                "jQuery", "Elementor", "PHP", "MySQL", "WordPress", "PWA");
     }
 
     @Test
@@ -57,7 +57,7 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/twitter.html");
         List<String> techNames = getTechnologiesNames(matches);
-        assertThat(techNames).isEmpty();
+        assertThat(techNames).containsExactlyInAnyOrder("React", "PWA");
     }
 
     @Test

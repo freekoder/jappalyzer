@@ -180,7 +180,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:vardot:varbase",
+    "cpe": "cpe:2.3:a:vardot:varbase:*:*:*:*:*:*:*:*",
     "dom": "meta[content='Varbase'],div[class*='varbase_'],div[class*='_varbase'],div[class*='varbase-'],div[class*='block-varbase'],div[class*='blockvarbase']",
     "icon": "varbase.png",
     "implies": "Drupal",
@@ -194,6 +194,7 @@
     "cats": [
       23
     ],
+    "cpe": "cpe:2.3:a:varnish-software:varnich_cache:*:*:*:*:*:*:*:*",
     "description": "Varnish is a reverse caching proxy.",
     "headers": {
       "Via": "varnish(?: \\(Varnish/([\\d.]+)\\))?\\;version:\\1",
@@ -331,6 +332,23 @@
     "saas": true,
     "website": "https://verloop.io/"
   },
+  "ViaBill": {
+    "cats": [
+      91
+    ],
+    "description": "ViaBill is a cloud-based payment management solution designed to help small to midsize retailers and webshops.",
+    "icon": "ViaBill.png",
+    "js": {
+      "viabillOptions.state.subscriptions": "",
+      "viabillPricetagInternal.conf.productsByLocale": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.viabill\\.com/",
+    "website": "https://viabill.com"
+  },
   "Vidazoo": {
     "cats": [
       36
@@ -349,6 +367,21 @@
     "saas": true,
     "scriptSrc": "\\.vidazoo\\.com",
     "website": "https://www.vidazoo.com"
+  },
+  "Video Greet": {
+    "cats": [
+      100
+    ],
+    "description": "Video Greet lets your customers add a video message to gifts with QR codes.",
+    "icon": "Video Greet.png",
+    "js": {
+      "__vg.video_greet_button_src": ""
+    },
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "Shopify",
+    "website": "https://apps.shopify.com/videogreet-gift-messages"
   },
   "VideoJS": {
     "cats": [
@@ -383,6 +416,24 @@
     "icon": "vigbo.png",
     "scriptSrc": "(?:\\.vigbo\\.com|\\.gophotoweb\\.com)",
     "website": "https://vigbo.com"
+  },
+  "Vigil": {
+    "cats": [
+      13
+    ],
+    "description": "Vigil is a microservices status page. Monitors a distributed infrastructure and sends alerts (Slack, SMS, etc.).",
+    "dom": {
+      "p > a[href*='github.com/valeriansaliou/vigil']": {
+        "text": "^Vigil$"
+      }
+    },
+    "icon": "default.svg",
+    "implies": [
+      "Rust",
+      "Docker"
+    ],
+    "oss": true,
+    "website": "https://github.com/valeriansaliou/vigil"
   },
   "Vignette": {
     "cats": [
@@ -490,6 +541,19 @@
     "url": "/sparql",
     "website": "https://virtuoso.openlinksw.com/"
   },
+  "Virtusize": {
+    "cats": [
+      76
+    ],
+    "description": "Virtusize is a personalisation service that provides size and product recommendations specific to a user's size and trend preferences.",
+    "icon": "Virtusize.svg",
+    "pricing": [
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.virtusize\\.jp/",
+    "website": "https://www.virtusize.com"
+  },
   "Visa": {
     "cats": [
       41
@@ -551,6 +615,21 @@
     ],
     "website": "https://visualcomposer.com"
   },
+  "Visual Quiz Builder": {
+    "cats": [
+      100
+    ],
+    "description": "Visual Quiz Builder is a Shopify app built by AskWhai.",
+    "icon": "Visual Quiz Builder.png",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "//whai-cdn\\.nyc\\d\\.cdn\\.digitaloceanspaces\\.com/",
+    "website": "https://apps.shopify.com/product-recommendation-quiz"
+  },
   "Visualsoft": {
     "cats": [
       6
@@ -571,19 +650,62 @@
     "saas": true,
     "website": "https://www.visualsoft.co.uk/"
   },
+  "Vitals": {
+    "cats": [
+      100,
+      32
+    ],
+    "description": "Vitals is an all-in-one Shopify marketing software.",
+    "icon": "Vitals.svg",
+    "js": {
+      "VITALS": "",
+      "vitals_app_cache_keys_v1": "",
+      "vitals_country_code": "",
+      "vitals_product_data": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "//appsolve\\.io/",
+    "website": "https://vitals.co"
+  },
   "Vite": {
     "cats": [
       19
     ],
-    "description": "Next Generation Frontend Tooling",
+    "description": "Vite is a rapid development tool for modern web projects.",
     "icon": "vite.svg",
-    "website": "https://vitejs.dev/"
+    "oss": true,
+    "website": "https://vitejs.dev"
+  },
+  "Vitrin.me": {
+    "cats": [
+      51
+    ],
+    "description": "Vitrin.me is a no-code platform that lets anyone build web apps without writing any code.",
+    "icon": "Vitrin.me.svg",
+    "implies": [
+      "Python",
+      "Django",
+      "React",
+      "Next.js"
+    ],
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.vitrin\\.me/",
+    "website": "https://vitrin.me"
   },
   "Vizury": {
     "cats": [
       32
     ],
-    "description": "Vizury is a commerce marketing platform.",
+    "description": "Vizury is a ecommerce marketing platform.",
     "icon": "Vizury.png",
     "js": {
       "safariVizury": "",
@@ -595,6 +717,20 @@
     "saas": true,
     "scriptSrc": "\\.vizury\\.com",
     "website": "https://www.vizury.com"
+  },
+  "Vntana": {
+    "cats": [
+      105
+    ],
+    "description": "Vntana (stylised as VNTANA) is an American social augmented reality company.",
+    "dom": "iframe[src*='embed.vntana.com/'], iframe[nitro-lazy-src*='embed.vntana.com/']",
+    "icon": "Vntana.png",
+    "pricing": [
+      "freemium",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.vntana.com"
   },
   "Volusion": {
     "cats": [
@@ -616,6 +752,20 @@
     "saas": true,
     "scriptSrc": "/volusion\\.js(?:\\?([\\d.]*))?\\;version:\\1",
     "website": "https://www.volusion.com"
+  },
+  "Vonage Video API": {
+    "cats": [
+      103
+    ],
+    "description": "Vonage Video API platform makes it easy to embed real-time, high-quality interactive video, messaging, screen-sharing, and more into web and mobile apps.",
+    "icon": "Vonage.svg",
+    "pricing": [
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.opentok\\.com/",
+    "website": "https://www.vonage.com/communications-apis/video/"
   },
   "Voog.com Website Builder": {
     "cats": [
@@ -645,6 +795,21 @@
     ],
     "saas": true,
     "website": "https://www.voracio.co.uk"
+  },
+  "VuFind": {
+    "cats": [
+      29
+    ],
+    "description": "VuFind is a library resource portal designed and developed by Villanova University library.",
+    "icon": "VuFind.png",
+    "js": {
+      "VuFind.defaultSearchBackend": ""
+    },
+    "meta": {
+      "generator": "^VuFind\\s([\\d\\.]+)$\\;version:\\1"
+    },
+    "oss": true,
+    "website": "https://vufind.org"
   },
   "Vue Storefront": {
     "cats": [
@@ -683,11 +848,13 @@
     "cats": [
       12
     ],
+    "css": "\\.vue-notification-group",
     "description": "Vue.js is an open-source model–view–viewmodel JavaScript framework for building user interfaces and single-page applications.",
     "html": "<[^>]+\\sdata-v(?:ue)?-",
     "icon": "vue.svg",
     "js": {
-      "Vue.version": "^(.+)$\\;version:\\1"
+      "Vue.version": "^(.+)$\\;version:\\1",
+      "__VUE_HOT_MAP__": ""
     },
     "scriptSrc": [
       "vue[.-]([\\d.]*\\d)[^/]*\\.js\\;version:\\1",
@@ -728,7 +895,7 @@
       "bblastvisit": "",
       "bbsessionhash": ""
     },
-    "cpe": "cpe:/a:vbulletin:vbulletin",
+    "cpe": "cpe:2.3:a:vbulletin:vbulletin:*:*:*:*:*:*:*:*",
     "description": "vBulletin is tool that is used to create and manage online forums or discussion boards. It is written in PHP and uses a MySQL database server.",
     "html": "<div id=\"copyright\">Powered by vBulletin",
     "icon": "vBulletin.png",

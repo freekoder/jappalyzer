@@ -30,6 +30,17 @@
     "saas": true,
     "website": "https://ma-jin.jp"
   },
+  "MATORI.NET": {
+    "cats": [
+      64
+    ],
+    "description": "MATORI.NET is a fully managed reverse proxy.",
+    "headers": {
+      "X-Powered-By": "MATORI.NET"
+    },
+    "implies": "OpenResty",
+    "website": "http://matori.net"
+  },
   "MDUI": {
     "cats": [
       66
@@ -74,11 +85,27 @@
     "scriptSrc": "\\.mgpanel\\.org/",
     "website": "https://mgpanel.org"
   },
+  "MIYN Online Appointment": {
+    "cats": [
+      72
+    ],
+    "description": "MIYN Online Appointment is an advanced cloud-based online appointment scheduling software.",
+    "icon": "MIYN.svg",
+    "js": {
+      "MIYNLive.settings": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://miyn.app/online-appointment"
+  },
   "MODX": {
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:modx:modx_revolution",
+    "cpe": "cpe:2.3:a:modx:modx_revolution:*:*:*:*:*:*:*:*",
     "description": "MODX is an open source content management system and web application framework for publishing content on the world wide web and intranets.",
     "headers": {
       "X-Powered-By": "^MODX"
@@ -142,8 +169,9 @@
     ],
     "css": "\\.MuiPaper-root",
     "description": "MUI(formerly Material UI) is a simple and customisable component library to build faster, beautiful, and more accessible React applications.",
-    "dom": "style[data-meta='MuiPaper']",
+    "dom": "style[data-meta='MuiPaper'], div.MuiBox-root, div.MuiPaper-root, style[data-meta='MuiButton']",
     "icon": "MUI.svg",
+    "implies": "React",
     "oss": true,
     "pricing": [
       "freemium",
@@ -188,14 +216,42 @@
     "scriptSrc": "^https?://(?:ads-by|pixel)\\.madadsmedia\\.com/",
     "website": "http://madadsmedia.com"
   },
+  "Magazord": {
+    "cats": [
+      6
+    ],
+    "description": "Magazord is an all-in-one ecommerce platform.",
+    "icon": "Magazord.svg",
+    "meta": {
+      "web-author": "^Magazord$"
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.magazord.com.br"
+  },
+  "MageWorx Search Autocomplete": {
+    "cats": [
+      29
+    ],
+    "description": "MageWorx Search Autocomplete extension offers an AJAX-based popup window that displays and updates relevant search results while a customer forms his or her query.",
+    "dom": "link[href*='MageWorx_SearchSuiteAutocomplete']",
+    "icon": "MageWorx.svg",
+    "oss": true,
+    "requires": "Magento",
+    "scriptSrc": "MageWorx_SearchSuiteAutocomplete",
+    "website": "https://github.com/mageworx/search-suite-autocomplete"
+  },
   "Magento": {
     "cats": [
       6
     ],
     "cookies": {
+      "X-Magento-Vary": "",
       "frontend": "\\;confidence:50"
     },
-    "cpe": "cpe:/a:magento:magento",
+    "cpe": "cpe:2.3:a:magento:magento:*:*:*:*:*:*:*:*",
     "description": "Magento is an open-source ecommerce platform written in PHP.",
     "dom": {
       "script[data-requiremodule*='mage/'], script[data-requiremodule*='Magento_'], html[data-image-optimizing-origin]": {
@@ -223,12 +279,29 @@
     ],
     "website": "https://magento.com"
   },
+  "Magisto": {
+    "cats": [
+      14
+    ],
+    "description": "Magisto is a video management solution designed to help marketing professionals, agencies, and businesses of all sizes.",
+    "icon": "Magisto.png",
+    "js": {
+      "MagistoPlayerFrame": "",
+      "magisto_server": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "scriptSrc": "\\.magisto\\.com/",
+    "website": "https://www.magisto.com"
+  },
   "MailChimp": {
     "cats": [
       32,
       75
     ],
-    "cpe": "cpe:/a:thinkshout:mailchimp",
+    "cpe": "cpe:2.3:a:thinkshout:mailchimp:*:*:*:*:*:*:*:*",
     "description": "Mailchimp is a marketing automation platform and email marketing service.",
     "dns": {
       "TXT": [
@@ -291,6 +364,54 @@
     "scriptSrc": "/wp-content/plugins/mailchimp-for-wp/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://www.mc4wp.com"
   },
+  "MailerLite": {
+    "cats": [
+      32
+    ],
+    "description": "MailerLite is an email marketing tool and website builder for businesses of all shapes and sizes.",
+    "dom": "link[href*='.mailerlite.com']",
+    "icon": "MailerLite.svg",
+    "js": {
+      "MailerLiteObject": ""
+    },
+    "pricing": [
+      "freemium",
+      "payg",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.mailerlite\\.com/",
+    "website": "https://www.mailerlite.com"
+  },
+  "MailerLite Website Builder": {
+    "cats": [
+      51
+    ],
+    "description": "MailerLite Website Builder is a free drag & drop website builder with interactive blocks and ecommerce integrations.",
+    "icon": "MailerLite.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": [
+      "MailerLite",
+      "Go",
+      "Caddy"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.mailerlite\\.com/moment/moment\\.min\\.js",
+    "website": "https://www.mailerlite.com/features/website-builder"
+  },
+  "MailerLite plugin": {
+    "cats": [
+      87
+    ],
+    "description": "The official MailerLite signup forms plugin makes it easy to grow your newsletter subscriber list from your WordPress blog or website. The plugin automatically integrates your WordPress form with your MailerLite email marketing account.",
+    "icon": "MailerLite.svg",
+    "implies": "MailerLite",
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/woo-mailerlite/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://ru.wordpress.org/plugins/official-mailerlite-sign-up-forms/"
+  },
   "Mailgun": {
     "cats": [
       75
@@ -316,6 +437,23 @@
     },
     "icon": "Mailjet.svg",
     "website": "https://www.mailjet.com/"
+  },
+  "Mailman": {
+    "cats": [
+      75
+    ],
+    "cpe": "cpe:2.3:a:gnu:mailman:*:*:*:*:*:*:*:*",
+    "description": "Mailman is free software for managing electronic mail discussion and e-newsletter lists. Mailman is integrated with the web, making it easy for users to manage their accounts and for list owners to administer their lists. Mailman supports built-in archiving, automatic bounce processing, content filtering, digest delivery, spam filters, and more.",
+    "icon": "Mailman.svg",
+    "implies": [
+      "Python"
+    ],
+    "oss": true,
+    "scriptSrc": [
+      "/mailman\\d+/static/.+\\.js",
+      "/static/(?:hyperkitty|django-mailman3)/.+\\.js"
+    ],
+    "website": "http://list.org"
   },
   "Mailmunch": {
     "cats": [
@@ -355,16 +493,53 @@
     "scriptSrc": "mk-sense\\.com/aweb\\?license",
     "website": "https://mk-sense.com/"
   },
+  "MakeShop": {
+    "cats": [
+      6
+    ],
+    "description": "MakeShop is a Japanese ecommerce platform.",
+    "dom": "link[href*='gigaplus.makeshop.jp'], img[src*='gigaplus.makeshop.jp']",
+    "icon": "MakeShop.svg",
+    "js": {
+      "MakeShop_TopSearch": "",
+      "makeshop_ga_gtag": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.makeshop.jp"
+  },
   "MakeShopKorea": {
     "cats": [
       6
     ],
+    "description": "MakeShopKorea is a Korean hosting brand that focuses on building ecommerce stores.",
     "icon": "MakeShopKorea.png",
     "js": {
       "Makeshop": "",
       "MakeshopLogUniqueId": ""
     },
     "website": "https://www.makeshop.co.kr"
+  },
+  "Malomo": {
+    "cats": [
+      107
+    ],
+    "description": "Malomo is a cloud-based shipment tracking solution that helps small to midsize eCommerce businesses provide customers with shipping updates via white-label package tracking pages.",
+    "icon": "Malomo.svg",
+    "js": {
+      "Malomo": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.gomalomo\\.com/",
+    "website": "https://gomalomo.com"
   },
   "Mambo": {
     "cats": [
@@ -394,7 +569,7 @@
     "cats": [
       13
     ],
-    "cpe": "cpe:/a:mantisbt:mantisbt",
+    "cpe": "cpe:2.3:a:mantisbt:mantisbt:*:*:*:*:*:*:*:*",
     "html": "<img[^>]+ alt=\"Powered by Mantis Bugtracker",
     "icon": "MantisBT.png",
     "implies": "PHP",
@@ -433,12 +608,38 @@
     ],
     "description": "Mapbox GL JS is a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles.",
     "dom": "link[href*='mapbox-gl.css']",
-    "icon": "Mapbogljs.png",
+    "icon": "Mapbox.svg",
     "js": {
       "mapboxgl.version": "^(.+)$\\;version:\\1\\;confidence:0"
     },
-    "scriptSrc": "mapbox-gl.js",
+    "oss": true,
+    "scriptSrc": "mapbox-gl\\.js",
     "website": "https://github.com/mapbox/mapbox-gl-js"
+  },
+  "Mapp": {
+    "cats": [
+      10,
+      32
+    ],
+    "description": "Mapp is designed specifically to help consumer-facing brands run highly personalised, cross-channel marketing campaigns powered by real-time customer data and generated insights.",
+    "icon": "Mapp.svg",
+    "js": {
+      "WebtrekkV3": "",
+      "webtrekk": "",
+      "webtrekkConfig": "",
+      "webtrekkHeatmapObjects": "",
+      "webtrekkLinktrackObjects": "",
+      "webtrekkUnloadObjects": "",
+      "webtrekkV3": "",
+      "wtSmart": "",
+      "wt_tt": "",
+      "wt_ttv2": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://mapp.com"
   },
   "Mapplic": {
     "cats": [
@@ -457,6 +658,20 @@
       "/include/mapplic/mapplic\\.js"
     ],
     "website": "https://mapplic.com"
+  },
+  "Maptalks": {
+    "cats": [
+      35
+    ],
+    "description": "Maptalks is a light and plugable JavaScript library for integrated 2D/3D maps.",
+    "dom": "div.maptalks-wrapper",
+    "icon": "Maptalks.png",
+    "js": {
+      "map._eventMap": "",
+      "maptalks.GeoJSON": ""
+    },
+    "oss": true,
+    "website": "https://maptalks.org"
   },
   "Marchex": {
     "cats": [
@@ -498,7 +713,7 @@
     "cats": [
       34
     ],
-    "cpe": "cpe:/a:mariadb_project:mariadb",
+    "cpe": "cpe:2.3:a:mariadb_project:mariadb:*:*:*:*:*:*:*:*",
     "description": "MariaDB is an open-source relational database management system compatible with MySQL.",
     "icon": "mariadb.svg",
     "website": "https://mariadb.org"
@@ -524,13 +739,30 @@
     "cats": [
       59
     ],
-    "cpe": "cpe:/a:marked_project:marked",
+    "cpe": "cpe:2.3:a:marked_project:marked:*:*:*:*:*:*:*:*",
     "icon": "marked.svg",
     "js": {
       "marked": ""
     },
     "scriptSrc": "/marked(?:\\.min)?\\.js",
     "website": "https://marked.js.org"
+  },
+  "Marker": {
+    "cats": [
+      13
+    ],
+    "description": "Marker.io is an issue tracker solution for Project Managers, QA Testers and Agency Clients to report feedback & bugs to developers.",
+    "icon": "Marker.svg",
+    "js": {
+      "markerConfig": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "edge\\.marker\\.io",
+    "website": "https://marker.io"
   },
   "Marketo": {
     "cats": [
@@ -665,7 +897,7 @@
     "cookies": {
       "PIWIK_SESSID": ""
     },
-    "cpe": "cpe:/a:matomo:matomo",
+    "cpe": "cpe:2.3:a:matomo:matomo:*:*:*:*:*:*:*:*",
     "description": "Matomo Analytics is a free and open-source web analytics applicatio, that runs on a PHP/MySQL web-server.",
     "icon": "Matomo.png",
     "js": {
@@ -696,7 +928,7 @@
     "cats": [
       2
     ],
-    "cpe": "cpe:/a:jenkins:mattermost",
+    "cpe": "cpe:2.3:a:jenkins:mattermost:*:*:*:*:*:*:*:*",
     "html": "<noscript> To use Mattermost, please enable JavaScript\\. </noscript>",
     "icon": "mattermost.png",
     "implies": [
@@ -715,7 +947,7 @@
     "cats": [
       32
     ],
-    "cpe": "cpe:/a:mautic:mautic",
+    "cpe": "cpe:2.3:a:mautic:mautic:*:*:*:*:*:*:*:*",
     "description": "Mautic is a free and open-source marketing automation tool for Content Management, Social Media, Email Marketing, and can be used for the integration of social networks, campaign management, forms, questionnaires, reports, etc.",
     "icon": "mautic.svg",
     "js": {
@@ -750,7 +982,8 @@
     "saas": true,
     "scriptSrc": [
       "(?:device|js)\\.maxmind\\.com/",
-      "geoip\\.maxmind\\.min\\.js"
+      "geoip\\.maxmind\\.min\\.js",
+      "geoip-js\\.com/.+/v([\\d\\.]+)/\\;version:\\1"
     ],
     "website": "https://www.maxmind.com",
     "xhr": "\\.maxmind\\.com"
@@ -777,6 +1010,35 @@
       "Mxm.Tracker": ""
     },
     "website": "https://maxemail.xtremepush.com"
+  },
+  "MaxenceDEVCMS": {
+    "cats": [
+      1
+    ],
+    "description": "MaxenceDEVCMS is a simple CMS for ecommerce, esport, landing page.",
+    "icon": "default.svg",
+    "implies": [
+      "PHP",
+      "MySQL"
+    ],
+    "meta": {
+      "author": "^MaxenceDEV$"
+    },
+    "oss": true,
+    "website": "https://cms.maxencedev.fr"
+  },
+  "Measured": {
+    "cats": [
+      10
+    ],
+    "description": "Measured is an analytics platform to measure efficiency of marketing channels.",
+    "icon": "Measured.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "tag\\.measured\\.com",
+    "website": "https://www.measured.com"
   },
   "Medallia": {
     "cats": [
@@ -824,7 +1086,7 @@
     "cats": [
       8
     ],
-    "cpe": "cpe:/a:mediawiki:mediawiki",
+    "cpe": "cpe:2.3:a:mediawiki:mediawiki:*:*:*:*:*:*:*:*",
     "description": "MediaWiki is a free and open-source wiki engine.",
     "html": [
       "<body[^>]+class=\"mediawiki\"",
@@ -914,7 +1176,7 @@
       11,
       32
     ],
-    "cpe": "cpe:/a:melisplatform:melisplatform",
+    "cpe": "cpe:2.3:a:melisplatform:melisplatform:*:*:*:*:*:*:*:*",
     "html": [
       "<!-- Rendered with Melis CMS V2",
       "<!-- Rendered with Melis Platform"
@@ -1146,15 +1408,15 @@
       "ASP.NET_SessionId": "",
       "ASPSESSION": ""
     },
-    "cpe": "cpe:/a:microsoft:asp.net",
+    "cpe": "cpe:2.3:a:microsoft:asp.net:*:*:*:*:*:*:*:*",
     "description": "ASP.NET is an open-source, server-side web-application framework designed for web development to produce dynamic web pages.",
     "headers": {
       "X-AspNet-Version": "(.+)\\;version:\\1",
-      "X-Powered-By": "^ASP\\.NET"
+      "X-Powered-By": "^ASP\\.NET",
+      "set-cookie": "\\.AspNetCore"
     },
     "html": "<input[^>]+name=\"__VIEWSTATE",
     "icon": "Microsoft ASP.NET.svg",
-    "implies": "IIS\\;confidence:50",
     "url": "\\.aspx?(?:$|\\?)",
     "website": "https://www.asp.net"
   },
@@ -1206,6 +1468,21 @@
     "saas": true,
     "website": "https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview"
   },
+  "Microsoft Authentication": {
+    "cats": [
+      69,
+      59
+    ],
+    "description": "The Microsoft Authentication Library for JavaScript enables both client-side and server-side JavaScript applications to authenticate users using Azure AD for work and school accounts (AAD), Microsoft personal accounts (MSA), and social identity providers like Facebook, Google, LinkedIn, Microsoft accounts, etc. through Azure AD B2C service.",
+    "icon": "Microsoft.svg",
+    "js": {
+      "Msal.Authority": "",
+      "msal.authorityInstance": "",
+      "msalConfig.auth": ""
+    },
+    "oss": true,
+    "website": "https://github.com/AzureAD/microsoft-authentication-library-for-js"
+  },
   "Microsoft Clarity": {
     "cats": [
       10
@@ -1226,7 +1503,7 @@
     "cats": [
       20
     ],
-    "cpe": "cpe:/a:microsoft:excel",
+    "cpe": "cpe:2.3:a:microsoft:excel:*:*:*:*:*:*:*:*",
     "description": "Microsoft Excel is an electronic spreadsheet program used for storing, organizing, and manipulating data.",
     "html": "(?:<html [^>]*xmlns:w=\"urn:schemas-microsoft-com:office:excel\"|<!--\\s*(?:START|END) OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD\\s*-->|<div [^>]*x:publishsource=\"?Excel\"?)",
     "icon": "Microsoft Excel.svg",
@@ -1250,7 +1527,7 @@
     "cats": [
       20
     ],
-    "cpe": "cpe:/a:microsoft:powerpoint",
+    "cpe": "cpe:2.3:a:microsoft:powerpoint:*:*:*:*:*:*:*:*",
     "description": "Microsoft PowerPoint is a tool to create presentations using simple drag and drop tools.",
     "html": "(?:<html [^>]*xmlns:w=\"urn:schemas-microsoft-com:office:powerpoint\"|<link rel=\"?Presentation-XML\"? href=\"?[^\"]+\\.xml\"?>|<o:PresentationFormat>[^<]+</o:PresentationFormat>[^!]+<o:Slides>\\d+</o:Slides>(?:[^!]+<o:Version>([\\d.]+)</o:Version>)?)\\;version:\\1",
     "icon": "Microsoft PowerPoint.svg",
@@ -1264,7 +1541,7 @@
     "cats": [
       20
     ],
-    "cpe": "cpe:/a:microsoft:publisher",
+    "cpe": "cpe:2.3:a:microsoft:publisher:*:*:*:*:*:*:*:*",
     "description": "Microsoft Publisher is an application that allows you to create professional documents such as newsletters, postcards, flyers, invitations, brochures.",
     "html": "(?:<html [^>]*xmlns:w=\"urn:schemas-microsoft-com:office:publisher\"|<!--[if pub]><xml>)",
     "icon": "Microsoft Publisher.svg",
@@ -1278,7 +1555,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:microsoft:sharepoint_server",
+    "cpe": "cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:*:*:*:*",
     "description": "SharePoint is a cloud-based collaborative platform to manage and share content.",
     "headers": {
       "MicrosoftSharePointTeamServices": "^(.+)$\\;version:\\1",
@@ -1304,7 +1581,7 @@
     "cats": [
       20
     ],
-    "cpe": "cpe:/a:microsoft:word",
+    "cpe": "cpe:2.3:a:microsoft:word:*:*:*:*:*:*:*:*",
     "description": "MS Word is a word-processing program used primarily for creating documents.",
     "html": "(?:<html [^>]*xmlns:w=\"urn:schemas-microsoft-com:office:word\"|<w:WordDocument>|<div [^>]*class=\"?WordSection1[\" >]|<style[^>]*>[^>]*@page WordSection1)",
     "icon": "Microsoft Word.svg",
@@ -1357,6 +1634,24 @@
     "icon": "Milligram.png",
     "website": "https://milligram.io"
   },
+  "MinMaxify": {
+    "cats": [
+      100
+    ],
+    "description": "MinMaxify is an app that allows Shopify store owners to set minimum and maximum values for customer orders built by Intillium.",
+    "icon": "MinMaxify.png",
+    "implies": "Shopify",
+    "js": {
+      "minMaxify.checkLimits": "",
+      "minMaxify.shop": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://apps.shopify.com/order-limits-minmaxify"
+  },
   "MindBody": {
     "cats": [
       5,
@@ -1375,6 +1670,24 @@
     "scriptSrc": "\\w+\\.healcode\\.com",
     "website": "https://www.mindbodyonline.com"
   },
+  "Mindbox": {
+    "cats": [
+      32
+    ],
+    "description": "Mindbox is a marketing automation platform.",
+    "icon": "Mindbox.png",
+    "js": {
+      "MindboxEndpointSettings": "",
+      "mindbox": "",
+      "mindboxBatchedModulesInitialized": ""
+    },
+    "pricing": [
+      "payg",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://mindbox.ru"
+  },
   "Minero.cc": {
     "cats": [
       56
@@ -1385,10 +1698,22 @@
     ],
     "website": "http://minero.cc/"
   },
+  "MiniServ": {
+    "cats": [
+      22
+    ],
+    "headers": {
+      "Server": "MiniServ/([\\d\\.]+)\\;version:\\1"
+    },
+    "implies": "Webmin",
+    "oss": true,
+    "website": "https://github.com/webmin/webmin/blob/master/miniserv.pl"
+  },
   "Mint": {
     "cats": [
       10
     ],
+    "description": "Mint is an extensible, self-hosted web site analytics program.",
     "icon": "Mint.png",
     "js": {
       "Mint": ""
@@ -1599,7 +1924,7 @@
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:mochiweb_project:mochiweb",
+    "cpe": "cpe:2.3:a:mochiweb_project:mochiweb:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "MochiWeb(?:/([\\d.]+))?\\;version:\\1"
     },
@@ -1619,6 +1944,27 @@
     ],
     "website": "https://modernizr.com"
   },
+  "ModiFace": {
+    "cats": [
+      105
+    ],
+    "description": "ModiFace is a provider of Augmented Reality technology for the beauty industry.",
+    "dom": "iframe[src*='.modiface.com/']",
+    "headers": {
+      "content-security-policy": "\\.modiface\\.com"
+    },
+    "icon": "ModiFace.svg",
+    "js": {
+      "initModiface": ""
+    },
+    "pricing": [
+      "high",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.modiface\\.com/",
+    "website": "https://modiface.com"
+  },
   "Modified": {
     "cats": [
       6
@@ -1628,6 +1974,22 @@
       "generator": "\\(c\\) by modified eCommerce Shopsoftware ------ http://www\\.modified-shop\\.org"
     },
     "website": "http://www.modified-shop.org/"
+  },
+  "Module Federation": {
+    "cats": [
+      19
+    ],
+    "description": "Module Federation is a webpack technology for dynamically loading parts of other independently deployed builds.",
+    "icon": "Module Federation.png",
+    "implies": [
+      "webpack"
+    ],
+    "scripts": [
+      "data-webpack\\;confidence:50",
+      "Container missing\\;confidence:50",
+      "Initialization of sharing external failed\\;confidence:50"
+    ],
+    "website": "https://webpack.js.org/concepts/module-federation/"
   },
   "Moguta.CMS": {
     "cats": [
@@ -1647,7 +2009,7 @@
     "cookies": {
       "MOIN_SESSION": ""
     },
-    "cpe": "cpe:/a:moinmo:moinmoin",
+    "cpe": "cpe:2.3:a:moinmo:moinmoin:*:*:*:*:*:*:*:*",
     "description": "MoinMoin is a wiki engine implemented in Python.",
     "icon": "MoinMoin.png",
     "implies": "Python",
@@ -1669,11 +2031,22 @@
     "implies": "Perl",
     "website": "http://mojolicio.us"
   },
+  "Mokka": {
+    "cats": [
+      41,
+      91
+    ],
+    "description": "Mokka is a Buy Now Pay Later solution that connects target customer acquisition and settlement costs through marketing and promotion..",
+    "icon": "Mokka.svg",
+    "saas": true,
+    "scriptSrc": "revoiframe\\.js",
+    "website": "https://mokka.ro"
+  },
   "Mollom": {
     "cats": [
       16
     ],
-    "cpe": "cpe:/a:acquia:mollom",
+    "cpe": "cpe:2.3:a:acquia:mollom:*:*:*:*:*:*:*:*",
     "html": "<img[^>]+\\.mollom\\.com",
     "icon": "Mollom.png",
     "scriptSrc": "mollom(?:\\.min)?\\.js",
@@ -1692,7 +2065,7 @@
     "cats": [
       59
     ],
-    "cpe": "cpe:/a:momentjs:moment",
+    "cpe": "cpe:2.3:a:momentjs:moment:*:*:*:*:*:*:*:*",
     "description": "Moment.js is a free and open-source JavaScript library that removes the need to use the native JavaScript Date object directly.",
     "icon": "Moment.js.svg",
     "js": {
@@ -1738,11 +2111,46 @@
     },
     "website": "http://mondo-media.de"
   },
+  "Moneris": {
+    "cats": [
+      41
+    ],
+    "description": "Moneris (formerly Moneris Solutions) is Canada's largest financial technology company that specialises in payment processing.",
+    "headers": {
+      "content-security-policy": "\\.moneris\\.com"
+    },
+    "icon": "Moneris.svg",
+    "js": {
+      "initialServerData.monerisConfiguration": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://www.moneris.com"
+  },
+  "Moneris Payment Gateway": {
+    "cats": [
+      87
+    ],
+    "description": "Moneris is Canada’s leading processor of Debit and credit card payments. This WooCommerce extension automatically adds moneris payment gateway to your woocommerce website and allows you to keep the customer on your site for the checkout process.",
+    "icon": "Moneris.svg",
+    "implies": [
+      "Moneris",
+      "WooCommerce"
+    ],
+    "js": {
+      "wc_moneris_hosted_tokenization_params": ""
+    },
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/woocommerce-gateway-moneris/",
+    "website": "https://wordpress.org/plugins/wc-moneris-payment-gateway"
+  },
   "MongoDB": {
     "cats": [
       34
     ],
-    "cpe": "cpe:/a:mongodb:mongodb",
+    "cpe": "cpe:2.3:a:mongodb:mongodb:*:*:*:*:*:*:*:*",
     "description": "MongoDB is a document-oriented NoSQL database used for high volume data storage.",
     "icon": "MongoDB.png",
     "website": "http://www.mongodb.org"
@@ -1751,7 +2159,7 @@
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:zed_shaw:mongrel",
+    "cpe": "cpe:2.3:a:zed_shaw:mongrel:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "Mongrel"
     },
@@ -1773,7 +2181,7 @@
     "cats": [
       18
     ],
-    "cpe": "cpe:/a:mono:mono",
+    "cpe": "cpe:2.3:a:mono:mono:*:*:*:*:*:*:*:*",
     "headers": {
       "X-Powered-By": "Mono"
     },
@@ -1832,7 +2240,7 @@
       "MOODLEID_": "",
       "MoodleSession": ""
     },
-    "cpe": "cpe:/a:moodle:moodle",
+    "cpe": "cpe:2.3:a:moodle:moodle:*:*:*:*:*:*:*:*",
     "description": "Moodle is a free and open-source Learning Management System (LMS) written in PHP and distributed under the GNU General Public License.",
     "html": "<img[^>]+moodlelogo",
     "icon": "Moodle.png",
@@ -1889,6 +2297,16 @@
     "scriptSrc": "deploy\\.mopinion\\.com/",
     "website": "https://mopinion.com"
   },
+  "Moshimo": {
+    "cats": [
+      71
+    ],
+    "description": "Moshimo is a free affiliate service for individuals.",
+    "dom": "link[href*='i.moshimo.com'], img[src*='i.moshimo.com']",
+    "icon": "Moshimo.png",
+    "scriptSrc": "\\.moshimo\\.com/af/",
+    "website": "https://af.moshimo.com"
+  },
   "MotoCMS": {
     "cats": [
       1
@@ -1935,7 +2353,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:sixapart:movable_type",
+    "cpe": "cpe:2.3:a:sixapart:movable_type:*:*:*:*:*:*:*:*",
     "icon": "Movable Type.svg",
     "meta": {
       "generator": "Movable Type"
@@ -2043,7 +2461,7 @@
       "mybb[lastactive]": "",
       "mybb[lastvisit]": ""
     },
-    "cpe": "cpe:/a:mybb:mybb",
+    "cpe": "cpe:2.3:a:mybb:mybb:*:*:*:*:*:*:*:*",
     "description": "MyBB is a free and open-source forum software written in PHP.",
     "icon": "MyBB.png",
     "implies": [
@@ -2074,6 +2492,23 @@
     },
     "icon": "mycashflow.png",
     "website": "https://www.mycashflow.fi/"
+  },
+  "MyFonts": {
+    "cats": [
+      17
+    ],
+    "description": "MyFonts is a digital fonts distributor, based in Woburn, Massachusetts.",
+    "dom": "link[href*='.myfonts.net']",
+    "headers": {
+      "content-security-policy": "\\.myfonts\\.net"
+    },
+    "icon": "MyFonts.svg",
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "website": "https://www.myfonts.com",
+    "xhr": "\\.myfonts\\.net/"
   },
   "MyLiveChat": {
     "cats": [
@@ -2107,7 +2542,7 @@
     "cats": [
       34
     ],
-    "cpe": "cpe:/a:mysql:mysql",
+    "cpe": "cpe:2.3:a:mysql:mysql:*:*:*:*:*:*:*:*",
     "description": "MySQL is an open-source relational database management system.",
     "icon": "MySQL.svg",
     "website": "http://mysql.com"
@@ -2172,6 +2607,18 @@
     ],
     "saas": true,
     "website": "https://www.ionos.com"
+  },
+  "Myhkw player": {
+    "cats": [
+      5
+    ],
+    "description": "Myhkw player is a website music player.",
+    "icon": "Myhkw player.png",
+    "js": {
+      "myhk_player_songid": "",
+      "myhkplayerlist": ""
+    },
+    "website": "https://myhkw.cn"
   },
   "Mynetcap": {
     "cats": [
@@ -2268,6 +2715,20 @@
     "scripts": "localStorage\\.getItem\\('mdbook-(?:sidebar|theme)'\\)",
     "website": "https://github.com/rust-lang/mdBook"
   },
+  "metisMenu": {
+    "cats": [
+      59
+    ],
+    "description": "metisMenu is a collapsible jQuery menu plugin.",
+    "implies": "jQuery",
+    "js": {
+      "MetisMenu": "",
+      "metisMenu": ""
+    },
+    "oss": true,
+    "scriptSrc": "(?:/|\\.)metisMenu(?:js)?(?:\\.min)?\\.js(?:\\?([\\d\\.]+))?\\;version:\\1",
+    "website": "https://github.com/onokumus/metismenu"
+  },
   "microCMS": {
     "cats": [
       1
@@ -2294,6 +2755,22 @@
     },
     "icon": "mini_httpd.png",
     "website": "http://acme.com/software/mini_httpd"
+  },
+  "mirrAR": {
+    "cats": [
+      105
+    ],
+    "description": "mirrAR is a real-time augmented reality platform for retail brands that enables consumers to virtually try on products and experience how it feels to own them before the actual purchase, both in-store and online.",
+    "icon": "mirrAR.png",
+    "js": {
+      "initMirrarUI": "",
+      "loadmirrAR": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.mirrar.com"
   },
   "mobicred": {
     "cats": [
@@ -2360,6 +2837,7 @@
     "cats": [
       33
     ],
+    "cpe": "cpe:2.3:a:apache:mod_perl:*:*:*:*:*:*:*:*",
     "description": "Mod_perl is an optional module for the Apache HTTP server. It embeds a Perl interpreter into the Apache server. In addition to allowing Apache modules to be written in the Perl programming language, it allows the Apache web server to be dynamically configured by Perl programs.",
     "headers": {
       "Server": "mod_perl(?:/([\\d\\.]+))?\\;version:\\1"
@@ -2375,6 +2853,7 @@
     "cats": [
       33
     ],
+    "cpe": "cpe:2.3:a:apache:mod_python:*:*:*:*:*:*:*:*",
     "description": "Mod_python is an Apache HTTP Server module that integrates the Python programming language with the server. It is intended to provide a Python language binding for the Apache HTTP Server. ",
     "headers": {
       "Server": "mod_python(?:/([\\d.]+))?\\;version:\\1"
@@ -2422,6 +2901,7 @@
     "cats": [
       33
     ],
+    "cpe": "cpe:2.3:a:modssl:mod_ssl:*:*:*:*:*:*:*:*",
     "description": "mod_ssl is an optional module for the Apache HTTP Server. It provides strong cryptography for the Apache web server via the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) cryptographic protocols by the help of the open-source SSL/TLS toolkit OpenSSL.",
     "headers": {
       "Server": "mod_ssl(?:/([\\d.]+))?\\;version:\\1"
@@ -2434,6 +2914,7 @@
     "cats": [
       33
     ],
+    "cpe": "cpe:2.3:a:modwsgi:mod_wsgi:*:*:*:*:*:*:*:*",
     "description": "mod_wsgi is an Apache HTTP Server module that provides a WSGI compliant interface for hosting Python based web applications under Apache.",
     "headers": {
       "Server": "mod_wsgi(?:/([\\d.]+))?\\;version:\\1",

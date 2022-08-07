@@ -36,6 +36,7 @@
     "cats": [
       22
     ],
+    "cpe": "cpe:2.3:a:redhat:jboss_application_server:*:*:*:*:*:*:*:*",
     "headers": {
       "X-Powered-By": "JBoss(?:-([\\d.]+))?\\;version:\\1"
     },
@@ -46,6 +47,7 @@
     "cats": [
       22
     ],
+    "cpe": "cpe:2.3:a:redhat:jbossweb:*:*:*:*:*:*:*:*",
     "excludes": "Apache Tomcat",
     "headers": {
       "X-Powered-By": "JBossWeb(?:-([\\d.]+))?\\;version:\\1"
@@ -175,6 +177,7 @@
     "cookies": {
       "JSESSIONID": ""
     },
+    "cpe": "cpe:2.3:a:oracle:jre:*:*:*:*:*:*:*:*",
     "description": "Java is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.",
     "icon": "Java.png",
     "website": "http://java.com"
@@ -238,7 +241,7 @@
     "cats": [
       57
     ],
-    "cpe": "cpe:/a:jekyllrb:jekyll",
+    "cpe": "cpe:2.3:a:jekyllrb:jekyll:*:*:*:*:*:*:*:*",
     "description": "Jekyll is a blog-aware, static site generator for personal, project, or organisation sites.",
     "html": [
       "Powered by <a href=\"https?://jekyllrb\\.com\"[^>]*>Jekyll</",
@@ -255,6 +258,7 @@
     "cats": [
       44
     ],
+    "cpe": "cpe:2.3:a:jenkins:jenkins:*:*:*:*:*:*:*:*",
     "description": "Jenkins is an open-source automation tool written in Java with plugins built for Continuous Integration (CI) purposes.",
     "headers": {
       "X-Jenkins": "([\\d.]+)\\;version:\\1"
@@ -337,13 +341,17 @@
       "X-Jimdo-Instance": "",
       "X-Jimdo-Wid": ""
     },
-    "icon": "jimdo.png",
+    "icon": "Jimdo.svg",
+    "js": {
+      "jimdoDolphinData": ""
+    },
     "pricing": [
       "low",
-      "freemium"
+      "freemium",
+      "recurring"
     ],
     "saas": true,
-    "url": "\\.jimdo\\.com/",
+    "url": "\\.jimdo(?:site)?\\.com/",
     "website": "https://www.jimdo.com"
   },
   "Jirafe": {
@@ -399,6 +407,20 @@
     "saas": true,
     "scriptSrc": "\\.jivosite\\.com",
     "website": "https://www.jivosite.com"
+  },
+  "Jivox": {
+    "cats": [
+      76
+    ],
+    "description": "Jivox is a cloud-based, data-driven platform for delivering personalised digital advertising and marketing experiences at scale.",
+    "dom": "link[href*='.jivox.com']",
+    "icon": "Jivox.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.jivox\\.com/",
+    "website": "https://jivox.com"
   },
   "JobAdder": {
     "cats": [
@@ -471,7 +493,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:joomla:joomla",
+    "cpe": "cpe:2.3:a:joomla:joomla:*:*:*:*:*:*:*:*",
     "description": "Joomla is a free and open-source content management system for publishing web content.",
     "headers": {
       "X-Content-Encoded-By": "Joomla! ([\\d.]+)\\;version:\\1"
@@ -490,12 +512,66 @@
     "url": "option=com_",
     "website": "https://www.joomla.org"
   },
+  "JouwWeb": {
+    "cats": [
+      51
+    ],
+    "description": "JouwWeb is an online website builder that allows internet users to create own website.",
+    "icon": "JouwWeb.svg",
+    "js": {
+      "JOUWWEB": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "(?:cdn)?\\.(?:jwwb|jouwweb)\\.nl/",
+    "website": "https://www.jouwweb.nl"
+  },
+  "JsObservable": {
+    "cats": [
+      59
+    ],
+    "description": "JsObservable is integrated with JsViews and facilitates observable data manipulations that are immediately reflected in the data-bound templates. The library is developed and maintained by Microsoft employee Boris Moore and is used in projects such as Outlook.com and Windows Azure.",
+    "icon": "JsObservable.svg",
+    "oss": true,
+    "website": "https://www.jsviews.com/#jsobservable"
+  },
+  "JsRender": {
+    "cats": [
+      59
+    ],
+    "description": "JsRender is the template library. The library is developed and maintained by Microsoft employee Boris Moore and is used in projects such as Outlook.com and Windows Azure.",
+    "icon": "JsRender.svg",
+    "implies": "JsViews",
+    "oss": true,
+    "scriptSrc": "([\\d\\.]+)?/jsrender(?:\\.min)?\\.js\\;version:\\1",
+    "website": "https://www.jsviews.com/#jsrender"
+  },
+  "JsViews": {
+    "cats": [
+      59
+    ],
+    "description": "JsViews is the MVVM library which provides two-way data binding for the template. The library is developed and maintained by Microsoft employee Boris Moore and is used in projects such as Outlook.com and Windows Azure.",
+    "icon": "JsViews.svg",
+    "implies": [
+      "JsObservable",
+      "JsRender"
+    ],
+    "oss": true,
+    "scriptSrc": "([\\d\\.]+)?/jsviews(?:\\.min)?\\.js\\;version:\\1",
+    "website": "https://www.jsviews.com/#jsviews"
+  },
   "Judge.me": {
     "cats": [
-      90
+      90,
+      100
     ],
     "description": "Judge.me powers product reviews on ecommerce stores.",
     "icon": "Judge.svg",
+    "implies": "Shopify",
     "js": {
       "judgeme": ""
     },
@@ -570,6 +646,39 @@
     ],
     "website": "https://jumpseller.com"
   },
+  "Junip": {
+    "cats": [
+      90
+    ],
+    "description": "Junip provider of a ecommerce brand review platform designed to share customers' story, send review requests and display review content.",
+    "icon": "Junip.svg",
+    "js": {
+      "junipLoaded": "\\;confidence:50",
+      "webpackChunkjunip_scripts": "\\;confidence:50"
+    },
+    "pricing": [
+      "freemium",
+      "recurring",
+      "payg"
+    ],
+    "requiresCategory": 6,
+    "saas": true,
+    "scriptSrc": "\\.juniphq\\.com/",
+    "website": "https://junip.co"
+  },
+  "Juo": {
+    "cats": [
+      74
+    ],
+    "description": "Juo is a centralised experimentation platform for innovative marketing and product teams.",
+    "icon": "Juo.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.juo\\.io/",
+    "website": "https://get.juo.io"
+  },
   "Justo": {
     "cats": [
       6
@@ -632,7 +741,7 @@
     "cats": [
       59
     ],
-    "cpe": "cpe:/a:jquery:jquery",
+    "cpe": "cpe:2.3:a:jquery:jquery:*:*:*:*:*:*:*:*",
     "description": "jQuery is a JavaScript library which is a free, open-source software designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.",
     "icon": "jQuery.svg",
     "js": {
@@ -701,6 +810,18 @@
     "scriptSrc": "jquery[.-]mobile(?:-([\\d.]))?(?:\\.min)?\\.js(?:\\?ver=([\\d.]+))?\\;version:\\1?\\1:\\2",
     "website": "https://jquerymobile.com"
   },
+  "jQuery Modal": {
+    "cats": [
+      59
+    ],
+    "description": "JQuery Modal is an overlay dialog box or in other words, a popup window that is made to display on the top or 'overlayed' on the current page.",
+    "dom": "link[href*='jquery.modal.min.css']",
+    "icon": "jQuery Modal.png",
+    "implies": "jQuery",
+    "oss": true,
+    "scriptSrc": "jquery-modal/([\\d\\.]+)/jquery\\.modal\\.min\\.js\\;version:\\1",
+    "website": "https://jquerymodal.com"
+  },
   "jQuery Sparklines": {
     "cats": [
       25
@@ -714,7 +835,7 @@
     "cats": [
       59
     ],
-    "cpe": "cpe:/a:jquery:jquery_ui",
+    "cpe": "cpe:2.3:a:jquery:jquery_ui:*:*:*:*:*:*:*:*",
     "description": "jQuery UI is a collection of GUI widgets, animated visual effects, and themes implemented with jQuery, Cascading Style Sheets, and HTML.",
     "icon": "jQuery UI.svg",
     "implies": "jQuery",

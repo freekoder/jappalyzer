@@ -17,7 +17,7 @@
   },
   "OWL Carousel": {
     "cats": [
-      5
+      59
     ],
     "description": "OWL Carousel is an enabled jQuery plugin that lets you create responsive carousel sliders.",
     "html": "<link [^>]*href=\"[^\"]+owl\\.carousel(?:\\.min)?\\.css",
@@ -68,6 +68,45 @@
     "icon": "OXID eShop.svg",
     "implies": "PHP",
     "website": "https://www.oxid-esales.com"
+  },
+  "Obsidian Incentivize": {
+    "cats": [
+      100
+    ],
+    "description": "Obsidian Incentivize is designed to increase your average order size through in-cart upsells, cross sells and personalised product recommendations.",
+    "icon": "Obsidian.png",
+    "js": {
+      "Obsidian.IncentiveApi": ""
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "freemium"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "cdn\\.shopify\\.com/extensions/.+/([\\.\\d]{3,})/assets/upsell\\.min\\.js\\;version:\\1",
+    "website": "https://obsidianapps.co"
+  },
+  "Obviyo": {
+    "cats": [
+      100,
+      76
+    ],
+    "description": "Obviyo is an ecommerce intelligence platform helping merchants personalise and optimise shopping experience.",
+    "icon": "Obviyo.png",
+    "js": {
+      "__hic.version": "([\\d.]+)\\;version:\\1"
+    },
+    "pricing": [
+      "freemium",
+      "mid",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "deploy\\.hiconversion\\.com",
+    "website": "https://www.obviyo.com"
   },
   "Occasion": {
     "cats": [
@@ -133,6 +172,24 @@
     "scriptSrc": "ocnk-min\\.js",
     "website": "https://www.ocnk.com"
   },
+  "Oct8ne": {
+    "cats": [
+      52
+    ],
+    "description": "Oct8ne is a visual customer service software.",
+    "icon": "Oct8ne.png",
+    "js": {
+      "oct8ne.agentsAvailable": "",
+      "oct8neApi": "",
+      "oct8neVars.pluginVersion": "([\\d\\.]+)\\;version:\\1"
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.oct8ne\\.com/",
+    "website": "https://oct8ne.com"
+  },
   "Octane AI": {
     "cats": [
       5,
@@ -141,15 +198,14 @@
     "description": "Octane AI provides an all-in-one platform for engaging quizzes, data collection, and personalised Facebook Messenger and SMS automation.",
     "icon": "Octane AI.svg",
     "js": {
-      "OctaneConfig": "",
-      "oct8neApi": ""
+      "OctaneConfig": ""
     },
     "pricing": [
       "low",
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": "\\.(?:octaneai|oct8ne)\\.com/",
+    "scriptSrc": "\\.octaneai\\.com/",
     "website": "https://www.octaneai.com"
   },
   "October CMS": {
@@ -182,12 +238,27 @@
     "scriptSrc": "/octopress\\.js",
     "website": "http://octopress.org"
   },
+  "Ocuco FitMix": {
+    "cats": [
+      105
+    ],
+    "description": "Ocuco is now offering its customers FittingBox's FitMix, a virtual frame try-on tool.",
+    "icon": "Ocuco.png",
+    "js": {
+      "FitMix.WIDGET_BASE_URL": "static\\.fittingbox\\.com"
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.ocuco.com/fitmix"
+  },
   "Odoo": {
     "cats": [
       1,
       6
     ],
-    "cpe": "cpe:/a:odoo:odoo",
+    "cpe": "cpe:2.3:a:odoo:odoo:*:*:*:*:*:*:*:*",
     "description": "Odoo is business management software which includes CRM, ecommerce, billing, accounting, manufacturing, warehouse, project management, and inventory management.",
     "html": "<link[^>]* href=[^>]+/web/css/(?:web\\.assets_common/|website\\.assets_frontend/)\\;confidence:25",
     "icon": "Odoo.png",
@@ -204,9 +275,27 @@
     "scriptSrc": "/web/js/(?:web\\.assets_common/|website\\.assets_frontend/)\\;confidence:25",
     "website": "http://odoo.com"
   },
+  "Oh Dear": {
+    "cats": [
+      13
+    ],
+    "description": "The all-in-one monitoring tool for your entire website. Oh Dear monitors uptime, SSL certificates, broken links, scheduled tasks, application health, DNS, domain expiry and more.",
+    "icon": "Oh Dear.svg",
+    "js": {
+      "__NEXT_DATA__.props.pageProps.config.userAgent": "OhDear\\.app"
+    },
+    "pricing": [
+      "payg",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.ohdear\\.app/",
+    "website": "https://ohdear.app"
+  },
   "Okendo": {
     "cats": [
-      90
+      90,
+      100
     ],
     "description": "Okendo is a customer marketing platform with product ratings and reviews, customer photos and videos to help personalise experiences.",
     "dom": {
@@ -217,6 +306,7 @@
       }
     },
     "icon": "Okendo.svg",
+    "implies": "Shopify",
     "js": {
       "okeReviewsWidgetOnInit": "",
       "okeWidgetControlInit": "",
@@ -231,8 +321,9 @@
   },
   "Okta": {
     "cats": [
-      19
+      69
     ],
+    "cpe": "cpe:2.3:a:okta:*:*:*:*:*:*:*:*:*",
     "description": "Okta is a platform in the Identity-as-a-Service (IDaaS) category. Okta features include Provisioning, Single Sign-On (SSO), Active Directory (AD) and LDAP integration, the centralized de-provisioning of users, multi-factor authentication (MFA), mobile identity management.",
     "icon": "Okta.svg",
     "js": {
@@ -271,11 +362,15 @@
     ],
     "description": "Olark is a cloud-based live chat solution.",
     "icon": "Olark.png",
+    "js": {
+      "olark": "",
+      "olarkUserData": ""
+    },
     "pricing": [
       "payg"
     ],
     "saas": true,
-    "scriptSrc": "\\.olark\\.com",
+    "scriptSrc": "\\.olark\\.com/",
     "website": "https://www.olark.com/"
   },
   "Ometria": {
@@ -316,6 +411,19 @@
     ],
     "scriptSrc": "cdn\\.omise\\.co",
     "website": "https://www.omise.co"
+  },
+  "Omni CMS": {
+    "cats": [
+      1
+    ],
+    "description": "Omni CMS (formerly OU Campus) is a web content management system developed by Modern Campus. Modern Campus is a SaaS-based student lifecycle management software designed to manage continuing education and non-degree programs.",
+    "dom": "a[href*='a.cms.omniupdate.com/11/']",
+    "icon": "Modern Campus.png",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://moderncampus.com/products/web-content-management.html"
   },
   "Omniconvert": {
     "cats": [
@@ -358,6 +466,43 @@
     "saas": true,
     "scriptSrc": "omnisrc\\.com",
     "website": "https://www.omnisend.com"
+  },
+  "Omurga Sistemi": {
+    "cats": [
+      1
+    ],
+    "icon": "Omurga Sistemi.svg",
+    "implies": [
+      "MySQL",
+      "PHP"
+    ],
+    "meta": {
+      "generator": "^OS-Omurga Sistemi"
+    },
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.os.com.tr"
+  },
+  "OnShop": {
+    "cats": [
+      6
+    ],
+    "description": "OnShop is an ecommerce platform for online merchants.",
+    "dom": "link[href*='cdn.onshop.asia/']",
+    "excludes": "OpenCart",
+    "icon": "Onshop.svg",
+    "implies": "PHP",
+    "meta": {
+      "generator": "Onshop Ecommerce"
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://onshop.asia"
   },
   "OnUniverse": {
     "cats": [
@@ -502,6 +647,24 @@
     ],
     "website": "http://www.onetrust.com"
   },
+  "Oney": {
+    "cats": [
+      91
+    ],
+    "description": "Oney is an app that gives consumers back the power over their spending and makes split payments universal.",
+    "icon": "Oney.svg",
+    "js": {
+      "OneyMarketplace": "",
+      "isOneyActive": "",
+      "openOneyLayer": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "requiresCategory": 6,
+    "scriptSrc": "/modules/oney(?:/)?/views/js/front\\.js",
+    "website": "https://www.oney.com"
+  },
   "Onfido": {
     "cats": [
       16,
@@ -520,20 +683,6 @@
     ],
     "saas": true,
     "website": "https://onfido.com"
-  },
-  "Onshop": {
-    "cats": [
-      6
-    ],
-    "description": "OpenCartfree open-source ecommerce platform for online merchants.",
-    "excludes": "OpenCart",
-    "icon": "Onshop.svg",
-    "implies": "PHP",
-    "meta": {
-      "generator": "Onshop Ecommerce"
-    },
-    "scriptSrc": "/opencart_custom\\.js",
-    "website": "https://onshop.asia"
   },
   "Ookla Speedtest Custom": {
     "cats": [
@@ -568,7 +717,7 @@
     "cats": [
       6
     ],
-    "cpe": "cpe:/a:open-classifieds:open_classifieds",
+    "cpe": "cpe:2.3:a:open-classifieds:open_classifieds:*:*:*:*:*:*:*:*",
     "icon": "Open Classifieds.png",
     "meta": {
       "author": "open-classifieds\\.com",
@@ -583,7 +732,7 @@
     "cookies": {
       "OJSSID": ""
     },
-    "cpe": "cpe:/a:public_knowledge_project:open_journal_systems",
+    "cpe": "cpe:2.3:a:public_knowledge_project:open_journal_systems:*:*:*:*:*:*:*:*",
     "description": "Open Journal Systems (OJS) is an open-source software application for managing and publishing scholarly journals.",
     "icon": "Open Journal Systems.png",
     "implies": "PHP",
@@ -596,7 +745,7 @@
     "cats": [
       10
     ],
-    "cpe": "cpe:/a:openwebanalytics:open_web_analytics",
+    "cpe": "cpe:2.3:a:openwebanalytics:open_web_analytics:*:*:*:*:*:*:*:*",
     "html": "<!-- (?:Start|End) Open Web Analytics Tracker -->",
     "icon": "Open Web Analytics.png",
     "js": {
@@ -622,6 +771,7 @@
     "cats": [
       22
     ],
+    "cpe": "cpe:2.3:a:openbsd:openbsd:*:*:*:*:*:*:*:*",
     "excludes": "Apache",
     "headers": {
       "Server": "^OpenBSD httpd"
@@ -637,7 +787,7 @@
     "cookies": {
       "OCSESSID": ""
     },
-    "cpe": "cpe:/a:opencart:opencart",
+    "cpe": "cpe:2.3:a:opencart:opencart:*:*:*:*:*:*:*:*",
     "icon": "OpenCart.png",
     "implies": "PHP",
     "website": "http://www.opencart.com"
@@ -646,7 +796,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:alkacon:opencms",
+    "cpe": "cpe:2.3:a:alkacon:opencms:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "OpenCms"
     },
@@ -753,7 +903,7 @@
     "cats": [
       33
     ],
-    "cpe": "cpe:/a:openssl:openssl",
+    "cpe": "cpe:2.3:a:openssl:openssl:*:*:*:*:*:*:*:*",
     "description": "OpenSSL is a software library for applications that secure communications over computer networks against eavesdropping or need to identify the party at the other end.",
     "headers": {
       "Server": "OpenSSL(?:/([\\d.]+[a-z]?))?\\;version:\\1"
@@ -828,7 +978,7 @@
     "cats": [
       36
     ],
-    "cpe": "cpe:/a:openx:openx",
+    "cpe": "cpe:2.3:a:openx:openx:*:*:*:*:*:*:*:*",
     "description": "OpenX is a programmatic advertising technology company.",
     "dom": "iframe[src*='.openx.net'], img[src*='.openx.net'], link[href*='.openx.net']",
     "icon": "OpenX.png",
@@ -844,7 +994,6 @@
   },
   "OpinionLab": {
     "cats": [
-      5,
       73
     ],
     "description": "OpinionLab is a omnichannel customer feedback solution provider.",
@@ -900,7 +1049,9 @@
     "description": "Optimizely is an experimentation platform that helps developers build and run A/B tests on websites.",
     "icon": "Optimizely.svg",
     "js": {
-      "optimizely": ""
+      "optimizely": "",
+      "optimizelyClient.clientVersion": "([\\d\\.]+)\\;version:\\1",
+      "optimizelySdk": ""
     },
     "pricing": [
       "poa",
@@ -962,7 +1113,7 @@
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:oracle:application_server",
+    "cpe": "cpe:2.3:a:oracle:application_server:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "Oracle[- ]Application[- ]Server(?: Containers for J2EE)?(?:[- ](\\d[\\da-z./]+))?\\;version:\\1"
     },
@@ -990,7 +1141,7 @@
     "cats": [
       6
     ],
-    "cpe": "cpe:/a:oracle:commerce_platform",
+    "cpe": "cpe:2.3:a:oracle:commerce_platform:*:*:*:*:*:*:*:*",
     "description": "Oracle Commerce is a unified B2B and B2C ecommerce platform.",
     "dom": "input[name*='/atg/commerce/'], .atgShoppingBagContent",
     "headers": {
@@ -1026,7 +1177,7 @@
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:oracle:http_server",
+    "cpe": "cpe:2.3:a:oracle:http_server:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "Oracle-HTTP-Server(?:/([\\d.]+))?\\;version:\\1"
     },
@@ -1076,7 +1227,7 @@
     "cats": [
       23
     ],
-    "cpe": "cpe:/a:oracle:web_cache",
+    "cpe": "cpe:2.3:a:oracle:web_cache:*:*:*:*:*:*:*:*",
     "description": "Oracle Web Cache is a browser and content management server, which improves the performance of web sites.",
     "headers": {
       "Server": "Oracle(?:AS)?[- ]Web[- ]Cache(?:[- /]([\\da-z./]+))?\\;version:\\1"
@@ -1148,6 +1299,42 @@
     "saas": true,
     "website": "https://www.orckestra.com"
   },
+  "Order Deadline": {
+    "cats": [
+      100
+    ],
+    "description": "Order Deadline is an estimated delivery, countdown timer, shipping date Shopify app.",
+    "icon": "Order Deadline.png",
+    "implies": "Shopify",
+    "js": {
+      "orderDeadlineAppByEESL": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://apps.shopify.com/order-deadline"
+  },
+  "OrderLogic app": {
+    "cats": [
+      100
+    ],
+    "description": "OrderLogic app allows you to define minimum and maximum product quantities for all products in your Shopify store.",
+    "icon": "OrderLogic app.png",
+    "implies": "Shopify",
+    "js": {
+      "OrderLogic.ALERTS_KEY": "",
+      "OrderLogic.DEFAULT_MONEY_FORMAT": "",
+      "OrderLogic.cartData": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://apps.shopify.com/orderlogic"
+  },
   "OrderYOYO": {
     "cats": [
       6
@@ -1165,17 +1352,24 @@
     "saas": true,
     "website": "https://orderyoyo.com"
   },
-  "Oribi": {
+  "Ordersify Product Alerts": {
     "cats": [
-      10
+      100
     ],
-    "description": "Oribi is an all-in-one marketing analytics tool.",
-    "icon": "Oribi.svg",
+    "description": "Ordersify Product Alerts is a Shopify app which detects automatically product stock and send email alerts to contact immediately after your products are restocked.",
+    "icon": "Ordersify.svg",
+    "implies": "Shopify",
     "js": {
-      "ORIBI": ""
+      "ORDERSIFY_BIS.stockRemainingSetting": ""
     },
-    "scriptSrc": "cdn\\.oribi\\.io",
-    "website": "https://oribi.io/"
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.ordersify\\.com/sdk/productalerts-shopify\\.js",
+    "website": "https://ordersify.com/products/product-alerts"
   },
   "OroCommerce": {
     "cats": [
@@ -1291,6 +1485,7 @@
     "cats": [
       30
     ],
+    "cpe": "cpe:2.3:a:microsoft:outlook_web_access:*:*:*:*:*:*:*:*",
     "description": "Outlook on the web is an information manager web app. It includes a web-based email client, a calendar tool, a contact manager, and a task manager.",
     "headers": {
       "X-OWA-Version": "([\\d\\.]+)?\\;version:\\1"

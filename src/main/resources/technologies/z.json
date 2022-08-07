@@ -28,6 +28,7 @@
     "cats": [
       19
     ],
+    "cpe": "cpe:2.3:a:zabbix:zabbix:*:*:*:*:*:*:*:*",
     "html": "<body[^>]+zbxCallPostScripts",
     "icon": "Zabbix.png",
     "implies": "PHP",
@@ -170,6 +171,7 @@
     "cookies": {
       "ZENDSERVERSESSID": ""
     },
+    "cpe": "cpe:2.3:a:zend:zend_server:*:*:*:*:*:*:*:*",
     "headers": {
       "X-Powered-By": "Zend(?:Server)?(?:[\\s/]?([0-9.]+))?\\;version:\\1"
     },
@@ -294,20 +296,20 @@
     "cats": [
       6
     ],
-    "description": "Zid is an ecommerce SaaS that allows merchants to build and manage their online stores.",
-    "icon": "Zid.png",
     "cookies": {
       "zid_catalog_session": ""
     },
+    "description": "Zid is an ecommerce SaaS that allows merchants to build and manage their online stores.",
+    "icon": "Zid.png",
     "js": {
       "zid.store": "",
       "zidTracking.sendGaProductRemoveFromCartEvent": ""
     },
-    "saas": true,
     "pricing": [
       "mid",
       "recurring"
-    ],  
+    ],
+    "saas": true,
     "website": "https://zid.sa"
   },
   "Zimbra": {
@@ -317,6 +319,7 @@
     "cookies": {
       "ZM_TEST": "true"
     },
+    "cpe": "cpe:2.3:a:zimbra:zimbra:*:*:*:*:*:*:*:*",
     "icon": "Zimbra.png",
     "implies": "Java",
     "website": "https://www.zimbra.com/"
@@ -387,6 +390,38 @@
       "zip\\.co"
     ],
     "website": "https://www.zip.co/"
+  },
+  "Zipify OCU": {
+    "cats": [
+      100
+    ],
+    "description": "Zipify OCU allows you to add upsells and cross-sells to your checkout sequence.",
+    "icon": "Zipify OCU.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "/zipify-oneclickupsell-vendor\\.js",
+    "website": "https://zipify.com/apps/ocu/"
+  },
+  "Zipify Pages": {
+    "cats": [
+      100,
+      51
+    ],
+    "description": "Zipify Pages the first landing page builder uniquely designed for ecommerce.",
+    "icon": "Zipify Pages.svg",
+    "implies": "Shopify",
+    "js": {
+      "ZipifyPages": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://zipify.com/apps/pages/"
   },
   "Zipkin": {
     "cats": [
@@ -537,7 +572,7 @@
   },
   "Zonos": {
     "cats": [
-      6
+      106
     ],
     "description": "Zonos is a cross-border ecommerce software and app solution for companies with international business.",
     "icon": "Zonos.svg",
@@ -615,11 +650,21 @@
     "meta": {
       "generator": "Zozo Ecommerce"
     },
-    "scriptSrc": [
-      "catalog/view/theme/[^\"]+/javascript/common\\.js",
-      "zozo-main\\.min\\.js"
-    ],
+    "scriptSrc": "zozo-main\\.min\\.js",
     "website": "https://zozo.vn"
+  },
+  "Zuppler": {
+    "cats": [
+      93
+    ],
+    "description": "Zuppler is a complete and branded online ordering solution for restaurants and caterers with multi-locations.",
+    "dom": "link[href*='.zuppler.com/']",
+    "icon": "Zuppler.png",
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://www.zuppler.com"
   },
   "Zyro": {
     "cats": [

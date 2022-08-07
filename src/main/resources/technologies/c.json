@@ -43,11 +43,25 @@
     "scriptSrc": "cc\\.cdn\\.civiccomputing\\.com",
     "website": "https://www.civicuk.com/cookie-control"
   },
+  "CJDropshipping app": {
+    "cats": [
+      100
+    ],
+    "description": "CJDropshipping is a dropshipping supplier and fulfillment service from China.",
+    "icon": "CJDropshipping.svg",
+    "pricing": [
+      "payg"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "app\\.cjdropshipping\\.com/",
+    "website": "https://apps.shopify.com/cucheng"
+  },
   "CKEditor": {
     "cats": [
       24
     ],
-    "cpe": "cpe:/a:ckeditor:ckeditor",
+    "cpe": "cpe:2.3:a:ckeditor:ckeditor:*:*:*:*:*:*:*:*",
     "description": "CKEditor is a WYSIWYG rich text editor which enables writing content directly inside of web pages or online applications. Its core code is written in JavaScript and it is developed by CKSource. CKEditor is available under open-source and commercial licenses.",
     "icon": "CKEditor.png",
     "js": {
@@ -64,7 +78,7 @@
     "cookies": {
       "CMSSESSID": ""
     },
-    "cpe": "cpe:/a:cmsmadesimple:cms_made_simple",
+    "cpe": "cpe:2.3:a:cmsmadesimple:cms_made_simple:*:*:*:*:*:*:*:*",
     "icon": "CMS Made Simple.png",
     "implies": "PHP",
     "meta": {
@@ -76,7 +90,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:cmsimple:cmsimple",
+    "cpe": "cpe:2.3:a:cmsimple:cmsimple:*:*:*:*:*:*:*:*",
     "implies": "PHP",
     "meta": {
       "generator": "CMSimple( [\\d.]+)?\\;version:\\1"
@@ -191,6 +205,7 @@
     "cats": [
       22
     ],
+    "cpe": "cpe:2.3:a:caddyserver:caddy:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "^Caddy$"
     },
@@ -222,7 +237,7 @@
     "cookies": {
       "cakephp": ""
     },
-    "cpe": "cpe:/a:cakephp:cakephp",
+    "cpe": "cpe:2.3:a:cakephp:cakephp:*:*:*:*:*:*:*:*",
     "icon": "CakePHP.png",
     "implies": "PHP",
     "meta": {
@@ -276,6 +291,7 @@
       72
     ],
     "description": "Calendly is an app for scheduling appointments, meetings, and events.",
+    "dom": "a[href*='//calendly.com/'][target='_blank']",
     "icon": "Calendly.svg",
     "js": {
       "Calendly": ""
@@ -285,7 +301,7 @@
       "freemium"
     ],
     "saas": true,
-    "scriptSrc": "https://assets\\.calendly\\.com/assets/external/widget\\.js",
+    "scriptSrc": "assets\\.calendly\\.com/",
     "website": "https://calendly.com/"
   },
   "CallRail": {
@@ -405,11 +421,11 @@
     ],
     "description": "CareCart is a smart app to recover big value carts on all sizes of shopify stores.",
     "icon": "CareCart.png",
+    "implies": "Shopify",
     "pricing": [
       "low",
       "recurring"
     ],
-    "requires": "Shopify",
     "saas": true,
     "scriptSrc": "app\\.carecart\\.io/api/abandoned-cart/",
     "website": "https://carecart.io/abandoned-cart-recovery-app"
@@ -421,10 +437,10 @@
     ],
     "description": "CareCart Sales Pop Up is a stock countdown timer, recent sales notifications, live sales pop up widget.",
     "icon": "CareCart.png",
+    "implies": "Shopify",
     "pricing": [
       "freemium"
     ],
-    "requires": "Shopify",
     "saas": true,
     "scriptSrc": "sales-pop\\.carecart\\.io/",
     "website": "https://carecart.io/sales-pop-up-app"
@@ -446,18 +462,34 @@
     "scriptSrc": "/cargo\\.",
     "website": "https://cargo.site"
   },
+  "Carrd": {
+    "cats": [
+      51
+    ],
+    "description": "Carrd is a platform for building simple, responsive, one-page sites.",
+    "icon": "Carrd.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "Apache",
+    "saas": true,
+    "scripts": "\\(\\!section\\s\\|\\|\\ssection\\.tagName\\s\\!\\=\\s\\'SECTION\\'\\)",
+    "website": "https://carrd.co"
+  },
   "Carro": {
     "cats": [
       100
     ],
     "description": "Carro connects participating Shopify stores together to enable cross-store selling or the ability for like-minded partners to directly sell each other products without the need for inventory, managing returns, or minimum order quantities.",
     "icon": "Carro.svg",
+    "implies": "Shopify",
     "pricing": [
       "freemium",
       "low",
       "recurring"
     ],
-    "requires": "Shopify",
     "saas": true,
     "scriptSrc": [
       "\\.getcarro\\.com/",
@@ -475,7 +507,7 @@
       "a[href*='/order']",
       "a[href*='/basket']",
       "a[href*='/trolley']",
-      "a[href*='/bag']",
+      "a[href*='/bag/']",
       "a[href*='/shoppingbag']",
       "a[href*='/checkout']",
       "a[href*='/winkelwagen']",
@@ -494,6 +526,31 @@
     ],
     "url": "/(?:cart|order|basket|trolley|bag|shoppingbag|checkout)",
     "website": "https://www.wappalyzer.com/technologies/ecommerce/cart-functionality"
+  },
+  "Cart.js": {
+    "cats": [
+      59
+    ],
+    "description": "Cart.js is a very small open-source Javascript library that makes the addition of powerful Ajax cart functionality to your Shopify theme a breeze.",
+    "icon": "Cart.js.png",
+    "implies": "Shopify",
+    "oss": true,
+    "scriptSrc": "(?:shopify-cartjs/([\\d\\.]+)|assets)/rivets-cart\\.min\\.js\\;version:\\1",
+    "website": "https://cartjs.org"
+  },
+  "CartKit": {
+    "cats": [
+      32
+    ],
+    "description": "CartKit build apps from fuss-free multi-channel marketing automation and campaigns to social proof popups and user session recording.",
+    "icon": "CartKit.svg",
+    "pricing": [
+      "freemium",
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.cartkitcdn\\.com/",
+    "website": "https://www.cartkit.com"
   },
   "CartStack": {
     "cats": [
@@ -532,14 +589,14 @@
       91
     ],
     "description": "Cashew Payments is a buy now, pay later platform that allows its customers to shop now and pay later in equal monthly installments.",
-    "icon": "Cashew Payments.svg",
-    "requiresCategory": 6,
     "headers": {
       "Content-Security-Policy": "\\.cashewpayments\\.com"
     },
+    "icon": "Cashew Payments.svg",
     "pricing": [
       "payg"
     ],
+    "requiresCategory": 6,
     "saas": true,
     "scriptSrc": "\\.cashewpayments\\.com/",
     "website": "https://www.cashewpayments.com"
@@ -559,6 +616,17 @@
       "catberry.version": "^(.+)$\\;version:\\1"
     },
     "website": "https://catberry.github.io/"
+  },
+  "Catch": {
+    "cats": [
+      41
+    ],
+    "description": "Catch is a payment solution which allows merchants to use payments via bank payments instead of credit/debit cards.",
+    "icon": "Catch.svg",
+    "js": {
+      "Catch": ""
+    },
+    "website": "https://www.getcatch.com/"
   },
   "Catch Themes Catch Box": {
     "cats": [
@@ -628,6 +696,18 @@
     "saas": true,
     "website": "https://www.celum.com"
   },
+  "Cendyn": {
+    "cats": [
+      1
+    ],
+    "description": "Cendyn (formerly NextGuest) is a hospitality focused content management system.",
+    "headers": {
+      "x-powered-by": "^NextGuest CMS"
+    },
+    "icon": "cendyn.png",
+    "saas": true,
+    "website": "https://www.cendyn.com"
+  },
   "Censhare": {
     "cats": [
       95
@@ -646,7 +726,7 @@
     "cats": [
       28
     ],
-    "cpe": "cpe:/o:centos:centos",
+    "cpe": "cpe:2.3:o:centos:centos:*:*:*:*:*:*:*:*",
     "description": "CentOS is a Linux distribution that provides a free, community-supported computing platform functionally compatible with its upstream source, Red Hat Enterprise Linux (RHEL).",
     "headers": {
       "Server": "CentOS",
@@ -690,7 +770,7 @@
       66
     ],
     "description": "Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications.",
-    "dom": "html[style*='chakra-ui-color-mode']",
+    "dom": "html[style*='chakra-ui-color-mode'], body.chakra-ui-dark, body.chakra-ui-light, div.chakra-portal",
     "icon": "Chakra UI.svg",
     "implies": "React",
     "oss": true,
@@ -735,7 +815,7 @@
     "cats": [
       21
     ],
-    "cpe": "cpe:/a:chamilo:chamilo_lms",
+    "cpe": "cpe:2.3:a:chamilo:chamilo_lms:*:*:*:*:*:*:*:*",
     "description": "Chamilo is an open-source learning management and collaboration system.",
     "dom": "link[href*='chamilo.org/']",
     "headers": {
@@ -769,11 +849,11 @@
     ],
     "description": "ChannelApe is an ecommerce and inventory management solution for the footwear and apparel industry.",
     "icon": "ChannelApe.svg",
-    "requiresCategory": 6,
     "pricing": [
       "mid",
       "recurring"
     ],
+    "requiresCategory": 6,
     "saas": true,
     "website": "https://www.channelape.com",
     "xhr": "\\.channelape\\.com"
@@ -962,7 +1042,7 @@
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:cherokee-project:cherokee",
+    "cpe": "cpe:2.3:a:cherokee-project:cherokee:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "^Cherokee(?:/([\\d.]+))?\\;version:\\1"
     },
@@ -1047,7 +1127,7 @@
   },
   "Choices": {
     "cats": [
-      19
+      59
     ],
     "description": "Choices.js is a lightweight, configurable select box/text input plugin.",
     "icon": "Choices.png",
@@ -1056,6 +1136,27 @@
       "choices\\.js/|@([\\d.]+)(?:/assets)?(?:/scripts)?(?:/styles)?(?:/dist)?/choices(?:\\.min)?\\.js|css\\;version:\\1"
     ],
     "website": "https://github.com/Choices-js/Choices"
+  },
+  "Chord": {
+    "cats": [
+      52,
+      103
+    ],
+    "description": "Chord is a video-enabled social community and communication platform completely customised to your brand.",
+    "icon": "Chord.svg",
+    "js": {
+      "CHORDCONNECT": "",
+      "ChordConnect.__esModule": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "chord\\.us/embeddable/client-([\\d\\.]+)\\.min\\.js\\;version:\\1",
+    "website": "https://m.chord.us"
   },
   "Chorus": {
     "cats": [
@@ -1130,6 +1231,23 @@
     "saas": true,
     "scriptSrc": "checkout-static\\.citruspay\\.com/",
     "website": "https://consumers.citruspay.com/"
+  },
+  "City Hive": {
+    "cats": [
+      6
+    ],
+    "description": "City Hive's all in one ecommerce platform for wine and spirit shops.",
+    "icon": "City Hive.png",
+    "js": {
+      "cityHiveSites": "",
+      "cityHiveWebsiteName": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.cityhive.net"
   },
   "CityMail": {
     "cats": [
@@ -1414,7 +1532,7 @@
   },
   "Clipboard.js": {
     "cats": [
-      19
+      59
     ],
     "icon": "Clipboard.js.svg",
     "scriptSrc": "clipboard(?:-([\\d.]+))?(?:\\.min)?\\.js\\;version:\\1",
@@ -1632,7 +1750,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:web-feet:coaster_cms",
+    "cpe": "cpe:2.3:a:web-feet:coaster_cms:*:*:*:*:*:*:*:*",
     "icon": "coaster-cms.png",
     "implies": "Laravel",
     "meta": {
@@ -1670,6 +1788,18 @@
     "icon": "CoconutSoftware.svg",
     "website": "https://www.coconutsoftware.com/"
   },
+  "Cocos2d": {
+    "cats": [
+      19
+    ],
+    "description": "Cocos2d is a mature open source cross-platform game development framework.",
+    "icon": "Cocos2d.png",
+    "js": {
+      "CocosEngine": "([\\d\\.]{2,})\\;version:\\1"
+    },
+    "oss": true,
+    "website": "https://www.cocos.com/en/cocos2dx"
+  },
   "CodeIgniter": {
     "cats": [
       18
@@ -1680,7 +1810,7 @@
       "exp_last_activity": "",
       "exp_tracker": ""
     },
-    "cpe": "cpe:/a:codeigniter:codeigniter",
+    "cpe": "cpe:2.3:a:codeigniter:codeigniter:*:*:*:*:*:*:*:*",
     "html": "<input[^>]+name=\"ci_csrf_token\"\\;version:2+",
     "icon": "CodeIgniter.png",
     "implies": "PHP",
@@ -1697,6 +1827,37 @@
       "CodeMirror.version": "^(.+)$\\;version:\\1"
     },
     "website": "http://codemirror.net"
+  },
+  "CodeSandbox": {
+    "cats": [
+      5,
+      20
+    ],
+    "description": "CodeSandbox is an online code editor and prototyping tool that makes creating and sharing web apps faster.",
+    "dom": "iframe[src^='https://codesandbox.io/embed/']",
+    "icon": "CodeSandbox.svg",
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://codesandbox.io/"
+  },
+  "Coin Currency Converter": {
+    "cats": [
+      100
+    ],
+    "description": "Coin Currency Converter is an automatic currency conversion app for Shopify.",
+    "icon": "Coin Currency Converter.png",
+    "implies": "Shopify",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "/apps/coin/coin\\.js.+\\.myshopify\\.com",
+    "website": "https://apps.shopify.com/coin"
   },
   "CoinHive": {
     "cats": [
@@ -1976,7 +2137,7 @@
     "cats": [
       6
     ],
-    "cpe": "cpe:/a:microsoft:commerce_server",
+    "cpe": "cpe:2.3:a:microsoft:commerce_server:*:*:*:*:*:*:*:*",
     "headers": {
       "COMMERCE-SERVER-SOFTWARE": ""
     },
@@ -2046,7 +2207,7 @@
     "cookies": {
       "CONCRETE5": ""
     },
-    "cpe": "cpe:/a:concrete5:concrete5",
+    "cpe": "cpe:2.3:a:concrete5:concrete5:*:*:*:*:*:*:*:*",
     "icon": "Concrete CMS.svg",
     "implies": "PHP",
     "js": {
@@ -2075,6 +2236,20 @@
     ],
     "website": "https://conekta.com"
   },
+  "Confer With": {
+    "cats": [
+      103
+    ],
+    "description": "Confer With triggers live streaming video calls between shoppers and instore experts from a website, or outside a store.",
+    "icon": "Confer With.svg",
+    "pricing": [
+      "poa"
+    ],
+    "requiresCategory": 6,
+    "saas": true,
+    "scriptSrc": "\\.conferwith\\.io/",
+    "website": "https://conferwith.io"
+  },
   "Conjured": {
     "cats": [
       100
@@ -2088,6 +2263,25 @@
     "saas": true,
     "scriptSrc": "app\\.conjured\\.co/",
     "website": "https://conjured.co"
+  },
+  "Connectif": {
+    "cats": [
+      76,
+      32
+    ],
+    "description": "Connectif is a marketing automation and personalisation data-first action platform, powered by AI.",
+    "icon": "Connectif.svg",
+    "js": {
+      "connectif.version": "^([\\d\\.]+)$\\;version:\\1",
+      "connectifInfo.store": ""
+    },
+    "pricing": [
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.connectif\\.cloud/",
+    "website": "https://connectif.ai"
   },
   "Constant Contact": {
     "cats": [
@@ -2145,7 +2339,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:contao:contao_cms",
+    "cpe": "cpe:2.3:a:contao:contao_cms:*:*:*:*:*:*:*:*",
     "description": "Contao is an open source CMS that allows you to create websites and scalable web applications.",
     "dom": "link[href*='/typolight.css'], link[href*='/contao.css']",
     "icon": "Contao.svg",
@@ -2160,7 +2354,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:contenido:contendio",
+    "cpe": "cpe:2.3:a:contenido:contendio:*:*:*:*:*:*:*:*",
     "icon": "Contenido.png",
     "implies": "PHP",
     "meta": {
@@ -2193,23 +2387,6 @@
       "generator": "ContentBox powered by ColdBox"
     },
     "website": "http://www.gocontentbox.org"
-  },
-  "ContentSquare": {
-    "cats": [
-      10,
-      74
-    ],
-    "description": "ContentSquare is an enterprise-level UX optimisation platform.",
-    "icon": "ContentSquare.png",
-    "js": {
-      "CS_CONF.trackerDomain": ""
-    },
-    "pricing": [
-      "poa"
-    ],
-    "saas": true,
-    "scriptSrc": "\\.contentsquare\\.net/",
-    "website": "https://contentsquare.com"
   },
   "ContentStudio": {
     "cats": [
@@ -2258,6 +2435,23 @@
     ],
     "saas": true,
     "website": "https://contently.com"
+  },
+  "Contentsquare": {
+    "cats": [
+      10,
+      74
+    ],
+    "description": "Contentsquare is an enterprise-level UX optimisation platform.",
+    "icon": "Contentsquare.svg",
+    "js": {
+      "CS_CONF.trackerDomain": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.contentsquare\\.net/",
+    "website": "https://contentsquare.com"
   },
   "Contentstack": {
     "cats": [
@@ -2367,11 +2561,33 @@
     "cats": [
       32
     ],
-    "description": "SConvertCart helps online businesses deliver outstanding experiences to customers throughout their journey.",
+    "description": "ConvertCart helps online businesses deliver outstanding experiences to customers throughout their journey.",
     "icon": "Convertcart.svg",
     "saas": true,
     "scriptSrc": "cdn\\.convertcart\\.com",
     "website": "https://www.convertcart.com/"
+  },
+  "Convertr": {
+    "cats": [
+      6
+    ],
+    "description": "Convertr is a Brazilian ecommerce platform, fashion specialist.",
+    "icon": "Convertr.svg",
+    "implies": [
+      "PHP",
+      "MySQL",
+      "Vue.js",
+      "Nuxt.js",
+      "Amazon Web Services"
+    ],
+    "meta": {
+      "author": "^Convertr Commerce$"
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://convertr.com.br"
   },
   "ConveyThis": {
     "cats": [
@@ -2525,7 +2741,7 @@
     "cats": [
       7
     ],
-    "cpe": "cpe:/a:coppermine-gallery:coppermine_photo_gallery",
+    "cpe": "cpe:2.3:a:coppermine-gallery:coppermine_photo_gallery:*:*:*:*:*:*:*:*",
     "description": "Coppermine is an open-source image gallery application.",
     "html": "<!--Coppermine Photo Gallery ([\\d.]+)\\;version:\\1",
     "icon": "Coppermine.png",
@@ -2588,7 +2804,7 @@
     "cats": [
       6
     ],
-    "cpe": "cpe:/a:cosmoshop:cosmoshop",
+    "cpe": "cpe:2.3:a:cosmoshop:cosmoshop:*:*:*:*:*:*:*:*",
     "icon": "Cosmoshop.png",
     "scriptSrc": "cosmoshop_functions\\.js",
     "website": "http://cosmoshop.de"
@@ -2597,7 +2813,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:cotonti:cotonti_siena",
+    "cpe": "cpe:2.3:a:cotonti:cotonti_siena:*:*:*:*:*:*:*:*",
     "icon": "Cotonti.png",
     "implies": "PHP",
     "meta": {
@@ -2609,7 +2825,7 @@
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:apache:couchdb",
+    "cpe": "cpe:2.3:a:apache:couchdb:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "CouchDB/([\\d.]+)\\;version:\\1"
     },
@@ -2669,7 +2885,7 @@
   },
   "Covet.pics": {
     "cats": [
-      5,
+      96,
       100
     ],
     "description": "Covet.pics is a customizable Shopify app for Instagram and Lookbook shoppable galleries.",
@@ -2692,6 +2908,23 @@
     "icon": "Cowboy.png",
     "website": "http://ninenines.eu"
   },
+  "Cozy AntiTheft": {
+    "cats": [
+      100
+    ],
+    "description": "Cozy AntiTheft helps you to protect your store content, images and texts from being stolen with a few simple clicks.",
+    "icon": "Cozy AntiTheft.png",
+    "implies": "Shopify",
+    "js": {
+      "cozyEcoAdnsUa": ""
+    },
+    "pricing": [
+      "freemium"
+    ],
+    "saas": true,
+    "scriptSrc": "cdncozyantitheft\\.addons\\.business/",
+    "website": "https://apps.shopify.com/cozy-antitheft-for-images-and-more"
+  },
   "CppCMS": {
     "cats": [
       1
@@ -2709,7 +2942,7 @@
     "cookies": {
       "CraftSessionId": ""
     },
-    "cpe": "cpe:/a:craftcms:craft_cms",
+    "cpe": "cpe:2.3:a:craftcms:craft_cms:*:*:*:*:*:*:*:*",
     "description": "Craft CMS is a content management system for building bespoke websites.",
     "headers": {
       "X-Powered-By": "\\bCraft CMS\\b"
@@ -2802,6 +3035,7 @@
     "description": "Crisp Live Chat is a live chat solution with free and paid options.",
     "icon": "Crisp Live Chat.svg",
     "js": {
+      "$__CRISP_INCLUDED": "",
       "$crisp": "",
       "CRISP_WEBSITE_ID": ""
     },
@@ -2811,6 +3045,7 @@
       "recurring"
     ],
     "saas": true,
+    "scriptSrc": "client\\.crisp\\.chat/",
     "website": "https://crisp.chat/"
   },
   "Criteo": {
@@ -3001,7 +3236,7 @@
     "cats": [
       6
     ],
-    "cpe": "cpe:/a:cubecart:cubecart",
+    "cpe": "cpe:2.3:a:cubecart:cubecart:*:*:*:*:*:*:*:*",
     "description": "CubeCart is a free ecommerce platform that businesses can use to build, manage, and market their online stores.",
     "dom": "a[href*='.cubecart.com'][target='_blank']",
     "icon": "CubeCart.png",
@@ -3151,6 +3386,7 @@
       "cprelogin": "",
       "cpsession": ""
     },
+    "cpe": "cpe:2.3:a:cpanel:cpanel:*:*:*:*:*:*:*:*",
     "description": "cPanel is a web hosting control panel. The software provides a graphical interface and automation tools designed to simplify the process of hosting a website.",
     "headers": {
       "Server": "cpsrvd/([\\d.]+)\\;version:\\1"
@@ -3176,7 +3412,9 @@
       31
     ],
     "description": "cdnjs is a free distributed JS library delivery service.",
+    "dom": "link[href*='cdnjs.cloudflare.com/']",
     "icon": "cdnjs.svg",
+    "implies": "Cloudflare",
     "oss": true,
     "scriptSrc": "cdnjs\\.cloudflare\\.com",
     "website": "https://cdnjs.com"
@@ -3268,5 +3506,37 @@
     },
     "oss": true,
     "website": "https://github.com/zloirock/core-js"
+  },
+  "crypto-js": {
+    "cats": [
+      59
+    ],
+    "description": "crypto-js is a JavaScript library of crypto standards.",
+    "icon": "default.svg",
+    "js": {
+      "CryptoJS.Rabbit": "",
+      "CryptoJS.algo": ""
+    },
+    "oss": true,
+    "scriptSrc": "(?:/([\\d\\.-]+))?/crypto-js(?:\\.min)?\\.js\\;version:\\1",
+    "website": "https://github.com/brix/crypto-js"
+  },
+  "Cart.com": {
+    "cats": [
+      6
+    ],
+    "description": "Cart.com is an ecommerce platform built for high volume online stores and complex products with features such as multi-store management.",
+    "dom": "p.AmeriCommerce-powered-by-link > a[href*='.americommerce.com/'][target='_blank']",
+    "icon": "Cart.com.svg",
+    "js": {
+      "AC.storeDomain": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.americommerce\\.com/",
+    "website": "https://www.americommerce.com"
   }
 }

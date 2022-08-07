@@ -11,7 +11,7 @@
     "cats": [
       64
     ],
-    "cpe": "cpe:/a:ibm:datapower_gateway",
+    "cpe": "cpe:2.3:a:ibm:datapower_gateway:*:*:*:*:*:*:*:*",
     "description": "IBM DataPower Gateway is a single multi-channel gateway designed to help provide security, control, integration and optimized access to a full range of mobile, web, application programming interface (API), service-oriented architecture (SOA), B2B and cloud workloads.",
     "headers": {
       "X-Backside-Transport": "",
@@ -24,7 +24,7 @@
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:ibm:http_server",
+    "cpe": "cpe:2.3:a:ibm:http_server:*:*:*:*:*:*:*:*",
     "headers": {
       "Server": "IBM_HTTP_Server(?:/([\\d.]+))?\\;version:\\1"
     },
@@ -35,7 +35,7 @@
     "cats": [
       22
     ],
-    "cpe": "cpe:/a:microsoft:internet_information_server",
+    "cpe": "cpe:2.3:a:microsoft:internet_information_server:*:*:*:*:*:*:*:*",
     "description": "Internet Information Services (IIS) is an extensible web server software created by Microsoft for use with the Windows NT family.",
     "headers": {
       "Server": "^(?:Microsoft-)?IIS(?:/([\\d.]+))?\\;version:\\1"
@@ -92,6 +92,25 @@
     },
     "scriptSrc": "jscripts/ips_",
     "website": "https://invisioncommunity.com/"
+  },
+  "IPFS": {
+    "cats": [
+      48
+    ],
+    "description": "IPFS is a peer-to-peer hypermedia protocol that provides a distributed hypermedia web.",
+    "headers": {
+      "x-cf-ipfs-cache-status": "",
+      "x-ipfs-datasize": "",
+      "x-ipfs-gateway-host": "",
+      "x-ipfs-lb-pop": "",
+      "x-ipfs-path": "",
+      "x-ipfs-pop": "",
+      "x-ipfs-root": "",
+      "x-ipfs-root-cid": "",
+      "x-ipfs-roots": ""
+    },
+    "icon": "IPFS.png",
+    "website": "https://ipfs.io/"
   },
   "IPInfoDB": {
     "cats": [
@@ -205,6 +224,21 @@
     "scriptSrc": "static\\.imagerelay\\.com/",
     "website": "https://www.imagerelay.com"
   },
+  "ImageEngine": {
+    "cats": [
+      31,
+      92
+    ],
+    "description": "ImageEngine is an intelligent image content delivery network. ImageEngine will resize your image content tailored to the end users device.",
+    "dom": "link[href*='.imgeng.in/'], img[src*='.imgeng.in/'], img[data-src*='.imgeng.in/'], source[srcset*='.imgeng.in/']",
+    "icon": "ImageEngine.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://imageengine.io"
+  },
   "Imagely NextGEN Gallery": {
     "cats": [
       87,
@@ -288,7 +322,7 @@
       "ICMSSession": "",
       "ImpressCMS": ""
     },
-    "cpe": "cpe:/a:impresscms:impresscms",
+    "cpe": "cpe:2.3:a:impresscms:impresscms:*:*:*:*:*:*:*:*",
     "icon": "ImpressCMS.png",
     "implies": "PHP",
     "meta": {
@@ -301,7 +335,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:impresspages:impresspages_cms",
+    "cpe": "cpe:2.3:a:impresspages:impresspages_cms:*:*:*:*:*:*:*:*",
     "icon": "ImpressPages.png",
     "implies": "PHP",
     "meta": {
@@ -327,6 +361,21 @@
     "scriptSrc": "vendor-cdn\\.imweb\\.me/",
     "website": "https://imweb.me"
   },
+  "In Cart Upsell & Cross-Sell": {
+    "cats": [
+      100
+    ],
+    "description": "In Cart Upsell & Cross-Sell is a Shopify app built by InCart Upsell, provides targeted upsells and cross-sells directly in your cart and product page.",
+    "icon": "In Cart Upsell & Cross-Sell.png",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "\\.incartupsell\\.com/",
+    "website": "https://incartupsell.com"
+  },
   "InMoment": {
     "cats": [
       10,
@@ -344,6 +393,19 @@
     "saas": true,
     "scriptSrc": "\\.inmoment\\.com(?:\\.\\w+)?/",
     "website": "https://inmoment.com"
+  },
+  "InSyncai": {
+    "cats": [
+      52
+    ],
+    "description": "InSyncai offers a conversational platform for enterprises to design and build chatbots having applications in customer support and services.",
+    "dom": "iframe[src*='insync_iframe_webchat_js_prod'], iframe#insync-iframe",
+    "icon": "InSyncai.png",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.insyncai.com"
   },
   "Incapsula": {
     "cats": [
@@ -379,7 +441,7 @@
     "cats": [
       1
     ],
-    "cpe": "cpe:/a:indexhibit:indexhibit",
+    "cpe": "cpe:2.3:a:indexhibit:indexhibit:*:*:*:*:*:*:*:*",
     "html": "<(?:link|a href) [^>]+ndxz-studio",
     "implies": [
       "PHP",
@@ -390,6 +452,19 @@
       "generator": "Indexhibit"
     },
     "website": "http://www.indexhibit.org"
+  },
+  "Indi": {
+    "cats": [
+      94
+    ],
+    "description": "Indi is a video social network where everyone - artists, brands, retailers, nonprofits, celebrities and individuals - can connect with fans and supporters to interact directly with your brand utilising exclusive Video Challenges and Video Threads tailor made by you.",
+    "icon": "Indi.png",
+    "js": {
+      "indi.formatStats": "",
+      "indiCountly.check_any_consent": "",
+      "indi_carousel.productCta": ""
+    },
+    "website": "https://indi.com"
   },
   "Indico": {
     "cats": [
@@ -523,6 +598,22 @@
     "scriptSrc": "/rokoInstabot\\.js",
     "website": "https://instabot.io/"
   },
+  "Instafeed": {
+    "cats": [
+      100
+    ],
+    "description": "Instafeed is an official Instagram app.",
+    "icon": "Instafeed.png",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "instafeed\\.nfcube\\.com/",
+    "website": "https://apps.shopify.com/instafeed"
+  },
   "Instana": {
     "cats": [
       10,
@@ -560,7 +651,7 @@
     "cookies": {
       "InstantCMS[logdate]": ""
     },
-    "cpe": "cpe:/a:instantcms:instantcms",
+    "cpe": "cpe:2.3:a:instantcms:instantcms:*:*:*:*:*:*:*:*",
     "icon": "InstantCMS.png",
     "implies": "PHP",
     "meta": {
@@ -581,6 +672,25 @@
     "oss": true,
     "scriptSrc": "instantclick\\.min\\.js",
     "website": "http://instantclick.io/"
+  },
+  "InstantGeo": {
+    "cats": [
+      59
+    ],
+    "description": "InstantGeo is a service that provides IP geolocation to web pages",
+    "icon": "InstantGeo.svg",
+    "js": {
+      "geojs": ""
+    },
+    "pricing": [
+      "freemium"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "js\\.instantgeo\\.info",
+      "script\\.instantgeo\\.info"
+    ],
+    "website": "https://instantgeo.info"
   },
   "Instapage": {
     "cats": [
@@ -609,6 +719,21 @@
     ],
     "website": "https://instapage.com"
   },
+  "Instatus": {
+    "cats": [
+      13
+    ],
+    "description": "Instatus is a status and incident communication tool.",
+    "dom": "a[href*='instatus.com'][target='_blank']",
+    "icon": "Instatus.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://instatus.com"
+  },
   "Integral Ad Science": {
     "cats": [
       36
@@ -628,7 +753,7 @@
       22,
       46
     ],
-    "cpe": "cpe:/a:intel:active_management_technology",
+    "cpe": "cpe:2.3:a:intel:active_management_technology:*:*:*:*:*:*:*:*",
     "description": "Intel Active Management Technology (AMT) is a proprietary remote management and control system for personal computers with Intel CPUs.",
     "headers": {
       "Server": "Intel\\(R\\) Active Management Technology(?: ([\\d.]+))?\\;version:\\1"
@@ -644,6 +769,25 @@
     "icon": "IntenseDebate.png",
     "scriptSrc": "intensedebate\\.com",
     "website": "http://intensedebate.com"
+  },
+  "Interact": {
+    "cats": [
+      5
+    ],
+    "description": "Interact is a tool for creating online quizzes.",
+    "icon": "Interact.svg",
+    "js": {
+      "InteractApp.name": "InteractApp",
+      "InteractPromotionObject": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.tryinteract\\.com/",
+    "website": "https://www.tryinteract.com"
   },
   "Intercom": {
     "cats": [
@@ -911,6 +1055,20 @@
     "icon": "30namaPlayer.png",
     "website": "https://30nama.com/"
   },
+  "iAdvize": {
+    "cats": [
+      52
+    ],
+    "description": "iAdvize is a conversational marketing platform that connects customers in need of advice with experts who are available 24/7 via messaging.",
+    "dom": "link[href*='.iadvize.com']",
+    "icon": "iAdvize.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.iadvize\\.com/",
+    "website": "https://www.iadvize.com"
+  },
   "iEXExchanger": {
     "cats": [
       1
@@ -943,6 +1101,19 @@
     },
     "website": "http://ipresta.ir"
   },
+  "iSina Chat": {
+    "cats": [
+      52
+    ],
+    "description": "iSina Chat is a live chat service that provides online support and FAQ for customers.",
+    "icon": "iSina Chat.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "chat\\.isina\\.agency/",
+    "website": "https://isina.agency"
+  },
   "iThemes Security": {
     "cats": [
       87,
@@ -970,6 +1141,18 @@
       "generator": "^iWeb( [\\d.]+)?\\;version:\\1"
     },
     "website": "http://apple.com/ilife/iweb"
+  },
+  "idCloudHost": {
+    "cats": [
+      88
+    ],
+    "description": "idCloudHost is a local web service provider based in Indonesia that offer a wide range of services including domain name registration and cloud hosting.",
+    "dns": {
+      "NS": "ns\\d+\\.cloudhost\\.id",
+      "SOA": "ns\\d+\\.cloudhost\\.id"
+    },
+    "icon": "idCloudHost.png",
+    "website": "https://idcloudhost.com"
   },
   "ikiwiki": {
     "cats": [
@@ -1136,10 +1319,19 @@
     "cats": [
       67
     ],
-    "icon": "iubenda.png",
-    "scriptSrc": [
-      "iubenda\\.com/cookie-solution/confs/js/"
+    "description": "iubenda is a compliance software used by businesses for their websites and apps.",
+    "icon": "iubenda.svg",
+    "js": {
+      "_iub": "",
+      "addIubendaCs": ""
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "freemium"
     ],
-    "website": "https://www.iubenda.com/"
+    "saas": true,
+    "scriptSrc": "iubenda\\.com/",
+    "website": "https://www.iubenda.com"
   }
 }

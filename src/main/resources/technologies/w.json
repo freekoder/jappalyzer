@@ -38,13 +38,18 @@
   },
   "WEBXPAY": {
     "cats": [
-      6
+      41
     ],
-    "html": "Powered by <a href=\"https://www\\.webxpay\\.com\">WEBXPAY<",
+    "description": "WEBXPAY is a specialised online payment gateway that expedites buying and selling in a highly secured environment.",
     "icon": "WEBXPAY.png",
     "js": {
       "WEBXPAY": ""
     },
+    "pricing": [
+      "payg",
+      "recurring"
+    ],
+    "saas": true,
     "website": "https://webxpay.com"
   },
   "WEN Themes Education Hub": {
@@ -131,6 +136,16 @@
     "scriptSrc": "/wp-content/cache/wpfc-minified/",
     "website": "https://www.wpfastestcache.com"
   },
+  "WP Featherlight": {
+    "cats": [
+      87
+    ],
+    "description": "WP Featherlight is a WordPress lightbox plugin for adding a minimal, high-performance, responsive jQuery lightbox to your WordPress website.",
+    "icon": "WP_Featherlight.png",
+    "requires": "WordPress",
+    "scriptSrc": "/wpFeatherlight\\.pkgd\\.min\\.js",
+    "website": "https://wordpress.org/plugins/wp-featherlight"
+  },
   "WP Google Map Plugin": {
     "cats": [
       87,
@@ -169,6 +184,17 @@
     "saas": true,
     "scriptSrc": "/wp-content/plugins/wp-job-openings/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://wpjobopenings.com"
+  },
+  "WP Live Visitor Counter": {
+    "cats": [
+      87,
+      5
+    ],
+    "description": "WP Live Visitor Counter is a WordPress plugin that displays the number of online visitors on a website in real-time.",
+    "dom": "link[href*='/wp-content/plugins/wp-visitors-widget/']",
+    "icon": "default.svg",
+    "requires": "WordPress",
+    "website": "https://wordpress.org/plugins/wp-visitors-widget/"
   },
   "WP Maintenance Mode": {
     "cats": [
@@ -293,6 +319,7 @@
     ],
     "description": "WP-Statistics is a WordPress plugin which allows you to know your website statistics.",
     "dom": "link[href*='/wp-content/plugins/wp-statistics/']",
+    "html": "<!-- Analytics by WP-Statistics v([\\d\\.]+)\\;version:\\1",
     "icon": "WP-Statistics.svg",
     "js": {
       "WP_Statistics_http": "",
@@ -322,7 +349,8 @@
   },
   "WPForms": {
     "cats": [
-      87
+      87,
+      110
     ],
     "description": "WPForms is a drag and drop WordPress form builder.",
     "icon": "WPForms.svg",
@@ -339,6 +367,28 @@
     "scriptSrc": "/wp-content/plugins/wpforms(?:-lite)?/.+(?:frontend\\.min|wpforms)\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://wpforms.com"
   },
+  "WPML": {
+    "cats": [
+      87,
+      89
+    ],
+    "cookies": {
+      "wp-wpml_current_language": ""
+    },
+    "description": "WPML plugin makes it possible to build and run fully multilingual WordPress sites.",
+    "icon": "WPML.svg",
+    "meta": {
+      "generator": "^WPML\\sver\\:([\\d\\.]+)\\;version:\\1"
+    },
+    "oss": true,
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/sitepress-multilingual-cms/",
+    "website": "https://wpml.org/"
+  },
   "WPMU DEV Smush": {
     "cats": [
       87
@@ -354,15 +404,28 @@
     "scriptSrc": "/wp-content/plugins/wp-smushit(?:-pro)?/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://wpmudev.com/project/wp-smush-pro"
   },
+  "WPS Visitor Counter": {
+    "cats": [
+      87
+    ],
+    "description": "WPS Visitor Counter is a plugin for WordPress that counts the number of visitors to a website.",
+    "icon": "WPS Visitor Counter.png",
+    "js": {
+      "wpspagevisit": ""
+    },
+    "requires": "WordPress",
+    "website": "https://wordpress.org/plugins/wps-visitor-counter/"
+  },
   "Wagtail": {
     "cats": [
       1
     ],
+    "cpe": "cpe:2.3:a:torchbox:wagtail:*:*:*:*:*:*:*:*",
     "description": "Wagtail is a Django content management system (CMS) focused on flexibility and user experience.",
     "dom": {
       "[data-block-key]": {
         "attributes": {
-          "data-block-key": "[a-z0-9]{5}"
+          "data-block-key": "^[a-z0-9]{5}$"
         }
       },
       "[style*='images/']": {
@@ -400,7 +463,7 @@
       "Python"
     ],
     "oss": true,
-    "website": "https://wagtail.io/"
+    "website": "https://wagtail.org"
   },
   "Wair": {
     "cats": [
@@ -474,6 +537,46 @@
     "implies": "Haskell",
     "website": "http://www.stackage.org/package/warp"
   },
+  "Waveform": {
+    "cats": [
+      5
+    ],
+    "description": "Waveform is a media player that supports various media formats, including audio, video, Youtube, and Vimeo, and includes a waveform visualisation feature, utilising Web Audio API and HTML5 Canvas technologies.",
+    "icon": "Waveme.svg",
+    "js": {
+      "Waveform": ""
+    },
+    "requires": "WordPress",
+    "website": "http://music.flatfull.com/waveme/about/"
+  },
+  "Waveme": {
+    "cats": [
+      80
+    ],
+    "description": "Waveme is a WordPress theme that is suitable for individuals or businesses involved in the music industry, such as music producers, record labels, artist managers, or independent artists.",
+    "dom": "link[href*='/wp-content/themes/waveme/']",
+    "icon": "Waveme.svg",
+    "implies": [
+      "Gutenberg",
+      "Waveform"
+    ],
+    "pricing": [
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "website": "http://music.flatfull.com/waveme/about/"
+  },
+  "Wazimo": {
+    "cats": [
+      36
+    ],
+    "description": "Wazimo is a digital media company focused on combining engaging content with advanced real-time tendering (RTB) capabilities.",
+    "icon": "wazimo.png",
+    "js": {
+      "wz.mmConfig.buildVersion": ""
+    },
+    "website": "https://wazimo.com"
+  },
   "Weaver Xtreme": {
     "cats": [
       80
@@ -491,7 +594,7 @@
       "onetime"
     ],
     "requires": "WordPress",
-    "scriptSrc": "/wp-content/themes/weaver-xtreme/.+weaverxjslib-end\\.min.\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "scriptSrc": "/wp-content/themes/weaver-xtreme/.+weaverxjslib-end\\.min\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://weavertheme.com"
   },
   "Web Shop Manager": {
@@ -700,6 +803,25 @@
     },
     "website": "http://websitex5.com"
   },
+  "WebToffee Stripe Payment Plugin for WooCommerce": {
+    "cats": [
+      87
+    ],
+    "description": "WebToffee Stripe Payment Plugin for WooCommerce is a software add-on that allows online retailers using the WooCommerce ecommerce platform to accept payments through the Stripe payment gateway.",
+    "dom": "link[href*='/wp-content/plugins/payment-gateway-stripe-and-woocommerce-integration/']",
+    "icon": "WebToffee.svg",
+    "implies": [
+      "Stripe",
+      "WooCommerce"
+    ],
+    "pricing": [
+      "recurring",
+      "low"
+    ],
+    "requires": "WordPress",
+    "saas": true,
+    "website": "https://www.webtoffee.com/product/woocommerce-stripe-payment-gateway/"
+  },
   "WebZi": {
     "cats": [
       1,
@@ -721,12 +843,33 @@
     "scriptSrc": "//webzi\\.ir/",
     "website": "https://webzi.ir"
   },
+  "Webasyst Shop-Script": {
+    "cats": [
+      6
+    ],
+    "description": "Webasyst Shop-Script is a feature-rich PHP ecommerce framework and shopping cart solution.",
+    "icon": "Webasyst Shop-Script.svg",
+    "implies": [
+      "PHP",
+      "MySQL"
+    ],
+    "js": {
+      "shopOrdercallConfigStaticUrl": "/wa-apps/",
+      "shop_cityselect.lib": "/wa-apps/"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.shop-script.com"
+  },
   "Webflow": {
     "cats": [
       51
     ],
-    "description": "Webflow is Software-as-a-Service (Saas) for website building and hosting.",
-    "html": "<html[^>]+data-wf-site",
+    "description": "Webflow is Software-as-a-Service (SaaS) for website building and hosting.",
+    "dom": "html[data-wf-site]",
     "icon": "webflow.svg",
     "js": {
       "Webflow": ""
@@ -734,7 +877,30 @@
     "meta": {
       "generator": "Webflow"
     },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
     "website": "https://webflow.com"
+  },
+  "Webflow Ecommerce": {
+    "cats": [
+      6
+    ],
+    "description": "Webflow is a zero-code visual website builder, with Webflow Ecommerce, you can build and design online stores.",
+    "icon": "webflow.svg",
+    "js": {
+      "__WEBFLOW_CURRENCY_SETTINGS": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "Webflow",
+    "saas": true,
+    "website": "https://webflow.com/ecommerce"
   },
   "Webgains": {
     "cats": [
@@ -825,6 +991,53 @@
     "oss": true,
     "website": "https://www.webmin.com"
   },
+  "Webolytics": {
+    "cats": [
+      10,
+      71
+    ],
+    "description": "Webolytics is an open API platform designed to track return on advertising spend.",
+    "icon": "Webolytics.svg",
+    "js": {
+      "webolytics_site_tag": "",
+      "webolytics_webhook_call": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.webolytics.com"
+  },
+  "Webpack": {
+    "cats": [
+      19
+    ],
+    "description": "Webpack is an open-source JavaScript module bundler.",
+    "icon": "Webpack.svg",
+    "js": {
+      "webpackChunk": "",
+      "webpackJsonp": ""
+    },
+    "website": "https://webpack.js.org/"
+  },
+  "Webpushr": {
+    "cats": [
+      32
+    ],
+    "description": "Webpushr is a web push notification platform that supports mobile and desktop devices.",
+    "icon": "webpushr.svg",
+    "js": {
+      "WebPushr.notificationCard": "",
+      "webpushr_display_button": ""
+    },
+    "pricing": [
+      "recurring",
+      "freemium",
+      "low"
+    ],
+    "scripts": "cdn\\.webpushr\\.com/app\\.min\\.js",
+    "website": "https://www.webpushr.com"
+  },
   "Webriti Busiprof": {
     "cats": [
       80
@@ -889,6 +1102,22 @@
     },
     "website": "http://websitebaker2.org/en/home.php"
   },
+  "WebsiteBuilder": {
+    "cats": [
+      51
+    ],
+    "description": "WebsiteBuilder is a page-builder for creating web pages without knowledge of programming languages.",
+    "icon": "WebsiteBuilder.svg",
+    "js": {
+      "_site.urls.dataproxy": "\\.mywebsitebuilder\\.com"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.websitebuilder.com"
+  },
   "Websocket": {
     "cats": [
       19
@@ -911,6 +1140,20 @@
       "WebTrends": ""
     },
     "website": "http://worldwide.webtrends.com"
+  },
+  "Webx": {
+    "cats": [
+      6
+    ],
+    "description": "Webx is a hosted ecommerce solution from Pakistan.",
+    "dom": "div#divPowered > div > p > a[href*='.webx.pk']",
+    "icon": "Webx.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.webx.pk"
   },
   "Webzie": {
     "cats": [
@@ -984,6 +1227,23 @@
     "requires": "WordPress",
     "scriptSrc": "uscesL10n",
     "website": "https://www.welcart.com"
+  },
+  "WeltPixel Pearl Theme": {
+    "cats": [
+      19
+    ],
+    "description": "Pearl Theme for Magento 2 by WeltPixel. Pearl Theme is following the Magento architecture, layouts and best practice in order to assure highest compatibility with 3rd party extensions.",
+    "dom": "body.theme-pearl",
+    "icon": "WeltPixel.svg",
+    "implies": "Magento\\;version:2",
+    "js": {
+      "Pearl": ""
+    },
+    "pricing": [
+      "high",
+      "onetime"
+    ],
+    "website": "https://www.weltpixel.com/magento-2-theme-pearl"
   },
   "Whatfix": {
     "cats": [
@@ -1182,6 +1442,25 @@
     },
     "icon": "WindowsServer.png",
     "website": "http://microsoft.com/windowsserver"
+  },
+  "WineDirect": {
+    "cats": [
+      6
+    ],
+    "description": "WineDirect is an all-in-one ecommerce and POS (Point of Sale) platform that is specifically designed for wineries and wine retailers.",
+    "icon": "WineDirect.svg",
+    "js": {
+      "vin65.checkout": "",
+      "vin65remote": ""
+    },
+    "meta": {
+      "generator": "^WineDirect\\sEcommerce"
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://www.winedirect.com"
   },
   "Wink": {
     "cats": [
@@ -1599,6 +1878,7 @@
       "generator": "^WordPress(?: ([\\d.]+))?\\;version:\\1",
       "shareaholic:wp_version": ""
     },
+    "oss": true,
     "pricing": [
       "low",
       "recurring",
@@ -1723,12 +2003,23 @@
     "cats": [
       6
     ],
-    "description": "Workarea is a SaaS commerce platform for medium to large businesses.",
-    "icon": "Workarea.png",
+    "description": "Workarea is a SaaS ecommerce platform for medium to large businesses.",
+    "icon": "Workarea.svg",
+    "implies": [
+      "Ruby on Rails",
+      "MongoDB",
+      "Elasticsearch"
+    ],
     "js": {
+      "WEBLINC.cartCount": "",
       "workarea": ""
     },
-    "website": "https://www.workarea.com/"
+    "pricing": [
+      "high",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.workarea.com"
   },
   "World4You": {
     "cats": [
@@ -1781,6 +2072,23 @@
     "saas": true,
     "scriptSrc": "\\.worldztool\\.com/",
     "website": "https://www.worldz-business.net"
+  },
+  "Wowza Video Player": {
+    "cats": [
+      14
+    ],
+    "description": "Wowza Video Player is a robust, industry standard player that provides HTML5, HLS, MPEG-DASH, and LL-DASH playback.",
+    "icon": "wowza.svg",
+    "js": {
+      "WowzaPlayer": "",
+      "WowzaPlayer.jsplayer": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring",
+      "payg"
+    ],
+    "website": "https://www.wowza.com/video/player"
   },
   "Wufoo": {
     "cats": [
@@ -1868,6 +2176,36 @@
     "scriptSrc": "/jquery\\.wysibb\\.min\\.js",
     "website": "http://wysibb.com"
   },
+  "wBuy": {
+    "cats": [
+      6
+    ],
+    "description": "wBuy is a SaaS ecommerce platform.",
+    "icon": "wBuy.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.sistemawbuy\\.com\\.br/",
+    "website": "https://www.wbuy.com.br"
+  },
+  "wap.store": {
+    "cats": [
+      6
+    ],
+    "description": "The wap.store provides a range of services for ecommerce businesses, including a platform, a marketplace hub, and a digital agency.",
+    "icon": "wap.store.svg",
+    "implies": "MySQL",
+    "js": {
+      "WapStore.categoria": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.wapstore.com.br"
+  },
   "web-vitals": {
     "cats": [
       59,
@@ -1894,18 +2232,6 @@
       "generator": "webEdition"
     },
     "website": "http://webedition.de/en"
-  },
-  "webpack": {
-    "cats": [
-      19
-    ],
-    "description": "Webpack is an open-source JavaScript module bundler.",
-    "icon": "webpack.svg",
-    "js": {
-      "webpackChunk": "",
-      "webpackJsonp": ""
-    },
-    "website": "https://webpack.js.org/"
   },
   "wisyCMS": {
     "cats": [

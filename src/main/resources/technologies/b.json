@@ -127,6 +127,19 @@
     "scriptSrc": "babylist\\.com/",
     "website": "https://www.babylist.com"
   },
+  "Babylon.js": {
+    "cats": [
+      25
+    ],
+    "description": "Babylon.js is a real time 3D engine using a JavaScript library for displaying 3D graphics in a web browser via HTML5. The source code is available on GitHub and distributed under the Apache License 2.0.",
+    "dom": "canvas[data-engine*='Babylon.js']",
+    "icon": "babylonjs.svg",
+    "js": {
+      "BABYLON.AddressMode": ""
+    },
+    "oss": true,
+    "website": "https://www.babylonjs.com/"
+  },
   "Back In Stock": {
     "cats": [
       100
@@ -273,6 +286,20 @@
     "oss": true,
     "website": "https://barba.js.org"
   },
+  "Barilliance": {
+    "cats": [
+      76,
+      98
+    ],
+    "description": "Barilliance is an ecommerce personalisation tools including cart abandonment emails, personalised product recommendations, onsite personalisation, and live notifications.",
+    "icon": "Barilliance.png",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.barilliance\\.net/",
+    "website": "https://www.barilliance.com"
+  },
   "Base": {
     "cats": [
       6
@@ -398,6 +425,23 @@
     "scriptSrc": "//outsellapp\\.com/",
     "website": "https://apps.shopify.com/outsell"
   },
+  "Beamer": {
+    "cats": [
+      85
+    ],
+    "description": "Beamer is a feature management platform that allows businesses to manage and share new product releases, feature updates, and bug fixes with their customers.",
+    "icon": "Beamer.svg",
+    "js": {
+      "Beamer.enabled": "true",
+      "_BEAMER_URL": "//app\\.getbeamer\\.com/"
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.getbeamer.com"
+  },
   "Beans": {
     "cats": [
       84
@@ -477,6 +521,51 @@
     "saas": true,
     "scriptSrc": "/shopify-apps//js/betterprice/betterprice\\.js",
     "website": "https://apps.shopify.com/better-price"
+  },
+  "Better Uptime": {
+    "cats": [
+      13
+    ],
+    "description": "Better Uptime is the all-in-one infrastructure monitoring platform for your incident management, uptime monitoring, and status pages.",
+    "icon": "Better Uptime.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "//betteruptime\\.com/",
+    "website": "https://betterstack.com/better-uptime"
+  },
+  "BetterDocs": {
+    "cats": [
+      4
+    ],
+    "description": "BetterDocs is an advanced documentation and knowledge base plugin for WordPress and Shopify.",
+    "icon": "BetterDocs.png",
+    "js": {
+      "betterdocs.FEEDBACK": "",
+      "betterdocs_pro.FEEDBACK": "",
+      "betterdocspublic.post_id": ""
+    },
+    "pricing": [
+      "onetime"
+    ],
+    "website": "https://betterdocs.co"
+  },
+  "BetterDocs plugin": {
+    "cats": [
+      87
+    ],
+    "description": "BetterDocs plugin is an advanced documentation and knowledge base plugin for WordPress.",
+    "icon": "BetterDocs.png",
+    "implies": "BetterDocs",
+    "pricing": [
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/betterdocs(?:-pro)?/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://betterdocs.co/docs/wordpress"
   },
   "Betty Blocks": {
     "cats": [
@@ -563,6 +652,41 @@
     "url": "mybigcommerce\\.com",
     "website": "http://www.bigcommerce.com"
   },
+  "BigDataCloud IP Geolocation": {
+    "cats": [
+      79
+    ],
+    "description": "BigDataCloud IP Geolocation API provides detailed and accurate locality and security metrics of an IP address.",
+    "icon": "BigDataCloud-IPGeolocation.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "bigdatacloud\\.net",
+    "website": "https://www.bigdatacloud.com/packages/ip-geolocation",
+    "xhr": "api\\.bigdatacloud\\.net"
+  },
+  "BigTree CMS": {
+    "cats": [
+      1
+    ],
+    "cpe": "cpe:2.3:a:bigtreecms:bigtree_cms:*:*:*:*:*:*:*:*",
+    "description": "BigTree CMS is an extremely extensible open-source CMS built on PHP and MySQL.",
+    "icon": "BigTree CMS.svg",
+    "implies": [
+      "PHP",
+      "MySQL"
+    ],
+    "js": {
+      "BigTree.Growling": "",
+      "BigTreeMatrix": "",
+      "BigTreeTagAdder": ""
+    },
+    "oss": true,
+    "website": "https://www.bigtreecms.org"
+  },
   "Bigware": {
     "cats": [
       6
@@ -604,6 +728,18 @@
       "\\bBillbee\\b"
     ],
     "website": "https://www.billbee.io/"
+  },
+  "Binance Pay": {
+    "cats": [
+      41
+    ],
+    "description": "Binance Pay is a contactless, borderless, and secure cryptocurrency payment technology designed by Binance.",
+    "dom": "a[href*='app.binance.com/payment/secpay']",
+    "icon": "Binance.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "website": "https://pay.binance.com"
   },
   "Birdeye": {
     "cats": [
@@ -697,21 +833,24 @@
     },
     "website": "https://www.bizweb.vn"
   },
-  "Blackbaud Luminate Online": {
+  "Blackbaud CRM": {
     "cats": [
-      32,
-      41,
-      53
+      111
     ],
-    "description": "Blackbaud Luminate Online provides online fundraising and marketing automation for nonprofits.",
-    "icon": "Blackbaud-Luminate-Online.png",
+    "description": "Blackbaud CRM gathers fundraising, online applications, actionable prospect research and analytics, and multichannel direct marketing into one platform.",
+    "icon": "Blackbaud.png",
     "js": {
       "BLACKBAUD": "",
       "don_premium_map": ""
     },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
     "scriptSrc": "js/convio/modules\\.js",
     "url": "/site/Donation2?.*df_id=",
-    "website": "https://www.blackbaud.com/products/blackbaud-luminate-online"
+    "website": "https://www.blackbaud.com"
   },
   "Blade": {
     "cats": [
@@ -785,7 +924,7 @@
     "cats": [
       80
     ],
-    "description": "Blocksy is a blazing fast and lightweight WordPress theme.",
+    "description": "Blocksy is a modern and lightweight WordPress theme designed for a variety of websites, including blogs, portfolios, ecommerce stores, and business websites.",
     "dom": "link[href*='/wp-content/themes/blocksy/']",
     "icon": "Blocksy.svg",
     "js": {
@@ -801,6 +940,29 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/themes/blocksy/(?:.+main\\.js(?:\\?ver=([\\d\\.]+)))?\\;version:\\1",
     "website": "https://creativethemes.com/blocksy"
+  },
+  "Blocksy Companion": {
+    "cats": [
+      87
+    ],
+    "description": "Blocksy Companion is a WordPress plugin that provides additional functionality and features for the Blocksy theme.",
+    "dom": {
+      "link[href*='/wp-content/plugins/blocksy-companion']": {
+        "attributes": {
+          "href": "/wp-content/plugins/blocksy-companion(?:-pro)?/.+\\.css(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1"
+        }
+      }
+    },
+    "icon": "Blocksy.svg",
+    "implies": "Blocksy",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/blocksy-companion(?:-pro)?/",
+    "website": "https://creativethemes.com/blocksy/companion/"
   },
   "Blogger": {
     "cats": [
@@ -1017,6 +1179,19 @@
     "scriptSrc": "boba(?:\\.min)?\\.js",
     "website": "http://boba.space150.com"
   },
+  "BoidCMS": {
+    "cats": [
+      1
+    ],
+    "description": "BoidCMS is a free and open-source flat file CMS for building simple websites and blogs in seconds, developed using PHP and uses JSON as a database.",
+    "headers": {
+      "X-Powered-By": "BoidCMS"
+    },
+    "icon": "BoidCMS.svg",
+    "implies": "PHP",
+    "oss": true,
+    "website": "https://boidcms.github.io"
+  },
   "Bokeh": {
     "cats": [
       25
@@ -1164,6 +1339,17 @@
     "scriptSrc": "motivate\\.boldapps\\.net/",
     "website": "https://boldcommerce.com/motivator"
   },
+  "Bold Page Builder": {
+    "cats": [
+      87,
+      51
+    ],
+    "description": "Bold Page Builder is a plugin or a theme component that allows users to structure and design responsive pages.",
+    "icon": "Bold Page Builder.png",
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/bold-page-builder/",
+    "website": "https://wordpress.org/plugins/bold-page-builder"
+  },
   "Bold Product Options": {
     "cats": [
       100
@@ -1207,6 +1393,22 @@
     "saas": true,
     "scriptSrc": "sub\\.boldapps\\.net/",
     "website": "https://boldcommerce.com/shopify-subscription-app"
+  },
+  "Bold Themes": {
+    "cats": [
+      80
+    ],
+    "description": "Bold Themes is a powerful and easy to use premium WordPress themes.",
+    "icon": "Bold Themes.png",
+    "implies": "WordPress",
+    "js": {
+      "BoldThemesURI": "",
+      "boldthemes_theme_loaded": "^true$"
+    },
+    "pricing": [
+      "onetime"
+    ],
+    "website": "https://bold-themes.com/wordpress-themes-plugins/"
   },
   "Bold Upsell": {
     "cats": [
@@ -1303,6 +1505,24 @@
     "scriptSrc": "bookdinners\\.nl/widget\\.js",
     "website": "https://www.bookdinners.nl"
   },
+  "BookStack": {
+    "cats": [
+      4
+    ],
+    "cookies": {
+      "bookstack_session": ""
+    },
+    "cpe": "cpe:2.3:a:bookstackapp:bookstack:*:*:*:*:*:*:*:*",
+    "description": "BookStack is a simple, open-source, self-hosted, easy-to-use platform for organising and storing information.",
+    "icon": "BookStack.svg",
+    "implies": [
+      "PHP",
+      "MySQL",
+      "Laravel"
+    ],
+    "oss": true,
+    "website": "https://www.bookstackapp.com"
+  },
   "BookThatApp": {
     "cats": [
       100,
@@ -1329,6 +1549,24 @@
     "icon": "Bookatable.svg",
     "scriptSrc": "bda\\.bookatable\\.com/deploy/lbui\\.direct\\.min\\.js",
     "website": "https://www.bookatable.co.uk"
+  },
+  "Bookeo": {
+    "cats": [
+      72
+    ],
+    "description": "Bookeo is a cloud-based booking and reservation solution that caters to tour operators, travel agencies, schools, therapists, photographers and event organizers.",
+    "dom": "a[href*='//bookeo.com/'], iframe[src*='//bookeo.com/']",
+    "icon": "Bookeo.svg",
+    "js": {
+      "bookeo_start": "",
+      "bookeo_startMobileLabel": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.bookeo.com"
   },
   "Bookero": {
     "cats": [
@@ -1383,6 +1621,26 @@
     ],
     "saas": true,
     "website": "https://bookingkit.net/"
+  },
+  "Bookly": {
+    "cats": [
+      72,
+      87
+    ],
+    "description": "Bookly is a WordPress scheduling plugin that allows you to accept online reservations on your website and automate your booking system.",
+    "icon": "bookly.png",
+    "js": {
+      "BooklyL10n.daysShort": "",
+      "bookly": "",
+      "booklyCustomerProfile": ""
+    },
+    "pricing": [
+      "low",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/bookly-responsive-appointment-booking-tool/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://www.booking-wp-plugin.com"
   },
   "Booksy": {
     "cats": [
@@ -1781,6 +2039,21 @@
     "saas": true,
     "website": "https://home.breinify.ai"
   },
+  "Bricks": {
+    "cats": [
+      51,
+      80
+    ],
+    "description": "Bricks is a premium WordPress theme that lets you visually build performant WordPress sites.",
+    "icon": "Bricks.svg",
+    "pricing": [
+      "low",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/bricks/assets/",
+    "website": "https://bricksbuilder.io"
+  },
   "Bricksite": {
     "cats": [
       51
@@ -2165,6 +2438,7 @@
     "cats": [
       31
     ],
+    "dom": "[src*='.b-cdn.net'],[data-src*='.b-cdn.net']",
     "headers": {
       "Server": "^BunnyCDN"
     },
@@ -2180,10 +2454,32 @@
     "scriptSrc": "CatalystScripts",
     "website": "http://businesscatalyst.com"
   },
+  "Business Website Builder": {
+    "cats": [
+      1
+    ],
+    "icon": "Google.svg",
+    "url": "https?://[^.]+\\.business\\.page",
+    "website": "https://businesswebsites.google.com/welcome"
+  },
+  "ButterCMS": {
+    "cats": [
+      1
+    ],
+    "description": "ButterCMS is a cloud-based headless content management system.",
+    "dom": "div[data-bg*='cdn.buttercms.com/'], img[src*='cdn.buttercms.com/'], link[href*='cdn.buttercms.com'], a[href*='cdn.buttercms.com/']",
+    "icon": "butter-cms.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "website": "https://buttercms.com"
+  },
   "Buy me a coffee": {
     "cats": [
       5,
-      41
+      111
     ],
     "description": "Buy me a coffee is a service for online content creators that they may use to receive tips and donations to support their work.",
     "dom": "a[href*='www.buymeacoffee.com/'][target='_blank']",
@@ -2292,5 +2588,22 @@
       "basket.isValidItem": ""
     },
     "website": "https://addyosmani.github.io/basket.js/"
+  },
+  "bdok": {
+    "cats": [
+      6
+    ],
+    "description": "bdok is a cloud-based platform which provides the capability to create and manage online stores with no technical knowledge.",
+    "icon": "bdok.svg",
+    "meta": {
+      "bdok": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.ibdok\\.ir/",
+    "website": "https://bdok.ir"
   }
 }

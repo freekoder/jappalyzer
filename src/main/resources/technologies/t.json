@@ -73,6 +73,32 @@
     "saas": true,
     "website": "https://www.t1pagos.com"
   },
+  "TCAdmin": {
+    "cats": [
+      9
+    ],
+    "description": "TCAdmin is the game hosting control panel.",
+    "icon": "TCAdmin.png",
+    "js": {
+      "TCAdmin": ""
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "onetime"
+    ],
+    "website": "https://www.tcadmin.com"
+  },
+  "TDesign": {
+    "cats": [
+      66
+    ],
+    "description": "TDesign launched by Tencent contains rich and reusable design component resources, such as color system, text system, motion design, etc.",
+    "dom": ".t-button__text, .t-layout",
+    "icon": "TDesign.svg",
+    "scriptSrc": "tdesign\\.gtimg\\.com/",
+    "website": "https://tdesign.tencent.com"
+  },
   "THG Ingenuity": {
     "cats": [
       6
@@ -315,7 +341,7 @@
         }
       }
     },
-    "icon": "default.svg",
+    "icon": "Tachyons.svg",
     "js": {
       "webpackChunkgatsby_starter_blog_tachyons": ""
     },
@@ -368,6 +394,26 @@
     "saas": true,
     "scriptSrc": "\\.tagboard\\.com/",
     "website": "https://tagboard.com"
+  },
+  "Tagembed": {
+    "cats": [
+      96,
+      5
+    ],
+    "description": "Tagembed is a social media aggregator that collects and displays engaging user-generated content from any social media network such as Instagram, Facebook, Twitter, Youtube, Tiktok, Google Reviews, Airbnb, and 18+ networks.",
+    "dom": "script[data-src*='widget.tagembed.com/']",
+    "icon": "Tagembed.svg",
+    "js": {
+      "TagembedWidget": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "//widget\\.tagembed\\.com/",
+    "website": "https://tagembed.com"
   },
   "Taggbox": {
     "cats": [
@@ -432,7 +478,10 @@
       }
     },
     "icon": "tailwindcss.svg",
-    "scriptSrc": "\\.tailwindcss\\.com",
+    "js": {
+      "tailwind": ""
+    },
+    "scriptSrc": "\\.tailwindcss(?:tailwind-config-cdn)?\\.(?:com|js)",
     "website": "https://tailwindcss.com/"
   },
   "TakeDrop": {
@@ -498,6 +547,28 @@
     ],
     "saas": true,
     "website": "https://tallentor.com"
+  },
+  "Tally": {
+    "cats": [
+      73
+    ],
+    "description": "Tally is the simplest way to create free forms & surveys. Create any type of form in seconds, without knowing how to code, and for free.",
+    "dom": [
+      "iframe[data-tally-src^='https://tally.so/embed/']",
+      "a[href*='//tally.so/r/']"
+    ],
+    "icon": "Tally.svg",
+    "js": {
+      "Tally": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "//tally\\.so/",
+    "website": "https://tally.so/"
   },
   "Tamago": {
     "cats": [
@@ -585,12 +656,12 @@
     "cats": [
       36
     ],
-    "description": "Tatari is a data and analytics company focused on buying and measuring ads across TV and streaming platforms",
-    "icon": "Tatari.png",
+    "description": "Tatari is a data and analytics company focused on buying and measuring ads across TV and streaming platforms.",
+    "icon": "Tatari.svg",
     "js": {
       "tatari": ""
     },
-    "website": "https://www.tatari.tv/"
+    "website": "https://www.tatari.tv"
   },
   "Tawk.to": {
     "cats": [
@@ -600,7 +671,7 @@
       "TawkConnectionTime": ""
     },
     "description": "Tawk.to is a free messaging app to monitor and chat with the visitors to a website, mobile app.",
-    "icon": "TawkTo.png",
+    "icon": "TawkTo.svg",
     "pricing": [
       "freemium",
       "payg"
@@ -709,6 +780,21 @@
     },
     "website": "https://www.jetbrains.com/teamcity/"
   },
+  "Teamtailor": {
+    "cats": [
+      101
+    ],
+    "description": "Teamtailor is an applicant tracking system, career site and analytics dashboard combined, mobile friendly, and  all-in-one recruitment platform.",
+    "icon": "teamtailor.svg",
+    "js": {
+      "Teamtailor.Ziggeo": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "website": "https://www.teamtailor.com"
+  },
   "Tebex": {
     "cats": [
       6
@@ -721,6 +807,10 @@
           "text": "Tebex"
         }
       }
+    },
+    "headers": {
+      "tb-cache-country": "^\\w+$\\;confidence:50",
+      "tb-cache-group": "^webstore$\\;confidence:50"
     },
     "icon": "Tebex.svg",
     "implies": [
@@ -811,6 +901,19 @@
     "icon": "termly.svg",
     "scriptSrc": "app\\.termly\\.io/embed\\.min\\.js",
     "website": "https://termly.io/"
+  },
+  "Tern": {
+    "cats": [
+      100
+    ],
+    "description": "Tern is a plug and play ecommerce app, built for Shopify, that offers merchants the ability to provide a seamless trade-in service.",
+    "icon": "Tern.png",
+    "pricing": [
+      "payg"
+    ],
+    "requires": "Shopify",
+    "scriptSrc": "live\\.tern-returns\\.eastsideapps\\.io/",
+    "website": "https://www.tern.eco"
   },
   "TerriaJS": {
     "cats": [
@@ -1484,6 +1587,67 @@
     "scriptSrc": "thix\\.ttsep\\.com/",
     "website": "https://www.thesistesting.com"
   },
+  "ThimPress Course Review": {
+    "cats": [
+      87
+    ],
+    "description": "Course Review is a WordPress plugin by ThimPress. Course Review gives students the opportunity to evaluate and provide feedback in order to improve the course.",
+    "dom": "link[href*='/wp-content/plugins/learnpress-course-review/']",
+    "icon": "ThimPress.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "website": "https://wordpress.org/plugins/learnpress-course-review"
+  },
+  "ThimPress Course Wishlist": {
+    "cats": [
+      87
+    ],
+    "description": "Course Wishlist is a WordPress plugin by ThimPress. Course Wishlist bring wishlist feature for LearnPress.",
+    "dom": "link[href*='/wp-content/plugins/learnpress-wishlist/']",
+    "icon": "ThimPress.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": [
+      "WordPress",
+      "ThimPress LearnPress"
+    ],
+    "website": "https://wordpress.org/plugins/learnpress-wishlist"
+  },
+  "ThimPress Gradebook": {
+    "cats": [
+      87
+    ],
+    "description": "Gradebook is a WordPress plugin by ThimPress. Gradebook add-on for LearnPress makes it easier to track the students learning progress and result.",
+    "dom": "link[href*='/wp-content/plugins/learnpress-gradebook/']",
+    "icon": "ThimPress.svg",
+    "pricing": [
+      "onetime"
+    ],
+    "requires": [
+      "WordPress",
+      "ThimPress LearnPress"
+    ],
+    "website": "https://thimpress.com/product/gradebook-add-on-for-learnpress"
+  },
+  "ThimPress LearnPress": {
+    "cats": [
+      87,
+      21
+    ],
+    "description": "LearnPress is a WordPress LMS plugin by ThimPress.",
+    "dom": "link[href*='/wp-content/plugins/learnpress/']",
+    "icon": "ThimPress.svg",
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/learnpress/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://wordpress.org/plugins/learnpress"
+  },
   "Thimatic": {
     "cats": [
       90,
@@ -1533,11 +1697,17 @@
     "cats": [
       18
     ],
+    "cookies": {
+      "thinkphp_show_page_trace": ""
+    },
+    "cpe": "cpe:2.3:a:thinkphp:thinkphp:*:*:*:*:*:*:*:*",
+    "description": "ThinkPHP is an open-source PHP framework with MVC structure developed and maintained by Shanghai Topthink Company.",
     "headers": {
       "X-Powered-By": "ThinkPHP"
     },
     "icon": "ThinkPHP.png",
     "implies": "PHP",
+    "oss": true,
     "website": "http://www.thinkphp.cn"
   },
   "Thinkific": {
@@ -1575,6 +1745,21 @@
     "scriptSrc": "\\.online-metrix\\.net",
     "website": "https://risk.lexisnexis.com/products/threatmetrix"
   },
+  "Three.js": {
+    "cats": [
+      25
+    ],
+    "description": "Three.js is a cross-browser JavaScript library and application programming interface used to create and display animated 3D computer graphics in a web browser using WebGL.",
+    "dom": "canvas[data-engine*='three.js']",
+    "icon": "Three.js.svg",
+    "js": {
+      "THREE.REVISION": "^(.+)$\\;version:\\1",
+      "__THREE__": "^(.+)$\\;version:\\1"
+    },
+    "oss": true,
+    "scriptSrc": "three(?:\\.min)?\\.js",
+    "website": "https://threejs.org"
+  },
   "Threekit": {
     "cats": [
       105,
@@ -1592,6 +1777,104 @@
     ],
     "saas": true,
     "website": "https://www.threekit.com"
+  },
+  "Thrive Apprentice": {
+    "cats": [
+      87,
+      21
+    ],
+    "description": "Thrive Apprentice is a WordPress plugin for creating online courses and also a membership plugin.",
+    "dom": "link[href*='/wp-content/plugins/thrive-apprentice/']",
+    "icon": "Thrive.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "saas": true,
+    "scriptSrc": "/wp-content/plugins/thrive-apprentice/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://thrivethemes.com/apprentice/"
+  },
+  "Thrive Architect": {
+    "cats": [
+      87,
+      51
+    ],
+    "description": "Thrive Architect is the visual page builder for WordPress.",
+    "dom": "link[href*='/wp-content/plugins/thrive-visual-editor/']",
+    "icon": "Thrive.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "saas": true,
+    "scriptSrc": "/wp-content/plugins/thrive-visual-editor/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://thrivethemes.com/architect/"
+  },
+  "Thrive Comments": {
+    "cats": [
+      87
+    ],
+    "description": "Thrive Comments plugin replaces the standard WordPress comments from your website.",
+    "dom": "link[href*='/wp-content/plugins/thrive-comments/']",
+    "icon": "Thrive.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "saas": true,
+    "scriptSrc": "/wp-content/plugins/thrive-comments/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://thrivethemes.com/comments/"
+  },
+  "Thrive Leads": {
+    "cats": [
+      87
+    ],
+    "description": "Thrive Leads is an all-in-one email list building plugin for WordPress.",
+    "dom": "link[href*='/wp-content/plugins/thrive-leads/']",
+    "icon": "Thrive.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "saas": true,
+    "scriptSrc": "/wp-content/plugins/thrive-leads/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://thrivethemes.com/leads/"
+  },
+  "Thrive Quiz Builder": {
+    "cats": [
+      87
+    ],
+    "description": "Thrive Quiz Builder is a powerful WordPress plugin that can help you to create quizzes for your website or blog.",
+    "dom": "link[href*='/wp-content/plugins/thrive-quiz-builder/']",
+    "icon": "Thrive.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "saas": true,
+    "scriptSrc": "/wp-content/plugins/thrive-quiz-builder/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://thrivethemes.com/quizbuilder"
+  },
+  "Thrive Ultimatum": {
+    "cats": [
+      87
+    ],
+    "description": "Thrive Ultimatum is a WordPress scarcity marketing plugin with built-in templates and campaign tracking tools from developer Thrive Themes.",
+    "dom": "link[href*='/wp-content/plugins/thrive-ultimatum/']",
+    "icon": "Thrive.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "saas": true,
+    "scriptSrc": "/wp-content/plugins/thrive-ultimatum/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://thrivethemes.com/ultimatum/"
   },
   "ThriveCart": {
     "cats": [
@@ -1732,6 +2015,28 @@
     "scriptSrc": "tilda(?:cdn|\\.ws|-blocks)",
     "website": "https://tilda.cc"
   },
+  "Tiledesk": {
+    "cats": [
+      52
+    ],
+    "description": "Tiledesk is the full-stack open-source Live Chat with built-in Chatbots, written in Node.js and Angular.",
+    "icon": "Tiledesk.png",
+    "js": {
+      "Tiledesk": "",
+      "tileDeskAsyncInit": "",
+      "tiledesk": "",
+      "tiledeskSettings": ""
+    },
+    "oss": true,
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://tiledesk.com"
+  },
   "Timeplot": {
     "cats": [
       25
@@ -1760,18 +2065,48 @@
     "scriptSrc": "\\.timify\\.com/",
     "website": "https://www.timify.com"
   },
+  "Tiny Slider": {
+    "cats": [
+      59
+    ],
+    "description": "Tiny Slider is a vanilla javascript slider for all purposes.",
+    "icon": "default.svg",
+    "oss": true,
+    "scriptSrc": "(?:/([\\d\\.]+)/min/)?tiny-slider(?:\\.min)?\\.js\\;version:\\1",
+    "website": "https://github.com/ganlanyuan/tiny-slider"
+  },
   "TinyMCE": {
     "cats": [
       24
     ],
     "cpe": "cpe:2.3:a:tiny:tinymce:*:*:*:*:*:*:*:*",
     "description": "TinyMCE is an online rich-text editor released as open-source software. TinyMCE is designed to integrate with JavaScript libraries, Vue.js, and AngularJS as well as content management systems such as Joomla!, and WordPress.",
-    "icon": "TinyMCE.png",
+    "icon": "TinyMCE.svg",
     "js": {
-      "tinyMCE.majorVersion": "([\\d.]+)\\;version:\\1"
+      "tinyMCE.majorVersion": "([\\d.]+)\\;version:\\1",
+      "tinymce": ""
     },
     "scriptSrc": "/tiny_?mce(?:\\.min)?\\.js",
-    "website": "http://tinymce.com"
+    "website": "https://www.tiny.cloud/tinymce/"
+  },
+  "Tinybird": {
+    "cats": [
+      10
+    ],
+    "description": "Tinybird is a cloud-native data processing platform that allows developers and data teams to build real-time data pipelines and perform complex data transformations and analysis at scale.",
+    "icon": "Tinybird.svg",
+    "js": {
+      "Tinybird": ""
+    },
+    "pricing": [
+      "freemium",
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.tinybird.co/js/index\\.js"
+    ],
+    "website": "https://www.tinybird.co/"
   },
   "Tippy.js": {
     "cats": [
@@ -1895,6 +2230,21 @@
     ],
     "website": "https://www.totango.com"
   },
+  "Totara": {
+    "cats": [
+      21
+    ],
+    "cookies": {
+      "TotaraSession": ""
+    },
+    "description": "Totara is a learning management system designed for businesses.",
+    "icon": "Totara.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.totaralearning.com"
+  },
   "Touch2Success": {
     "cats": [
       6
@@ -1980,6 +2330,36 @@
     "scriptSrc": "swrap\\.tradedoubler\\.com",
     "website": "https://www.tradedoubler.com/"
   },
+  "TradingView": {
+    "cats": [
+      25
+    ],
+    "description": "TradingView is used to show world chart, chats and trades markets.",
+    "dom": "iframe[src*='.tradingview.com/']",
+    "icon": "trading_view.svg",
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "website": "https://www.tradingview.com"
+  },
+  "Traek": {
+    "cats": [
+      10
+    ],
+    "description": "Traek is a website insights, analytics and lead generation tool.",
+    "icon": "Traek.svg",
+    "js": {
+      "Traek": ""
+    },
+    "pricing": [
+      "payg",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.traek.io"
+  },
   "TrafficStars": {
     "cats": [
       36
@@ -2011,10 +2391,12 @@
   },
   "Transcy": {
     "cats": [
-      89
+      89,
+      100
     ],
-    "description": "Transcy allows you to translate your whole store content into target languages to reach different nation shoppers.",
+    "description": "Transcy is a Shopify translation app. Transcy allows you to translate your whole store content into target languages to reach different nation shoppers.",
     "icon": "Transcy.png",
+    "implies": "Shopify",
     "js": {
       "_transcy": "",
       "transcy_apiURI": "",
@@ -2025,7 +2407,6 @@
       "low",
       "recurring"
     ],
-    "requires": "Shopify",
     "saas": true,
     "website": "https://transcy.io"
   },
@@ -2039,6 +2420,20 @@
     },
     "website": "https://www.transifex.com"
   },
+  "Transistor.fm": {
+    "cats": [
+      5
+    ],
+    "description": "Transistor.fm is a podcast host, distribution and management platform.",
+    "dom": "iframe[src*='.transistor.fm/']",
+    "icon": "Transistor.fm.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://transistor.fm"
+  },
   "Translate WordPress": {
     "cats": [
       87,
@@ -2049,18 +2444,6 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/plugins/google-language-translator/.+scripts\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://gtranslate.io"
-  },
-  "Translucide": {
-    "cats": [
-      1
-    ],
-    "icon": "translucide.svg",
-    "implies": [
-      "PHP",
-      "jQuery"
-    ],
-    "scriptSrc": "lucide\\.init(?:\\.min)?\\.js",
-    "website": "http://www.translucide.net"
   },
   "Transmart": {
     "cats": [
@@ -2144,6 +2527,41 @@
     "scriptSrc": "\\.widget\\.trengo\\.eu/",
     "website": "https://trengo.com"
   },
+  "Triggerbee": {
+    "cats": [
+      76
+    ],
+    "description": "Triggerbee is an onsite personalisation platform that lets you use customer and behavioral data to build and launch personalised campaigns.",
+    "icon": "Triggerbee.png",
+    "js": {
+      "triggerbee": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://triggerbee.com"
+  },
+  "Trinity Audio": {
+    "cats": [
+      5
+    ],
+    "description": "Trinity Audio's AI-driven solutions help publishers and content creators create a world of smart audio experiences for their audiences, covering every stage of the audio journey from creation to distribution.",
+    "icon": "Trinity Audio.svg",
+    "js": {
+      "TRINITY_DISPLAY": "",
+      "TRINITY_PLAYER": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "//trinitymedia\\.ai/",
+    "website": "https://www.trinityaudio.ai"
+  },
   "Tripadviser.Widget": {
     "cats": [
       5
@@ -2152,6 +2570,20 @@
     "icon": "Tripadviser.Widget.svg",
     "scriptSrc": "tripadvisor\\.[\\w]+/WidgetEmbed",
     "website": "https://www.tripadvisor.com/Widgets"
+  },
+  "Triple Whale": {
+    "cats": [
+      10
+    ],
+    "description": "The Triple Whale platform combines centralization, visualization, and attribution into a dashboard that presents and illustrates KPIs in an actionable way.",
+    "icon": "triplewhale.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://triplewhale.com/",
+    "xhr": "triplewhale-pixel\\.web\\.app"
   },
   "TripleLift": {
     "cats": [
@@ -2257,6 +2689,18 @@
     "icon": "Truecommerce.svg",
     "scriptSrc": "cdn\\.nexternal\\.com/",
     "website": "https://www.truecommerce.com"
+  },
+  "Truepush": {
+    "cats": [
+      32
+    ],
+    "description": "Truepush is web-based push notification service available for PWA, AMP, WordPress, and Shopify.",
+    "icon": "truepush.svg",
+    "js": {
+      "truepush": "",
+      "truepushVersionInfo.key": "v([\\d\\.]+)\\;version:\\1"
+    },
+    "website": "https://www.truepush.com"
   },
   "Trumba": {
     "cats": [
@@ -2394,6 +2838,23 @@
     ],
     "saas": true,
     "website": "https://site.trustvox.com.br"
+  },
+  "TryNow": {
+    "cats": [
+      91
+    ],
+    "description": "TryNow is an ecommerce platform designed to offer a try before you buy experience for shoppers.",
+    "icon": "TryNow.svg",
+    "js": {
+      "TryNowConfig": "",
+      "tryNowCheckout": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.trynow\\.net/shopify/([\\d\\.]+)/\\;version:\\1",
+    "website": "https://www.trynow.io"
   },
   "Tumblr": {
     "cats": [
@@ -2609,6 +3070,47 @@
     "scriptSrc": "/wp-content/themes/twentytwentyone/",
     "website": "https://wordpress.org/themes/twentytwentyone"
   },
+  "Twenty Twenty-Three": {
+    "cats": [
+      80
+    ],
+    "description": "Twenty Twenty-Three is the default WordPress theme for 2023.",
+    "dom": {
+      "style#webfonts-inline-css": {
+        "text": "/wp-content/themes/twentytwentythree/assets/fonts/"
+      },
+      "style#wp-webfonts-inline-css": {
+        "text": "/wp-content/themes/twentytwentythree/assets/fonts/"
+      }
+    },
+    "icon": "WordPress.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "website": "https://wordpress.org/themes/twentytwentythree"
+  },
+  "Twenty Twenty-Two": {
+    "cats": [
+      80
+    ],
+    "description": "Twenty Twenty-Two is the default WordPress theme for 2022.",
+    "dom": {
+      "link#twentytwentytwo-style-css": {},
+      "style#webfonts-inline-css": {
+        "text": "/wp-content/themes/twentytwentytwo/assets/fonts/"
+      },
+      "style#wp-webfonts-inline-css": {
+        "text": "/wp-content/themes/twentytwentytwo/assets/fonts/"
+      }
+    },
+    "icon": "WordPress.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "website": "https://wordpress.org/themes/twentytwentytwo"
+  },
   "TwicPics": {
     "cats": [
       31,
@@ -2663,6 +3165,19 @@
     "scriptSrc": "cdn\\.twik\\.io",
     "website": "https://www.twik.io/"
   },
+  "Twikoo": {
+    "cats": [
+      15
+    ],
+    "description": "Twikoo is a simple, safe, free comment system.",
+    "icon": "Twikoo.png",
+    "js": {
+      "twikoo.version": "^([\\d\\.]+)$\\;version:\\1"
+    },
+    "oss": true,
+    "scriptSrc": "/twikoo/dist/twikoo\\.all\\.min\\.js",
+    "website": "https://twikoo.js.org"
+  },
   "Twilight CMS": {
     "cats": [
       1
@@ -2672,6 +3187,17 @@
     },
     "icon": "Twilight CMS.png",
     "website": "http://www.twilightcms.com"
+  },
+  "Twilio Authy": {
+    "cats": [
+      69
+    ],
+    "description": "Twilio Authy provides Two-factor authentication (2FA) adds an additional layer of protection beyond passwords.",
+    "icon": "twilio_authy.svg",
+    "js": {
+      "Authy": ""
+    },
+    "website": "https://authy.com"
   },
   "TwistPHP": {
     "cats": [
@@ -2751,8 +3277,10 @@
     ],
     "description": "Twitter Emoji is a set of open-source emoticons and emojis for Twitter, TweetDeck, and also for Android and iOS versions of the application.",
     "js": {
-      "twemoji": ""
+      "twemoji": "",
+      "twemoji.base": "twemoji\\.maxcdn\\.com/v/([\\d\\.]+)/\\;version:\\1"
     },
+    "oss": true,
     "scriptSrc": "twemoji(?:\\.min)?\\.js",
     "website": "https://twitter.github.io/twemoji/"
   },
@@ -2825,6 +3353,25 @@
     },
     "url": "/admin/login\\.php?referer=http%3A%2F%2F",
     "website": "http://typecho.org/"
+  },
+  "Typeform": {
+    "cats": [
+      73
+    ],
+    "description": "Typeform is a Spanish online software as a service (SaaS) company that specialises in online form building and online surveys.",
+    "dom": "link[href*='.typeform.com/']",
+    "icon": "Typeform.png",
+    "js": {
+      "tf.createPopover": "",
+      "tf.createWidget": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "embed\\.typeform\\.com/",
+    "website": "https://www.typeform.com"
   },
   "Typekit": {
     "cats": [
@@ -2907,20 +3454,6 @@
     "scriptSrc": "\\.adsrvr\\.org/",
     "website": "https://www.thetradedesk.com",
     "xhr": "adsvr\\.org"
-  },
-  "three.js": {
-    "cats": [
-      25
-    ],
-    "description": "Three.js is a cross-browser JavaScript library and application programming interface used to create and display animated 3D computer graphics in a web browser using WebGL.",
-    "icon": "three.js.png",
-    "js": {
-      "THREE.REVISION": "^(.+)$\\;version:\\1",
-      "__THREE__": "^(.+)$\\;version:\\1"
-    },
-    "oss": true,
-    "scriptSrc": "three(?:\\.min)?\\.js",
-    "website": "https://threejs.org"
   },
   "thttpd": {
     "cats": [

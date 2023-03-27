@@ -18,8 +18,7 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/wp.com.html");
         List<String> techNames = getTechnologiesNames(matches);
-        assertThat(techNames).containsExactlyInAnyOrder(
-                "Google Font API", "WordPress", "PHP", "MySQL");
+        assertThat(techNames).containsExactlyInAnyOrder("Google Font API", "WordPress", "PHP", "MySQL", "RSS", "Open Graph");
     }
 
     @Test
@@ -29,7 +28,7 @@ public class JappalyzerTests {
         List<String> techNames = getTechnologiesNames(matches);
         assertThat(techNames)
                 .containsExactlyInAnyOrder("Google Analytics", "Google Font API", "jQuery Migrate",
-                "jQuery", "Elementor", "PHP", "MySQL", "WordPress", "PWA");
+                "jQuery", "PHP", "MySQL", "WordPress", "PWA", "Autoptimize", "Open Graph");
     }
 
     @Test
@@ -49,7 +48,7 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/yandex.html");
         List<String> techNames = getTechnologiesNames(matches);
-        assertThat(techNames).containsExactlyInAnyOrder("React", "jQuery", "Cart Functionality", "BEM");
+        assertThat(techNames).containsExactlyInAnyOrder("React", "jQuery", "Cart Functionality", "BEM", "Open Graph", "RSS");
     }
 
     @Test
@@ -57,7 +56,7 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/twitter.html");
         List<String> techNames = getTechnologiesNames(matches);
-        assertThat(techNames).containsExactlyInAnyOrder("React", "PWA");
+        assertThat(techNames).containsExactlyInAnyOrder("React", "PWA", "Open Graph");
     }
 
     @Test
@@ -65,7 +64,7 @@ public class JappalyzerTests {
         Jappalyzer jappalyzer = Jappalyzer.create();
         Set<TechnologyMatch> matches = jappalyzer.fromFile("src/test/resources/files/sport-conrod.html");
         List<String> techNames = getTechnologiesNames(matches);
-        assertThat(techNames).containsExactlyInAnyOrder("jsDelivr", "Lightbox", "Polyfill");
+        assertThat(techNames).containsExactlyInAnyOrder("jsDelivr", "Lightbox", "Polyfill", "Open Graph");
     }
 
     @Test

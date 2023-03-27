@@ -39,6 +39,19 @@
     "saas": true,
     "website": "https://www.kmk.net.tr"
   },
+  "KPHP": {
+    "cats": [
+      27
+    ],
+    "description": "KPHP (kPHP or KittenPHP) is a free PHP-to- C++ source-to-source translator, developed by VKontakte.",
+    "headers": {
+      "x-powered-by": "^KPHP/([\\d\\.]+)$\\;version:\\1"
+    },
+    "icon": "default.svg",
+    "implies": "PHP",
+    "oss": true,
+    "website": "https://vkcom.github.io/kphp"
+  },
   "KQS.store": {
     "cats": [
       6
@@ -80,6 +93,23 @@
     "oss": true,
     "scriptSrc": "katex(@|/)[0-9.]+(?:/dist)?/katex(?:\\.min)?\\.(mjs|js|css)\\;version:\\1",
     "website": "https://katex.org/"
+  },
+  "Kadence WP Blocks": {
+    "cats": [
+      87
+    ],
+    "description": "Kadence WP Blocks is a plugin for WordPress that provides a collection of custom blocks for the Gutenberg editor, allowing users to create custom layouts and designs for their website without needing to know how to code.",
+    "dom": "link[href*='/wp-content/plugins/kadence-blocks/']",
+    "icon": "Kadence WP.svg",
+    "implies": "Gutenberg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/kadence-blocks/dist/.+/kb-form-block\\.min\\.js(?:\\?ver=([\\d\\.]+))?\\;version:\\1",
+    "website": "https://www.kadencewp.com/kadence-blocks/"
   },
   "Kadence WP Kadence": {
     "cats": [
@@ -169,7 +199,7 @@
       103
     ],
     "description": "Kaltura is a video content management platform that allows users to upload, manage, share, publish, and stream videos.",
-    "dom": "link[href*='.kaltura.com']",
+    "dom": "link[href*='.kaltura.com'], div.kaltura-zone",
     "icon": "Kaltura.svg",
     "js": {
       "Kplayer": "",
@@ -223,6 +253,28 @@
     },
     "scriptSrc": "cdn\\.mykamva\\.ir",
     "website": "https://kamva.ir"
+  },
+  "Kapix Studio": {
+    "cats": [
+      51
+    ],
+    "description": "Kapix Studio is a no-code platform that lets anyone build web apps without writing any code.",
+    "icon": "Kapix.svg",
+    "implies": [
+      "Vite",
+      "TypeScript"
+    ],
+    "js": {
+      "__INITIAL_STATE__": "KapixNoCode",
+      "kapixVersion": "([\\d\\.]+)\\;version:\\1"
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://studio.kapix.fr"
   },
   "Kapture CRM": {
     "cats": [
@@ -281,7 +333,7 @@
       53
     ],
     "description": "Keap offers an email marketing and sales platform for small businesses, including products to manage customers, customer relationship management, marketing, and ecommerce.",
-    "dom": "form[action*='property.infusionsoft.com']",
+    "dom": "form[action*='property.infusionsoft.com'], link[href*='.infusionsoft.com']",
     "icon": "Keap.svg",
     "pricing": [
       "low",
@@ -303,6 +355,19 @@
       "\\bKeen Delivery\\b"
     ],
     "website": "https://www.keendelivery.com"
+  },
+  "Keen-Slider": {
+    "cats": [
+      59
+    ],
+    "description": "Keen-Slider is a free library agnostic touch slider with native touch/swipe behavior.",
+    "dom": "div.keen-slider, div.keen-slider__slide",
+    "icon": "keen-slider.svg",
+    "js": {
+      "KeenSlider": ""
+    },
+    "oss": true,
+    "website": "https://keen-slider.io"
   },
   "Kemal": {
     "cats": [
@@ -334,6 +399,7 @@
       1
     ],
     "cookies": {
+      "CMSCookieLevel": "",
       "CMSPreferredCulture": ""
     },
     "cpe": "cpe:2.3:a:kentico:kentico_cms:*:*:*:*:*:*:*:*",
@@ -349,7 +415,10 @@
       "poa"
     ],
     "saas": true,
-    "scriptSrc": "/CMSPages/GetResource\\.ashx",
+    "scriptSrc": [
+      "/CMSPages/GetResource\\.ashx",
+      "/kentico\\.resource"
+    ],
     "website": "http://www.kentico.com"
   },
   "Keptify": {
@@ -390,6 +459,19 @@
     "implies": "Microsoft ASP.NET",
     "website": "https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel"
   },
+  "Ketch": {
+    "cats": [
+      67
+    ],
+    "description": "Ketch is a data control platform that manages compliance with privacy regulations.",
+    "icon": "Ketch.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.ketchcdn\\.com/",
+    "website": "https://www.ketch.com"
+  },
   "Kevel": {
     "cats": [
       36
@@ -418,6 +500,24 @@
     },
     "icon": "KeyCDN.png",
     "website": "http://www.keycdn.com"
+  },
+  "Keybase": {
+    "cats": [
+      16
+    ],
+    "description": "Keybase is for keeping everyone's chats and files safe, from families to communities to companies. MacOS, Windows, Linux, iPhone, and Android.",
+    "dns": {
+      "TXT": [
+        "keybase-site-verification"
+      ]
+    },
+    "icon": "Keybase.svg",
+    "oss": true,
+    "pricing": [
+      "freemium"
+    ],
+    "saas": true,
+    "website": "https://keybase.io/"
   },
   "Kibana": {
     "cats": [
@@ -477,6 +577,40 @@
       "\\.certona\\.net"
     ],
     "website": "https://kibocommerce.com/personalization-software"
+  },
+  "Kiliba": {
+    "cats": [
+      32
+    ],
+    "description": "Kiliba has developed a module that automates the marketing process from creating an email to distributing it.",
+    "icon": "Kiliba.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "url": "/modules/kiliba/logo\\.png",
+    "website": "https://en.kiliba.com"
+  },
+  "Kindful": {
+    "cats": [
+      111
+    ],
+    "description": "Kindful is a cloud-based donor management and fundraising software and database designed for nonprofit organisations.",
+    "dom": "a[href*='.kindful.com/']",
+    "icon": "Kindful.svg",
+    "js": {
+      "Bloomerang.version": "([\\d\\.]+)\\;version:\\1",
+      "KindfulPaymentsConnect": "",
+      "bloomerangLoadStarted": "",
+      "kindful_gtag": ""
+    },
+    "pricing": [
+      "recurring",
+      "mid"
+    ],
+    "saas": true,
+    "website": "https://kindful.com"
   },
   "KineticJS": {
     "cats": [
@@ -644,6 +778,27 @@
     "scriptSrc": "js\\.klevu\\.\\w+/klevu-js-v([\\d.]+)\\;version:\\1",
     "website": "https://www.klevu.com"
   },
+  "KlickPages": {
+    "cats": [
+      32,
+      51
+    ],
+    "description": "KlickPages is a landing page management software designed to help businesses execute email marketing campaigns and capture leads.",
+    "icon": "KlickPages.svg",
+    "js": {
+      "klickart.analytics": ""
+    },
+    "meta": {
+      "klickart:url": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.klickpages\\.com\\.br/",
+    "website": "https://klickpages.com.br"
+  },
   "Klickly": {
     "cats": [
       36
@@ -661,16 +816,18 @@
     "cats": [
       12
     ],
-    "icon": "Knockout.js.png",
+    "description": "Knockout.js is basically a library written in JavaScript, based on MVVM pattern that helps developers build rich and responsive websites.",
+    "icon": "Knockout.js.svg",
     "js": {
       "ko.version": "^(.+)$\\;version:\\1"
     },
+    "oss": true,
     "website": "http://knockoutjs.com"
   },
   "Ko-fi": {
     "cats": [
       5,
-      41
+      111
     ],
     "description": "Ko-fi is an online platform that helps content creators get the financial support.",
     "dom": "a[href*='ko-fi.com/'][target='_blank']",
@@ -698,6 +855,26 @@
     "icon": "Koa.png",
     "implies": "Node.js",
     "website": "http://koajs.com"
+  },
+  "Koala": {
+    "cats": [
+      10,
+      53
+    ],
+    "description": "Koala is an analytical product with CRM features that helps businesses efficiently identify and track prospects, providing valuable insights and streamlining the sales process.",
+    "icon": "Koala.svg",
+    "js": {
+      "KoalaSDK": ""
+    },
+    "pricing": [
+      "freemium",
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.getkoala\\.com/",
+    "website": "https://getkoala.com/",
+    "xhr": "api\\.getkoala\\.com"
   },
   "Koala Framework": {
     "cats": [
@@ -810,6 +987,40 @@
     "scriptSrc": "\\.k-analytix\\.com",
     "website": "https://www.konduto.com"
   },
+  "Kong": {
+    "cats": [
+      64
+    ],
+    "description": "Kong is an open-source API gateway and platform that acts as middleware between compute clients and the API-centric applications.",
+    "headers": {
+      "via": "^kong/([\\d\\.]+)(?:.+)?$\\;version:\\1"
+    },
+    "icon": "Kong.svg",
+    "oss": true,
+    "pricing": [
+      "payg",
+      "freemium"
+    ],
+    "website": "https://konghq.com"
+  },
+  "Kontent.ai": {
+    "cats": [
+      1
+    ],
+    "description": "Kontent.ai is a SaaS-based modular content platform.",
+    "dom": "img[src*='.kc-usercontent.com'], link[href*='.kc-usercontent.com']",
+    "headers": {
+      "content-security-policy": "\\.kc-usercontent\\.com"
+    },
+    "icon": "Kontent.ai.svg",
+    "pricing": [
+      "freemium",
+      "high",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://kontent.ai"
+  },
   "Koobi": {
     "cats": [
       1
@@ -863,6 +1074,16 @@
     "scriptSrc": "kotisivukone(?:\\.min)?\\.js",
     "website": "http://www.kotisivukone.fi"
   },
+  "Kotlin": {
+    "cats": [
+      27
+    ],
+    "cpe": "cpe:2.3:a:jetbrains:kotlin:*:*:*:*:*:*:*:*",
+    "description": "Kotlin is a general purpose, free, open-source, statically typed “pragmatic” programming language initially designed for the JVM (Java Virtual Machine) and Android that combines object-oriented and functional programming features.",
+    "icon": "Kotlin.svg",
+    "oss": true,
+    "website": "https://kotlinlang.org"
+  },
   "Kount": {
     "cats": [
       10,
@@ -882,6 +1103,21 @@
       "shopify\\.kount\\.net/js"
     ],
     "website": "https://kount.com"
+  },
+  "Ktor": {
+    "cats": [
+      18
+    ],
+    "cpe": "cpe:2.3:a:jetbrains:ktor:*:*:*:*:*:*:*:*",
+    "description": "Ktor is a Kotlin framework that allow developers to write asynchronous clients and servers applications, in Kotlin.",
+    "headers": {
+      "server": "^Ktor/debug$",
+      "x-engine": "^Ktor$"
+    },
+    "icon": "Ktor.svg",
+    "implies": "Kotlin",
+    "oss": true,
+    "website": "https://ktor.io"
   },
   "Kubernetes Dashboard": {
     "cats": [
@@ -925,6 +1161,18 @@
       "cdn\\.kustomerapp\\.com"
     ],
     "website": "https://www.kustomer.com/"
+  },
+  "Kwai pixel": {
+    "cats": [
+      10
+    ],
+    "description": "Kwai is a social network for short videos and trends.",
+    "icon": "Kwai.png",
+    "js": {
+      "KwaiAnalyticsObject": "",
+      "kwaiq": ""
+    },
+    "website": "https://www.kwai.com"
   },
   "k-eCommerce": {
     "cats": [

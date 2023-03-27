@@ -130,6 +130,26 @@
     ],
     "website": "https://www.nagish.li"
   },
+  "Naive UI": {
+    "cats": [
+      66
+    ],
+    "description": "Naive UI is a Vue.js UI library written in TypeScript, offering more than 80 treeshakable components.",
+    "dom": {
+      "style[cssr-id^='n-']": {
+        "attributes": {
+          "cssr-id": "^n-[a-z-]+$\\;confidence:99"
+        }
+      }
+    },
+    "icon": "Naive UI.svg",
+    "implies": [
+      "Vue.js",
+      "TypeScript"
+    ],
+    "oss": true,
+    "website": "https://www.naiveui.com"
+  },
   "Najva": {
     "cats": [
       32
@@ -228,7 +248,7 @@
       10
     ],
     "description": "Naver Analytics is a Korean based analytics service.",
-    "icon": "Naver.svg",
+    "icon": "Naver Analytics.svg",
     "meta": {
       "naver-site-verification": ""
     },
@@ -245,7 +265,7 @@
       35
     ],
     "description": "Naver Maps help develop location-based services which provided by Naver.",
-    "icon": "Naver.svg",
+    "icon": "Naver Maps.svg",
     "js": {
       "naver.maps": ""
     },
@@ -286,6 +306,26 @@
     "saas": true,
     "scriptSrc": "cdn\\.neatab\\.com/",
     "website": "https://neatab.com"
+  },
+  "Neon CRM": {
+    "cats": [
+      53,
+      111
+    ],
+    "description": "Neon CRM, a Neon One company, is a cloud-based customer relationship management (CRM) software suite for nonprofits of all sizes. Applications include fundraising management, donor management, membership management, event registration and management, customised reporting, and more.",
+    "dom": "a[href*='.app.neoncrm.com/']",
+    "icon": "Neon One.svg",
+    "js": {
+      "_neoncrm_ga": "",
+      "neonPayCard": "",
+      "neoncrm_email_ajax_object": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://neonone.com"
   },
   "Neos CMS": {
     "cats": [
@@ -347,6 +387,21 @@
     "icon": "NetSuite.png",
     "website": "http://netsuite.com"
   },
+  "Netcore Cloud": {
+    "cats": [
+      97,
+      32
+    ],
+    "description": "Netcore Cloud is a globally recognised marketing technology SaaS company.",
+    "icon": "Netcore Cloud.svg",
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.netcoresmartech\\.com/",
+    "website": "https://netcorecloud.com"
+  },
   "Netlify": {
     "cats": [
       62,
@@ -396,6 +451,20 @@
       "Nette.version": "^(.+)$\\;version:\\1"
     },
     "website": "https://nette.org"
+  },
+  "Network for Good": {
+    "cats": [
+      111
+    ],
+    "description": "Network for Good is an American certified B Corporation software company that offers fundraising software and coaching for charities and non-profit organisations.",
+    "dom": "a[href*='.networkforgood.com/']",
+    "icon": "Network for Good.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.networkforgood\\.com/",
+    "website": "https://www.networkforgood.com"
   },
   "Neve": {
     "cats": [
@@ -504,20 +573,39 @@
     ],
     "website": "https://www.nexive.it"
   },
+  "Next Total": {
+    "cats": [
+      6
+    ],
+    "description": "Next is leveraging the expertise, infrastructure and software it has developed for its own online business to provide a third-party ecommerce outsourcing service named Total Platform.",
+    "icon": "Next Total.svg",
+    "js": {
+      "NextBasket.NextUnlimited": "",
+      "NextFavourites.Busy": "",
+      "NextFavourites.Data.ShoppingLists": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "scriptSrc": "\\.nextdirect\\.com/",
+    "website": "https://www.next.co.uk"
+  },
   "Next.js": {
     "cats": [
+      12,
       18,
-      22
+      22,
+      57
     ],
     "cpe": "cpe:2.3:a:zeit:next.js:*:*:*:*:*:*:*:*",
     "description": "Next.js is a React framework for developing single page Javascript applications.",
     "headers": {
       "x-powered-by": "^Next\\.js ?([0-9.]+)?\\;version:\\1"
     },
-    "icon": "vercel.svg",
+    "icon": "Next.js.svg",
     "implies": [
       "React",
-      "webpack",
+      "Webpack",
       "Node.js"
     ],
     "js": {
@@ -525,6 +613,20 @@
       "next.version": "^(.+)$\\;version:\\1"
     },
     "website": "https://nextjs.org"
+  },
+  "NextAuth.js": {
+    "cats": [
+      69
+    ],
+    "cookies": {
+      "__Host-next-auth.csrf-token": "",
+      "__Secure-next-auth.callback-url": ""
+    },
+    "description": "NextAuth.js is a complete open-source authentication solution for Next.js applications.",
+    "icon": "Next-Auth.png",
+    "oss": true,
+    "requires": "Next.js",
+    "website": "https://next-auth.js.org"
   },
   "NextGEN Gallery": {
     "cats": [
@@ -540,6 +642,71 @@
     "requires": "WordPress",
     "scriptSrc": "/nextgen-gallery/js/",
     "website": "https://www.imagely.com/wordpress-gallery-plugin"
+  },
+  "NextUI": {
+    "cats": [
+      66
+    ],
+    "css": "--nextui-(?:colors-accents1|colors-text|space-0|fonts-sans|fonts-mono)",
+    "description": "NextUI allows you to make beautiful, modern, and fast websites/applications regardless of your design experience, created with React.js and Stitches, based on React Aria and inspired by Vuesax.",
+    "icon": "NextUI.svg",
+    "implies": [
+      "React",
+      "Stitches"
+    ],
+    "oss": true,
+    "website": "https://nextui.org/"
+  },
+  "Nextcloud": {
+    "cats": [
+      95,
+      19
+    ],
+    "cookies": {
+      " __Host-nc_sameSiteCookielax": "",
+      "__Host-nc_sameSiteCookiestrict": ""
+    },
+    "cpe": "cpe:2.3:a:nextcloud:nextcloud:*:*:*:*:*:*:*:*",
+    "description": "Nextcloud is a suite of client-server software for creating and using file hosting services.",
+    "icon": "Nextcloud.svg",
+    "implies": "PHP",
+    "js": {
+      "oc_config.version": "^([\\.\\d]+)$\\;version:\\1\\;confidence:0"
+    },
+    "oss": true,
+    "pricing": [
+      "payg",
+      "recurring"
+    ],
+    "website": "https://nextcloud.com"
+  },
+  "Nextdoor Ads": {
+    "cats": [
+      36
+    ],
+    "description": "Nextdoor Ads is an easy-to-use expansion of Nextdoor’s proprietary self-serve campaign management platform, designed to help small and medium-sized businesses (SMBs) advertise on Nextdoor.",
+    "icon": "Nextdoor Ads.png",
+    "scriptSrc": "ads\\.nextdoor\\.com/",
+    "website": "https://help.nextdoor.com/s/article/About-Neighborhood-Ad-Center-NAC-Conversion-Pixel"
+  },
+  "Nextra": {
+    "cats": [
+      57
+    ],
+    "description": "Nextra is Next.js based static site generator.",
+    "dom": [
+      "div.nextra-container",
+      "div.nextra-nav-container",
+      "div.nextra-sidebar-container"
+    ],
+    "icon": "Nextra.svg",
+    "js": {
+      "__nextra_internal__": "",
+      "__nextra_pageContext__": ""
+    },
+    "oss": true,
+    "requires": "Next.js",
+    "website": "https://nextra.site/"
   },
   "Nextsale": {
     "cats": [
@@ -559,6 +726,35 @@
     "saas": true,
     "scriptSrc": "(?:api|sdk)\\.nextsale\\.io/",
     "website": "https://nextsale.io"
+  },
+  "NexusPHP": {
+    "cats": [
+      1
+    ],
+    "cpe": "cpe:2.3:a:nexusphp:nexusphp:*:*:*:*:*:*:*:*",
+    "description": "NexusPHP is an open-sourced private tracker script written in PHP.",
+    "icon": "NexusPHP.png",
+    "implies": [
+      "PHP",
+      "MySQL",
+      "Redis"
+    ],
+    "meta": {
+      "generator": "^NexusPHP$"
+    },
+    "oss": true,
+    "website": "https://nexusphp.org"
+  },
+  "NexusPIPE": {
+    "cats": [
+      16
+    ],
+    "description": "NexusPIPE is a ADC and DDoS mitigation Company.",
+    "headers": {
+      "Server": "^Nexuspipe.com"
+    },
+    "icon": "NexusPIPE.png",
+    "website": "https://nexuspipe.com"
   },
   "Nginx": {
     "cats": [
@@ -629,7 +825,8 @@
   },
   "Ninja Forms": {
     "cats": [
-      87
+      87,
+      110
     ],
     "description": "Ninja Forms is the WordPress form builder.",
     "dom": "link[href*='/wp-content/plugins/ninja-forms/']",
@@ -692,7 +889,7 @@
     ],
     "cpe": "cpe:2.3:a:nodejs:node.js:*:*:*:*:*:*:*:*",
     "description": "Node.js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside a web browser.",
-    "icon": "node.js.png",
+    "icon": "Node.js.svg",
     "website": "http://nodejs.org"
   },
   "NodeBB": {
@@ -700,13 +897,49 @@
       2
     ],
     "cpe": "cpe:2.3:a:nodebb:nodebb:*:*:*:*:*:*:*:*",
+    "description": "NodeBB forum software is powered by Node.js and built on either a Redis or MongoDB database.",
     "headers": {
       "X-Powered-By": "^NodeBB$"
     },
-    "icon": "NodeBB.png",
+    "icon": "NodeBB.svg",
     "implies": "Node.js",
-    "scriptSrc": "^/nodebb\\.min\\.js\\?",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "/nodebb\\.min\\.js\\?",
     "website": "https://nodebb.org"
+  },
+  "NodePing": {
+    "cats": [
+      13
+    ],
+    "description": "NodePing is a tool in the Website Monitoring category of a tech stack. NodePing is an open source tool with GitHub stars and GitHub forks.",
+    "dom": "footer#poweredbynodeping",
+    "icon": "NodePing.svg",
+    "oss": true,
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://nodeping.com"
+  },
+  "Noibu": {
+    "cats": [
+      13
+    ],
+    "description": "Noibu helps ecommerce websites detect revenue-impacting errors on their websites and provides them with the information needed to resolve them.",
+    "icon": "noibu.svg",
+    "js": {
+      "NOIBUJS_CONFIG": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://noibu.com"
   },
   "Norton Shopping Guarantee": {
     "cats": [

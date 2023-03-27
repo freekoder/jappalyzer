@@ -116,6 +116,18 @@
     "scriptSrc": "d\\.yimg\\.com/mi/ywa\\.js",
     "website": "http://web.analytics.yahoo.com"
   },
+  "YalinHost": {
+    "cats": [
+      88
+    ],
+    "description": "YalinHost is a web hosting service provider.",
+    "dns": {
+      "NS": "\\.yalinhost\\.com",
+      "SOA": "\\.yalinhost\\.com"
+    },
+    "icon": "YalinHost.png",
+    "website": "https://yalinhost.com"
+  },
   "Yampi Checkout": {
     "cats": [
       41
@@ -149,6 +161,23 @@
     "saas": true,
     "scriptSrc": "cdn\\.yampi\\.io/",
     "website": "https://www.yampi.com.br/loja-virtual"
+  },
+  "Yandex SmartCaptcha": {
+    "cats": [
+      16
+    ],
+    "description": "Yandex SmartCaptcha is a service for verifying queries to identify user requests and block bots.",
+    "dom": "div#smartcaptcha-status",
+    "headers": {
+      "x-yandex-captcha": ""
+    },
+    "icon": "yandex_smartcaptcha.svg",
+    "pricing": [
+      "freemium",
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://cloud.yandex.com/en/services/smartcaptcha"
   },
   "Yandex.Cloud": {
     "cats": [
@@ -217,15 +246,38 @@
     ],
     "website": "http://metrika.yandex.com"
   },
+  "Yapla": {
+    "cats": [
+      111
+    ],
+    "description": "Yapla is a web-based software platform that provides event management and fundraising solutions for non-profit organisations, associations, and event planners.",
+    "dom": "a[href*='\\.yapla\\.com/'][target='_blank']",
+    "icon": "Yapla.png",
+    "js": {
+      "yaplaConsent.cookieName": "yapla-consent"
+    },
+    "meta": {
+      "generator": "^Yapla\\sv([\\d\\.]+)\\;version:\\1"
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.yapla.com"
+  },
   "Yaws": {
     "cats": [
       22
     ],
+    "description": "Yaws (Yet Another Web Server) is an open-source web server designed to deliver dynamic content efficiently. It was developed by Claes (klacke) Wikström and is written in Erlang, a functional programming language.",
     "headers": {
       "Server": "Yaws(?: ([\\d.]+))?\\;version:\\1"
     },
     "icon": "Yaws.png",
-    "website": "http://yaws.hyber.org"
+    "oss": true,
+    "website": "https://github.com/erlyaws/yaws"
   },
   "Yektanet": {
     "cats": [
@@ -472,6 +524,27 @@
     "saas": true,
     "scriptSrc": "\\.yoomoney\\.ru/",
     "website": "https://yoomoney.ru"
+  },
+  "Yoori": {
+    "cats": [
+      6
+    ],
+    "description": "Yoori is a multi-vendor PWA ecommerce CMS.",
+    "dom": "div.yoori--cookies",
+    "icon": "Yoori.png",
+    "implies": [
+      "Laravel",
+      "PHP",
+      "Vue.js",
+      "PWA",
+      "MySQL",
+      "cPanel"
+    ],
+    "pricing": [
+      "onetime"
+    ],
+    "scripts": "console\\.log\\(\\'Yoori-Ecommerce",
+    "website": "https://spagreen.net/yoori-ecommerce-solution"
   },
   "Yotpo Loyalty & Referrals": {
     "cats": [

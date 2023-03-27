@@ -25,6 +25,37 @@
     "saas": true,
     "website": "https://www.geovendas.com"
   },
+  "GLPI": {
+    "cats": [
+      18,
+      53
+    ],
+    "cpe": "cpe:2.3:a:glpi-project:glpi:*:*:*:*:*:*:*:* ",
+    "description": "GLPI is an open-source IT Asset Management, issue tracking and service desk system.",
+    "dom": {
+      "div[id*='footer-login'] > a": {
+        "text": "GLPI\\s+version\\s+([\\d\\.]+)\\;version:\\1"
+      },
+      "input[name='_glpi_csrf_token']": {
+        "exists": ""
+      }
+    },
+    "icon": "GLPI.png",
+    "implies": "PHP",
+    "js": {
+      "glpiUnsavedFormChanges": ""
+    },
+    "meta": {
+      "glpi:csrf_token": ""
+    },
+    "oss": true,
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "scriptSrc": "//.*glpi.+common\\.min\\.js\\?v=(\\d+\\.\\d+\\.\\d+)\\;version:\\1",
+    "website": "https://glpi-project.org"
+  },
   "GLS": {
     "cats": [
       99
@@ -221,7 +252,7 @@
     "icon": "Gatsby.svg",
     "implies": [
       "React",
-      "webpack"
+      "Webpack"
     ],
     "meta": {
       "generator": "^Gatsby(?: ([0-9.]+))?$\\;version:\\1"
@@ -255,6 +286,22 @@
       "_gauges": ""
     },
     "website": "https://get.gaug.es"
+  },
+  "GeeTest": {
+    "cats": [
+      16
+    ],
+    "description": "GeeTest is a CAPTCHA and bot management provider, protects websites, mobile apps, and APIs from automated bot-driven attacks, like ATO, credential stuffing, web scalping, etc.",
+    "headers": {
+      "content-security-policy": "\\.geetest\\.com"
+    },
+    "icon": "GeeTest.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.geetest\\.com/",
+    "website": "https://www.geetest.com"
   },
   "GemPages": {
     "cats": [
@@ -312,6 +359,22 @@
     ],
     "website": "https://www.genexus.com/"
   },
+  "GenerateBlocks": {
+    "cats": [
+      87,
+      51
+    ],
+    "description": "GenerateBlocks is a WordPress plugin that has the trappings of a page builder.",
+    "dom": "link#generateblocks-css",
+    "icon": "GenerateBlocks.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "website": "https://generateblocks.com"
+  },
   "GeneratePress": {
     "cats": [
       80
@@ -333,11 +396,36 @@
       }
     },
     "icon": "generatepress.png",
+    "js": {
+      "generatepressMenu": "",
+      "generatepressNavSearch": ""
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "onetime"
+    ],
     "requires": "WordPress",
     "scriptSrc": [
       "themes/generatepress\\S*\\.js(?:\\?ver=([0-9.]+))?\\;version:\\1"
     ],
-    "website": "https://generatepress.com/"
+    "website": "https://generatepress.com"
+  },
+  "GeneratePress GP Premium": {
+    "cats": [
+      87
+    ],
+    "description": "GP Premium is a premium add-on plugin for the GeneratePress WordPress theme.",
+    "icon": "generatepress.png",
+    "implies": "GeneratePress",
+    "pricing": [
+      "onetime",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "saas": true,
+    "scriptSrc": "/wp-content/plugins/gp-premium/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://docs.generatepress.com/article/installing-gp-premium/"
   },
   "Genesis theme": {
     "cats": [
@@ -602,16 +690,16 @@
       1,
       11
     ],
-    "description": "Ghost is a free and open-source blogging platform written in JavaScript, designed to simplify the process of online publishing for individual bloggers as well as online publications.",
+    "description": "Ghost is a powerful app for new-media creators to publish, share, and grow a business around their content.",
     "headers": {
       "X-Ghost-Cache-Status": ""
     },
-    "icon": "Ghost.png",
+    "icon": "Ghost.svg",
     "implies": "Node.js",
     "meta": {
       "generator": "Ghost(?:\\s([\\d.]+))?\\;version:\\1"
     },
-    "website": "http://ghost.org"
+    "website": "https://ghost.org"
   },
   "Gist Giftship": {
     "cats": [
@@ -735,9 +823,40 @@
     ],
     "website": "http://gerrit.googlesource.com/gitiles/"
   },
+  "GiveCampus": {
+    "cats": [
+      111
+    ],
+    "description": "GiveCampus is a fundraising platform for nonprofit educational institutions.",
+    "dom": "a[href*='.givecampus.com/']",
+    "icon": "GiveCampus.png",
+    "meta": {
+      "author": "^GiveCampus$"
+    },
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://go.givecampus.com"
+  },
+  "GiveSmart": {
+    "cats": [
+      111
+    ],
+    "description": "GiveSmart is an event fund gathering technology that offers customisable event size, mobile bidding, text-to-donate, enhanced dashboard and reporting, seating arrangement, and more.",
+    "dom": "a[href*='.givesmart.com/']",
+    "icon": "GiveSmart.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.givesmart\\.com/",
+    "website": "https://www.givesmart.com"
+  },
   "GiveWP": {
     "cats": [
-      41,
+      111,
       87
     ],
     "description": "GiveWP is a donation plugin for WordPress.",
@@ -753,6 +872,21 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/plugins/give/.+give\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://givewp.com"
+  },
+  "GivingFuel": {
+    "cats": [
+      111
+    ],
+    "description": "GivingFuel is a fundraising software solution.",
+    "dom": "a[href*='.givingfuel.com/']",
+    "icon": "GivingFuel.png",
+    "pricing": [
+      "freemium",
+      "low"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.givingfuel\\.com/",
+    "website": "https://www.givingfuel.com"
   },
   "Gladly": {
     "cats": [
@@ -796,6 +930,20 @@
     "saas": true,
     "scriptSrc": "cdn\\.glassboxcdn\\.com/",
     "website": "https://www.glassbox.com"
+  },
+  "Glide.js": {
+    "cats": [
+      59
+    ],
+    "description": "Glide.js is a dependency-free JavaScript ES6 slider and carousel.",
+    "dom": "div[data-glide-el]",
+    "icon": "Glide.js.svg",
+    "js": {
+      "Glide": ""
+    },
+    "oss": true,
+    "scriptSrc": "/@glidejs/glide(?:@([\\d\\.]+))?\\;version:\\1",
+    "website": "https://glidejs.com"
   },
   "Glider.js": {
     "cats": [
@@ -892,7 +1040,8 @@
   },
   "Globo Form Builder": {
     "cats": [
-      100
+      100,
+      110
     ],
     "description": "Form Builder is a Shopify form builder app for contact form built by Globo.",
     "icon": "Globo apps.png",
@@ -1028,7 +1177,7 @@
       71
     ],
     "description": "Goaffpro is an affiliate marketing solution for ecommerce stores.",
-    "icon": "goaffpro.svg",
+    "icon": "GoAffPro.svg",
     "js": {
       "gfp_api_server": ""
     },
@@ -1123,6 +1272,15 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/plugins/coblocks/",
     "website": "https://github.com/godaddy-wordpress/coblocks"
+  },
+  "GoDaddy Domain Parking": {
+    "cats": [
+      109
+    ],
+    "description": "GoDaddy is used as a web host and domain registrar.",
+    "icon": "GoDaddy.svg",
+    "scripts": "wsimg\\.com/parking-lander",
+    "website": "https://www.godaddy.com"
   },
   "GoDaddy Escapade": {
     "cats": [
@@ -1240,6 +1398,25 @@
     "saas": true,
     "website": "https://www.gokwik.co"
   },
+  "GoMage": {
+    "cats": [
+      108
+    ],
+    "description": "GoMage is a Magento development company with 10 years of experience.",
+    "icon": "GoMage.svg",
+    "implies": [
+      "PWA",
+      "Magento\\;version:2"
+    ],
+    "js": {
+      "GomageNavigation": "",
+      "GomageNavigationClass": "",
+      "gomageSpinnerModal": "",
+      "gomage_navigation_loadinfo_text": "",
+      "gomage_navigation_urlhash": ""
+    },
+    "website": "https://www.gomage.com/magento-2-pwa"
+  },
   "GoStats": {
     "cats": [
       10
@@ -1308,6 +1485,27 @@
     "scriptSrc": "js/gogs\\.js",
     "website": "http://gogs.io"
   },
+  "Gomag": {
+    "cats": [
+      6
+    ],
+    "description": "Gomag is a B2B and B2C ecommerce platform from Romania.",
+    "headers": {
+      "author": "^Gomag$"
+    },
+    "icon": "Gomag.svg",
+    "js": {
+      "$GomagConfig": "",
+      "GomagForm": ""
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.gomag.ro"
+  },
   "Google AdSense": {
     "cats": [
       36
@@ -1348,6 +1546,7 @@
     ],
     "description": "Google Ads Conversion Tracking is a free tool that shows you what happens after a customer interacts with your ads.",
     "icon": "Google.svg",
+    "implies": "Google Ads",
     "js": {
       "google_trackConversion": ""
     },
@@ -1356,6 +1555,7 @@
     ],
     "saas": true,
     "scriptSrc": "\\.googleadservices\\.com/pagead/conversion_async\\.js",
+    "scripts": "gtag\\([^)]+'(AW-)",
     "website": "https://support.google.com/google-ads/answer/1722022"
   },
   "Google Analytics": {
@@ -1365,10 +1565,11 @@
     "cookies": {
       "__utma": "",
       "_ga": "",
-      "_gat": ""
+      "_ga_*": "\\;version:GA4",
+      "_gat": "\\;version:UA"
     },
     "description": "Google Analytics is a free web analytics service that tracks and reports website traffic.",
-    "html": "<amp-analytics [^>]*type=[\"']googleanalytics[\"']",
+    "dom": "amp-analytics[type*=googleanalytics]",
     "icon": "Google Analytics.svg",
     "js": {
       "GoogleAnalyticsObject": "",
@@ -1377,6 +1578,10 @@
     "scriptSrc": [
       "google-analytics\\.com/(?:ga|urchin|analytics)\\.js",
       "googletagmanager\\.com/gtag/js"
+    ],
+    "scripts": [
+      "gtag\\([^)]+'(UA-)\\;version:\\1?UA:",
+      "gtag\\([^)]+'(G-)\\;version:\\1?GA4:"
     ],
     "website": "http://google.com/analytics"
   },
@@ -1438,7 +1643,7 @@
     ],
     "cpe": "cpe:2.3:a:google:cloud_platform:*:*:*:*:*:*:*:*",
     "description": "Google Cloud is a suite of cloud computing services.",
-    "icon": "google_cloud.svg",
+    "icon": "Google Cloud.svg",
     "website": "https://cloud.google.com"
   },
   "Google Cloud CDN": {
@@ -1504,13 +1709,33 @@
       17
     ],
     "description": "Google Font API is a web service that supports open-source font files that can be used on your web designs.",
-    "html": "<link[^>]* href=[^>]+fonts\\.(?:googleapis|google)\\.com",
-    "icon": "Google Font API.png",
+    "dom": {
+      "link[href*='fonts.g']": {
+        "attributes": {
+          "href": "fonts\\.(?:googleapis|google|gstatic)\\.com"
+        }
+      },
+      "style[data-href*='fonts.g']": {
+        "attributes": {
+          "data-href": "fonts\\.(?:googleapis|google|gstatic)\\.com"
+        }
+      }
+    },
+    "icon": "Google Font API.svg",
     "js": {
       "WebFonts": ""
     },
     "scriptSrc": "googleapis\\.com/.+webfont",
     "website": "http://google.com/fonts"
+  },
+  "Google Forms": {
+    "cats": [
+      110
+    ],
+    "description": "Google Forms is a free online form builder that allows you to create and publish online forms, surveys, quizzes, order forms, and more.",
+    "dom": "form[action*='docs.google.com/forms/']",
+    "icon": "Google Forms.svg",
+    "website": "https://www.google.com/forms/about/"
   },
   "Google Hosted Libraries": {
     "cats": [
@@ -1527,6 +1752,7 @@
       35
     ],
     "description": "Google Maps is a web mapping service. It offers satellite imagery, aerial photography, street maps, 360° interactive panoramic views of streets, real-time traffic conditions, and route planning for traveling by foot, car, bicycle and air, or public transportation.",
+    "dom": "iframe[src*='google.com/maps']",
     "icon": "Google Maps.svg",
     "scriptSrc": [
       "(?:maps\\.google\\.com/maps\\?file=api(?:&v=([\\d.]+))?|maps\\.google\\.com/maps/api/staticmap)\\;version:API v\\1",
@@ -1626,7 +1852,6 @@
     ],
     "icon": "Google Tag Manager.svg",
     "js": {
-      "google_tag_manager": "",
       "googletag": ""
     },
     "saas": true,
@@ -1702,7 +1927,7 @@
         "googlemail\\.com"
       ]
     },
-    "icon": "Google Workspace.svg",
+    "icon": "Google.svg",
     "website": "https://workspace.google.com/"
   },
   "Gorgias": {
@@ -1821,6 +2046,32 @@
     },
     "website": "https://grandnode.com"
   },
+  "Granim.js": {
+    "cats": [
+      59
+    ],
+    "description": "Granim.js is a lightweight javascript library to create fluid and interactive gradients animations.",
+    "icon": "default.svg",
+    "js": {
+      "Granim": ""
+    },
+    "oss": true,
+    "website": "https://sarcadass.github.io/granim.js"
+  },
+  "GrapesJS": {
+    "cats": [
+      51,
+      18
+    ],
+    "cpe": "cpe:2.3:a:grapesjs:grapesjs:*:*:*:*:*:node.js:*:*",
+    "description": "GrapesJS is an open-source, multi-purpose page builder which combines different plugins and intuitive drag and drop interface.",
+    "icon": "GrapesJS.png",
+    "js": {
+      "grapesjs.version": "^([\\d\\.]+)$\\;version:\\1"
+    },
+    "oss": true,
+    "website": "https://grapesjs.com"
+  },
   "GraphCMS": {
     "cats": [
       1
@@ -1859,7 +2110,8 @@
       "store-config": "graphqlMethod"
     },
     "oss": true,
-    "website": "https://graphql.org"
+    "website": "https://graphql.org",
+    "xhr": "graphql\\.[\\w]+\\.(?:com|net)/"
   },
   "Graphene": {
     "cats": [
@@ -1878,6 +2130,24 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/themes/graphene(?:-plus)?/.+graphene\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://www.graphene-theme.com/graphene-theme"
+  },
+  "Grasp": {
+    "cats": [
+      52
+    ],
+    "description": "Grasp is a customer support software company that offers a cloud-based helpdesk and live chat solution for businesses of all sizes.",
+    "icon": "Grasp.svg",
+    "js": {
+      "CASENGO.widget": "",
+      "CASENGO_INLINE_COOKIE": "",
+      "casengoUpdateWidget": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.getgrasp.com"
   },
   "Grav": {
     "cats": [
@@ -1923,8 +2193,8 @@
   },
   "Gravity Forms": {
     "cats": [
-      19,
-      87
+      87,
+      110
     ],
     "html": [
       "<div class=(?:\"|')[^>]*gform_wrapper",
@@ -2080,13 +2350,28 @@
     "scriptSrc": "ib\\.guestonline\\.\\w+",
     "website": "https://www.guestonline.io"
   },
+  "GuideIT": {
+    "cats": [
+      88
+    ],
+    "description": "GuideIT is a cloud hosting provider.",
+    "headers": {
+      "platform": "^GuideIT$"
+    },
+    "icon": "GuideIT.png",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "website": "https://guideit.uk"
+  },
   "GumGum": {
     "cats": [
       36
     ],
     "description": "GumGum is a technology and media company specializing in contextual intelligence.",
     "dom": "iframe[src*='gumgum.com'], img[src*='gumgum.com']",
-    "icon": "GumGum.png",
+    "icon": "GumGum.svg",
     "pricing": [
       "low",
       "recurring"
@@ -2112,7 +2397,17 @@
     "cats": [
       6
     ],
+    "cookies": {
+      "_gumroad_app_session": "",
+      "_gumroad_guid": ""
+    },
     "description": "Gumroad is a self-publishing digital marketplace platform to sell digital services such as books, memberships, courses and other digital services.",
+    "dns": {
+      "CNAME": "\\.gumroad\\.com"
+    },
+    "dom": [
+      "iframe[src^='https://gumroad.com/l/']"
+    ],
     "icon": "Gumroad.svg",
     "js": {
       "GumroadOverlay": "",
@@ -2122,7 +2417,11 @@
       "payg"
     ],
     "saas": true,
-    "scriptSrc": "gumroad\\.com/js/gumroad\\.js",
+    "scriptSrc": [
+      "gumroad\\.com/js/gumroad\\.js",
+      "gumroad\\.com/js/gumroad-embed\\.js",
+      "gumroad\\.com/packs/js/"
+    ],
     "website": "https://gumroad.com"
   },
   "Gumstack": {
@@ -2156,17 +2455,6 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/plugins/gutenberg/",
     "website": "https://github.com/WordPress/gutenberg"
-  },
-  "Gutenberg Blocks": {
-    "cats": [
-      87
-    ],
-    "description": "Gutenberg Blocks are the editor blocks that are used to create content layouts in the new WordPress block editor aka Gutenberg by Brainstorm Force.",
-    "dom": "link[href*='/wp-content/plugins/ultimate-addons-for-gutenberg/']",
-    "icon": "Gutenberg Blocks.png",
-    "requires": "WordPress",
-    "scriptSrc": "/wp-content/plugins/ultimate-addons-for-gutenberg/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
-    "website": "https://ultimategutenberg.com"
   },
   "git": {
     "cats": [
